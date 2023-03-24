@@ -1,0 +1,16 @@
+{
+    "emeraldwalk.runonsave": {
+
+       "commands": [
+            {
+                "match": "\\.tex$",
+                "cmd": "sh ${workspaceFolder}/sync_util/sync_on_save.sh ${workspaceFolder} ${relativeFile}",
+            },
+            {
+                "match": "\\.tex$",
+                "cmd": "sh ${workspaceFolder}/sync_util/push_with_date.sh",
+            }
+       ]
+    },
+    "latex-workshop.latex.outDir": "%DIR%/build/"
+}
