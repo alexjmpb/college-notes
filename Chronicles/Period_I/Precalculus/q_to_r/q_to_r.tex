@@ -1,0 +1,36 @@
+\documentclass{report}
+
+\input{boxes.tex}
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Introduction to Calculus }{ From $\mathbb{Q}$ to $\mathbb{R}$ }{ A brief look to real numbers. }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ From $\mathbb{Q}$ to $\mathbb{R}$ }
+        Going from $\mathbb{Q}$ to $\mathbb{R}$ implies making the number line continuous or filling up the blank spaces between the rational numbers. Here is where the real numbers appear (these cannot be represented by a fraction of the form $\frac{a}{b}$ where $a$ and $b$ are any two integers). Before diving into real numbers we have to be familiar with the concept of continued fractions first. With this tool we'll construct the real number line in an uncommon way that is simple enough for our purposes.
+
+        \section{Continued Fractions}
+            A continued fraction is of the form:
+            \[
+                a_1 + \cfrac{b_1}{a_2 + \cfrac{b_2}{a_3 + \cfrac{b_3}{a_4 + \cdots}}}
+            \]
+            Where if $b_n$ is equal to $1$, then the continued fraction is simple. We know that a fraction is a division. There's an algorithm to solve divisions, let's study this first to better understand the continued fractions.
+
+            \subsection*{The division algorithm}
+                Given $D, d \in \mathbb{Z}$; where $d$ is the divisor and $D$ is the dividend, there exist $q, r \in \mathbb{Z}$ such that $D = dq+r$ where $q$ is the quotient and $r$ is the reminder. Knowing this, we can manipulate this algorithm as follows:
+
+                \begin{align*}
+                    c &= dq_1+r_1\\
+                    \frac{c}{d} &= \frac{dq_1+r_1}{d} && \text{Where } d\in\mathbb{I}\\
+                    &= q_1 + \frac{r_1}{d}\\
+                    &= q_1 + \cfrac{1}{\cfrac{d}{r_1}}  && \text{Rewrite the fraction as the reciprocal}\\
+                    &= q_1 + \cfrac{1}{q_2 + \cfrac{r_2}{r_1}} \\
+                    &= q_1 + \cfrac{1}{q_2 + \cfrac{1}{\cfrac{r_1}{r_2}}} \\
+                    &\hspace{1cm}\vdots\\
+                    &= q_1 + \cfrac{1}{q_2 + \cfrac{1}{q_3 + \cdots}}\\
+                \end{align*}
+
+                As you can see we end up having a continued fraction, thus every rational number can be expressed as a finite simple continued fraction. Now you may be wondering what about irrational numbers? Well those are represented by infinite continued fractions, let's take a look at them.
+\end{document}

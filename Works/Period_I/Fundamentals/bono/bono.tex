@@ -1,0 +1,71 @@
+\documentclass{report}
+
+\input{boxes.tex}
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Fundamentos Matemáticos }{ Bono 2 }{   }{ Alexander Mendoza }{\today}
+    \tableofcontents
+    \setlength{\parindent}{0pt}
+    \pagebreak
+
+    1. Una sucesión en un conjunto $A$ es una función $f: \mathbb{N} arrow A$, usualmente la imagen de $n$ a través de $f$ es denotada como $a_{n}$ y la sucesión como $(a_{n})_{n \in \mathbb{N}}$.
+
+    Una sucesión $(a_{n})_{n \in \mathbb{N}}$ en un conjunto ordenado $(A, \preceq)$ se dice creciente si $n<m$ entonces $a_{n} \preceq a_{m}$, para cualquier par de números naturales $n \mathrm{y}$ $m$.
+
+    Una sucesión $(a_{n})_{n \in \mathbb{N}}$ en un conjunto ordenado $(A, \preceq)$ se dice decreciente si $n<m$ entonces $a_{m} \preceq a_{n}$, para cualquier par de números naturales $n$ y $m$.
+
+    Sea $\mathcal{A}$ una familia de conjuntos y $(A_{n})_{n \in \mathbb{N}}$ una sucesión de elementos en $\mathcal{A}$. Se definen el límite superior limite sup $A_n$ y limite inf $A_n$ como sigue:
+
+    $$
+    \lim \sup A_{n}=\bigcap_{n \in \mathbb{N}}(\bigcup_{m=n}^{\infty} A_{m}) \quad \lim \inf A_{n}=\bigcup_{n \in \mathbb{N}}(\bigcap_{m=n}^{\infty} A_{m}) .
+    $$
+
+    a. Demuestre que la sucesión $(B_{n})_{n \in \mathbb{N}}$ dada por $B_{n}=\bigcup_{m=n}^{\infty} A_{m}$ es decreciente respecto a la inclusión de conjuntos.
+
+    b. Demuestre que la sucesión $(C_{n})_{n \in \mathbb{N}}$ dada por $C_{n}=\bigcap_{m=n}^{\infty} A_{m}$ es creciente respecto a la inclusión de conjuntos.
+
+    c. Demuestre que lím inf $A_{n} \subseteq \lim \sup A_{n}$.\\\\
+a. Para demostrar que la sucesión $(B_n){n \in \mathbb{N}}$ es decreciente, debemos mostrar que $B_{n+1} \subseteq B_n$ para todo $n \in \mathbb{N}$. Observemos que:
+\begin{align*}
+B_{n+1} &= \bigcup_{m=n+1}^{\infty} A_m \
+&= \bigcup_{m=n}^{\infty} A_m \cup A_{n+1} \
+&= B_n \cup A_{n+1}.
+\end{align*}
+Por lo tanto, $B_{n+1} \subseteq B_n$ ya que la unión de dos conjuntos contiene a cada uno de ellos. Concluimos que $(B_n)_{n \in \mathbb{N}}$ es decreciente respecto a la inclusión de conjuntos.
+
+b. Para demostrar que la sucesión $(C_n){n \in \mathbb{N}}$ es creciente, debemos mostrar que $C_n \subseteq C{n+1}$ para todo $n \in \mathbb{N}$. Observemos que:
+    \begin{align*}
+    C_n &= \bigcap_{m=n}^{\infty} A_m \
+    C_{n+1} &= \bigcap_{m=n+1}^{\infty} A_m \
+    &= \bigcap_{m=n}^{\infty} A_m \cap A_{n+1} \
+    &= C_n \cap A_{n+1}.
+    \end{align*}
+    Por lo tanto, $C_n \subseteq C_{n+1}$ ya que la intersección de dos conjuntos es un subconjunto de cada uno de ellos. Concluimos que $(C_n)_{n \in \mathbb{N}}$ es creciente respecto a la inclusión de conjuntos.
+
+    c. $\lim \inf A_n \subseteq \lim \sup A_n$. Observemos que:
+    \begin{align*}
+    \limsup A_n &= \bigcap_{n \in \mathbb{N}}(\bigcup_{m=n}^{\infty} A_m) \
+    &= \bigcap_{n \in \mathbb{N}} B_n,
+    \end{align*}
+    donde $B_n=\bigcup_{m=n}^{\infty} A_m$. Por lo tanto, para todo $n \in \mathbb{N}$ se tiene que $\limsup A_n \subseteq B_n$. En particular, $\limsup A_n \subseteq B_1$.
+
+    Por otro lado, observemos que:
+    \begin{align*}
+    \liminf A_n &= \bigcup_{n \in \mathbb{N}}(\bigcap_{m=n}^{\infty} A_m) \
+    &= \bigcup_{n \in \mathbb{N}} C_n,
+    \end{align*}
+    donde $C_n=\bigcap_{m=n}^{\infty} A_m$. Por lo tanto, existe $n_0 \in \mathbb{N}$ tal que $\liminf A_n \subseteq C_{n_0}$. Como $(C_n){n \in \mathbb{N}}$ es creciente, se tiene que $C{n_0} \subseteq C_n$ para todo $n$
+    Por la definición de $\limsup A_n$, tenemos que para todo $n \in \mathbb{N}$:
+    $$\bigcup_{m=n}^{\infty} A_m \supseteq \limsup A_n$$
+    y por la definición de $\liminf A_n$, tenemos que para todo $n \in \mathbb{N}$:
+    $$\bigcap_{m=n}^{\infty} A_m \subseteq \liminf A_n$$
+
+    Tomando la intersección sobre todos los $n \in \mathbb{N}$ en la primera desigualdad y la unión sobre todos los $n \in \mathbb{N}$ en la segunda, obtenemos:
+    \begin{align*}
+    \bigcap_{n \in \mathbb{N}}(\bigcup_{m=n}^{\infty} A_m) &\subseteq \limsup A_n \\
+    \liminf A_n &\subseteq \bigcup_{n \in \mathbb{N}}(\bigcap_{m=n}^{\infty} A_m)
+    \end{align*}
+
+    Por lo tanto, $\liminf A_n \subseteq \limsup A_n$, como queríamos demostrar.
+\end{document}

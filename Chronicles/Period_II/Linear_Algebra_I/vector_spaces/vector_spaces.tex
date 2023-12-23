@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage[english]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Linear Algebra I }{ Vector Spaces }{  }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Vector Spaces }
+
+    \section{Vector Spaces}
+
+    We now are ready to start looking at a direction that is closer to linear algebra by reviewing vector spaces. We define a vector space is a composite object consisting of a field, a set of vectors and two operations with certain special properties. The formal definition of a vector space goes as follows.
+
+    \begin{defBox}
+        \textit{\textbf{Vector Space.}} A vector space consists of:
+
+        \begin{enumerate}
+            \item A field $F$ of scalars;
+            \item A set $V$ of objects, called vectors;
+            \item A binary operation $\oplus : V \times V \rightarrow V$ called vector addition, which associates with each pair of vectors $\vec{v} , \vec{u} \in V$ to a vector $\vec{v} + \vec{u} \in V$, called the sum of $\vec{v}$ and $\vec{u}$, in such a way that $V$ together with $\oplus$, $(V, \oplus)$ form an abelian group:
+
+            \begin{enumerate}
+                \item Addition is associative, $\vec{v} + (\vec{u} + \vec{w}) = (\vec{v} + \vec{u}) + \vec{w}$;
+                \item There is a unique vector $0$ in $V$, called the zero vector, such that $\vec{v} + 0 = \vec{v}$ for all $\vec{v}$ in $V$.
+                \item For each vector $\vec{v}$ in $V$ there is a unique vector $-a$ in $V$ such that $\vec{v} + (-\vec{v}) = 0$.
+                \item Addition is commutative, $\vec{v} + \vec{u} = \vec{u} + \vec{v}$;
+            \end{enumerate}
+
+            \item A function $\odot : F \times V \rightarrow V$ called scalar multiplication, which associates with each scalar $\alpha$ in $F$ and vector $\vec{v} \in V$ to a vector $\alpha\vec{v}$ in $V$, called the product of $\alpha$ and $\vec{v}$ in such a way that:
+
+            \begin{enumerate}
+                \item $1\vec{v} = \vec{v}$ for every $\vec{v}$ in $V$;
+                \item $(\alpha, \beta)\vec{v} = \alpha(\beta\vec{v})$;
+                \item $c(\vec{v} + \vec{u}) = \alpha\vec{v} + c\vec{u}$;
+                \item $(\alpha + \beta)\vec{v} = \alpha\vec{v} + \beta\vec{v}$;
+            \end{enumerate}
+        \end{enumerate}
+
+        We then say that $(V, \oplus, \odot)$ is a vector space over the field $(F, +, \cdot)$.
+    \end{defBox}
+
+    Notice how the scalar multiplication behaves like an operation, but is not an operation, this is because it includes elements from the field whichi is external to $V$. Also some characteristics of the vector addition is that the addition is performed component by component. Take for example the abelian group $\mathbb{R}^2$ with the vector addition $\oplus$, the latter can be defined as $(a, b) \oplus (c, d) = (a+c, b+d)$ for all $a,b,c,d \in \mathbb{R}$.
+\end{document}

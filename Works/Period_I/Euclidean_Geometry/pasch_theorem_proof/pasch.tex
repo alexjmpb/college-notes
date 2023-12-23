@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{eurosym}
+\usepackage[export]{adjustbox}
+\usepackage{amssymb}
+\usepackage{bussproofs}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+%----------------------------------------------------------------------------------------
+%	COVER START
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+    \begin{titlepage}
+
+        \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+        \newcommand{\department}{Escuela de Matemáticas}
+        \newcommand{\course}{Geometría Euclidiana}
+        \newcommand{\titleValue}{Demostración del Teorema de Pasch}
+        \newcommand{\subtitleValue}{}
+        \newcommand{\authorName}{Alexander Mendoza}
+
+        \center
+
+        %----------------------------------------------------------------------------------------
+        %	HEADER
+        %----------------------------------------------------------------------------------------
+
+        \includegraphics{images/logo_usa.png}
+        \vspace{0.5cm}
+        \textsc{\Large \department}\\[0.5cm]
+        \textsc{\Large \course}\\[0.5cm]
+        \vfill
+
+        %----------------------------------------------------------------------------------------
+        %	TITLE
+        %----------------------------------------------------------------------------------------
+
+        \HRule\\
+        \Huge
+        \textbf{\titleValue}\\[0.5cm]
+        \Large
+        \textbf{\subtitleValue}\\
+        \HRule\\[0.5cm]
+
+        %----------------------------------------------------------------------------------------
+        %	AUTHOR AND DATE
+        %----------------------------------------------------------------------------------------
+
+        \vfill
+        \Large
+        \textit{\authorName}\\
+        {\large \today}\\[2cm]
+
+    \end{titlepage}
+%----------------------------------------------------------------------------------------
+%	COVER END
+%----------------------------------------------------------------------------------------
+\section*{Teorema de Pasch}
+    Sean $A, B, C$ tres puntos no colineales, $D$ un punto de modo que $A-D-B$ y l una recta contenida en el plano determinado por $A, B, C$; de modo que $D \in l$ entonces, $\ell$ debe intersecar a $\overline{BC}$ o a $\overline{AC}$.\\
+
+    \noindent Antes de pasar a la demostración definiremos algunos teoremas.\\
+
+    \noindent \textit{Teorema 1}. Si $P$ y $Q$ están en lados opuestos de $\ell$ y $Q$ y $R$ en lados opuestos de $\ell$, entonces, $P$ y $R$ están del mismo lado de $\ell$.\\
+
+    \noindent \textit{Teorema 2}. Si $P$ y $Q$ están en lados opuestos de $\ell$ y $Q$ y $R$ están del mismo lado de $\ell$, entonces, $P$ y $R$ están en lados opuestos de $\ell$.\\
+
+    \noindent \textit{Demostración.} Sean $A, B, C$ tres puntos no colineales, $D$ un punto de modo que $A-D-B$ y $\ell$ una recta contenida en el plano $\alpha$ determinado por $A, B, C$; de modo que $D \in \ell$. Luego $D \in \overline{AB}$ esto por definición de interestancia, así $\ell \cap \overline{AB} \not = \emptyset$. Luego $A \in \mathcal{S}_{\ell, \neg B}$ por el postulado de separación del plano, así tenemos dos opciones para $C$, o $C \in \mathcal{S}_{\ell, A}$ o $C \in \mathcal{S}_{\ell, \neg A}$.\\
+
+    \noindent Si $C \in \mathcal{S}_{\ell, A}$ entonces $C \in \mathcal{S}_{\ell, \neg B}$, esto por \textit{Teorema 2}. Luego $\ell \cap \overline{BC} \not = \emptyset$, esto lo sabemos por el postulado de separación del plano.\\
+
+    \noindent De manera similar, si $C \in \mathcal{S}_{\ell, \neg A}$ entonces $C \in \mathcal{S}_{\ell, B}$, esto por \textit{Teorema 1}. Luego $\ell \cap \overline{AC} \not = \emptyset$ por el postulado de separación del plano.\\
+
+    \noindent Nótese que en caso de que $C \in \ell$ o de que $\ell = \overleftrightarrow{AB}$ se sobreentiende que $\ell \cap \overline{BC} \not = \emptyset$ y $\ell \cap \overline{AC} \not = \emptyset$. De esta manera demostramos que en cualquier caso $\ell$ interseca a $\overline{BC}$ o $\overline{AC}$.
+\end{document}

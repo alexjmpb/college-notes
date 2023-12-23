@@ -1,0 +1,53 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Álgebra Lineal I }{ Explorando la función tangente hiperbólica }{  }{ Alexander Mendoza }{\today}
+
+    \pagebreak
+    \section*{ Explorando la función tangente hiperbólica }
+
+    Considere $t: \mathbb{R} \rightarrow (-1, 1)$ donde $t(x) = \frac{e^x-e^{-x}}{e^x+e^{-x}}$.
+
+    \begin{enumerate}
+        \item Demostrar que $t$ es inyectiva.
+
+        \textit{\textbf{Demostración}}. Sea $x,y \in \mathbb{R}$ tal que $t(x) = t(y)$. Luego tenemos
+        \begin{align*}
+            \frac{e^x-e^{-x}}{e^x+e^{-x}} &= \frac{e^y-e^{-y}}{e^y+e^{-y}}\\
+            (e^x-e^{-x})(e^y+e^{-y}) &= (e^y-e^{-y})(e^x+e^{-x})\\
+            (e^x-\frac{1}{e^x})(e^y+\frac{1}{e^y}) &= (e^y-\frac{1}{e^y})(e^x+\frac{1}{e^x})\\
+            e^xe^y+\frac{e^x}{e^y}-\frac{e^y}{e^x}-\frac{1}{e^xe^y}&=e^xe^y-\frac{e^x}{e^y}+\frac{e^y}{e^x}-\frac{1}{e^xe^y}\\
+            \frac{e^x}{e^y}-\frac{e^y}{e^x} &= - \frac{e^x}{e^y}+\frac{e^y}{e^x}\\
+            -2\frac{e^y}{e^x} &= -2\frac{e^x}{e^y}\\
+            \frac{e^y}{e^x} &= \frac{e^x}{e^y}\\
+            e^{y-x} &= e^{x-y}\\
+            \ln(e^{y-x}) &= \ln(e^{x-y})\\
+            y-x &= x-y\\
+            -2x&=-2y\\
+            x&=y
+        \end{align*}
+
+        De esta manera demostramos que la función es inyectiva.
+
+        \item Demostrar que $t$ es sobreyectiva (muestre explícitamente $t^{-1}$).
+
+        \textit{\textbf{Demostración}}. Sean $y \in (-1, 1)$, Luego
+
+        \begin{align*}
+            t(x) = y\\
+            \frac{e^x-e^{-x}}{e^x+e^{-x}} &= y\\
+            e^x-e^{-x} &= y(e^x+e^{-x})\\
+            e^x-e^{-x} &= ye^x+ye^{-x}\\
+            
+        \end{align*}
+
+        \item Copie la estructure de $(\mathbb{R}, +)$ en $(-1, 1)$ y muestre de manera explícita y simplificada la definición de la nueva operación.
+        \item Realice en Python la definición de la operación en $(-1, 1)$ y calcule el elemento neutro.
+        \item Usando Python, calcule para cada $x \in (-1, 1)$, cuánto es $-x$.
+    \end{enumerate}
+\end{document}

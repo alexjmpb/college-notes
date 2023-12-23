@@ -1,0 +1,141 @@
+\documentclass{report}
+\usepackage[english]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Discrete Mathematics }{ Stablishing the fundamentals }{ Revisiting logic and set theory. }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter*{ Prologue }
+
+    It may be repetitive but it is necessary to have clear that we need a specific knowledge before jumping into a new course. Specifically in the first part of this book we will explore the fundamentals and the intuitive idea of logic and set theory so we can have a good foundation for the contents that correspond to Discrete Mathematics, and beyond that is the necessity of preparing you for formal Mathematics, that is the main objective of this first part and of the whole course. Though you may have already seen these concepts in the Fundamentals of Mathematics course, it is always a good idea to revisit previous lectures. With nothing more to say, hope you enjoy this chronicle series.
+
+    \chapter{ Sentential Logic }
+
+    The logic can be viewed as the foundation of the well-written mathematics. When we first bump into a mathematical concept we do it from an intuitive point of view, take for example the set theory, we begin to say that a set is a collection of things and some examples are give like with a collection apples and so on. However, in Mathematics, it's necessary to have a clear definition of the objects we are going to work with, there's no gap for ambiguity. And this urge of correctly defining things is the reason why logic steps in. Logic then is the area of mathematics that studies the form and structure of the valid reasoning, providing essential tools for constructing proofs, supporting definitions, and ensuring consistency in mathematics.
+
+    Once we have a clear idea of what logic is, we can take our attention now to sentential logic. The concept of sentences comes from the natural language, and are defined as a collection of words conveying a statement, question, exclamation or command and that have complete sense. In mathematics we will restrict the concept of sentence to a statement that has a truth value, being this true or false. Knowing this, sentential logic is then described as the logic behind how sentences are related.
+
+    Sentential logic has a specific language, which serve as the standard form in which ideas are precisely communicated, through this type of logic, to avoid ambiguity. Let's start by reviewing this language.
+
+    \section{Connectors}
+
+    Before reviewing connectors, we have to understand that we'll be working with classical logic, which is known for having two truth values, that is, every sentence can be either true or false and not both. Having this in mind, we can write tables for complex sentences (sentences formed by connecting other sentences) to determine in which cases the sentence is true or false. The following are the truth tables for the most common connectors.
+
+    \begin{itemize}
+        \item Negation ($\neg$)
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|c|c|}
+            \hline
+            $p$ & $\neg p$ \\ \hline
+            0   & 1        \\ \hline
+            1   & 0        \\ \hline
+            \end{tabular}
+        \end{table}
+        \item Conjunction ($\wedge $)
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & $p \wedge q$ \\ \hline
+            0   & 0   &  0   \\ \hline
+            0   & 1   &  0   \\ \hline
+            1   & 0   &  0   \\ \hline
+            1   & 1   &  1   \\ \hline
+            \end{tabular}
+        \end{table}
+        \item Disjunction ($\vee $)
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & $p \vee q$ \\ \hline
+            0   & 0   &  0   \\ \hline
+            0   & 1   &  1   \\ \hline
+            1   & 0   &  1   \\ \hline
+            1   & 1   &  1   \\ \hline
+            \end{tabular}
+        \end{table}
+        \item Implication ($\rightarrow$)
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & $p \rightarrow q$ \\ \hline
+            0   & 0   &  1   \\ \hline
+            0   & 1   &  1   \\ \hline
+            1   & 0   &  0   \\ \hline
+            1   & 1   &  1   \\ \hline
+            \end{tabular}
+        \end{table}
+        \item Double implication ($\leftrightarrow$)
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & $p \leftrightarrow q$ \\ \hline
+            0   & 0   &  1   \\ \hline
+            0   & 1   &  0   \\ \hline
+            1   & 0   &  0   \\ \hline
+            1   & 1   &  1   \\ \hline
+            \end{tabular}
+        \end{table}
+    \end{itemize}
+
+    The first three tables are pretty intuitive, however the last two are more tricky. The thing is that the implication table is more like a a convention, an implication would only be false if the premise is true and the conclusion is false,
+
+    \section{Proof techniques}
+
+    \begin{itemize}
+        \item Direct proof
+        \item Proof by contradiction or \textit{reductio ad absurdum}
+        \item Proof by contrapositive
+        \item Proof by counter example
+        \item Proof by cases
+        \item Proof by induction
+    \end{itemize}
+
+    \subsection*{Mathematical induction}
+
+    When we talk about induction in mathematics we are referring to the Principle of Mathematical Induction (PMI) that goes as following:
+
+    Let $S \subseteq \mathbb{N}$ such that:
+
+    \begin{enumerate}
+        \item $0 \in S$
+        \item if $n \in S$ then $n+1 \in S$
+    \end{enumerate}
+
+    Then $S = \mathbb{N}$.
+
+    Examples:
+
+    \begin{enumerate}
+        \item $(\sum_{i=1}^{n} i) = \frac{n(n+1)}{2}$\\
+        \textit{\textbf{Proof.}}\\
+        Base case: $n=1$
+        \begin{align*}
+            \sum_{i=1}^{1} i &= 1 = \frac{1(1+1)}{2}
+        \end{align*}
+
+        Now suppose that $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$, then
+
+        \begin{align*}
+            \sum_{i=1}^{n+1} i &= \sum_{i=1}^{n} i + (n+1)\\
+            &= \frac{n(n+1)}{2} + (n+1)\\
+            &= (n+1)(\frac{n}{1} + 1)\\
+            &= \frac{(n+1)(n+2)}{2}
+        \end{align*}
+
+        Therefore $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$ for all $n \in \mathbb{N}$.
+
+        \item $\frac{1}{2^2-1}+\frac{1}{3^2-1}+\cdots + \frac{1}{(n+1)^2-1}= \frac{3}{4} - \frac{1}{2(n+1)}-\frac{1}{2(n+2)}$
+
+        \textit{\textbf{Proof.}} If
+    \end{enumerate}
+\end{document}

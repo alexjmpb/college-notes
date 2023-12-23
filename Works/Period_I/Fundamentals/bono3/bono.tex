@@ -1,0 +1,19 @@
+\documentclass{report}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Fundamentos de Matemáticas }{ Bono 3 }{   }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Bono 3 }
+
+    \noindent Demuestre que no existen sucesiones estrictamente decrecientes de números naturales.\\
+
+    Una sucesión $(x_n)$ es estrictamente decreciente si $x_n < x_m$ si $n > m$. Si la sucesión es finita, ciertamente existen sucesiones decrecientes en los números naturales, por ejemplo, \{ 5, 4, 3, 2, 1 \}. Sin embargo, si la sucesión es infinita contradice al principio del buen orden. La sucesión $(x_n)$ es un subconjunto de $\mathbb{N}$, por el principio del buen orden existe un $m \in (x_n)$ tal que $m < a$ para todo $a \in (x_n)$, lo cual es una contracción ya que $m$ sería el maximal de $(x_n)$, llamemos $x_a$ a $m$, luego $x_{a+1} < x_a$ lo cual es una contracción.\\
+
+    \noindent Demuestre que los números racionales satisfacen la propiedad arquimediana. Propiedad Arquimediana: Si $x, y \in \mathbb{Q}$ y $x>0$, entonces existe un número entero positivo $n \in \mathbb{N}$ tal que $nx > y$.\\
+
+    \noindent Sean $y$ y $x$ números racionales tal que $x > 0$, si $y \leq 0$ como $x > 0$ existe $n = 1 \in \mathbb{Q}$, así $x > yn$. Si $y > 0$, como $y$ y $x$ son racionales podemos reescribirlos como $y = \frac{a}{b}$ y $x = \frac{c}{d}$ donde $a, b, c \text{ y } d \in \mathbb{Z}$, luego existe $n \in \mathbb{Q}$ tal que $n > \frac{y}{x} = \frac{bc}{ad}$, así $nx > \frac{bc}{ad}x = \frac{bc}{ad} \cdot \frac{a}{b} = \frac{c}{d} = y$. De esta manera demostramos que los números racionales satisfacen la propiedad Arquimediana.
+\end{document}

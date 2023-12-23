@@ -1,0 +1,346 @@
+\documentclass{report}
+\usepackage[english]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Differential Calculus }{ The axiomatic theory of real numbers. }{  }{ Alexander Mendoza }{\today}
+
+    \chapter*{Preface}
+
+    All the theory that we'll be developing in this course would be intended to provide us with the necessary tools for proving the two most important theorems in differential calculus, which are the \textbf{intermediate value theorem} and the \textbf{mean value theorem}. The proficiency of the reader in applying these theorems correctly will be evaluated at the end of this course.
+
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Study of the Real Numbers }
+
+    The first part of this course is aimed to build a good foundation of the real numbers. As in other courses we'll begin by defining the basis in which the work would be done, in this case, that basis is the real numbers axiomatically. There are many ways of constructing the real numbers, one being starting in the naturals and escalate until we construct the real numbers, this approach is the more intuitive way and the one taught nowadays, the other way is to construct the real numbers axiomatically, the latter is the classical approach and the one we'll take for this course. The reason behind this decision is that in this course we want to focus our attention to understanding the real numbers and not spending efforts trying to comprehend a more complex construction of them.
+
+    Knowing this, we can start constructing the real numbers axiomatically. There are three categories of axioms within this construction:
+
+    \begin{itemize}
+        \item Field axioms.
+        \item Order axioms.
+        \item Completeness axiom.
+    \end{itemize}
+
+    \begin{noteBox}
+        The completeness axiom is the most important one, it allows the concept of limit and continuity to exist. This axiom makes the set of Real Numbers unique, for example $\mathbb{Q}$ satisfies the first two axioms, but fails to satisfy the completeness axiom.
+    \end{noteBox}
+
+    \section{Field axioms}
+
+    There exists a non-empty set called the set of real numbers ($\mathbb{R}$) with two operations called the addition and multiplication. The operations are closed, that is if $x,y \in \mathbb{R}$, then $x+y \in \mathbb{R}$ y $x\cdot y \in \mathbb{R}$.
+
+    \begin{noteBox}
+        When we are working with this axiomatic theory we have to think only on this theory and not mix things up. Our whole life, we've been learning how the real numbers behave through its construction from the natural numbers, the axiomatic we are defining is different and confusing it with the previously mentioned axiomatic may lead us to conflicts.
+    \end{noteBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 1 (A1)}}: Axiom of commutativity.
+        \begin{itemize}
+            \item For $+$, if $x,y \in \mathbb{R}$, then $x+y = y+x$
+            \item For $\cdot$, if $x,y \in \mathbb{R}$, then $xy = yx$
+        \end{itemize}
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 2 (A2)}}: Axiom of associativity.
+        \begin{itemize}
+            \item For $+$, if $x,y,z \in \mathbb{R}$, then $x+(y+z) = (x+y) + z$
+            \item For $\cdot$, if $x,y,z \in \mathbb{R}$, then $x(yz) = (xy)z$
+        \end{itemize}
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 3 (A3)}}: Axiom of distributivity.
+        \begin{itemize}
+            \item If $x,y,z \in \mathbb{R}$, then $x(y+z) = xy + xz$
+        \end{itemize}
+        \begin{noteBox}
+            This axiom alone allows the different factorization cases we all know. All the cases can be deduced from here.
+        \end{noteBox}
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 4 (A4)}}: Existence of identity elements.\\
+        There exist two \textbf{distinct} elements called $0$ and $1$ such that for every real number $x$. $0+x=x+0=x$ and $1 \cdot x = x \cdot 1 = x$.
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 5 (A5)}}: Existence of negative elements.\\
+        For every $x \in \mathbb{R}$ there exists $y \in \mathbb{R}$ such that $x+y = 0= y+x$.
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 6 (A6)}}: Existence of reciprocal elements.\\
+        For every $x\in \mathbb{R}$ where $x \not = 0$, there exists $y \in \mathbb{R}$ such that $xy=1=yx$.
+    \end{axBox}
+
+    With these six axioms we finished to list the field axioms, we are now able to divide, subtract and define fractions. Let's take a look at some properties that allow these concepts.
+
+    \begin{thBox}
+        \textit{\textbf{Simplification law for the addition}}. If $a+b=a+c$, then $b=c$.
+    \end{thBox}
+
+    \textit{\textbf{Proof.}} Let $a,b,c \in \mathbb{R}$ such that $a+b=a+c$. We know that there exists $y \in \mathbb{R}$ such that $a+y = 0 = y+a$, then we sum $y$ to both sides of the equation $y+(a+b)=y+(a+c)$. By associativity we have $(y+a)+b=(y+a)+c$ and by definition of $y$, $0+b=0+c$. Therefore by definition of neutral element of the sum $b=c$.
+
+    \begin{asideBox}
+        What would happen if in Axiom 4 we do not include the condition that $1 \not = 0$ and we suppose that $1=0$? Well the answer is that this assumption would ruin our journey of formalizing the real numbers. As various examples of why this is such a bad idea is that we'll be able to construct the natural numbers from this axiomatic, and if we assume that $1=0$ then the very important induction would not work; another reason is that we need that $1 \not = 0$ to proof that the set of real numbers is infinite; but the most chaotic consequence of this assumption may be the following:\\
+
+        If $1=0$; then for all $x \in \mathbb{R}$, $x\cdot 1 = x$ because $1 = 0$,$x \cdot 1 = x \cdot 0$ and we know that $y \cdot 0 = 0$ for all $y\in \mathbb{R}$, thus we are saying that the real numbers is the set that only contains $0$, which is, as you can imagine, not desirable at all.
+    \end{asideBox}
+
+    \begin{thBox}
+        \textit{\textbf{Possibility of subtraction}}. Let $a,b \in \mathbb{R}$, there exists a unique real number $x$ such that $a+x=b$.
+    \end{thBox}
+
+    \textit{\textbf{Proof.}}\\
+
+    Existence. Let $a, b \in \mathbb{R}$. By axiom 5, there exists $y \in \mathbb{R}$ such that $a+y = 0$. then
+
+    \begin{align*}
+        a+y &= 0\\
+        (a+y) + b &= 0 +b &&\text{Add } b \text{ to both sides}\\
+        (a+y) + b &= b &&\text{Apply axiom 4}\\
+        a+(y+b) &= b && \text{Apply associative property}
+    \end{align*}
+
+    Now let $x = y+b$, we therefore have $a+x=b$.\\
+
+    Uniqueness. Let $x,z \in \mathbb{R}$ such that $a+x=b$ and $a+z=b$. Then adding $y$ to both equations we have
+
+    $$y+(a+x)=y+b$$
+    $$y+(a+z)=y+b$$
+
+    Now replace $y+b$ and we get.
+
+    \begin{align*}
+        y+(a+x) &= y+(a+z)\\
+        (y+a)+x &= (y+a)+z && \text{Apply associative property}\\
+        0+x &= 0+z && \text{Apply axiom 5}\\
+        x &= z && \text{Apply axiom 4}
+    \end{align*}
+
+    Therefore is unique.\\
+
+    Having this theorem, we can now make the following definition.
+
+    \begin{defBox}
+        Because the element $x$ defined in the last theorem is unique, we will call it $b-a$. In particular if $b=0$, then $x=0-a=-a$.
+    \end{defBox}
+
+    \begin{asideBox}
+        We are used to think of $-a$ as the negative of $a$, where $a \in \mathbb{R}$, this is not desirable, because when we think of the term "negative" we instantly think of order which is not discussed yet.
+    \end{asideBox}
+
+    \begin{thBox}
+        Given $a \in \mathbb{R}$, $-(-a)=a$.
+    \end{thBox}
+
+    \textit{\textbf{Proof.}} Let $a \in \mathbb{R}$, then we know that there exists $-(-a) \in \mathbb{R}$ such that $-a + -(-a) = 0$, we also know that $-a+a=0$ because of the uniqueness of the inverse element we can conclude that $-(-a) = a$.
+
+    \begin{thBox}
+        f
+    \end{thBox}
+
+    \section{Order axioms}
+
+    The order axioms of the real numbers enable us to discuss concepts of less than and greater than. More specifically, they allow us to define positive numbers and to arrange the real numbers in a systematic way. The notion of order we previously had was from a geometric standpoint. We would begin by drawing a line, establishing the point labeled as $0$ on that line, defining a unit of measurement, and then placing positive numbers to the right of the $0$ and negatives to the left. We would then assert that a number $a$ is smaller than a number $b$ if $a$ is positioned further to the left than $b$. While this idea is intuitive, it isn't ideal for our purposes when rigorously defining the real numbers. This is why we need to establish specific axioms to define an order among the real numbers.
+
+
+    We must first assume that there exists a non-empty subset of the real numbers called the set of positive numbers and is denoted as $\mathbb{R}^+$ which satisfies the follwing set of axioms:
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 7 (A7)}}: If $x$ and $y$ are in $\mathbb{R}^+$, so are $x+y$ and $xy$.
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 8 (A8)}}: Given $x \in \mathbb{R}, x\not = 0$, we have that either $x\in \mathbb{R}^+$ or $-x\in \mathbb{R}^+$, but not both.
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axiom 9 (A9)}}: $0 \not \in \mathbb{R}^+$
+    \end{axBox}
+
+    Notice how the last two axioms are telling us that there are positives, not positives and the $0$.
+
+    Having these axioms, we can now define a relation order on $\mathbb{R}$ denoted $<$, called less than and that meets the following criteria. If $y-x \in \mathbb{R}^+$ then $x<y$.
+
+    For notation purposes we say that.
+
+    \begin{itemize}
+        \item $y>x$ means that $x<y$
+        \item $x \leq y$ means that $x<y$ or $x=y$
+        \item $x \geq y$ means that $x>y$ or $x=y$
+    \end{itemize}
+
+    \begin{thBox}
+        \textit{\textbf{Trichotomy property}}. if $a, b \in \mathbb{R}$, one and only one of the following options happen.
+
+        \begin{itemize}
+            \item $a<b$
+            \item $b<a$
+            \item $a=b$
+        \end{itemize}
+    \end{thBox}
+    \textit{\textbf{Proof.}} Let $a,b \in \mathbb{R}$ and let $x = b - a$. If $x = 0$, then $b-a=a-b=0$ and $a=b$. If $x \not = 0$ then by A8 $x \in \mathbb{R}^+$ or $-x \not \in \mathbb{R}^+$, therefore $a < b$ or $b < a$.\\
+    % The order in the real numbers is a linear order (total order). This means it follows the following properties:
+
+    % \begin{itemize}
+    %     \item $a\leq a$ (Reflexive property)
+    %     \item $a\leq b$ and $b\leq c$ then $a \leq c$ (Transitive property)
+    %     \item $a \leq b$ and $b \leq a$ then $a = b$ (Antisymmetric property)
+    %     \item $a \leq b$ or $b \leq a$ (Total order, every element relates to another)
+    % \end{itemize}
+    We now have the necessary things to deduce the following theorems for calquilating inequalities.
+
+    \begin{thBox}
+        \textit{\textbf{Transitive law}}. If $a<b$ and $b<c$, then $a<c$.
+    \end{thBox}
+
+    \textit{\textbf{Proof.}} Let $a,b,c \in \mathbb{R}$, such that $a<b$ and $b<c$. Then, by definition of $<$, $b-a = x$ for some $x\in \mathbb{R}^+$ and $c-b=y$ for some $y \in \mathbb{R}^+$, then
+    \begin{align*}
+        b-a &= x\\
+        b &= x+a
+    \end{align*}
+    We also know that
+    \begin{align*}
+        c-b &= y\\
+        -b &= y-c\\
+        b &= -(y-c)\\
+        b &= -y + c
+    \end{align*}
+    We then have
+    \begin{align*}
+        x+a &= -y+c\\
+        x+y &= c-a
+    \end{align*}
+    By A7 we know that $x+y = c-a \in \mathbb{R}^+$, therefore $a<c$.\\
+
+    \begin{thBox}
+        If $a<b$, then $a+c<b+c$.
+    \end{thBox}
+    \textbf{\textit{Proof.}} Given \(a < b\), let \(x = a + c\) and \(y = b + c\). Since \(b - a > 0\), we have \(b - a = y - x > 0\), therefore $a+c < b+c$.\\
+
+    \begin{thBox}
+        If $a<b$ and $c<0$, then $ac>bc$.
+    \end{thBox}
+    \textit{\textbf{Proof.}} Let $a,b \in \mathbb{R}$ such that $a<b$. Then $b-a>0$, by multiplying $c$ we get $(b-a)c > 0$, apply distributive property and we get $bc-ac >0$, by definition of $<$ we therefore have $ac<bc$.\\
+
+    \begin{thBox}
+        If $a \not = 0$, then $a^2 > 0$.
+    \end{thBox}
+    \textit{\textbf{Proof.}} If $a>0$, then $a \cdot a > 0$ by A7. If $a<0$, then by A8 $-a >0$, then by A7 we know that $-a \cdot -a = a \cdot a = a^2 > 0$.\\
+
+    \begin{thBox}
+        $1 > 0$.
+    \end{thBox}
+    \textit{\textbf{Proof.}} By the last theorem we have that $1^2 = 1 >0$.\\
+
+    \begin{thBox}
+        If $a<b$ and $c<0$, then $ac>bc$.
+    \end{thBox}
+    \textit{\textbf{Proof.}} If $a>b$, then $b-a>0$. We know that because $c<0$, $-c>0$, this by A7. Then $-c(a) < -c(b)$ which is $-ac < -bc$. Then $-bc - (-ac) = ac-bc > 0$, we therefore have that $ac>bc$.\\
+
+    \begin{thBox}
+        If $a<b$, then $-a>-b$. In particular, if $a<0$, then $-a>0$.
+    \end{thBox}
+    \textit{\textbf{Proof.}} If $a<b$, then by last theorem $a \cdot -1 > b \cdot -1$, thus $-1 \cdot a > -1 \cdot b$, this is $-(1 \cdot a) > -(1 \cdot b)$ and therefore $-a>-b$.\\
+
+    \begin{thBox}
+        If $ab>0$, then both $a$ and $b$ are positive or both are negative.
+    \end{thBox}
+
+    \begin{thBox}
+        If $a<c$ and $b<d$, the $a+b<c+d$.
+    \end{thBox}
+
+    Seeing this set of properties we can notice that the order in the real numbers is coherent with the its operations. What this mean is that if $a<b$, $a+c<b+c$ and that if $a<b$ and $c>0$, $ac <bc$. This particularity is what differentiates the real numbers from the complex numbers. In the complex numbers we cannot define an order that is coherent with $+, \cdot$.
+
+    \section{Integers and rational numbers}
+
+    Now that we have the field axioms and the order axioms we can construct some very important subsets of the real numbers such as $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$. You may be wondering, what about $\mathbb{I}$, the set of irrational numbers? Well, we are not able to construct that set at this moment since for that we need an additional axiom, called the completness axiom, which also happens to make the field of real numbers unique.
+
+    Let us begin by constructing $\mathbb{N}$, the set of natural numbers, also called the set of positve integers. $\mathbb{N}$ has a particular important role, it allow us to use PMI (Principle of Mathematical Induction). We begin the construction with the $1$, which we assure its existence in A4, then we need the definition of inductive set.
+
+    \begin{defBox}
+        \textit{\textbf{Inductive Set}}. Let $S \subseteq \mathbb{R}$ be a subset. We then say that $S$ is inductive if it meets the following criteria:
+
+        \begin{itemize}
+            \item $1 \in S$.
+            \item If $x \in S$ implies $x+1 \in S$.
+        \end{itemize}
+    \end{defBox}
+
+    \begin{noteBox}
+        Whenever we define something in mathematics, we must assure that it exits. In this case there are various examples of iductive subsets of the real numbers. The set $\mathbb{R}^+$ is inductive. $1>0$ thus $1 \in \mathbb{R}^+$, if $x \in \mathbb{R}^+$, then by A7, $x+1 \in \mathbb{R}^+$.
+    \end{noteBox}
+
+    If we do the work, we can find many inductive subsets of the real numbers, infinte to be precise. We know that the real numbers are infinite because of PMI. But how do we know which one of those inductive subsets $\mathbb{N}$ is? The answer to that question is the following definition:
+
+    \begin{defBox}
+        $x$ is a natural number (positive integer) if $x$ belongs to each inductive set in $\mathbb{R}$. More precisely, $x$ is a positive integer if $x \in \bigcap S$ for all inductive subset $S \subseteq \mathbb{R}$.
+    \end{defBox}
+
+    Having the positive integers, naturally we can define the set of integers as follows:
+
+    \begin{defBox}
+        $\mathbb{Z} = \{x | x \in \mathbb{N}\} \cup \{0\} \cup \{-x | x \in \mathbb{N}\}$
+    \end{defBox}
+
+    \section{The least upper bound axiom (Axiom of completeness)}
+
+    As mentioned above, we missed one thing to finally have the real numbers and was the least upper bound axiom, axiom of completeness or axiom of continuity. In an intuitive way this axiom is what give continuity to the real numbers, that is that assures that there are no gaps in the real number line. Before we state the axiom, lets review some necessary definitions.
+
+    \begin{defBox}
+        \textit{\textbf{Upper bound of a set}}. Let $S \subseteq \mathbb{R}$ be a subset, now suppose there is a number $B$ such that $x \leq B$ for all $x \in S$. We then say that $S$ is bounded above by $B$ and that $B$ is an upper bound for $S$.
+    \end{defBox}
+
+    Take for example the set $S = (- \infty, 1)$ and the number $2$, $x \leq 2$ for all $x \in S$, thus $2$ is an upper bound for $S$.
+
+    If $B$ also happens to be contained in the set $S$ then its called the maximum element, the definition goes as follows.
+
+    \begin{defBox}
+        \textit{\textbf{Maximum element}}. Let $S \subseteq \mathbb{R}$ be a subset, now suppose there is a number $B \in S$ such that $x \leq B$ for all $x \in S$. We then say that $B$ is the maximum element of $S$, notated as $B = \max S$.
+    \end{defBox}
+
+    For this, take as an example the set $S = (- \infty, 1]$ and the number $1$, we know that $1 \in S$ and that $1 \leq x$ for all $x \in S$, thus $1$ is the maximum of $S$. We shall notice that the maximum element is unique.
+
+    For the definition of upper bound, we gave a example of a set $(-\infty, 1)$, this set does not have a maximum element. For this type of set we have a concept similar to the maximum element, called the least upper bound and is defined as follows.
+
+    \begin{defBox}
+        \textit{\textbf{Least upper bound (supremum)}}. A number $B$ is called a least upper bound of a non-empy set $S$ if $B$ meets the following criteria:
+
+        \begin{itemize}
+            \item $B$ is an upper bound of $S$.
+            \item No number less than $B$ is an upper bound for $S$.
+        \end{itemize}
+    \end{defBox}
+
+    The least upper bound is unique (elaborate further).
+
+    \subsection*{The least upper bound axiom}
+
+    We now are ready to state the least-upper-bound (completeness axiom) for the real numbers.
+
+    \begin{axBox}
+        Every non-empty set $S$ of real numbers which is bounded above has a supremum; that is, there is a real number $B$ such that $B = \sup S$.
+    \end{axBox}
+
+    We can also give similar definitions for the counterparts of the definitions above, such as lower bound, minimum element and greatest lowerbound (infimum). And with A10 we can also prove the following theorem:
+
+    \begin{thBox}
+        Every non-empty set $S$ that is bounded below has infimum; that is, there is a real number $L$ such that $L = \inf S$.
+    \end{thBox}
+    \textit{\textbf{Proof.}} Let $-S$ be the set of negatives of numbers in $S$. Then $-S$ is non-empty and bounded above. By A10, there is a number $B$ which is a supremum for $-S$. Then $-B = \inf S$.
+
+    Something peculiar is that we can take the greatest-lower-bound theorem as axiom and then deduce the least upper bound.
+
+    \begin{thBox}
+        \textit{\textbf{Archimedean property}}. If $x>0$ and $y \in \mathbb{R}$, there exists $n \in \mathbb{N}$ such that $nx>y$.
+    \end{thBox}
+\end{document}

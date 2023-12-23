@@ -1,0 +1,347 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Cálculo Diferencial }{ La teoría axiomática de los números reales. }{  }{ Alexander Mendoza }{\today}
+
+    \chapter*{Prefacio}
+
+    Todo la teoría que desarrollaremos en este curso tiene como objetivo proporcionarnos las herramientas necesarias para demostrar los dos teoremas más importantes en cálculo diferencial: el \textbf{teorema del valor intermedio} y el \textbf{teorema del valor medio}. La habilidad del lector para aplicar correctamente estos teoremas se evaluará al final del curso.
+
+    \tableofcontents
+
+    \pagebreak
+
+    \chapter{Estudio de los Números Reales}
+
+    La primera parte de este curso tiene como objetivo construir una base sólida de los números reales. Al igual que en otros cursos, comenzaremos definiendo los fundamentos en los cuales se realizará el trabajo. En este caso, esa base son los números reales axiomáticamente definidos. Hay muchas formas de construir los números reales, una de ellas es comenzar con los números naturales y avanzar hasta construir los números reales. Este enfoque es el más intuitivo y el que se enseña en la actualidad. La otra forma es construir los números reales axiomáticamente, que es el enfoque clásico y el que seguiremos en este curso. La razón detrás de esta decisión es que en este curso queremos centrarnos en comprender los números reales y no gastar esfuerzos tratando de comprender una construcción más compleja de los mismos.
+
+    Dicho esto, podemos comenzar a construir los números reales axiomáticamente. Hay tres categorías de axiomas en esta construcción:
+
+    \begin{itemize}
+        \item Axiomas de campo.
+        \item Axiomas de orden.
+        \item Axioma de completitud.
+    \end{itemize}
+
+    \begin{noteBox}
+        El axioma de completitud es el más importante, ya que permite que existan conceptos de límite y continuidad. Este axioma hace que el conjunto de Números Reales sea único. Por ejemplo, $\mathbb{Q}$ satisface los dos primeros axiomas, pero no cumple con el axioma de completitud.
+    \end{noteBox}
+
+    \subsection{Axiomas de Campo}
+
+    Existe un conjunto no vacío llamado el conjunto de números reales ($\mathbb{R}$) con dos operaciones llamadas adición y multiplicación. Las operaciones están cerradas, es decir, si $x,y \in \mathbb{R}$, entonces $x+y \in \mathbb{R}$ y $x\cdot y \in \mathbb{R}$.
+
+    \begin{noteBox}
+        Cuando trabajamos con esta teoría axiomática, debemos pensar solo en esta teoría y no mezclar conceptos. Durante toda nuestra vida, hemos estado aprendiendo cómo se comportan los números reales a través de su construcción a partir de los números naturales. La axiomática que estamos definiendo es diferente, y confundirla con la axiomática mencionada anteriormente puede llevarnos a conflictos.
+    \end{noteBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axioma 1 (A1)}}: Axioma de conmutatividad.
+        \begin{itemize}
+            \item Para $+$, si $x,y \in \mathbb{R}$, entonces $x+y = y+x$
+            \item Para $\cdot$, si $x,y \in \mathbb{R}$, entonces $xy = yx$
+        \end{itemize}
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axioma 2 (A2)}}: Axioma de asociatividad.
+        \begin{itemize}
+            \item Para $+$, si $x,y,z \in \mathbb{R}$, entonces $x+(y+z) = (x+y) + z$
+            \item Para $\cdot$, si $x,y,z \in \mathbb{R}$, entonces $x(yz) = (xy)z$
+        \end{itemize}
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axioma 3 (A3)}}: Axioma de distributividad.
+        \begin{itemize}
+            \item Si $x,y,z \in \mathbb{R}$, entonces $x(y+z) = xy + xz$
+        \end{itemize}
+        \begin{noteBox}
+            Este axioma por sí solo permite los diferentes casos de factorización que todos conocemos. Todos los casos se pueden deducir a partir de aquí.
+        \end{noteBox}
+    \end{axBox}
+
+    \begin{axBox}
+        \textit{\textbf{Axioma 4 (A4)}}: Existencia de elementos identidad.\\
+        Existen dos elementos \textbf{distintos} llamados $0$ y $1$ tales que para todo número real $x$, se cumple $0+x=x+0=x$ y $1 \cdot x = x \cdot 1 = x$.
+    \end{axBox}
+    
+    \begin{axBox}
+        \textit{\textbf{Axioma 5 (A5)}}: Existencia de elementos negativos.\\
+        Para cada $x \in \mathbb{R}$ existe un $y \in \mathbb{R}$ tal que $x+y = 0 = y+x$.
+    \end{axBox}
+    
+    \begin{axBox}
+        \textit{\textbf{Axioma 6 (A6)}}: Existencia de elementos recíprocos.\\
+        Para cada $x\in \mathbb{R}$ donde $x \neq 0$, existe un $y \in \mathbb{R}$ tal que $xy=1=yx$.
+    \end{axBox}
+    
+    Con estos seis axiomas hemos terminado de listar los axiomas de campo. Ahora podemos realizar divisiones, restas y definir fracciones. Veamos algunas propiedades que permiten estos conceptos.
+
+    \begin{thBox}
+        \textit{\textbf{Ley de simplificación para la suma}}. Si $a+b=a+c$, entonces $b=c$.
+    \end{thBox}
+    
+    \textit{\textbf{Demostración.}} Sean $a$, $b$ y $c \in \mathbb{R}$ tales que $a+b=a+c$. Sabemos que existe $y \in \mathbb{R}$ tal que $a+y = 0 = y+a$, luego sumamos $y$ a ambos lados de la ecuación $y+(a+b)=y+(a+c)$. Por asociatividad, tenemos $(y+a)+b=(y+a)+c$ y por definición de $y$, $0+b=0+c$. Por lo tanto, por definición del elemento neutro de la suma, $b=c$.
+    
+    \begin{asideBox}
+        ¿Qué sucedería si en el Axioma 4 no incluyéramos la condición de que $1 \neq 0$ y supusiéramos que $1=0$? Bueno, la respuesta es que esta suposición arruinaría nuestro proceso de formalización de los números reales. Varios ejemplos de por qué es una mala idea incluyen que podríamos construir los números naturales a partir de estos axiomas, y si asumimos que $1=0$, entonces la muy importante inducción no funcionaría. Otra razón es que necesitamos que $1 \neq 0$ para demostrar que el conjunto de los números reales es infinito. Pero la consecuencia más caótica de esta suposición podría ser la siguiente:\\
+    
+        Si $1=0$, entonces para todo $x \in \mathbb{R}$, $x\cdot 1 = x$, porque $1 = 0$, $x \cdot 1 = x \cdot 0$, y sabemos que $y \cdot 0 = 0$ para todo $y \in \mathbb{R}$, lo cual implicaría que los números reales serían el conjunto que solo contiene al $0$, lo cual, como puedes imaginar, no es deseable en absoluto.
+    \end{asideBox}
+    
+    \begin{thBox}
+        \textit{\textbf{Posibilidad de la resta}}. Sean $a$, $b \in \mathbb{R}$, entonces existe un número real único $x$ tal que $a+x=b$.
+    \end{thBox}
+    
+    \textit{\textbf{Demostración.}}\\
+    
+    Existencia. Sean $a, b \in \mathbb{R}$. Por el Axioma 5, existe $y \in \mathbb{R}$ tal que $a+y = 0$. Entonces,
+    
+    \begin{align*}
+        a+y &= 0\\
+        (a+y) + b &= 0 +b &&\text{Sumar } b \text{ a ambos lados}\\
+        (a+y) + b &= b &&\text{Aplicar el Axioma 4}\\
+        a+(y+b) &= b && \text{Aplicar propiedad asociativa}
+    \end{align*}
+    
+    Ahora sea $x = y+b$, entonces tenemos $a+x=b$.\\
+    
+    Unicidad. Sean $x,z \in \mathbb{R}$ tales que $a+x=b$ y $a+z=b$. Sumando $y$ a ambas ecuaciones, obtenemos
+    
+    $$y+(a+x)=y+b$$
+    $$y+(a+z)=y+b$$
+    
+    Sustituyendo $y+b$, obtenemos:
+    
+    \begin{align*}
+        y+(a+x) &= y+(a+z)\\
+        (y+a)+x &= (y+a)+z && \text{Aplicar propiedad asociativa}\\
+        0+x &= 0+z && \text{Aplicar el Axioma 5}\\
+        x &= z && \text{Aplicar el Axioma 4}
+    \end{align*}
+    
+    Por lo tanto, es único.\\
+    
+    Con este teorema, ahora podemos hacer la siguiente definición.
+    
+    \begin{defBox}
+        Dado que el elemento $x$ definido en el último teorema es único, lo llamaremos $b-a$. En particular, si $b=0$, entonces $x=0-a=-a$.
+    \end{defBox}
+    
+    \begin{asideBox}
+        Estamos acostumbrados a pensar en $-a$ como el negativo de $a$, donde $a \in \mathbb{R}$, esto no es deseable, ya que cuando pensamos en el término "negativo", instantáneamente pensamos en orden, lo cual aún no hemos discutido.
+    \end{asideBox}
+    
+    \begin{thBox}
+        Dado $a \in \mathbb{R}$, $-(-a)=a$.
+    \end{thBox}
+    
+    \textit{\textbf{Demostración.}} Sea $a \in \mathbb{R}$, entonces sabemos que existe $-(-a) \in \mathbb{R}$ tal que $-a + -(-a) = 0$. También sabemos que $-a+a=0$ debido a la unicidad del elemento inverso, por lo que podemos concluir que $-(-a) = a$.
+    
+    \begin{thBox}
+        f
+    \end{thBox}
+    
+    \section{Axiomas de orden}
+    
+    Los axiomas de orden de los números reales nos permiten discutir conceptos de menor que y mayor que. Más específicamente, nos permiten definir números positivos y ordenar los números reales de manera sistemática. La noción de orden que teníamos anteriormente provenía de un punto de vista geométrico. Comenzábamos dibujando una línea, estableciendo el punto etiquetado como $0$ en esa línea, definiendo una unidad de medida y luego colocando los números positivos a la derecha del $0$ y los negativos a la izquierda. Luego afirmábamos que un número $a$ es menor que un número $b$ si $a$ está posicionado más a la izquierda que $b$. Aunque esta idea es intuitiva, no es ideal para nuestros propósitos al definir rigurosamente los números reales. Por eso necesitamos establecer axiomas específicos para definir un orden entre los números reales.
+    
+    Primero debemos asumir que existe un subconjunto no vacío de los números reales llamado el conjunto de números positivos y se denota como $\mathbb{R}^+$, que satisface el siguiente conjunto de axiomas:
+    
+    \begin{axBox}
+        \textit{\textbf{Axioma 7 (A7)}}: Si $x$ e $y$ están en $\mathbb{R}^+$, entonces también lo están $x+y$ y $xy$.
+    \end{axBox}
+    
+    \begin{axBox}
+        \textit{\textbf{Axioma 8 (A8)}}: Dado $x \in \mathbb{R}, x\neq 0$, tenemos que o bien $x\in \mathbb{R}^+$ o bien $-x\in \mathbb{R}^+$, pero no ambos.
+    \end{axBox}
+    
+    \begin{axBox}
+        \textit{\textbf{Axioma 9 (A9)}}: $0 \not\in \mathbb{R}^+$
+    \end{axBox}
+    
+    Observa cómo los dos últimos axiomas indican que hay positivos, pero no positivos y el $0$.
+    
+    Con estos axiomas, ahora podemos definir una relación de orden en $\mathbb{R}$ denotada como $<$, llamada "menor que", que cumple con los siguientes criterios: si $y-x \in \mathbb{R}^+$, entonces $x<y$.
+    
+    Para fines de notación, decimos que:
+    
+    \begin{itemize}
+        \item $y>x$ significa que $x<y$
+        \item $x \leq y$ significa que $x<y$ o $x=y$
+        \item $x \geq y$ significa que $x>y$ o $x=y$
+    \end{itemize}
+    
+    \begin{thBox}
+        \textit{\textbf{Propiedad de tricotomía}}. Si $a, b \in \mathbb{R}$, una y solo una de las siguientes opciones ocurre:
+    
+        \begin{itemize}
+            \item $a<b$
+            \item $b<a$
+            \item $a=b$
+        \end{itemize}
+    \end{thBox}
+
+    \textit{\textbf{Demostración.}} Sean $a,b \in \mathbb{R}$ y sea $x = b - a$. Si $x = 0$, entonces $b-a=a-b=0$ y $a=b$. Si $x \neq 0$, entonces por A8, $x \in \mathbb{R}^+$ o $-x \not\in \mathbb{R}^+$, por lo tanto $a < b$ o $b < a$.\\
+    El orden $(\leq)$ en los números reales es un orden lineal (orden total). Esto significa que sigue las siguientes propiedades:
+    
+    \begin{itemize}
+        \item $a\leq a$ (Propiedad reflexiva)
+        \item $a\leq b$ y $b\leq c$ implica $a \leq c$ (Propiedad transitiva)
+        \item $a \leq b$ y $b \leq a$ implica $a = b$ (Propiedad antisimétrica)
+        \item $a \leq b$ o $b \leq a$ (Orden total, cada elemento se relaciona con otro)
+    \end{itemize}
+    Ahora tenemos lo necesario para deducir los siguientes teoremas para calcular desigualdades.
+    
+    \begin{thBox}
+        \textit{\textbf{Ley transitiva}}. Si $a<b$ y $b<c$, entonces $a<c$.
+    \end{thBox}
+    
+    \textit{\textbf{Demostración.}} Sean $a,b,c \in \mathbb{R}$, tales que $a<b$ y $b<c$. Entonces, por la definición de $<$, $b-a = x$ para algún $x\in \mathbb{R}^+$ y $c-b=y$ para algún $y \in \mathbb{R}^+$, entonces
+    \begin{align*}
+        b-a &= x\\
+        b &= x+a
+    \end{align*}
+    También sabemos que
+    \begin{align*}
+        c-b &= y\\
+        -b &= y-c\\
+        b &= -(y-c)\\
+        b &= -y + c
+    \end{align*}
+    Entonces tenemos
+    \begin{align*}
+        x+a &= -y+c\\
+        x+y &= c-a
+    \end{align*}
+    Por A7 sabemos que $x+y = c-a \in \mathbb{R}^+$, por lo tanto $a<c$.\\
+    
+    \begin{thBox}
+        Si $a<b$, entonces $a+c<b+c$.
+    \end{thBox}
+    \textbf{\textit{Demostración.}} Dado \(a < b\), sea \(x = a + c\) y \(y = b + c\). Dado que \(b - a > 0\), tenemos \(b - a = y - x > 0\), por lo tanto $a+c < b+c$.\\
+    
+    \begin{thBox}
+        Si $a<b$ y $c<0$, entonces $ac>bc$.
+    \end{thBox}
+    \textit{\textbf{Demostración.}} Sean $a,b \in \mathbb{R}$ tales que $a<b$. Entonces $b-a>0$, al multiplicar por $c$ obtenemos $(b-a)c > 0$, aplicamos la propiedad distributiva y obtenemos $bc-ac >0$, por la definición de $<$ tenemos entonces $ac<bc$.\\
+    
+    \begin{thBox}
+        Si $a \neq 0$, entonces $a^2 > 0$.
+    \end{thBox}
+    \textit{\textbf{Demostración.}} Si $a>0$, entonces $a \cdot a > 0$ por A7. Si $a<0$, entonces por A8, $-a >0$, luego por A7 sabemos que $-a \cdot -a = a \cdot a = a^2 > 0$.\\
+    
+    \begin{thBox}
+        $1 > 0$.
+    \end{thBox}
+    \textit{\textbf{Demostración.}} Por el último teorema, tenemos que $1^2 = 1 >0$.\\
+    
+    \begin{thBox}
+        Si $a<b$ y $c<0$, entonces $ac>bc$.
+    \end{thBox}
+    \textit{\textbf{Demostración.}} Si $a>b$, entonces $b-a>0$. Sabemos que como $c<0$, $-c>0$, esto por A7. Luego $-c(a) < -c(b)$, es decir, $-ac < -bc$. Entonces $-bc - (-ac) = ac-bc > 0$, por lo que tenemos que $ac>bc$.\\
+    
+    \begin{thBox}
+        Si $a<b$, entonces $-a>-b$. En particular, si $a<0$, entonces $-a>0$.
+    \end{thBox}
+    \textit{\textbf{Demostración.}} Si $a<b$, entonces por el teorema anterior, $a \cdot -1 > b \cdot -1$, lo cual implica que $-1 \cdot a > -1 \cdot b$, es decir, $-(1 \cdot a) > -(1 \cdot b)$ y, por lo tanto, $-a>-b$.\\
+    
+    \begin{thBox}
+        Si $ab>0$, entonces ambos $a$ y $b$ son positivos o ambos son negativos.
+    \end{thBox}
+    
+    \begin{thBox}
+        Si $a<c$ y $b<d$, entonces $a+b<c+d$.
+    \end{thBox}
+    
+    Viendo este conjunto de propiedades, podemos notar que el orden en los números reales es coherente con sus operaciones. Esto significa que si $a<b$, entonces $a+c<b+c$ y que si $a<b$ y $c>0$, entonces $ac < bc$. Esta particularidad es lo que diferencia a los números reales de los números complejos. En los números complejos no podemos definir un orden que sea coherente con $+$ y $\cdot$.
+    
+    \section{Números enteros y números racionales}
+    
+    Ahora que tenemos los axiomas de campo y los axiomas de orden, podemos construir algunos conjuntos muy importantes de los números reales, como $\mathbb{N}$, $\mathbb{Z}$ y $\mathbb{Q}$. Puede que te estés preguntando, ¿qué pasa con $\mathbb{I}$, el conjunto de números irracionales? Bueno, no podemos construir ese conjunto en este momento, ya que necesitamos un axioma adicional, llamado el axioma de completitud, que también hace que el campo de los números reales sea único.
+    
+    Comencemos construyendo $\mathbb{N}$, el conjunto de números naturales, también conocido como el conjunto de enteros positivos. $\mathbb{N}$ tiene un papel particularmente importante, ya que nos permite usar el PMI (Principio de Inducción Matemática). Comenzamos la construcción con el número $1$, del cual aseguramos su existencia en A4, luego necesitamos la definición de conjunto inductivo.
+    
+    \begin{defBox}
+        \textit{\textbf{Conjunto inductivo}}. Sea $S \subseteq \mathbb{R}$ un subconjunto. Decimos que $S$ es inductivo si cumple los siguientes criterios:
+    
+        \begin{itemize}
+            \item $1 \in S$.
+            \item Si $x \in S$ implica $x+1 \in S$.
+        \end{itemize}
+    \end{defBox}
+    
+    \begin{noteBox}
+        Siempre que definimos algo en matemáticas, debemos asegurarnos de que exista. En este caso, hay varios ejemplos de subconjuntos inductivos de los números reales. El conjunto $\mathbb{R}^+$ es inductivo. Dado que $1>0$, entonces $1 \in \mathbb{R}^+$, y si $x \in \mathbb{R}^+$, entonces por A7, $x+1 \in \mathbb{R}^+$.
+    \end{noteBox}
+    
+    Si hacemos el trabajo, podemos encontrar muchos subconjuntos inductivos de los números reales, infinitos para ser precisos. Sabemos que los números reales son infinitos debido al PMI. Pero, ¿cómo sabemos cuál de esos subconjuntos inductivos es $\mathbb{N}$? La respuesta a esa pregunta es la siguiente definición:
+    
+    \begin{defBox}
+        $x$ es un número natural (entero positivo) si $x$ pertenece a cada conjunto inductivo en $\mathbb{R}$. Más precisamente, $x$ es un entero positivo si $x \in \bigcap S$ para todo subconjunto inductivo $S \subseteq \mathbb{R}$.
+    \end{defBox}
+    
+    Una vez que tenemos los enteros positivos, naturalmente podemos definir el conjunto de enteros de la siguiente manera:
+    
+    \begin{defBox}
+        $\mathbb{Z} = \{x | x \in \mathbb{N}\} \cup \{0\} \cup \{-x | x \in \mathbb{N}\}$
+    \end{defBox}
+
+    \section{El axioma de la cota superior menor (Axioma de completitud)}
+
+    Como se mencionó anteriormente, nos falta una cosa para finalmente tener los números reales, y ese es el axioma de la cota superior menor, axioma de completitud o axioma de continuidad. De manera intuitiva, este axioma es lo que otorga continuidad a los números reales, es decir, asegura que no hay brechas en la recta de números reales. Antes de enunciar el axioma, repasemos algunas definiciones necesarias.
+    
+    \begin{defBox}
+        \textit{\textbf{Cota superior de un conjunto}}. Sea $S \subseteq \mathbb{R}$ un subconjunto, ahora supongamos que hay un número $B$ tal que $x \leq B$ para todo $x \in S$. Entonces decimos que $S$ está acotado superiormente por $B$ y que $B$ es una cota superior para $S$.
+    \end{defBox}
+    
+    Tomemos, por ejemplo, el conjunto $S = (- \infty, 1)$ y el número $2$. Para todo $x \in S$, se cumple $x \leq 2$, por lo tanto, $2$ es una cota superior para $S$.
+    
+    Si $B$ también resulta estar contenido en el conjunto $S$, entonces se llama el elemento máximo, la definición es la siguiente.
+    
+    \begin{defBox}
+        \textit{\textbf{Elemento máximo}}. Sea $S \subseteq \mathbb{R}$ un subconjunto, ahora supongamos que hay un número $B \in S$ tal que $x \leq B$ para todo $x \in S$. Entonces decimos que $B$ es el elemento máximo de $S$, y se nota como $B = \max S$.
+    \end{defBox}
+    
+    Como ejemplo, consideremos el conjunto $S = (- \infty, 1]$ y el número $1$. Sabemos que $1 \in S$ y que $1 \leq x$ para todo $x \in S$, por lo tanto, $1$ es el máximo de $S$. Observamos que el elemento máximo es único.
+    
+    Para la definición de cota superior, dimos un ejemplo de un conjunto $(-\infty, 1)$, este conjunto no tiene un elemento máximo. Para este tipo de conjunto, tenemos un concepto similar al elemento máximo, llamado la cota superior menor, y se define de la siguiente manera.
+    
+    \begin{defBox}
+        \textit{\textbf{Cota superior menor (supremo)}}. Un número $B$ se llama cota superior menor de un conjunto no vacío $S$ si $B$ cumple los siguientes criterios:
+    
+        \begin{itemize}
+            \item $B$ es una cota superior para $S$.
+            \item Ningún número menor que $B$ es una cota superior para $S$.
+        \end{itemize}
+    \end{defBox}
+    
+    La cota superior menor es única (explicación adicional).
+    
+    \subsection*{El axioma de la cota superior menor}
+    
+    Ahora estamos listos para enunciar el axioma de la cota superior menor (axioma de completitud) para los números reales.
+    
+    \begin{axBox}
+        Cada conjunto no vacío $S$ de números reales que está acotado superiormente tiene un supremo; es decir, existe un número real $B$ tal que $B = \sup S$.
+    \end{axBox}
+    
+    También podemos dar definiciones similares para las contrapartes de las definiciones anteriores, como cota inferior, elemento mínimo y cota inferior mayor (ínfimo). Y con A10 también podemos demostrar el siguiente teorema:
+
+    \begin{thBox}
+        Cada conjunto no vacío $S$ que está acotado inferiormente tiene un ínfimo; es decir, existe un número real $L$ tal que $L = \inf S$.
+    \end{thBox}
+    \textit{\textbf{Demostración.}} Sea $-S$ el conjunto de los negativos de los números en $S$. Entonces $-S$ no está vacío y está acotado superiormente. Por A10, existe un número $B$ que es el supremo de $-S$. Luego $-B = \inf S$.
+
+    Algo peculiar es que podemos tomar el teorema del límite inferior mayor como axioma y luego deducir la cota superior menor.
+
+    \begin{thBox}
+        \textit{\textbf{Propiedad arquimediana}}. Si $x > 0$ y $y \in \mathbb{R}$, entonces existe $n \in \mathbb{N}$ tal que $nx > y$.
+    \end{thBox}
+\end{document}

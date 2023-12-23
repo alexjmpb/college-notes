@@ -1,0 +1,136 @@
+\documentclass{report}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Fundamentos Matemáticos }{ Tarea 2 }{ Secciones 3 y 4 }{ Alexander Mendoza \\ Dylan Cifuentes }{\today}
+    \tableofcontents
+    \setcounter{secnumdepth}{0}
+    \pagebreak
+    \chapter{Ejercicios}
+
+    \section{Ejercicio 3.3.20}
+        Sean $A$ y $B$ conjuntos. Supongamos que $B\subseteq A$. Demostrar que $A\times A-B\times B = [(A-B)\times A]\cup[A\times(A-B)]$.\\
+
+        \noindent \textit{Demostración}.\\Definimos $A\times A-B\times B = {(x,y) | x\in A, y\in A, x\notin B \text{ o } y\notin B}$. Luego definimos $(A-B)\times A$ y $A\times(A-B)$:\\\\
+        $(A-B)\times A = {(x,y) | x\in A-B, y\in A} = {(x,y) | x\in A, x\notin B, y\in A}$\\
+        $A\times(A-B) = {(x,y) | x\in A, y\in A-B} = {(x,y) | x\in A, y\in A, y\notin B}$\\
+
+        \noindent Para demostrar que $A\times A-B\times B\subseteq [(A-B)\times A]\cup [A\times (A-B)]$, tomamos $(x,y)\in A\times A-B\times B$. Entonces, por definición de diferencia, sabemos que $(x,y)\in A\times A$ y $(x,y)\notin B\times B$. Tenemos dos casos a considerar:\\
+
+        \noindent Si $x\in A-B$, entonces $(x,y)$ pertenece a $(A-B)\times A$ por definición de producto cartesiano.
+        Si $x\in B$, la única forma en que $(x,y)$ pertenece a $A\times A$ pero no a $B\times B$ es que $y\notin B$. Por lo tanto, $(x,y)\in [A\times (A-B)]$, ya que $x\in A$ e $y\in A-B$.
+        En ambos casos, hemos demostrado que $(x,y)\in [(A-B)\times A]\cup [A\times (A-B)]$.
+
+        \noindent Luego, probemos que $A\times A-B\times B\supseteq [(A-B)\times A]\cup [A\times (A-B)]$.\\
+
+        \noindent Si $(x,y)\in (A-B)\times A$, entonces $x\in A$ pero $x\in B$ por definición de diferencia. Por lo tanto, $y$ puede pertenecer a cualquier elemento de $A$ porque $(x,y)$ no pertenece a $B\times B$.
+        Si $(x,y)\in A\times (A-B)$, entonces $y\in A-B$. Por lo tanto, $x$ puede pertenecer a cualquier elemento de $A$ porque $(x,y)$ no pertenece a $B\times B$.
+        En ambos casos, demostramos que $(x,y)\in [(A-B)\times A]\cup [A\times (A-B)]$. Como ya demostramos que $A\times A-B\times B\subseteq [(A-B)\times A]\cup [A\times (A-B)]$, entonces por definición de igualdad de conjuntos podemos concluir que $A\times A-B\times B = [(A-B)\times A]\cup [A\times (A-B)]$.
+    \section{Ejercicio 3.4.6}
+        Sean $\mathcal{A}$ una familia no vacía de conjuntos y $B$ un conjunto.\\
+        (1) Demostrar que $\left(\bigcup_{X \in \mathcal{A}} X\right)-B=\bigcup_{X \in \mathcal{A}}(X-B)$.\\
+        (2) Demostrar que $\left(\bigcap_{X \in \mathcal{A}} X\right)-B=\bigcap_{X \in \mathcal{A}}(X-B)$.\\
+
+        \noindent $\left(\bigcup_{X \in \mathcal{A}} X\right)-B=\bigcup_{X \in \mathcal{A}}(X-B)$. \textit{Demostración}. Sea $a \in \left(\bigcup_{X \in \mathcal{A}} X\right)-B$, luego $a \in \bigcup_{X \in \mathcal{A}} X$ y $a \not \in B$. Así $a \in Y$ para algún $Y \in \mathcal{A}$, luego $a \in Y - B$. De esta manera $a \in \bigcup_{X \in \mathcal{A}}(X-B)$, por lo tanto $\left(\bigcup_{X \in \mathcal{A}} X\right)-B=\bigcup_{X \in \mathcal{A}}(X-B)$.\\
+
+        \noindent $\left(\bigcap_{X \in \mathcal{A}} X\right)-B=\bigcap_{X \in \mathcal{A}}(X-B)$. \textit{Demostración}. De manera similar a como hicimos con la unión. Sea $a \in \left(\bigcap_{X \in \mathcal{A}} X\right)-B$, luego $a \in \bigcap_{X \in \mathcal{A}} X$ y $a \not \in B$. Así $a \in Y$ para todo $Y \in \mathcal{A}$, luego $a \in Y - B$. De esta manera $a \in \bigcap_{X \in \mathcal{A}}(X-B)$, por lo tanto $\left(\bigcap_{X \in \mathcal{A}} X\right)-B=\bigcap_{X \in \mathcal{A}}(X-B)$.
+
+    \section{Ejercicio 4.1.8}
+
+    A es un conjunto y B$\subseteq$A y existe la función \\$\chi B$: A → $\lbrace${0,1}$\rbrace$ \\a $\rightarrow$ $\left\{ \begin{array}{lcc}
+        0 &   si &  a \notin D \\
+        \\ 1 &  si & a \in D \\
+        \end{array}
+    \right.$\\
+
+    Probar que $\chi B$= $\chi C$ $\leftrightarrow$ B=C\\
+
+    \noindent Dem $\leftarrow$: Suponga que B=C por definición de igualdad B$\subseteq$C y C$\subseteq$B, luego $(\forall a \in A)(a\in B \leftrightarrow a \in C) (\forall a \in A)$, entonces por definición de la función $\chi B$(a)= 1 Sii  $\chi C$(a)=1, por lo tanto $(\forall a \in A)(\chi B(a)= \chi C(a))$ lo que implica que $\chi B$= $\chi C$\\
+
+    \noindent Dem $\rightarrow$:Suponga que $\chi B$= $\chi C$, entonces para cualquier y, y $\in$X,luego $\chi B(y)$= $\chi C(y)$ por definición de función, como $\chi B(y)$= $\chi C(y)$ entonces ambas son 1 o son 0. Si $\chi B(y)$= $\chi C(y)$= 1, entonces y $\in$ A e y $\in$ B, lo que implica que A = B, Si $\chi B(y)$= $\chi C(y)$= 0 entonces y$\notin$A e y$\notin$B, luego por definición de diferencia se puede decir que y$\in$ X-A e y$\in$ X-B, por tanto \\ $A=X-(X-A)=X-(X-B)=B$ sin embargo, esta última no puede ser verdadera ya que X es un conjunto no vacío y A y B son subconjuntos no vacíos de X. Por lo tanto, debemos tener A = B, luego como se han demostrado amabas implicaciones pondemos conliuir que $\chi B$= $\chi C$ $\leftrightarrow$ B=C
+    \section{Ejercicio 4.2.15}
+
+        Sea $A$ un conjunto no vacío, y sea $g: \mathscr{P}(A) \rightarrow \mathscr{P}(A)$ una función. La función $g$ es monótona si $X \subseteq Y$ implica $g(X) \subseteq g(Y)$ para todo $X, Y \in \mathscr{P}(A)$. Supongamos que $g$ es monótona.\\
+
+        \noindent (1) Sea $\mathcal{D}$ una familia de subconjuntos de $A$. Demuestra que $g\left(\bigcap_{X \in \mathcal{D}} X\right) \subseteq \bigcap_{X \in \mathcal{D}} g(X)$.
+
+        \noindent (2) Demuestra que existe algún $T \in \mathscr{P}(A)$ tal que $g(T)=T$. A dicho elemento $T$ se le llama un punto fijo de $g$. Usa la Parte (1) de este ejercicio.\\
+
+        \textit{Demostración}.\\
+        (1) Queremos demostrar que $g\left(\bigcap_{X \in \mathcal{D}} X\right) \subseteq \bigcap_{X \in \mathcal{D}} g(X)$.
+        Sea $y \in g\left(\bigcap_{X \in \mathcal{D}} X\right)$. Entonces existe $x \in \bigcap_{X \in \mathcal{D}} X$ tal que $y=g(x)$.
+        Como $x \in \bigcap_{X \in \mathcal{D}} X$, tenemos que $x \in X$ para todo $X \in \mathcal{D}$.
+        Por lo tanto, $g(x) \in g(X)$ para todo $X \in \mathcal{D}$, ya que $g$ es monotona. Esto implica que $y=g(x) \in g(X)$ para todo $X \in \mathcal{D}$, lo que significa que $y \in \bigcap_{X \in \mathcal{D}} g(X)$.\\
+
+        \noindent (2) Consideremos el conjunto $T = \bigcap {X \in \mathcal{P}(A) : g(X) \subseteq X}$. Como $\mathcal{P}(A)$ no es vacío, este conjunto está bien definido.
+        Queremos mostrar que $g(T) = T$.
+        Primero, demostraremos que $g(T) \subseteq T$. Sea $y \in g(T)$. Entonces existe $x \in T$ tal que $y = g(x)$.
+        Como $x \in T$, tenemos que $x \in X$ para todo $X \in \mathcal{P}(A)$ tal que $g(X) \subseteq X$.
+        En particular, $x \in T$, por lo que $y=g(x) \in T$, lo que implica que $g(T) \subseteq T$.
+        Luego, demostraremos que $T \subseteq g(T)$. Sea $x \in T$. Queremos demostrar que $x \in g(T)$, es decir, que existe $y \in T$ tal que $x=g(y)$.
+        Como $x \in T$, tenemos que $x \in X$ para todo $X \in \mathcal{P}(A)$ tal que $g(X) \subseteq X$.
+        En particular, $x \in g({x})$, por lo que $g({x}) \subseteq X$ para todo $X \in \mathcal{P}(A)$ tal que $g(X) \subseteq X$.
+        Por lo tanto, ${x} \subseteq T$, lo que implica que $x \in g(T)$.
+        Por lo tanto, hemos demostrado que $T \subseteq g(T)$.
+        Combinando las dos inclusiones, obtenemos $g(T) = T$, lo que significa que $T$ es un punto fijo de $g$.
+
+    \section{Ejercicio 4.3.10}
+
+    \noindent Sean A y B conjuntos, y sea $\emph{f}$ : A → B una función. Demostrar que si $\emph{f}$ 
+    tiene dos inversos distintos a la izquierda entonces no tiene inverso a la derecha, y que si $\emph{f}$  tiene dos inversos distintos a la derecha entonces no tiene inverso a la izquierda.
+    inversos a la derecha, entonces no tiene inverso a la izquierda.
+
+    \noindent Dem por contradicción: Sean $g_1, g_2$ B → A tal que $g_1 \neq g_2$ y  $g_1 \circ f= g_2 \circ f=idA$, entonces $\emph{f}$ tiene inversa, si $\emph{f}$  tiene inversa, existe h $\circ$ f=idA y f $\circ$ h= idB de manera que:\\ $(g_1 \circ f) \circ h$= $(g_2 \circ f) \circ h$\\ $g_1 \circ (f \circ h)$= $g_2 \circ (f \circ h)$ \\ $g_1 \circ idB=g_2 \circ idB$\\ $g_1=g_2$ y esto lleva a una contradicción ya que se tenia dicho que $g_1 \neq g_2$. \\
+
+    \noindent De manera similar suponga que $\emph{f}$  tiene dos inversos a derecha $h_1, h_2$ de manera que $h_1 \neq h_2$ y  $h_1 \circ f= h_2 \circ f=idB$, entonces $\emph{f}$ tiene inversa a izquiera, si $\emph{f}$  tiene inversa, existe h $\circ$ f=idA y f $\circ$ h= idB de manera que:\\ $(h_1 \circ f) \circ g$= $(h_2 \circ f) \circ g$\\ $h_1 \circ (f \circ g)$= $h_2 \circ (f \circ g)$ \\ $h_1 \circ idB=h_2 \circ idB$\\ $h_1=h_2$ y esto lleva a una contradicción ya que se tenia dicho que $h_1 \neq h_2$. \\
+    \section{Ejercicio 4.4.17}
+
+        Sean $A$ y $B$ conjuntos, y sea $f: A \rightarrow B$ una función. Demuestra que $f$ es sobreyectiva si y solo si $B-f(X) \subseteq f(A-X)$ para todo $X \subseteq A$.\\\\
+        \noindent \textit{Demostración}.\\
+        Empecemos demostrando que $B-f(X) \subseteq f(A-X)$ implica que $f$ es sobreyectiva. Sea $b \in B$ luego $b \in B - f(X)$ para algún $X \subseteq A$. Sabemos que $B-f(X) \subseteq f(A-X)$, así $b \in f(A - X)$ esto por definición de subconjunto, con esto podemos concluir que $b = f(a)$ para algún $a \in A$ y $a \not \in X$. Se sobreentiende  que $b = f(x)$ para algún $x \in X$ cuando $b \in f(X)$.\\\\
+
+        \noindent Concluyamos la demostración con el caso en el que cuando $f$ es sobreyectiva $B-f(X) \subseteq f(A-X)$ para algún $X \subseteq A$ se cumple. Sabemos que $B = f(A)$ recordemos que $A$ y $B$ son el dominio y codominio de $f$ respectivamente. Luego sea $a \in A$ y  sea $b \in B - f(X)$ para todo $X \subseteq A$. Así $b = f(a)$ para algún $a \in A$ y $a \not \in X$, esto por definición de diferencia de conjuntos e imagen de un conjunto sobre una función. Así tenemos que $b \in f(A-X)$.
+
+    \section{Ejercicio 5.1.7}
+
+    Sea A un conjunto, y piense que $\subseteq$ define una relación sobre $\emph{P}$(A), Sea A un conjunto. El símbolo $"\subseteq"$ representa una relación sobre $\emph{P}$(A), donde P,Q $\in \emph{P}$(A) están relacionados si y sólo si P$\subseteq$Q. Es esta relación reflexiva, simétrica y/o transitiva?
+
+Para la relación $"\subseteq"$  en el conjunto  $\emph{P}$(A) de un conjunto A, se puede demostrar que:
+
+\begin{itemize}
+\item Es reflexiva, ya que cualquier conjunto P es un subconjunto de sí mismo , y por lo tanto P$\subseteq$P para cualquier P $\in \emph{P}$(A).
+    \item No es simétrica, ya que si P$\subseteq$Q, no necesariamente se cumple que Q$\subseteq$P. Un contraejemplo sencillo es tener P = {1,2} y \\ Q = {1,2,3}. En este caso, se tiene que P$\subseteq$Q, pero no se cumple que Q$\subseteq$P.
+    \item Es transitiva, ya que si P$\subseteq$Q y Q$\subseteq$R, entonces por definición todo elemento de P es también un elemento de Q, y todo elemento de Q es también un elemento de R. Por lo tanto, todo elemento de P también es un elemento de R, y se cumple que P$\subseteq$R para cualquier P,Q,R$\in$ $\emph{P}$(A).
+   Entonces, la relación "$\subseteq$" es reflexiva y transitiva, pero no es simétrica.
+
+
+\end{itemize}
+
+
+
+Entonces, la relación $"\subseteq"$ es reflexiva y transitiva, pero no es simétrica.
+    \section{Ejercicio 5.2.8}
+        \textit{Teorema 1}. Sea $n \in \mathbb{N}$.
+        $[0] \cup [1] \cup \ldots \cup [n-1] = \mathbb{Z}$\\
+
+        \noindent Sea $n \in \mathbb{Z}$. Demuestra que $n^3 \equiv n\mod 6$. \textit{Demostración}. Por \textit{Teorema 1} sabemos que o $n^3 \equiv 0 \mod 6$ o $n^3 \equiv 1 \mod 6$ o ... o $n^3 \equiv 5 \mod 6$. Así
+        \[
+            0^3 \equiv 0 \equiv 0 \mod 6
+        \]
+        \[
+            1^3 \equiv 1 \equiv 1 \mod 6
+        \]
+        \[
+            2^3 \equiv 8 \equiv 2 \mod 6
+        \]
+        \[
+            3^3 \equiv 27 \equiv 3 \mod 6
+        \]
+        \[
+            4^3 \equiv 64 \equiv 4 \mod 6
+        \]
+        \[
+            5^3 \equiv 125 \equiv 5 \mod 6
+        \]
+\end{document}

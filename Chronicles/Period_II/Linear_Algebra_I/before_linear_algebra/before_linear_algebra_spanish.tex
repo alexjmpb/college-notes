@@ -1,0 +1,183 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\input{boxes.tex}
+\setlength{\parindent}{0pt}
+\input{setup.tex}
+
+\begin{document}
+\coverPage{Matemáticas}{Álgebra Lineal I}{Prefacio al Curso de Álgebra Lineal}{ }{Alexander Mendoza}{\today}
+
+\chapter*{Prólogo}
+
+\tableofcontents
+
+\pagebreak
+\chapter{Revisitando Álgebra}
+
+Muchas teorías matemáticas se basan en conceptos previos para ser construidas, y el Álgebra Lineal no es la excepción. Por eso, comenzamos el curso revisando un concepto que debería ser muy familiar, como el álgebra. Empecemos jugando con operaciones.
+
+\section{Operaciones}
+
+¿Qué es una operación? Bueno, una operación definida en un conjunto no vacío $A$ es una función que toma dos o más elementos del conjunto $A$ y devuelve un solo elemento del mismo conjunto $A$. Piensa en ello como una máquina que toma dos o más entradas y devuelve una única salida. Por ahora, nos vamos a centrar en un tipo particular de operación, llamada operación binaria. Como habrás imaginado, la operación binaria toma dos entradas y devuelve una única salida. Ahora que tenemos una idea intuitiva de qué es una operación binaria, definámosla correctamente:\\
+
+\begin{defBox}
+    \textbf{Operación Binaria.} Sea $A$ un conjunto, una operación binaria $\oplus$ sobre $A$ está definida como una función $\oplus: A\times A \rightarrow A$.
+\end{defBox}
+
+Podemos intentar definir nuestra propia operación de la siguiente manera. Primero, definimos el conjunto en el que vivirá nuestra operación, tomemos, por ejemplo, $\mathbb{Z}$. Luego definimos la operación y los criterios para generar la salida basada en la entrada, sea $\oplus: \mathbb{Z} \times \mathbb{Z} \rightarrow \mathbb{Z}$ tal que para todo $x, y \in \mathbb{R}$:
+
+$$x \oplus y = x + y + 2$$
+
+Ahora podemos intentar probar propiedades para esta operación. Por lo general, la primera propiedad que se analiza es la propiedad asociativa. Esto se debe a que la propiedad asociativa nos da flexibilidad al operar con operaciones encadenadas.
+
+\subsection*{Propiedad Asociativa}
+
+Sean $x, y, z \in \mathbb{Z}$,
+
+$$(x\oplus y) \oplus z = x \oplus (y \oplus z)$$
+
+\textit{\textbf{Demostración.}} Para la demostración, vamos a utilizar las propiedades de la suma en los enteros, ya que nuestra operación está definida en la suma mencionada.
+
+\begin{align*}
+    (x\oplus y) \oplus z &= (x + y + 2) + z + 2 &&\text{Definición de la operación } \oplus\\
+    &= x + y + z + 2 + 2 &&\text{Propiedad conmutativa de la suma}\\
+    &= x + (y + z + 2) + 2 &&\text{Propiedad asociativa de la suma}\\
+    &= x \oplus (y \oplus z) &&\text{Definición de la operación } \oplus\\
+\end{align*}
+
+Por lo tanto, la operación $\oplus$ es asociativa.
+
+\subsection*{Propiedad Conmutativa}
+
+Sean $x, y \in \mathbb{Z}$,
+
+$$x\oplus y = y \oplus x $$
+
+\textit{\textbf{Demostración.}} La prueba será similar a la prueba de la propiedad asociativa, utilizaremos las propiedades ya definidas de la suma.
+
+\begin{align*}
+    x\oplus y &= x + y + 2 &&\text{Definición de la operación } \oplus\\
+    &= y + x + 2 &&\text{Propiedad conmutativa de la suma}\\
+    &= x \oplus y &&\text{Definición de la operación } \oplus\\
+\end{align*}
+
+Por lo tanto, la operación $\oplus$ es conmutativa.
+
+\subsection*{Elemento Identidad o Neutro}
+
+Sea $x \in \mathbb{Z}$,
+
+$$x\oplus -2 = x $$
+
+\textit{\textbf{Demostración.}} Al igual que con las pruebas anteriores, continuaremos utilizando las propiedades de la suma.
+
+\begin{align*}
+    x\oplus id &= x &&\text{Hipótesis}\\
+    x + id + 2 &= x &&\text{Definición de la operación } \oplus\\
+    id &= -2  &&\text{Propiedades de igualdad}\\
+\end{align*}
+
+\subsection*{Elemento Inverso}
+
+Sea $x \in \mathbb{Z}$,
+
+$$x\oplus x^{-1} = -2 $$
+
+\textit{\textbf{Demostración.}}
+
+\begin{align*}
+    x\oplus x^{-1} &= -2 &&\text{Hipótesis}\\
+    x + x^{-1} + 2 &= -2 &&\text{Definición de la operación } \oplus\\
+    x^{-1} &= -x -4  &&\text{Propiedades de igualdad}\\
+\end{align*}
+
+Ahora veremos operaciones entre clases de equivalencia, pero primero, tenemos que estudiar las clases de equivalencia.
+
+\section{Relaciones de Equivalencia}
+
+En matemáticas, podemos pensar en una relación entre dos cosas como si tuvieran algo en común, entonces están relacionadas. Toma, por ejemplo, la relación que asigna a cada niño su madre; esta relación se puede definir en el conjunto de todas las personas, y luego cada persona en ese conjunto estará relacionada con su madre. Más formalmente, una relación en un conjunto $A$ se puede definir como un subconjunto de $A \times A$, por lo que si $a, b \in A$, se dice que $a$ está relacionado con $b$ si el par ordenado $(a,b) \in A\times A$. Con estas ideas, definamos correctamente qué es una relación.\\
+
+\begin{defBox}
+    \textit{\textbf{Relación.}} Sean $A$ y $B$ conjuntos no vacíos. Una relación $R$ de $A$ a $B$ es un subconjunto $R\subseteq A\times B$. Si $a \in A$ y $b \in B$, escribimos $a R b$ si $(a,b) \in R$ y $a \not R b$ si $(a
+
+,b) \not \in R$. Una relación en $A$ es una relación de $A$ a $A$.
+\end{defBox}
+
+Las relaciones tienen varias propiedades, como la reflexividad, que es cuando un elemento se relaciona consigo mismo. Existen tipos especiales de relaciones, uno de ellos es la relación de equivalencia, cuya definición es la siguiente.
+
+Sea $A$ un conjunto y $\sim$ una relación en $A$. La relación $\sim$ se dice que es una relación de equivalencia si cumple las siguientes propiedades:
+
+\begin{itemize}
+    \item Reflexividad: $\sim$ es reflexiva si $a \sim a$.
+    \item Simetría: $\sim$ es simétrica si $a \sim b$ entonces $b \sim a$.
+    \item Transitividad: $\sim$ es transitiva si $a \sim b$ y $b \sim c$, entonces $a \sim c$.
+\end{itemize}
+
+Un ejemplo de una relación de equivalencia sería la relación de igualdad en los números reales, puedes verificar que cumple todas las propiedades necesarias. Una relación de equivalencia "particiona" el conjunto en el cual está definida, por partición nos referimos a que divide el conjunto en otros conjuntos llamados clases de partición o clases de equivalencia. Más formalmente, la definición de clases de equivalencia es la siguiente:
+
+\begin{defBox}
+    \textit{\textbf{Clase de Equivalencia.}} Sea $A$ un conjunto no vacío y $\sim$ una relación de equivalencia en $A$. La clase de equivalencia de $x$ con respecto a $\sim$, se escribe como $[x]$, y se define de la siguiente manera: $[x] = \{y \in A | x \sim y\}$ para todo $y$ en $A$.
+\end{defBox}
+
+Un teorema muy importante de las clases de equivalencia es el siguiente:
+
+\begin{thBox}
+    Sea $A$ un conjunto no vacío, y sea $\sim$ una relación de equivalencia en $A$.
+
+    \begin{enumerate}
+        \item Si $x, y \in A$. Si $x\sim y$, entonces $[x] = [y]$. Si $x \not \sim y$, entonces $[x] \cap [y] = \emptyset$.
+        \item $\bigcup_{x\in A}[x] = A$.
+    \end{enumerate}
+\end{thBox}
+
+Como era de esperar, cuando unimos todas las clases de equivalencia de un conjunto, obtenemos el conjunto completo. El conjunto que contiene todas las clases de equivalencia de un conjunto $A$ se llama el conjunto cociente de $A$ y se escribe como $A/\sim$.
+
+Ahora que conocemos lo necesario, juguemos con relaciones de equivalencia y operaciones.
+
+Sea $\sim$ una relación en $\mathbb{Z}$ tal que $a \sim b$ si y solo si $5|b-a$.
+
+Veamos si $\sim$ es una relación de equivalencia demostrando la reflexividad, simetría y transitividad.
+
+Reflexividad. $a \sim a$ para todo $a \in \mathbb{Z}$.
+
+\textit{\textbf{Demostración.}} Sea $a \in \mathbb{Z}$, entonces
+
+\begin{align*}
+    a \sim a &= 5|a-a\\
+    &= 5|0
+\end{align*}
+
+Esto significa que existe $n \in \mathbb{Z}$ tal que
+
+\begin{align*}
+    5n &= 0\\
+    5\cdot 0 &= 0
+\end{align*}
+
+Por lo tanto, la relación es reflexiva.
+
+\section{Estructuras Algebraicas}
+
+Ahora que tenemos los conceptos de relaciones y operaciones claros, podemos definir lo que llamamos estructuras algebraicas. Una estructura algebraica consiste en un conjunto no vacío $A$, una colección de operaciones en $A$ y un conjunto finito de identidades, conocidas como axiomas, que estas operaciones deben cumplir. Como ejemplo, toma los números enteros. Los números enteros son un conjunto que tiene dos operaciones binarias (suma y multiplicación) con ciertos axiomas. Existen muchas estructuras algebraicas, comenzaremos estudiando las más importantes.
+
+\begin{defBox}
+    \textit{\textbf{Semigrupo.}} Un semigrupo es un conjunto $G$ junto con una operación binaria $\cdot$ que satisface la propiedad asociativa.
+\end{defBox}
+
+\begin{defBox}
+    \textit{\textbf{Monoide.}} Un monoide es un semigrupo que tiene un elemento identidad.
+\end{defBox}
+
+\begin{defBox}
+    \textit{\textbf{Grupo.}} Un grupo es un monoide con una operación unaria (inverso).
+\end{defBox}
+
+\begin{defBox}
+    \textit{\textbf{Grupo Abeliano.}} Un grupo Abeliano es un grupo cuya operación binaria es conmutativa.
+\end{defBox}
+
+\begin{defBox}
+    \textit{\textbf{Campo.}} Un campo es un conjunto $F$ junto con dos operaciones binarias en $F$ llamadas suma y multiplicación. Cada una de estas operaciones, junto con $F$, forma un grupo Abeliano, y la multiplicación es distributiva respecto a la suma.
+\end{defBox}
+\end{document}

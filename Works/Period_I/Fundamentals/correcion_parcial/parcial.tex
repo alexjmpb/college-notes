@@ -1,0 +1,65 @@
+\documentclass{report}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Fundamentos Matemáticos }{ Corrección Parcial }{   }{ Alexander Mendoza }{\today}
+    \tableofcontents
+    \setlength{\parindent}{0pt}
+    \pagebreak
+    \chapter{ Corrección Parcial }
+        \section*{1}
+            Defina los siguientes términos:
+            \begin{itemize}
+                \item Función: Es un subconjunto $F$ del producto cartesiano $A \times B$ de dos conjuntos $A$ y $B$, denotado como $f: A \rightarrow B$, tal que para cada elemento $a$ en $A$, existe uno y solo un elemento $b$ en $B$ tal que el par ordenado $(a, b)$ está en $F$. El conjunto $A$ se llama el dominio de la función $f$, y el conjunto $B$ se llama el codominio de $f$. En otras palabras, una función asigna a cada elemento de su dominio un único elemento en su codominio. Una función está completamente determinada por su dominio, codominio y el conjunto de pares ordenados que satisfacen la condición de definición.
+                \item Imagen directa: Dada una función $f: A \rightarrow B$ y un subconjunto $E$ de $A$, la imagen directa de $E$ por $f$ se define como el conjunto de todos los elementos de $B$ que son imágenes de algún elemento en $E$ bajo $f$. Es decir, la imagen directa de $E$ por $f$ se denota por $f(E)$ y se define como:
+                $$f(E) = \{y \in B | \exists x \in E, f(x) = y\}$$
+                \item Partición: Una partición de un conjunto no vacío $A$ es una familia $D$ de subconjuntos no vacíos de $A$ tal que:
+
+                \begin{enumerate}
+                    \item Para cualquier dos subconjuntos distintos $P,Q \in D$, tenemos $P \cap Q = \emptyset$, es decir, $P$ y $Q$ son disjuntos.
+                    \item La unión de todos los subconjuntos en $D$ es igual a $A$, es decir,
+                \end{enumerate}
+
+                $$
+                \bigcup_{P \in D} P = A
+                $$
+
+                En otras palabras, una partición de un conjunto $A$ es una forma de dividir $A$ en subconjuntos no vacíos de tal manera que cada elemento de $A$ pertenece exactamente a uno de esos subconjuntos, y ningún par de subconjuntos tiene elementos en común.
+                \item Elemento Maximal: Un elemento $a$ en un poset $(A, \preceq)$ es un elemento maximal si no existe un elemento $x \in A$ tal que $a \preceq x$ y $a \neq x$. En otras palabras, no hay un elemento mayor que $a$ en el poset, excepto posiblemente $a$ mismo.
+            \end{itemize}
+        \section*{2}Sea $f: A \rightarrow B$ una función de $A$ en $B$. Sea $I$ un conjunto no vacio y $\{C_i\}_{i \in I}$ una familia de subconjuntos de $A$. Pruebe que $f(\bigcap_{i \in I}{C_i}) \subseteq \bigcap_{i \in I}{f(C_i)}$ ¿Se tiene la contenencia recíproca? En caso afirmativo, demuéstrelo, en caso contrario, muestre un contraejemplo.\\
+
+        Sea $x \in f(\bigcap_{i \in I}{C_i})$. Luego existe $y \in \bigcap_{i \in I}C_i$ tal que $f(y) = x$. Así $y \in C_i$ para todo $C_i$, luego $f(y) \in f(C_i)$ para todo $C_i$. Por lo tanto $f(y) \in \bigcap_{i \in I}C_i$.\\
+
+        Por otro lado, consideremos la función $f: \mathbb{R} \to \mathbb{R}$ definida por $f(x) = x^2$ y los conjuntos $C_1 = (-1,0)$ y $C_2 = (0,1)$ de $\mathbb{R}$. Podemos ver que $\bigcap_{i \in I} C_i = {0}$. Sin embargo, $f(\bigcap_{i \in I} C_i) = f({0}) = {0}$. Por otro lado, $f(C_1) = f((-1,0)) = [0,1)$ y $f(C_2) = f((0,1)) = [0,1)$. Entonces, $\bigcap_{i \in I} f(C_i) = [0,1)$.\\
+
+        Por lo tanto, se tiene que $f(\bigcap_{i \in I} C_i) = {0} \nsubseteq [0,1) = \bigcap_{i \in I} f(C_i)$. Con este contraejemplo se muestra que la contenencia no es recíproca.
+
+        \section*{3}Para los siguientes items, responda si es falso o verdadero, si es falso muestre un contraejemplo, si es verdadero realice una demostración.
+        \begin{itemize}
+            \item En una relación de equivalencia, todas las clases de equivalencia son equipotentes.
+
+                Falso. No necesariamente todas las clases de equivalencia son equipotentes, sea $A = \{x, y, z\}$. La relación de equivalencia $E$ está dada por la partición $\{\{x,y\},\{z\}\}$. Entonces, la primera clase tiene 2 elementos, mientras que la segunda tiene 1. Por lo tanto no son equipotentes.
+            \item Sea $f: A \rightarrow B$ una función de $A$ en $B$, suponga que $f$ tiene inversa a derecha $g: B \rightarrow A$ y a izquierda $h: B \rightarrow A$, entonces $h=g$ y $f$ es biyectiva.
+
+                Verdadero. Sabemos que si $f$ teine inversa a izquierda y a derecha, $f$ tiene inversa y que $f^{-1}$ is igual a inversa a izquierda y a derecha. Por transitividad de igualdad $h = g $, luego como $f$ tiene inversa, $f$ es biyectiva.
+        \end{itemize}
+        \section*{4}Sea $f: A \rightarrow B$ una función de $A$ en $B$ sobreyectiva, muestre que existe un conjunto $C$ y funciones $\gamma: A \rightarrow C$ sobreyectiva y $g: C \rightarrow B$ biyectiva tales que $f=g \circ \gamma$.\\
+
+        Ayuda: Considere $C=\{f^{-1}(b) | b \in B\}$ ¿Cómo definiría $\gamma$ y $g$ para que se cumplan las condiciones pedidas?\\
+
+        Sea $C=\{f^{-1}(b) | b \in B\}$, luego Definamos la función $\gamma: A \rightarrow C$ como $\gamma(a)=f^{-1}(f(a))$, es decir, $\gamma(a)$ es la preimagen de $f(a)$ a través de $f$. Es fácil ver que $\gamma$ es sobreyectiva, ya que para cada $c \in C$, podemos encontrar un elemento $a \in A$ tal que $\gamma(a)=c$. De hecho, si $c=f^{-1}(b)$ para algún $b \in B$, entonces como $f$ es sobreyectiva, existe $a \in A$ tal que $f(a)=b$, y por lo tanto $\gamma(a)=f^{-1}(f(a))=f^{-1}(b)=c$.
+
+        Ahora definamos la función $g: C \rightarrow B$ como $g(c)=f(c)$, es decir, $g(c)$ es la imagen de $c$ a través de $f$. Observemos que $g$ está bien definida, ya que si $c \in C$, entonces $c=f^{-1}(b)$ para algún $b \in B$, y como $f$ es sobreyectiva, existe al menos un elemento $a \in A$ tal que $f(a)=b$, por lo que $f(c)=f(f^{-1}(b))=b$.
+        \section*{5}Sea $(C, \preceq)$ un conjunto ordenado con la siguiente propiedad: Todo subconjunto $A \subseteq C$ no vacío y acotado superiormente tiene supremo. Sean $A_n=[a_n, b_n]$ una sucesión de intervalos encajados en $C$, esto es, si $n<m$ entonces $A_m \subseteq A_n$, pruebe que $\bigcap_{n \in \mathbb{N}} A_n \neq \emptyset$.\\
+        Ayuda: Sean $D=\{a_n | n \in \mathbb{N}\}$ y $B=\{b_n | n \in \mathbb{N}\}$ ¿Cómo se relacionan los elementos $B$ con los elementos de $D$? ¿D tiene supremo? ¿B tiene ínfimo? ¿Cómo estás preguntas le ayudan a resolver el ejercicio?
+
+            Sean $D = { a_n | n \in \mathbb{N}}$ y $B = { b_n | n \in \mathbb{N}}$. Luego, por la propiedad dada del conjunto ordenado $(C, \preceq)$, sabemos que $D$ tiene supremo y $B$ tiene ínfimo. Denotemos al supremo de $D$ como $S_D$ y al ínfimo de $B$ como $I_B$. Queremos demostrar que $\bigcap_{n \in \mathbb{N}} A_n \neq \emptyset$.
+
+            Consideremos el intervalo $[S_D, I_B]$.
+
+            Demostremos que $[S_D, I_B] \subseteq \bigcap_{n \in \mathbb{N}} A_n$. Sea $x \in [S_D, I_B]$. Entonces, $a_n \leq S_D \leq x \leq I_B \leq b_n$ para todo $n \in \mathbb{N}$. Esto significa que $x$ es un elemento común a todos los intervalos $A_n$, lo que implica que $x \in \bigcap_{n \in \mathbb{N}} A_n$. En otras palabras, cualquier elemento en el intervalo $[S_D, I_B]$ también es un elemento del conjunto intersección $\bigcap_{n \in \mathbb{N}} A_n$. Por lo tanto, $[S_D, I_B] \subseteq \bigcap_{n \in \mathbb{N}} A_n$. Como $[S_D, I_B]$ es no vacío, ya que de lo contrario implicaría que $S_D > I_B$ generando una contradicción, concluimos que $\bigcap_{n \in \mathbb{N}} A_n \neq \emptyset$.
+
+            La ayuda nos facilita a resolver el ejercicio ya que nos da pistas de cómo construir una base en la dirección correcta para determinar la conclusión, en partícular nos ayuda a determinar el supremo e ínfimo de los conjuntos para encontrar un intervalo que esté entre todos los intervalos. Además tenemos que todos los elementos de $D$ son menores que todos los elementos de $B$. 
+\end{document}

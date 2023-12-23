@@ -1,0 +1,140 @@
+\documentclass{report}
+
+\input{boxes.tex}
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Mathematics Fundamentals }{ Logic }{ Logic }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Logic }
+    \section{What is logic?}
+    Logic is the set of tools used to construct rigorous and correct proofs. Logic is an ancient discipline that many thinkers have developed throughout history that has served as an analysis of correct argumentation. Additionally, logic is strongly linked with philosophy. Mathematicians have developed a mathematical way of doing logic. It is important to note that overemphasizing the use of formal logic in mathematics should be avoided. In fact, outside the field of mathematical logic, informal logic is mostly used as a form of argumentation.
+
+    \subsection{Formal Logic vs. Informal Logic}
+        Formal logic is a subfield of mathematics that focuses on the study of the structure of arguments, rather than their content. On the other hand, informal logic focuses more on the content of argumentation, that is, those arguments that are used in everyday life. Informal logic is not a subfield of mathematics, but can be seen as a complement since it helps us understand the reasoning used in mathematical arguments such as proofs.
+
+        Formal logic is used to express the structure behind mathematical arguments and ensure that the reasoning used is correct.
+
+\section{Statements}
+    When we do proofs in mathematics, we are demonstrating the truthfulness of certain propositions. Although it is beyond our reach to give a rigorous definition of the concept of proposition, we can work with the idea that it is anything to which we can assign a truth value, either true or false.
+
+\section{Connectors}
+    We can construct new propositions by connecting them together using the following connectors.
+    \subsubsection{Main Connectors}
+        $\lor, \land, \neg, \rightarrow$. The minimum number of connectors are two: $\lor \neg$. With these, we can construct other connectors.
+
+    \subsection{Conjunction (and)}
+        Is true when $p$ and $q$ are both true, and false when the contrary happens. It's written as $p \land q$. And the truth table goes following:
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & $p \land q$ \\ \hline
+            1 & 1 & 1                        \\ \hline
+            1 & 0 & 0                        \\ \hline
+            0 & 1 & 0                        \\ \hline
+            0 & 0 & 0                        \\ \hline
+            \end{tabular}
+        \end{table}
+
+    \subsection{Disjunction (or)}
+        Is true when one or both of $p$ and $q$ are true, and false when none are true. It's written as $p \lor q$. And the truth table goes following:
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & $p \lor q$ \\ \hline
+            1 & 1 & 1                        \\ \hline
+            1 & 0 & 1                        \\ \hline
+            0 & 1 & 1                        \\ \hline
+            0 & 0 & 0                        \\ \hline
+            \end{tabular}
+        \end{table}
+    \subsection{Negation (not)}
+        Is true when $p$ is false. It's written as $\neg p$. And the truth table goes following:
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|}
+            \hline
+            $p$ & $\neg p$ \\ \hline
+            1 & 0                        \\ \hline
+            0 & 1                        \\ \hline
+            \end{tabular}
+        \end{table}
+        \vspace{.5cm}
+
+    \subsection{Conditional (if... then...)}
+        Is true as long $p$ and $q$ are not true and false respectively. It's written as $p \rightarrow q$. And the truth table goes as following:
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & $p \rightarrow q$ \\ \hline
+            1 & 1 & 1                        \\ \hline
+            1 & 0 & 0                        \\ \hline
+            0 & 1 & 1                        \\ \hline
+            0 & 0 & 1                        \\ \hline
+            \end{tabular}
+        \end{table}
+
+        At a first glance the two first rows of the table are very intuitive. If $p$ is true, then $q$ is also true is a true statement and if $p$ is true, then $q$ is false is a false statement. But, what happens if $p$ is false? The definition of the conditional connector doesn't tell us what happens in the case that $p$ is false. That is why we say that $p \rightarrow q$ is true. It's a vacuous truth. A vacuous truth is something that it's true for missing information, for example, the proposition `All unicorns on earth have a single horn', this is assumed to be true because there are no unicorns on earth to say otherwise.
+
+    \subsection{Biconditional (if and only if)}
+        Is true if both $p$ and $q$ have the same truth values. It's written as $p \leftrightarrow q$. And the truth table goes as following:
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|c|}
+            \hline
+            $p$ & $q$ & $p \leftrightarrow q$ \\ \hline
+            1 & 1 & 1                        \\ \hline
+            1 & 0 & 0                        \\ \hline
+            0 & 1 & 0                        \\ \hline
+            0 & 0 & 1                        \\ \hline
+            \end{tabular}
+        \end{table}
+    \subsection{Operators hierarchy}
+
+        The logical operators, like other operators in math, follow a specific hierarchy to handle chained operations. The hierarchy goes as follows:
+
+            \begin{enumerate}
+                \item Negations
+                \item Implications / Equivalencies
+                \item Disjunctions / Conjunctions
+            \end{enumerate}
+
+        It's natural that any operation that is between parenthesis goes first than those that are not.
+    \subsection{Relations between statements}
+        The relations are not statement like we know them, they are more what we call "meta-statements". The meta-statements are statements of another statements. For example, if the statement "John is tall and Mary is small" is true, then the statement "John is tall" is also true.
+
+        \[p(x) = \text{John is tall.}\]
+        \[q(x) = \text{Mary is small.}\\\]
+        \[(p(x) \land q(x)) \rightarrow p(x) = s(x) \text{ is a meta-statement}\]
+
+        The two main relationships we will analyze are implications and equivalencies ($\Rightarrow$, $\Leftrightarrow$).\\
+
+        The basic idea behind the implication is that $p$ implies $q$; or that $q$ is true as long as $p$ is true, it can never be the case in where if $p$ is true, then $q$ is false. If that last case happens, then $p$ DOES NOT imply $q$.\\
+
+        We cannot intuit that $p \rightarrow q$ if we only have that both are true, but if we happen to have that $p$ is true and $q$ is false, then it's certain that $p \rightarrow q$ is false.\\
+
+        The idea behind the equivalence is that both statements $p$ and $q$ are equivalent if $p$ is true if and only if $q$ is true.
+
+    \section{Arguments}
+        \begin{defBox}
+            \textit{Tautology}. A tautology is a truth by logical necessity, no matter the truth value of the statements that construct it.
+        \end{defBox}
+        \begin{defBox}
+            \textit{Contradiction}. A contradiction, contrary to the tautology, is always false, no matter the truth value of the statements that construct it.
+        \end{defBox}
+
+        \subsection{Valid arguments}
+            Previously, the method we used to proof whether a statement was true was by making its truth table, even though this is valid, there are some problems in mathematics that involve many more variables thus requiring us to make an enormous truth table or even an infinite truth table. Here is where we can develop a new way of validating statements, the valid argumentation. An argument is composed by its premises/hypothesis and its conclusion. An argument is valid when the conclusion can be implied from the premises, that is, if we can get from the premises to the conclusion through statement relations.
+
+            If $p$ is the premise of an argument and $q$ is the conclusion, we'd have to proof that $p \rightarrow q$ is a tautology. Using the rules of inference and equivalencies we can get from $q$ to $p$.
+\end{document}

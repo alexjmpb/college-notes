@@ -1,0 +1,30 @@
+\documentclass{report}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Geometría Euclidiana }{ Examen Final }{   }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Examen Final }
+
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+        \item Sea el $\triangle A B C, D$ un punto tal que $B-D-C$ y $E$ otro punto tal que $A-E-D$. Demostrar que $m \angle A E B>m \angle A C B$.
+
+        \begin{center}
+            \includegraphics*[height=5cm]{images/figura1.png}
+        \end{center}
+        \textit{\textbf{Demostración}}. Sea el $\triangle A B C, D$ un punto tal que $B-D-C$ y $E$ otro punto tal que $A-E-D$. Luego el $\angle AEB$ es externo al $\triangle BED$, en particular $m\angle AEB > m\angle ADB$, esto por el teorema del ángulo externo. De manera similar, el $\angle ADB$ es externo al $\triangle DAC$ y en particular el $m\angle ADB > m\angle ACB$. Por transitividad, $m\angle AEB > m\angle ACB$.
+
+
+        \item El $\triangle P Q R$ es isósceles, la bisectriz de uno de los ángulos de la base, $\angle Q$, interseca al lado opuesto en un punto $S . T$ es un punto en la base $\overline{P Q}$ tal que $S T=P T$. La bisectriz del $\angle P S T$ interseca al $\overline{P Q}$ en un punto $V$. Demostrar que $\angle T S V \cong \angle R Q S$.
+
+        \begin{center}
+            \includegraphics*[height=5cm]{images/figura2.png}
+        \end{center}
+        \textit{\textbf{Demostración}}. Sea $\triangle P Q R$ un triángulo isosceles, la bisectriz de uno de los ángulos de la base, $\angle Q$, interseca al lado opuesto en un punto $S . T$ es un punto en la base $\overline{P Q}$ tal que $S T=P T$. La bisectriz del $\angle P S T$ interseca al $\overline{P Q}$ en un punto $V$. Luego como $T$ equidista de $S$ y $P$, el $\triangle SPT$ es isósceles con base $\overline{SP}$, esto por definición de triángulo isósceles. Luego $\angle TSP \cong \angle TPS$, como $S \in \overline{RP}$ y $T \in \overline{PQ}$, $\angle QPR = \angle TPS$. Luego como $\triangle QRP$ es isósceles, $\angle QPR \cong \angle PQR$, por transitividad $\angle TSP \cong \angle PQR$. De esta manera, $m\angle TSP = m\angle PQR$, como la mediatriz divide el ángulo en dos ángulos iguales tenemos que $\angle TSV \cong RQS$.
+
+    \end{enumerate}
+\end{document}

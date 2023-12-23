@@ -1,3 +1,4 @@
-relative_file=$2
+#!/bin/bash
+export RELATIVE_FILE=$2
 
-rclone copy "$1/" drive_latex: --include "${relative_file%/*}/**" --update
+rclone copy "$1/" drive_latex:${RELATIVE_FILE%/*}/  --update --exclude "build/"

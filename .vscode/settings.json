@@ -1,16 +1,12 @@
 {
     "emeraldwalk.runonsave": {
-
        "commands": [
             {
-                "match": "\\.tex$",
-                "cmd": "sh ${workspaceFolder}/sync_util/sync_on_save.sh ${workspaceFolder} ${relativeFile}",
-            },
-            {
-                "match": "\\.tex$",
-                "cmd": "sh ${workspaceFolder}/sync_util/push_with_date.sh",
+                "match": "^(?!setup\\.tex$|boxes\\.tex$).*\\.tex$",
+                "cmd": "bash ${workspaceFolder}/sync_util/main.sh ${workspaceFolder} ${fileDirname} ${relativeFile} ${file}"
             }
        ]
     },
-    "latex-workshop.latex.outDir": "%DIR%/build/"
+    "latex-workshop.latex.outDir": "%DIR%/build/",
+    "latex-workshop.latex.autoBuild.run": "never"
 }

@@ -1,0 +1,221 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Matemática Discreta }{ Taller }{  }{ Alexander Mendoza }{\today}
+
+    \begin{enumerate}
+        \item Sean $A, B$ y $C$ conjuntos. Demuestre que la contención de conjuntos es transitiva, es decir, si $A \subseteq B$ y $B \subseteq C$, entonces $A \subseteq C$.
+
+        \begin{enumerate}
+            \item Demuéstrelo de forma directa.
+
+                \textit{\textbf{Demostración}}. Sea $a \in A$, luego $a \in B$ debido a que $A \subseteq B$, de esto concluímos que $a \in C$ ya que $B \in C$, y por lo tanto $A \subseteq C$.
+
+            \item Demuéstrelo por contradicción.
+
+            \textit{\textbf{Demostración}}. Supongamos que $A \not \subseteq C$, entonces existe $a \in A$ tal que $a \not \in C$, pero como $A \subseteq B$, entonces $a \in B$ y como $B \subseteq C$, entonces $a \in C$. Con esto llegamos a una contradicción y por lo tanto $A \subseteq C$.
+
+            \item Demuéstrelo por contrarrecíproco.
+
+            \textit{\textbf{Demostración}}. Queremos demostrar que si $A \not \subseteq C$, entonces $A \not \subseteq B$ o $B \not \subseteq C$. Ahora supongamos que $A \subseteq B$ y $B \subseteq C$, luego sea $a \in A$, como $A \subseteq B$, entonces $a \in B$ y como $B \subseteq C$, $a \in C$, lo que implica que $A \subseteq C$ lo cual es una contradicción. Por lo tanto $A \not \subseteq B$ o $B \not \subseteq C$.
+        \end{enumerate}
+
+        \item Sean $a, b \in \mathbb{R}$. Emplee la demostración por casos para probar que: $|a+b|=|a|+|b|$ si y solo si $ab \geq 0$.
+
+        \textit{\textbf{Demostración}}.\\
+
+        Empecemos demostrando que $|a+b| = |a| + |b|$ implica $ab \geq 0$. Supongamos que $|a+b| = |a| + |b|$.
+
+        Ahora supongamos que $a$ es negativo y $b$ es positivo. En este caso, $|a| = -a$ y $|b| = b$, lo que implica que $|a|+|b| > |a +b$. Lo que contradice $|a+b| = |a| + |b|$, por lo tanto $a$ no puede ser negativo si $b$ es positivo. De manera similar se puede verificar para el caso en el que $b$ es negativo y $a$ es positivo.
+
+        Si $a = b = 0$ es trivial que $|a+b| = |a| + |b|$.
+
+        Si $a = 0$, entonces $|0+b| = |b| = |0| + |b|$
+
+        Del resultado anterior concluimos que como $a \geq 0$ y $b \geq 0$ y por lo tanto $ab \geq 0$.\\
+
+        Demostremos ahora el recíproco. Supongamos que $ab \geq 0$.
+
+        Sabemos que para que $ab \geq 0$ se cumpla, $a \geq 0$ y $b \geq 0$. Consideremos los siguientes casos para demostrar que $|a+b| = |a| + |b|$ se cumple.
+
+        \textit{\textbf{Caso 1}}. Si $a = b= 0$ es trivial que $|a+b| = |a| + |b|$.
+
+        \textit{\textbf{Caso 2}}. Si $a = 0$ y $b > 0$, entonces $|0+b| = |b| = |0| + |b|$. Se puede verificar de manera similar para el caso en el que $b = 0$ y $a > 0$.
+
+        \textit{\textbf{Caso 3}}. Si $a > 0$ y $b > 0$, entonces $|a| = a$ y $|b| = b$, luego $|a + b| = |a| + |b|$
+
+        \item Use inducción matemática para demostrar que:
+
+        \begin{enumerate}
+            \item $\frac{1 \cdot 3 \cdot 5 \cdot \ldots \cdot (2n-1)}{2 \cdot 4 \cdot 6 \cdot \ldots \cdot (2n)} \leq \frac{1}{\sqrt{n+1}}$ para $n \geq 1$.
+
+            \textit{\textbf{Demostración}}.
+
+            Tenemos que demostrar que $\frac{1 \cdot 3 \cdot 5 \cdot \ldots \cdot (2n-1)}{2 \cdot 4 \cdot 6 \cdot \ldots \cdot (2n)} \leq \frac{1}{\sqrt{n+1}}$ para $n \geq 1$. Consideraremos el caso base $n = 1$.
+            \begin{align*}
+                \frac{1}{2} \leq \frac{1}{\sqrt{2}}
+            \end{align*}
+
+            \textit{\textbf{Paso inductivo}}. Supongamos que $\frac{1 \cdot 3 \cdot 5 \ldots (2n-1)}{2 \cdot 4 \cdot 6 \cdot \ldots \cdot (2n)} \leq \frac{1}{\sqrt{n+1}}$. Luego sea 
+
+            \begin{align*}
+                \frac{1 \cdot 3 \cdot 5 \ldots (2n-1)}{2 \cdot 4 \cdot 6 \ldots (2n)} &\leq \frac{1}{\sqrt{n+1}}\\
+                \frac{1 \cdot 3 \cdot 5 \ldots (2n-1)}{2 \cdot 4 \cdot 6 \ldots (2n)} \cdot \frac{2n+1}{2n+2} &\leq \frac{1}{\sqrt{n+1}}\cdot \frac{2n+1}{2n+2}
+            \end{align*}
+
+            Sabemos que si $a \leq b$, entonces $ac \leq bc$ para cualquier $c \geq 0$. Si $n = 0$, entonces $\frac{2n+1}{2n+2} = \frac{1}{2} > 0$, por lo tanto $\frac{1 \cdot 3 \cdot 5 \ldots (2n-1)}{2 \cdot 4 \cdot 6 \ldots (2n)} \cdot \frac{1}{2} \leq \frac{1}{\sqrt{n+1}}\cdot \frac{1}{2}$. Luego si $n > 0$, entonces $\frac{2n+1}{2n+2} > 0$, por lo tanto $\frac{1 \cdot 3 \cdot 5 \ldots (2n-1)}{2 \cdot 4 \cdot 6 \ldots (2n)} \cdot \frac{2n+1}{2n+2} \leq \frac{1}{\sqrt{n+1}}\cdot \frac{2n+1}{2n+2}$
+
+            \item $2^{2n+1} - 9n^2 + 3n - 2$ es divisible por 54.
+
+            \textit{\textbf{Demostración}}.
+
+            Tenemos que demostrar que $54|2^{2n+1} - 9n^2 + 3n - 2$. Consideremos el caso base $n=3$.
+            \begin{align*}
+                2^{2n+1} -9(3)^2+3\cdot 3 -2 = 54
+            \end{align*}
+            $54|54$ por lo tanto la ecuación se cumple para el caso base.
+
+            \textit{\textbf{Paso inductivo}}. Supongamos que $54|2^{2n+1} - 9n^2 + 3n - 2$.
+
+            Consideremos ahora.
+
+            \begin{align*}
+                2^{2(n+1)+1} - 9(n+1)^2 + 3(n+1) - 2 &= 2^{2n+1 +2} - 9n^2 - 18n -9 + 3n+3 - 2\\
+                &= 4 \cdot 2^{2n+1} - 9n^2 - 18n -9 + 3n+3 - 2\\
+                &= (2^{2n+1} - 9n^2 +3n -2) + (3 \cdot 2^{2n+1} -18n -6)\\
+                &= (2^{2n+1} - 9n^2 +3n -2) + (6 \cdot 2^{2n} -18n -6)\\
+                &= (2^{2n+1} - 9n^2 +3n -2) + 6(2^{2n} -3n -1)
+            \end{align*}
+
+            Sabemos que $54|(2^{2n+1} - 9n^2 +3n -2)$, por lo cual para completar la demostración debemos mostrar que $9|2^{2n} -3n -1$.
+
+            Procederemos por inducción para demostrar $9|2^{2n} -3n -1$. Consideremeos primero el caso base $n=3$.
+            \begin{align*}
+                2^{2 \cdot 3} - 3 \cdot 3 - 1 = 54
+            \end{align*}
+            $9|54$ por lo tanto la ecuación se cumple para el caso base.
+
+            \textit{\textbf{Paso inductivo}}. Supongamos que $9|2^{2n} -3n -1$.
+
+            Consideremos ahora.
+
+            \begin{align*}
+                2^{2(n+1)} -3(n+1) -1 &= 2^{2n +2} -3n -3 -1\\
+                &= 4 \cdot 2^{2n} -3 -1\\
+                &= (2^{2n} -1) + (3\cdot 2^{2n} -3)\\
+                &= (2^{2n} -1) + 3(2^{2n} - 1)
+            \end{align*}
+
+            Sabemos que $9|2^{2n} -3n -1$, por lo cual para completar la demostración debemos mostrar que $3|2^{2n} - 1$.
+
+            Procederemos por inducción para demostrar $3|2^{2n} - 1$. Consideremeos primero el caso base $n=3$.
+            \begin{align*}
+                2^{2\cdot 3} -1 = 63
+            \end{align*}
+            $3|63$ por lo tanto la ecuación se cumple para el caso base.
+
+            \textit{\textbf{Paso inductivo}}. Supongamos que $3|2^{2n} - 1$.
+
+            Consideremos ahora.
+
+            \begin{align*}
+                2^{2(n+1)} - 1 &= 2^{2n+2} -1\\
+                &= 4\cdot 2^{2n} -1 \\
+                &= (2^{2n}-1) + (3\cdot 2^{2n})
+            \end{align*}
+
+            Sabemos que $3|2^{2n} - 1$ y además sabemos que $3|3\cdot 2^{2n}$. Por lo tanto $9|2^{2(n+1)} -3(n+1) -1$ y por lo tanto $54|2^{2(n+1)+1} - 9(n+1)^2 + 3(n+1)$.
+
+        \end{enumerate}
+
+        \item Sean $A, B, C$ y $D$ conjuntos. Demuestre que:
+
+        \begin{enumerate}
+            \item Si $A \subseteq B$, entonces $A \cup C \subseteq B \cup C$ para cualquier $C$.
+
+            \textit{\textbf{Demostración}}. Sea $a \in A \cup C$. Luego por definición de unión, $a \in A$ o $a \in C$. Si $a \in C$, entonces $a \in B \cup C$ lo que implica $A \cup C \subseteq B \cup C$. Por otra parte si $a \in A$, como $A \subseteq B$, entonces $a \in B$, así $a \in B \cup C$ y por lo tanto $A \cup C \subseteq B \cup C$.
+
+            \item Si $A \subseteq B$, entonces $\mathcal{P}(A) \subseteq \mathcal{P}(B)$.
+
+            \textit{\textbf{Demostración}}. Sea $a \in \mathcal{P}(A)$, luego $a \subseteq A \subseteq B$ por transitividad tenemos que $a \subseteq B$ y por definición de conjunto de partes, $a \in \mathcal{P}(B)$. Por lo tanto $\mathcal{P}(A) \subseteq \mathcal{P}(B)$.
+
+            \item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+
+            \textit{\textbf{Demostración}}. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ es equivalente al conjunto $\{x |x\in A  \lor (x\in B \land x\in C)\}$ lo cual es equivalente al conjunto $\{x|(x \in A \lor x \in B) \land (x \in A \lor x \in C)\}$ lo cual es equivalente a $(A \cup B)\cap (A \cup C)$
+
+            \item $A \subseteq B$ si y solo si $B^c \subseteq A^c$.
+
+            \textit{\textbf{Demostración}}. Empecemos demostrando que si $A \subseteq B$, entonces $B^c \subseteq A^c$.
+
+            Sea $x \in B^c$, luego $x \not \in B$ por definición de complemento, como $A \subseteq B$, entonces $x \not \in A$, luego $x \in A^c$ y por lo tanto $B^c \subseteq A^c$.
+
+            Demostremos ahora que si $B^c \subseteq A^c$, entonces $A \subseteq B$.
+
+            Sea $x \in A$, luego $x \not \in A^c$ por definición de complemento, como $B^c \subseteq A^c$, entonces $x \not \in B^c$, nuevamente por definición de complemento, $x \in B$, lo que implica que $A \subseteq B$.
+
+            \item $A \cup (B - C) = (A \cup B) - (C - A)$.
+            \item $A \times (B \cap C) = (A \times B) \cap (A \times C)$.
+
+            \textit{\textbf{Demostración}}. Demostremos primero que $A \times (B \cap C) \subseteq (A \times B) \cap (A \times C)$.
+
+            Sea $(x, y)$ in $A \times (B\cap C)$ por definición de producto cartesiano $x \in A$ y $y \in (B\cap C)$, luego tenemos $x \in A$, $y \in B$ y $y \in C$. Así, nuevamente por definición de producto cartesiano tenemos que $(x, y) \in A \times B$ y $(x, y) \in A \times C$, de esta manera $A \times (B \cap C) \subseteq (A \times B) \cap (A \times C)$.
+
+            Demostremos ahora que $ (A \times B) \cap (A \times C)  \subseteq A \times (B \cap C)$.
+
+            Supongamos $(x, y) \in (A \times B) \cap (A \times C)$. Entonces, $x \in A$, $y \in B$, y $y \in C$. Como $y \in B$ y $y \in C$, $y \in B \cap C$. Por lo tanto, $(x, y) \in A \times (B \cap C)$. Y $ (A \times B) \cap (A \times C)  \subseteq A \times (B \cap C)$.
+        \end{enumerate}
+
+        \item Demuestre que:
+
+        \begin{enumerate}
+            \item $\left(\bigcap_{i \in I} A_{i}\right)^c = \bigcup_{i \in I} A_{i}^c$.
+
+            \textit{\textbf{Demostración}}. Demostremos primero que $\left(\bigcap_{i \in I} A_{i}\right)^c \subseteq \bigcup_{i \in I} A_{i}^c$.
+
+            Sea $a \in \left(\bigcap_{i \in I} A_{i}\right)^c$, luego $a \not \in \bigcap_{i \in I} A_{i}$, esto es $a \not \in A_i$ para todo $i \in I$, por definición de unión concluímos que $a \in \bigcup_{i \in I} A_{i}^c$.
+
+            Demostremos ahora que $\bigcup_{i \in I} A_{i}^c \subseteq \left(\bigcap_{i \in I} A_{i}\right)^c$
+
+            \item $M \cup \left(\bigcap_{A \in \mathcal{C}} A\right) = \bigcap_{A \in \mathcal{C}} (M \cup A)$.
+            \item Si $B_{n} = \left[\frac{1}{n}, 1 - \frac{1}{n}\right]$, entonces $\bigcup_{n=2}^{\infty} B_{n} = (0, 1)$.
+        \end{enumerate}
+
+        \item (3 puntos) Sea $B$ un álgebra de Boole y $a, b, c \in B$. Demuestre las siguientes igualdades:
+
+        \begin{enumerate}
+            \item $ab + bc + b'c = ab + c$
+
+            \textit{\textbf{Demostración}}.
+            \begin{align*}
+                ab + bc + b'c &= ab + c(b+b') && \text{Propiedad distributiva}\\
+                &= ab + c\cdot 1 && \text{Def. complemento}\\
+                &= ab + c && \text{Def. identidad}
+            \end{align*}
+            \item $a + a'b = a + b$
+            \item $a'b'c + a'bc + abc' = a'c + ab'$
+            \textit{\textbf{Demostración}}.
+            \begin{align*}
+                a'b'c + a'bc + abc' &= a'c(b'+b) + ab' && \text{Propiedad distributiva}\\
+                &= a'c\cdot 1 + ab' && \text{Def. complemento}\\
+                &= a'c + ab' && \text{Def. identidad}&&
+            \end{align*}
+            \item $ab + (ac)' + ab'c(ab + c) = 1$
+
+            \textit{\textbf{Demostración}}.
+            \begin{align*}
+                ab + a' + c' + ab'c(ab) + ab'c &= ab + ab'c + a' +c'\\
+                &= a(b+b'c)+a'+c'\\
+                &= a(b+c)+a'+c'\\
+                &= ab +ac +a' +c'\\
+                &= ab+ (ac +a' +c')\\
+                &= ab+1\\
+                &= 1
+            \end{align*}
+        \end{enumerate}
+    \end{enumerate}
+\end{document}

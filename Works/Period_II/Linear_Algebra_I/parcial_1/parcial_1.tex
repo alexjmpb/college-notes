@@ -1,0 +1,143 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Álgebra Lineal I }{ Parcial }{  }{ Alexander Mendoza }{\today}
+
+    Tengamos en cuenta lo siguiente:
+
+    \begin{itemize}
+        \item Sea $\mathbb{V} = {0, 1, 2, 3}$, junto con la operación $+$ definida como:
+            \begin{table}[h!]
+                \centering
+                \begin{tabular}{l|llll}
+                + & 0 & 1 & 2 & 3 \\ \hline
+                0 & 0 & 1 & 2 & 3 \\
+                1 & 1 & 0 & 3 & 2 \\
+                2 & 2 & 3 & 0 & 1 \\
+                3 & 3 & 2 & 1 & 0
+                \end{tabular}
+            \end{table}
+
+            Recordemos que $(\mathbb{V}, +)$ se conoce como el \textit{\textbf{cuarto grupo de Klein}}.
+        \item Considere $(A, \circ)$ y $(B, *)$, se define $\oplus: (A\times B)\times (A\times B)\rightarrow (A\times B)$ como sigue para todo $(x_1, y_1)$ y $(x_2, y_2)$ en $A\times B: (x_1, y_1)\oplus (x_2, y_2) = (x_1 \circ x_2, y_1 * y_2)$.
+    \end{itemize}
+
+    \begin{enumerate}
+        \item En el conjunto $\mathbb{Z}_2 \times \mathbb{V}$:
+            \begin{enumerate}
+                \item Construya y muestre la tabla de la operación $\oplus$ definida en $\mathbb{Z}_2 \times \mathbb{V}$.
+                Sabemos que $\mathbb{Z}_2 = {0, 1}$ y que $+$ en $Z_2$ está definida como sigue:
+
+                \begin{table}[h!]
+                    \centering
+                    \begin{tabular}{l|ll}
+                    +_{\mathbb{Z}_2} & 0 & 1 \\ \hline
+                    0 & 0 & 1 \\
+                    1 & 1 & 0
+                    \end{tabular}
+                \end{table}
+
+                Luego $\mathbb{Z}_2 \times \mathbb{V} = \{(0,0), (0,1), (0,2), (0,3), (1,0), (1,1), (1,2), (1,3)\}$
+
+                \begin{table}[h!]
+                    \centering
+                    \begin{tabular}{l|llllllll}
+                    \oplus & (0, 0) & (0, 1) & (0, 2) & (0, 3) & (1, 0) & (1, 1) & (1, 2) & (1, 3) \\ \hline
+                    (0, 0)                & (0, 0) & (0, 1) & (0, 2) & (0, 3) & (1, 0) & (1, 1) & (1, 2) & (1, 3) \\
+                    (0, 1)                & (0, 1) & (0, 0) & (0, 3) & (0, 2) & (1, 1) & (1, 0) & (1, 3) & (1, 2) \\
+                    (0, 2)                & (0, 2) & (0, 3) & (0, 0) & (0, 1) & (1, 2) & (1, 3) & (1, 0) & (1, 1) \\
+                    (0, 3)                & (0, 3) & (0, 2) & (0, 1) & (0, 0) & (1, 3) & (1, 2) & (1, 1) & (1, 0) \\
+                    (1, 0)                & (1, 0) & (1, 1) & (1, 2) & (1, 3) & (0, 0) & (0, 1) & (0, 2) & (0, 3) \\
+                    (1, 1)                & (1, 1) & (1, 0) & (1, 3) & (1, 2) & (0, 1) & (0, 0) & (0, 3) & (0, 2) \\
+                    (1, 2)                & (1, 2) & (1, 3) & (1, 0) & (1, 1) & (0, 2) & (0, 3) & (0, 0) & (0, 1) \\
+                    (1, 3)                & (1, 3) & (1, 2) & (1, 1) & (1, 0) & (0, 3) & (0, 2) & (0, 1) & (0, 0)
+                    \end{tabular}
+                \end{table}
+
+                \item Considere $\odot : \mathbb{Z}_2 \times (\mathbb{Z}_2 \times \mathbb{V}) \rightarrow (\mathbb{Z}_2 \times \mathbb{V})$ definida para todo $\alpha \in \mathbb{Z}_2$ y $\textbf{u} \in \mathbb{Z}_2 \times \mathbb{V}$ como:
+
+                $$
+                a \odot \textbf{u} = \begin{cases}
+                    \textbf{u} &\text{sii } \alpha = 1\\
+                    \textbf{\textbf{0}} &\text{sii } \alpha = 0
+                \end{cases}
+                $$
+
+                ¿Es $(\mathbb{Z}_2 \times \mathbb{V}, \oplus, \odot)$ un espacio vectorial sobre el campo $\mathbb{Z}_2, +, \cdot$? Justifique su respuesta.
+
+                Sabemos que $\mathbb{V}$ (Cuarto grupo de Klein) es un grupo abeliano y que $(\mathbb{Z}_2, +, \cdot)$ es campo ya que $2$ es un número primo. Se puede verificar que $(\mathbb{Z}_2 \times \mathbb{V}, \oplus)$ es un grupo abeliano ya que la operación $\oplus$ está definida a partir de la suma en $\mathbb{Z}_2$ y en $\mathbb{V}$ que son grupos abelianos. Ahora debemos verificar que la operación $\odot$ cumple con las características de un producto por escalar.
+
+                \begin{enumerate}
+                    \item Para todo $\alpha \in \mathbb{Z}_2$ y $\vec{u}, \vec{v} \in \mathbb{V}$, $\alpha \odot (\vec{u} \oplus \vec{v}) = \alpha \odot \vec{u} \oplus \alpha \odot \vec{v}$.\\
+
+                    Sea $\alpha = 1$:
+                    \begin{align*}
+                        1 \odot (\vec{u} \oplus \vec{v}) &= \vec{u} \oplus \vec{v} \\
+                        &= (1 \odot \vec{u}) \oplus (1 \odot \vec{v})
+                    \end{align*}\\
+
+                    Sea $\alpha = 0$:
+                    \begin{align*}
+                        0 \odot (\vec{u} \oplus \vec{v}) &= (0,0) \\
+                        &= (0,0) \oplus (0,0)\\
+                        &= (0 \odot \vec{u}) \oplus (0 \odot \vec{v})
+                    \end{align*}
+
+                    \item Para todo $\alpha, \beta \in \mathbb{Z}_2$ y $\vec{u} \in \mathbb{V}$, $(\alpha + \beta) \odot \vec{u} = \alpha \odot \vec{u} \oplus \beta \odot \vec{u}$.\\
+
+                    Sea $\alpha = 1$ y $\beta = 0$:
+                    \begin{align*}
+                        (1 + 0) \odot \vec{u} &= 1 \odot \vec{u} \\
+                        &= (1 \odot \vec{u}) \oplus (0 \odot \vec{u})
+                    \end{align*}
+
+                    Se puede verificar que de manera similar para $\alpha = 0$ y $\beta = 1$.
+
+                    Sea $\alpha = 1$ y $\beta = 1$:
+                    \begin{align*}
+                        (1 + 1) \odot \vec{u} &= 0 \odot \vec{u} \\
+                        &= (0 \odot \vec{u}) \oplus (0 \odot \vec{u})
+                    \end{align*}
+
+                    Sea $\alpha = 0$ y $\beta = 0$:
+                    \begin{align*}
+                        (0 + 0) \odot \vec{u} &= 0 \odot \vec{u} \\
+                        &= (0 \odot \vec{u}) \oplus (0 \odot \vec{u})
+                    \end{align*}
+
+                    \item Para todo $\alpha, \beta \in \mathbb{Z}_2$ y $\vec{u} \in \mathbb{V}$ entonces $(\alpha \beta) \odot \vec{u} = \alpha \odot (\beta \odot \vec{u})$.
+
+                    Sea $\alpha = 1$ y $\beta = 0$:
+                    \begin{align*}
+                        (1 \cdot 0) \odot \vec{u} &= 0 \odot \vec{u} \\
+                        &= 1 \odot (0 \odot \vec{u})
+                    \end{align*}
+
+                    Se puede verificar que de manera similar para $\alpha = 0$ y $\beta = 1$.
+
+                    Sea $\alpha = 1$ y $\beta = 1$:
+                    \begin{align*}
+                        (1 \cdot 1) \odot \vec{u} &= 1 \odot \vec{u} \\
+                        &= 1 \odot (1 \odot \vec{u})
+                    \end{align*}
+
+                    Sea $\alpha = 0$ y $\beta = 0$:
+                    \begin{align*}
+                        (0 \cdot 0) \odot \vec{u} &= 0 \odot \vec{u} \\
+                        &= 0 \odot (0 \odot \vec{u})
+                    \end{align*}
+
+                    \item Para todo $\vec{u} \in \mathbb{V}$, $1_{\mathbb{Z}_2} \odot \vec{u} = \vec{u}$
+
+                    Por definición de la operación esta propiedad se cumple ya que $1 \in \mathbb{Z}_2 \odot \vec{u} = \vec{u}$.
+                \end{enumerate}
+
+                Debido a que todas las propiedades se cumplen, $\odot$ es producto por escalar y $(\mathbb{Z}_2 \times \mathbb{V}, \oplus, \odot)$ es un espacio vectorial sobre el campo $\mathbb{Z}_2, +, \cdot$.
+            \end{enumerate}
+    \end{enumerate}
+\end{document}

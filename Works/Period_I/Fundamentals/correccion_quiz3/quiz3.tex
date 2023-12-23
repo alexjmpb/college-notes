@@ -1,0 +1,44 @@
+\documentclass{report}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Fundamentos de Matemáticas }{ Corrección Quiz 3 }{  }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Corrección Quiz 3 }
+
+    \noindent \textit{\textbf{Pregunta 2.}} Sea $(A, \leq)$ un conjunto parcialmente ordenado y $(x_n)$ una sucesión de elementos en $A$. $(x_n)$ es estrictamente decreciente si:\\
+
+    \noindent La respuesta es $x_n < x_m$ si $n > m$. Como su nombre lo indica, la idea intuitiva de una sucesión estrictamente decreciente es que si cada elemento de la secuencia es estricamente menor que el elemento anterior. Por ejemplo el conjunto \{ 4, 2, 0, -2, ... \} es estrictamente decreciente ya que cada término es menor que el anterior.\\
+
+    \noindent \textit{\textbf{Pregunta 3.}} Los subconjuntos de un conjunto inductivo son inductivos.\\
+
+    \noindent La respuesta es falso. Un conjunto inductivo es un poset no vacío en el que cada elemento tiene un sucesor. Si tomamos un subconjunto finito $A$ de cualquier conjunto inductivo, el maximal de $A$ no tiene sucesor. Tomemos como ejemplo el conjunto inductivo $\mathbb{N}$ y sea $A = \{2, 4, 6\}$ sabemos que $A \subseteq \mathbb{N}$ y podemos observar que 6 no tiene sucesor, por lo tanto $A$ no es un conjunto inductivo. En general no todos los subconjuntos de $\mathbb{N}$ son inductivos.\\
+
+    \noindent \textit{\textbf{Pregunta 6.}} Sean $a$ y $b$ números naturales con $a<b$. Pruebe por inducción sobre $n$ que $(b-a)|(b^n-a^n)$ para todo número natural $n$.\\
+
+    \noindent Empezemos la demostración con el caso base, $n = 1$, luego es trivial que:
+
+    \[
+        b-a | b^1 - a^1 = b -a
+    \].
+
+    \noindent Luego nuestra hipótesis de inducción será que $b - a| b^n - a^n$ y a partir de esto demostraremos que $b - a| b^{n+1} - a^{n+1}$.
+
+    \noindent Podemos manipular $b^{n+1} - a^{n+1}$ de la siguiente manera:
+
+    \noindent Por definición de divisibilidad sabemos que $ m(b-a) = b^n - a^n $ donde $m \in \mathbb{N}$. Luego $a^n = b^n -bm + am$ y $b^n = a^n + bm -am$. Luego:
+    \noindent \begin{align*}
+        b^{n+1} - a^{n+1} &= b^nb - a^na \\
+        &= b(a^n + bm - am) - a(b^n -bm +am) \\
+        &= ba^n + b(bm -am) - ab^n -a(-bm+am) \\
+        &= ba^n - ab^n + b(bm -am) + a(bm-am) \\
+        &= ba^n - ab^n + m(b-a)(b+a) \\
+        &= (ba^n-ab^n)+(b^n-a^n)(b+a) \qquad \text{Ya que $m(b-a)(b^n -a^n)$} \\
+        &= (b^n-a^n)(\frac{ba^n-ab^n}{b^n-a^n}+ (b+a)) \\
+    \end{align*}\\
+
+    \noindent Como $b - a| b^n - a^n$, entonces $b-a| (b^n-a^n)(\frac{ba^n-ab^n}{b^n-a^n}+ (b+a))$. De esta manera hemos demostrado que $b - a| b^{n+1} - a^{n+1}$.
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass{report}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Fundamentos de Matemáticas }{ Correción Parcial 3 }{   }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Correción Parcial 3 }
+
+    \section{Defina los siguientes términos}
+
+    \begin{enumerate}
+        \item \textit{\textbf{Divisibilidad}}: Se dice que un número $b$ es divisible por un número $a$ si existe $n \in \mathbb{Z}$ tal que $an = b$.
+        \item \textit{\textbf{Cortadura de Dedekind}}: Una cortadura $\alpha$ en el conjunto de los núemros racionales es un subconjunto de $\mathbb{Q}$ que cumple las siguientes condiciones:
+            \begin{itemize}
+                \item $\alpha \not = \emptyset$ y $\alpha \not = \mathbb{Q}$.
+                \item Si $a \in \alpha$ y $b < q$, entonces $p \in \alpha$.
+                \item $\alpha$ no contiene un número racional máximo.
+            \end{itemize}
+        \item \textit{\textbf{Conjunto numerable}}: Un conjunto se define como numerable si es finito o si existe una función biyectiva entre los naturales y el conjunto.
+        \item \textit{\textbf{Forma exponencial de un número complejo}}: Sea $w$ un número complejo, su forma exponencial sería $z = re^{i\theta}$.
+    \end{enumerate}
+
+    \section{Sea $n$ un número entero. Pruebe que $30 | n$ si y solo si $5 |n$ y $6|n$}
+        \begin{itemize}
+            \item Si $30 |n$ entonces $5 |n$ y $6|n$: $30$ se puede expresar como $5 \cdot 6$, luego $5 \cdot 6 |n$ así $5|n$ y $6|n$.
+            \item Si $5 |n$ y $6|n$ entonces $30 |n$: $n = 5a$ y $n = 6b$ para algunos enteros $a$ y $b$. Como 5 y 6 son relativamente primos, se puede reescribir 30 como $5 \cdot 6$. Luego $n$ es divisible por $5 \cdot 6 = 30$. Por lo tanto $30|n$.
+        \end{itemize}
+
+    \section{Sea $n \in \mathbb{N}$ y $c \in \mathbb{R}$ un número real. Demuestre que: $(\cos x + i\sin x)^n = \cos nx + i\sin nx$}
+
+    Procederemos por inducción en $n$. Empezaremos con el caso base $n = 1$:
+
+    \[
+    (\cos x + i\sin x)^1 = \cos x + i\sin x = \cos 1x + i\sin 1x
+    \]
+
+    \noindent Para nuestra hipótesis de inducción supongamos que $(\cos x + i\sin x)^n = \cos nx + i\sin nx$. Y en base a esta hipótesis vamos a demostrar que la propiedad se cumple para $n +1$. Además debemos tener en cuenta la fórmula de la suma de ángulos ($\cos(a+b) = \cos a \cos b - \sin a \sin b$ y $\sin(a+b) = \sin a \cos b + \cos a \sin b$).
+
+    \begin{center}
+        \begin{align*}
+            (\cos x + i\sin x)^{n+1} &= (\cos x + i\sin x)^n(\cos x + i\sin x) \\
+            (\cos x + i\sin x)^{n+1} &= (\cos nx + i\sin nx) \cdot (\cos x + i\sin x) \\
+            (\cos x + i\sin x)^{n+1} &= \cos(nx)\cos x - \sin(nx)\sin x + i(\sin(nx)\cos x + \cos(nx)\sin x)\\
+            (\cos x + i\sin x)^{n+1} &= \cos(nx + x) + i\sin(nx + x)\\
+            (\cos x + i\sin x)^{n+1} &= (\cos (n+1)x + i\sin (n+1)x)
+        \end{align*}
+    \end{center}
+
+    De esta manera, hemos demostrado que $(\cos x + i\sin x)^n = \cos(nx) + i\sin(nx)$ para todo número natural $n$.
+\end{document}

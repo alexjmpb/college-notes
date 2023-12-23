@@ -1,0 +1,48 @@
+\documentclass{report}
+
+\input{boxes.tex}
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Mathmatics Fundamentals }{ Functions }{   }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Functions }
+
+    The concept of a function is repeatedly revisited in any math context, out of those the intuitive idea that's left to us of what a function is that it's like a machine that we throw some input, makes some mystical operation and returns an output. Even though this definition if very useful for informal scenarios, in math we have the urge to formalize everything, and functions are not the exception. Thus, in this chronicle we'll see the formalization of the concept of functions, it's properties and applications.
+
+    To formalize the concept of a function we must first define it formally, we'll do so using sets. We can think of a function as a two-column list, where in the first column we have an entry value and in the second column we'll have the corresponding value when the function is applied. For example here's the list for $f(x) = x^2$.
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{l|l}
+        x & f(x) \\ \hline
+        1 & 1    \\
+        2 & 4    \\
+        3 & 9    \\
+        4 & 16   \\
+        \vdots & \vdots
+        \end{tabular}
+    \end{table}
+
+    Knowing this, we can then think of the function as a one column list containing ordered pairs with the value, and it's corresponding value through the function. For $f(x) = x^2$ it would look similar to this. $(1, 1), (2, 4), (3, 9),$ and so on. This can be seen as a collection of ordered pairs or a set of ordered pairs, with this we have the following definition.\\
+
+    \begin{defBox}
+        \textit{Function.} Let $A$ and $B$ be sets. A function $f$ from $A$ to $B$, denoted $f: A \rightarrow B$, is a subset $F \subseteq A \times B$ such that for each $a \in A$, there is one and only one pair in $F$ of the form $(a, b)$ where $b \in B$. The set $A$ is called the domain of $f$ and the set $B$ is called the codomain of $f$.
+    \end{defBox}
+
+    It's important to notice that a function always consists of three things: a domain, a codomain, and a subset of the product of the domain and the codomain; this latter is called the range of the function. We define a function by saying "let $A$ and $B$ be sets, and let $f: A \rightarrow B$ be a function" or more concise "let $f: A \rightarrow B$ be a function", where $A$ and $B$ are understood from the notation that are sets. However, we cannot just say "let $f$ be a function", we need to specify the domain a codomain, unless these are known from the context, as in Calculus for example, where the context is always between the real numbers. The urge to specify the domain and codomain of a function is justified when we treat functions rigorously, this is to avoid ambiguity as when two functions are only different by their domain or codomain. Ultimately, given this definition of functions we can only say that two functions are the same if and only if all three sets (domain, codomain and range) are the same.
+
+    \subsection*{Keep ambiguity at minimum}
+
+    So far, we've talked about functions in a formal manner, but there's also an intuitively understood idea of a function. However, using this intuitive idea can lead to issues because we must work formally with properly defined objects, free of ambiguities. Let's take functions in calculus as an example. In calculus, we often define functions like 'let \(f(x) = \cos x\) be a function.' Here, \(f(x)\) is not the function itself but rather an element of the function, indicating the result of applying the 'rule of assignment' of \(f\) to the element \(x\).\\
+
+    Now, we encounter the problem of what \(x\) is. It's implied that \(x\) belongs to the domain of the function, but this implicit assumption can cause confusion later. Another issue arises from not explicitly defining the domain and codomain, which might seem less significant, but it is equally important. In formal mathematics, there's a strong urge to generalize concepts. If this isn't done, the formality is restricted to a limited context, where ambiguities can't arise. Thus, defining a statement without considering the context might lead to assume the context in which such statement is true.\\
+
+    A correct way of defining the function would be: "Let \(f: \mathbb{R} \rightarrow \mathbb{R}\) be defined by \(f(x) = \cos x\) for all \(x \in \mathbb{R}\)."\\
+
+    It's also worth to mention that ambiguity is not a sort of a Dantean demon that must be avoid at any cost. Sure, in formal Mathematics ambiguity is not acceptable, but outside of this context, in the real world, ambiguity can make the difference between getting the things done or not. So be sure to define the things properly when you step into formality, but don't be so strictly outside of it.\\
+
+    
+\end{document}

@@ -1,0 +1,22 @@
+\documentclass{report}
+
+\input{boxes.tex}
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Introduction to Calculus }{ Polynomials and Complex Numbers }{   }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Polynomials and Complex Numbers}
+        \section{Real zeroes of polynomials}
+            \begin{thBox}
+                \textit{Rational Zeros Theorem}. If the polynomial $P(x) = a_nX^n + a_{n-1}X^{n-1} + \cdots + a_1X + a_0$ has integer coefficients, then every rational zero of $p$ is of the form $\frac{p}{q}$ where $p$ is a factor of the constant coefficient $a_0$ and $q$ is a factor of the leading coefficient $a_n$.
+            \end{thBox}
+            \begin{thBox}
+                \textit{Remainder Theorem}. If the polynomial $P(x)$ is divided by $x - c$, then the reminder is the value $P(c)$.
+            \end{thBox}
+            \begin{thBox}
+                \textit{Factor Theorem}. $c$ is a zero of $P$ if and only if $x-c$ is a factor of $P(x)$.
+            \end{thBox}
+\end{document}

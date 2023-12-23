@@ -1,0 +1,136 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\input{setup.tex}
+
+\begin{document}
+\coverPage{ Matemáticas }{ Matemáticas Discretas }{ Tarea 2 }{  }{ Alexander Mendoza }{\today}
+
+\pagebreak
+\section*{ Tarea 2 }
+
+\begin{enumerate}
+    \item Sean $f: A \to B$ y $g: C \to D$ funciones. Se define la función
+        $$
+            f \times g: A \times C \to B \times C
+        $$
+
+        por $(f \times g)(a,c) = (f(a), g(c))$, para cada $(a,c) \in A \times C$. Demuestre que $f \times g$ es biyectiva, si y sólo si $f$ y $g$ son biyectivas.
+
+        \textit{\textbf{Demostración.}} Empecemos demostrando que si $f\times g$ es biyectiva, entonces $f$ y $g$ son biyectivas.
+
+        Demostremos primero que las funciones son inyectivas. Supongamos que $f \times g$ es biyectiva. Luego, sean $a_1, a_2 \in A$ y $c_1, c_2 \in C$ tal que se cumple que $f(a_1)=f(a_2)$ y $g(c_1)=g(c_2)$. Luego tenemos lo siguiente
+        \begin{align*}
+        (f(a_1), g(c_1)) &= (f(a_2), g(c_2)) &&\text{Por definición de par ordenado.}\\
+        (f \times g)(a_1,c_1) &= (f \times g)(a_2,c_2)  &&\text{Por definición de } f \times g\\
+        (a_1,c_1) &= (a_2,c_2) && \text{Por biyectividad de } f \times g\\
+        \end{align*}
+        De esto concluímos que $a_1 = a_2$ y $c_1 = c_2$, esto por definición de par ordenado. Por lo tanto $f$ y $g$ son inyectivas.
+
+        Demostremos ahora que las funciones son sobreyectivas. Supongamos que $f \times g$ es biyectiva. Luego, sean $b \in B$ y $d \in D$, luego $(b,d) \in B \times D$ por definición de producto cartesiano. Así, por biyectividad de $f \times g$, existe $(a,c) \in A \times C$ tal que $(f \times g)(a,c) = (b,d)$, con esto tenemos lo siguiente
+        \begin{align*}
+        (f \times g)(a,c) &= (b,d)\\
+        (f(a), g(c)) &= (b,d) &&\text{Por definición de } f \times g\\
+        \end{align*}
+        Por definición de par ordenado, podemos concluir que $f(a) = b$ y $g(c) = d$. Por lo tanto $f$ y $g$ son sobreyectivas. Como ambas son inyectivas y sobreyectivas, entonces $f$ y $g$ son biyectivas.
+
+    \item Sean $f: X \to Y$ una función. Se define $\hat{f}: \mathcal{P}(X) \to \mathcal{P}(Y)$ por: $\hat{f}(A) = f(A)$, para cada $A \subseteq X$. Demuestre que $f$ es biyectiva si y sólo si $\hat{f}$ es biyectiva.
+
+    \textit{\textbf{Demostración.}} Demostremos primero que si $f$ es biyectiva, entonces $\hat{f}$ también lo es.
+
+    Sea $f$ biyectiva y sean $A_1, A_2 \in \mathcal{P}(X)$ tal que $\hat{f}(A_1) = \hat{f}(A_2)$, con esto tenemos lo siguiente
+
+    \begin{align*}
+        \hat{f}(A_1) &= \hat{f}(A_2)\\
+        f[A_1] &= f[A_2] &&\text{Por definición de } \hat{f}\\
+        A_1 &= A_2 &&\text{Por biyectividad de } f\\
+    \end{align*}
+
+    Así $\hat{f}$ es inyectiva. Demostremos ahora sobreyectividad. Sea $B \in \mathcal{P}(Y)$, luego $B \subseteq Y$, así existe $A \in X$ tal que $f[A] = B$, esto por sobreyectividad de $f$. De esta manera $f[A] = \hat{f}(A) = B$, por lo tanto $\hat{f}$ es sobreyectiva.
+
+    Con esto tenemos que $\hat{f}$ es biyectiva.
+
+    Sigamos ahora con la demostración de la recíproca. Supongamos que $\hat{f}$ es biyectiva y sean $a_1, a_2 \in X$ tal que $f(a_1) = f(a_2)$, luego $f[\{a_1\}] = f[\{a_2\}]$. Así por definición de $\hat{f}$, $\hat{f}(\{a_1\}) = \hat{f}(\{a_2\})$, como $\hat{f}$ es inyectiva, tenemos que $\{a_1\} = \{a_2\}$, así $a_1 = a_2$. Por lo tanto $f$ es inyectiva.
+
+    Demostremos ahora la sobreyectividad de $f$. Sea $b \in Y$, luego $\{b\} \in \mathcal{P}(Y)$, así, por sobreyectividad de $\hat{f}$, existe $A \in \mathcal{P}(X)$ tal que $\hat{f}(A) = \{b\}$, por definición de función y de igualdad de conjuntos, $A$ contiene un único elemento, sea este $a$, luego
+
+    \begin{align*}
+        \hat{f}(\{a\}) &= \{b\}\\
+        f[\{a\}] &= \{b\} &&\text{Por definición de } \hat{f}\\
+        f(a) &= b &&\text{Por definición de imagen directa}
+    \end{align*}
+
+    De esta manera, $f$ es sobreyectiva. Por lo tanto $f$ es biyectiva.
+
+    Veamos el recíproco ahora, sea $f$ biyectiva y sean $A_1, A_2 \in \mathcal{P}(X)$ tal que $\hat{f}(A_1) = \hat{f}(A_2)$. Con esto tenemos
+    \begin{align*}
+        f(A_1) &= f(A_2) && \text{Definición de } \hat{f}\\
+        A_1 &= A_2 && \text{Biyectividad de } f
+    \end{align*}
+
+    Así $f$ es inyectiva.
+
+    Para demostrar sobreyectividad, sea $B \in \mathcal{P}(Y)$. Luego sabemos que $B \subseteq(Y)$, como $f$ es biyectiva, tenemos que para todo $b \in B$ existe $a \in X$ tal que $f(a) = b$, seas $A$ el conjunto que contiene a todos estos $a$, luego $f(A) = B$, por definición de $\hat{f}$, $\hat{f}(A) = B$.
+
+    De esta manera $\hat{f}$ es biyectiva.
+
+    \item Sea $f: X \to Y$ una función. $A, B \subseteq X$ y $C, D \subseteq Y$. Demuestre que:
+
+    \begin{enumerate}
+        \item Si $A \subseteq B$, entonces $f(A) \subseteq f(B)$.
+
+        \textit{\textbf{Demostración.}} Sea $a' \in f(A)$, luego $a' = f(a)$ para algún $a \in X$, luego, por hipótesis, $a \in B$, así $f(a) \in f(B)$ lo cual implica que $a' \in f(B)$. Por lo tanto $f(A) \subseteq f(B)$.
+
+        \item Si $C \subseteq D$, entonces $f^{-1}(C) \subseteq f^{-1}(D)$.
+
+        \textit{\textbf{Demostración.}} Sea $x \in f^{-1}(C)$, luego $f(x) \in C$, por hipótesis tenemos que $f(x) \in D$, luego $x \in f^{-1}(D)$. Por lo tanto $f^{-1}(C) \subseteq f^{-1}(D)$.
+    \end{enumerate}
+
+    \item Sea $f: X \to Y$ una función. Considere la relación sobre $X: a \sim b$ si $f(a) = f(b)$.
+
+    \begin{enumerate}
+        \item Demuestre que esta es una relación de equivalencia
+
+        Para demostrar que es una relación de equivalencia debemos demostrar que es reflexiva, transitiva y simétrica.
+
+        \textit{\textbf{Reflexividad}}. Sea $a \in X$, luego $f(a) = f(a)$ por definición de función, luego $a\sim a$. Por lo tanto es reflexiva.
+
+        \textit{\textbf{Transitividad}}. Sean $a,b,c \in X$ tal que $a\sim b$ y $b\sim c$, luego $f(a) = f(b)$ y $f(b) = f(c)$, así $f(a) = f(c)$, esto por transitividad de igualdad, luego $a\sim c$. Por lo tanto es transitiva.
+
+        \textit{\textbf{Simetría}}. Sean $a,b \in X$, tal que $a \sim b$, luego $f(a) = f(b)$, por simetría de igualdad, $f(b) = f(a)$, así $b \sim a$. Por lo tanto es simétrica.
+
+        \item Para la función $f: \mathbb{R} \to \mathbb{R}$, definida por $f(x) = x^2 +x -6$, encuentre $\mathbb{R}/_\sim$.
+    \end{enumerate}
+
+    \item considere $(\mathbb{N}, \leq)$ con el orden usual. Sobre $\mathbb{N} \times \mathbb{N}$ se define la relación: $(a,b) \preceq (c,d)$ si $a \leq c$ y $b \leq d$.
+    
+    \begin{enumerate}
+        \item Demuestre que esta es una relación de orden sobre $\mathbb{N} \times \mathbb{N}$
+
+        \textit{\textbf{Demostración}}. Para demostrar que es una relación de orden, debemos demostrar que es reflexiva, transitiva y antisimétrica.
+
+        \textit{\textbf{Reflexividad}}. Sea $(a,b) \in \mathbb{N} \times \mathbb{N}$, luego $a \leq a$ y $b \leq b$, por lo tanto $(a,b) \preceq (a,b)$.
+
+        \textit{\textbf{Transitividad}}. Sea $(a, b), (c,d), (x,y) \in \mathbb{N} \times \mathbb{N}$ tal que $(a,b) \preceq (c,d)$ y $(c,d) \preceq (x,y)$, luego $a \leq c$, $b \leq d$, $c\leq x$ y $d \leq y$, esto por definición de orden de parejas ordenadas. Por transitividad de la igualdad, $a \leq x$ y $b\leq y$, por lo tanto $(a,b) \preceq (x,y)$
+
+        \textit{\textbf{Antisimetría}}. Sean $(a,b), (c,d) \in \mathbb{N} \times \mathbb{N}$ tal que $(a,b) \preceq (c,d)$ y $(c,d) \preceq (a,b)$, luego $a \leq c$, $c \leq a$, $b\leq d$ y $d \leq b$, por antisimetría del orden de los naturales, $a = c$ y $b = d$, luego por definición de igualdad de parejas ordenadas tenemos $(a,b) = (c,d)$.
+
+        \item ¿Es un orden total?, ¿un buen orden?, ¿hay primer elemento?, ¿hay elementos maximales?.
+        
+        \textit{\textbf{Orden total}}. Sean $(a,b), (c,d) \in \mathbb{N} \times \mathbb{N}$, por $a,b,c,d \in \mathbb{N}$, por tricotomía tenemos que $a leq c$ o $c < a$ y $b\leq d$ o $b< d$. Consideremos el caso en el que $c < a$ y $b \leq d$, con esto, $(a,b) \not \preceq (c,d)$. Por lo tanto no es orden total.
+
+        \textit{\textbf{Buen orden}}. Sea $A \subseteq \mathbb{N} \times \mathbb{N}$ y sean $B = \left\{b \in \mathbb{N} | (\exists c \in \mathbb{N})((b,c)\in A)\right\}$ y $C = \left\{c \in \mathbb{N} | (\exists c \in \mathbb{N})((b,c)\in A)\right\}$. Luego $C, B \subseteq \mathbb{N}$, por el principio del buen orden, $C$ y $B$ son bien ordenados, esto es que existe $b' \in B$ tal que $b' \leq x$ para todo $x \in B$, y de manera similar, existe $c' \in C$ tal que $c' \leq x$ para todo $x \in C$, luego $(b',c') \preceq (x,y)$, por lo tanto $(b',c') \preceq (x,y) \in A$.
+
+        \textit{\textbf{Primer elemento}}. Si $0 \in \mathbb{N}$, el primer elemento es $(0,0)$.
+
+        \textit{\textbf{Elemento maximal}}. No hay elementos maximales.
+
+        \item Para $A = \left\{(1,1),(1,2),(3,4),(2,2),(5,9),(5,4)\right\}$, encuentre: $A_*, A^*, Sup(A)$ e $Inf(A)$.
+        
+        $B^* = \left\{(a,b) \in \mathbb{N} \times \mathbb{N} | a \geq 5 \wedge b \geq 9\right\}$\\
+        $B_* = \left\{(1,1)\right\}$\\
+        $Sup(B) = (5,9)$\\
+        $Inf(B) = (1,1)$\\
+    \end{enumerate}
+\end{enumerate}
+\end{document}

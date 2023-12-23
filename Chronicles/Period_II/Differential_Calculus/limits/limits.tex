@@ -1,0 +1,244 @@
+\documentclass{report}
+\usepackage[english]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+
+\begin{document}
+\coverPage{ Mathematics }{ Differential Calculus }{ Limits and Continuity }{  }{ Alexander Mendoza }{\today}
+\tableofcontents
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+\pagebreak
+\chapter{ Limits }
+
+\section{An intuitive approach to limits}
+When we talk about calculus the first thing that comes to our minds are derivatives and integrals; however, the \textbf{most fundamental idea} of this discipline, used to formally construct further concepts, is the idea of limits. Let's start by defining limits in an intuitive way, since, in calculus, we cannot entirely separate formal concepts from their intuitive counterparts and its applications, we'll explore this relationship more thoroughly when we start discussing derivatives. Having that clear, we say that the limit of $f(x)$ as $x$ approaches $a$ (gets closer to $a$) is $L$ if the values of $f$ can get as close as we want to $L$ whenever $x$ is sufficiently close, but different to $a$.
+
+A limit involves two things, a function $f(x)$ and a point $a$ in which we'll analyze the function. This concept of "analyzing" the function refers to a point-specific review of the behavior of the function for values close to $a$. Knowing this, we cannot talk about limits in a general way, the definition of limits only applies to a particular point.
+
+\begin{Figure}
+    \begin{center}
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+            %uncomment if require: \path (0,459); %set diagram left start at 0, and has height of 459
+
+            %Curve Lines [id:da05569855742087637]
+            \draw    (108.67,199) .. controls (89.27,169.9) and (98.72,149.58) .. (108.43,132.57) ;
+            \draw [shift={(109.33,131)}, rotate = 119.98] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+            %Straight Lines [id:da4013382751057579]
+            \draw    (103,210.33) -- (427.67,210.33) (266,206.33) -- (266,214.33) ;
+            \draw [shift={(430.67,210.33)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+            \draw [shift={(100,210.33)}, rotate = 0] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+            %Straight Lines [id:da6399022660258387]
+            \draw    (102.33,120.33) -- (427,120.33) (265.33,116.33) -- (265.33,124.33) ;
+            \draw [shift={(430,120.33)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+            \draw [shift={(99.33,120.33)}, rotate = 0] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+            %Shape: Output [id:dp34058752983845664]
+            \draw   (244.6,113.33) .. controls (231.86,117.66) and (231.86,123) .. (244.6,127.33) (194.67,120.33) -- (234.61,120.33) (337.33,120.33) -- (297.39,120.33) (287.4,113.33) .. controls (300.14,117.66) and (300.14,123) .. (287.4,127.33) ;
+            %Straight Lines [id:da412096367731386]
+            \draw    (216.67,197.67) -- (251.33,128.35) ;
+            \draw [shift={(252.67,125.67)}, rotate = 116.57] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+            %Straight Lines [id:da8178341794483637]
+            \draw    (315.67,199.33) -- (281.94,127.71) ;
+            \draw [shift={(280.67,125)}, rotate = 64.79] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+            %Straight Lines [id:da12457344272068971]
+            \draw    (298.67,203.33) -- (274.6,129.85) ;
+            \draw [shift={(273.67,127)}, rotate = 71.87] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+            %Straight Lines [id:da23360491003650297]
+            \draw    (234.67,201.67) -- (258.06,130.52) ;
+            \draw [shift={(259,127.67)}, rotate = 108.2] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+            %Straight Lines [id:da4317804152860907]
+            \draw    (254,201.67) -- (262.63,131.98) ;
+            \draw [shift={(263,129)}, rotate = 97.06] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+            %Straight Lines [id:da9892035418701624]
+            \draw    (279.33,202.67) -- (268.45,131.63) ;
+            \draw [shift={(268,128.67)}, rotate = 81.29] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+            %Straight Lines [id:da35085103715970445]
+            \draw    (202,224.33) -- (251,224.33) ;
+            \draw [shift={(254,224.33)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+            %Straight Lines [id:da8736603322533996]
+            \draw    (334,224.33) -- (283,224.33) ;
+            \draw [shift={(280,224.33)}, rotate = 360] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+
+            % Text Node
+            \draw (437.33,113.67) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{R}$};
+            % Text Node
+            \draw (437.33,205.33) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{R}$};
+            % Text Node
+            \draw (68.95,168.59) node [anchor=north west][inner sep=0.75pt]  [rotate=-270.38]  {$f$};
+            % Text Node
+            \draw (258.67,219.67) node [anchor=north west][inner sep=0.75pt]    {$a$};
+            % Text Node
+            \draw (258.67,96.33) node [anchor=north west][inner sep=0.75pt]    {$L$};
+
+
+        \end{tikzpicture}
+    \end{center}
+\end{Figure}
+
+As we can see in Figure 1.1.1, as we get closer to $a$, $f(x)$ gets closer to $L$. In limits we gotta get as close as we want to $L$, this is possible due to the continuity of $\mathbb{R}$.
+
+Now it's worth to elaborate further in the previously discussed idea that a limit is a punctual analysis.
+
+\begin{Example}
+    Observe that given $f(x) = c$ where $c$ is constant, then the limit of $f$ as $x$ approaches $0$ is $L = c$.
+
+    \begin{Figure}
+        \begin{center}
+            \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+                %uncomment if require: \path (0,459); %set diagram left start at 0, and has height of 459
+    
+                %Curve Lines [id:da05569855742087637]
+                \draw    (108.67,199) .. controls (89.27,169.9) and (98.72,149.58) .. (108.43,132.57) ;
+                \draw [shift={(109.33,131)}, rotate = 119.98] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+                %Straight Lines [id:da4013382751057579]
+                \draw    (103,210.33) -- (427.67,210.33) (266,206.33) -- (266,214.33) ;
+                \draw [shift={(430.67,210.33)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+                \draw [shift={(100,210.33)}, rotate = 0] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+                %Straight Lines [id:da6399022660258387]
+                \draw    (102.33,120.33) -- (427,120.33) (265.33,116.33) -- (265.33,124.33) ;
+                \draw [shift={(430,120.33)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+                \draw [shift={(99.33,120.33)}, rotate = 0] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+                %Shape: Output [id:dp34058752983845664]
+                \draw   (244.6,113.33) .. controls (231.86,117.66) and (231.86,123) .. (244.6,127.33) (194.67,120.33) -- (234.61,120.33) (337.33,120.33) -- (297.39,120.33) (287.4,113.33) .. controls (300.14,117.66) and (300.14,123) .. (287.4,127.33) ;
+                %Straight Lines [id:da412096367731386]
+                \draw    (216.67,197.67) -- (251.33,128.35) ;
+                \draw [shift={(252.67,125.67)}, rotate = 116.57] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+                %Straight Lines [id:da8178341794483637]
+                \draw    (315.67,199.33) -- (281.94,127.71) ;
+                \draw [shift={(280.67,125)}, rotate = 64.79] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+                %Straight Lines [id:da12457344272068971]
+                \draw    (298.67,203.33) -- (274.6,129.85) ;
+                \draw [shift={(273.67,127)}, rotate = 71.87] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+                %Straight Lines [id:da23360491003650297]
+                \draw    (234.67,201.67) -- (258.06,130.52) ;
+                \draw [shift={(259,127.67)}, rotate = 108.2] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+                %Straight Lines [id:da4317804152860907]
+                \draw    (254,201.67) -- (262.63,131.98) ;
+                \draw [shift={(263,129)}, rotate = 97.06] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+                %Straight Lines [id:da9892035418701624]
+                \draw    (279.33,202.67) -- (268.45,131.63) ;
+                \draw [shift={(268,128.67)}, rotate = 81.29] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (5.36,-2.57) -- (0,0) -- (5.36,2.57) -- cycle    ;
+                %Straight Lines [id:da35085103715970445]
+                \draw    (202,224.33) -- (251,224.33) ;
+                \draw [shift={(254,224.33)}, rotate = 180] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+                %Straight Lines [id:da8736603322533996]
+                \draw    (334,224.33) -- (283,224.33) ;
+                \draw [shift={(280,224.33)}, rotate = 360] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
+                % Text Node
+                \draw (437.33,113.67) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{R}$};
+                % Text Node
+                \draw (437.33,205.33) node [anchor=north west][inner sep=0.75pt]    {$\mathbb{R}$};
+                % Text Node
+                \draw (68.95,168.59) node [anchor=north west][inner sep=0.75pt]  [rotate=-270.38]  {$f$};
+                % Text Node
+                \draw (261,219.67) node [anchor=north west][inner sep=0.75pt]    {$0$};
+                % Text Node
+                \draw (245.67,96.33) node [anchor=north west][inner sep=0.75pt]    {$L = c$};
+            \end{tikzpicture}
+        \end{center}
+    \end{Figure}
+
+    As shown in Figure 1.1.3, if $c$ is constant, then for any $x$ the value through $f$ is always going to be $0$. So the value always gets closer to $c$ as we approach $0$.
+\end{Example}
+
+The limit of a function is often written as
+
+$$\lim_{x \to a} f(x) = L$$ d
+
+and is read "The limit of $f(x)$, as $x$ approaches $a$, is equal to $L$."
+
+% EXPAND FURTHER THE INTUITIVE IDEA USING NEIGHBORHOODS AS IN APOSTOL'S BOOK
+f
+\section{The formal definition of a limit}
+
+\begin{defBox}
+    The function $f(x)$ has a limit $L$ when $x$ approaches $a$, if for all $\epsilon > 0$ there exists $\delta > 0$ such that for all $x$, if $0 < |x-a| <\delta$, then $|f(x)-L| < \epsilon$. We then notate the limit of a function as $\lim_(x \to a) f(x) = L$.
+\end{defBox}
+
+\begin{thBox}
+    Given $f(x)$ a function; if the limit of $f$ as $x$ approaches $a$, is $m$ and $l$, then $m=l$. Thus the limit of a function in a given point is unique (inside $\mathbb{R}$).
+\end{thBox}
+
+\section{Properties of limits}
+
+\begin{thBox}
+    If $\lim_{x \to a} f(x) = L$ and $\lim_{x \to a} g(x) = M$, then
+
+    \begin{enumerate}
+        \item $\lim_{x \to a} (f + g)(x) = L + M$.
+        \item $\lim_{x \to a} (f \cdot g)(x) = L \cdot M$.
+        \item $\lim_{x \to a} (\dfrac{1}{g})(x) = \dfrac{1}{M}$, when $M \not = 0$.
+    \end{enumerate}
+\end{thBox}
+
+\chapter{Continuity}
+
+\section{Continuous functions}
+
+Although in many cases, given an arbitrary function $f$, $\lim_{x \to a} f(x) = f(a)$, it is not always the case. For example, let $f$ be a function such that
+$$f(x) = \begin{cases}
+        1 & \text{if } x =0 \\
+        x & \text{if } x=x
+    \end{cases}$$
+
+Then is clear that $\lim_{x \to 0} f(x) = 0$ and $f(0) = 1$. The functions where the limit at a point $a$ are equal to the function evaluated at that same point $a$ are very particular and are called continuous functions. The intuitive idea of continuous functions is a function that when you look at the graph it contains no spaces, jumps or wild changes. As we know, defining things from an intuitive point of view is problematic, this is why the formal definition of continuous functions goes as follow:\\
+
+\begin{defBox}
+    A function $f$ is continuous at $a$ if the limit of $f(x)$ as $x$ approaches $a$ exists, $f$ is defined at $a$ and $$\lim_{x \to a}f(x) = f(a)$$
+\end{defBox}
+
+Let's review some common functions and see if they are continuous.
+
+\begin{Example}
+    $f(x) = c$ for some constant $c \in \mathbb{R}$. This function is indeed continuous. $\lim_{x \to a}f(x) = c = f(a)$, this by limit properties of a constant function.
+\end{Example}
+
+\begin{Example}
+    $f(x) = ax+b$ for some $a, b \in \mathbb{R}$ This function is also continuous. $\lim_{x \to a}f(x) = a = f(a)$, this by limit properties of identity function.
+\end{Example}
+
+\begin{Example}
+    $f(x) = a_nx^n_n + a_{n-1}x^{n-1}_{n-1}+\cdots + a_1x_1 + a_0$ (nth grade polynomial). Any polynomial function is continuous.
+\end{Example}
+
+\begin{Example}
+    $f(x) = \dfrac{p(x)}{q(x)}$ where $p(x)$ and $q(x)$ are polynomials and $q(x) \not = 0$ is also a continuous function.
+\end{Example}
+
+\begin{Example}
+    $f(x) = \sin x$ and $g(x) = \cos x$. Are also continuous functions.
+\end{Example}
+
+Along with this definition, also arises the following theorem.\\
+
+\begin{thBox}
+    Let $f$ and $g$ be continuous functions at $x=a$, then we have that:
+
+    \begin{enumerate}
+        \item $f+g$ is also continuous at $a$.
+        \item $f\cdot g$ is also continuous at $a$.
+        \item $\frac{1}{g}$ is also continuous at $a$ if $g(a) \not = 0$.
+    \end{enumerate}
+\end{thBox}
+
+\textit{\textbf{Proof.}} We'll prove property 1 and the rest follow a similar idea. Let $f$ and $g$ be continuous functions at $x=a$, then
+
+$$
+    \lim_{x\to a} f(x) = f(a) \text{ and } \lim_{x\to a} g(x) = g(a)
+$$
+
+with this and theorem limits, we have that
+
+$$
+    \lim_{x \to a} (f+g)(x) = f(a) + g(a) = (f+g)(a)
+$$
+
+There is another property that results very important and dictates how continuity behaves in function compositions.\\
+
+\begin{thBox}
+    If $f$ is continuous at $g(a)$ and $g$ is continuous at $a$, then $f \circ g$ is continuous at $a$.
+\end{thBox}
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass{report}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Geometría Euclidiana }{ Demostración }{ Teorema pertenecia de punto en rayo }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Demostración }
+        Si $C \in \mathcal{S}_{\overleftrightarrow{AB}, D}$, $C \in \mathcal{S}_{\overleftrightarrow{AD}, \neg B}$ y $\overline{CB} \cap \overleftrightarrow{AD} = \{X\}$, entonces, $X \in \overrightarrow{AD} - {A}$.\\
+
+        \noindent \textit{Demostracion.} Sea $\overleftrightarrow{AB}$ y sean $C$ y $D$ dos puntos distintos tales que $C \in \mathcal{S}_{\overleftrightarrow{AB}, D}$, $C \in \mathcal{S}_{\overleftrightarrow{AD}, \neg B}$ y $\overline{CB} \cap \overleftrightarrow{AD} = \{X\}$. Luego, por definción de intersección, $X \in \overline{CB}$ y $X \in \overleftrightarrow{AD}$. Así, o $X = C$ o $C - X - B$ o $X = B$, por definición de segmento.\\
+
+        \noindent Si $X = C$, entonces $X \in \mathcal{S}_{\overleftrightarrow{AD}, \neg B}$, lo cual contradice $X \in \overleftrightarrow{AD}$, esto por el postulado de separación del plano.\\
+
+        \noindent Si $X = B$, entonces $D \in \overleftrightarrow{AB}$, lo cual contradice $C \in \mathcal{S}_{\overleftrightarrow{AB}, D}$, esto por el postulado de separación del plano. Así tenemos que $C - X - B$ lo cual implica que $C$ y $X$ están del mismo lado de $\overleftrightarrow{AB}$ esto debido al teorema de interestancia - puntos en el mismo semiplano.\\
+
+        \noindent Luego como $X \in \overleftrightarrow{AD}$, entonces o $A - X - D$ o $X = A$ o $X \in \overrightarrow{A} - A$.\\
+
+        \noindent Si $X - A - D$, entonces $X \mathcal{S}_{\overleftrightarrow{AB}, \neg D}$ pero esto produce una contradicción ya que sabemos que $C \in \mathcal{S}_{\overleftrightarrow{AB}, D}$ y que $X \in \mathcal{S}_{\overleftrightarrow{AB}, C}$.\\
+
+        \noindent Si $X = A$, entonces $C \in \overleftrightarrow{AB}$, lo cual contradice $C \in \mathcal{S}_{\overleftrightarrow{AB}, D}$. Por lo tanto $X \in \overrightarrow{A} - A$.
+\end{document}
