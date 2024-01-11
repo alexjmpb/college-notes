@@ -150,16 +150,35 @@ $$\lim_{x \to a} f(x) = L$$
 
 and is read "The limit of $f(x)$, as $x$ approaches $a$, is equal to $L$."
 
+Let's review some concrete examples to consolidate more this idea. Consider the function $f(x) = 3x$ and let $a = 5$. Intuitively we see that $f(x)$ must get closer to $15$ when $x$ approaches $5$.
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{|l|l|}
+        \hline
+        x    & f(x)  \\ \hline
+        4.95 & 14.85 \\
+        4.96 & 14.88 \\
+        4.97 & 14.91 \\
+        4.98 & 14.94 \\
+        5    & -     \\
+        5.01 & 15.03 \\
+        5.02 & 15.06 \\
+        5.03 & 15.09 \\
+        5.04 & 15.12 \\ \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+Notice that we do not evaluate the function at $x=5$, this is because we are not concerned about what happens at that point, we only want to know the values close to that point. Let us now ask a question, if $f(x)$ gets closer to $15$ at a distance less than $\frac{1}{10}$, how close to $5$ do the values of $x$ need to be?
+
+\section{The formal definition of a limit}
+
 We will now provide a more analytic definition of limit, for this we must first define the notion of a neighborhood.
 
 \begin{defBox}
     \textit{\textbf{Neighborhood}}. A neighborhood of a point $a$ is any open interval containing that point $a$ as its midpoint.
 \end{defBox}
-
-
-% EXPAND FURTHER THE INTUITIVE IDEA USING NEIGHBORHOODS AS IN APOSTOL'S BOOK
-
-\section{The formal definition of a limit}
 
 \begin{defBox}
     The function $f(x)$ has a limit $L$ when $x$ approaches $a$, if for all $\epsilon > 0$ there exists $\delta > 0$ such that for all $x$, if $0 < |x-a| <\delta$, then $|f(x)-L| < \epsilon$. We then notate the limit of a function as $\lim_(x \to a) f(x) = L$.
