@@ -170,41 +170,43 @@ Let's review some concrete examples to consolidate more this idea. Consider the 
     \end{center}
 \end{table}
 
-Notice that we do not evaluate the function at $x=5$, this is because we are not concerned about what happens at that point, we only want to know the values that are close to that point. Let us now ask a question, if $f(x)$ gets closer to $15$ at a distance less than $\frac{1}{10} = 0.1$, how close to $5$ do the values of $x$ need to be?
+Notice how we do not evaluate the function at $x=5$. This is because we are not concerned about what happens at that point; we only want to know the values that are close to that point. Let us now pose a question: if $f(x)$ approaches $15$, at a distance less than $\frac{1}{10} = 0.1$, how close to $5$ do the values of $x$ need to be?
 
-The answer is $\frac{1}{30} \approx 0.03$, let's think of why this needs to be the value. Our function is $f(x) = 3x$ this means that whatever $x$ we input, we'll receive 3 times that value as an output. Knowing this, we have to find a range, with 5 as its midpoint, so that when I take a value of $x$ within that range, the value of $f(x)$ falls within $\frac{1}{10}$ of 15. If we first try with a range of $\frac{1}{10}$, we notice that
-$$3\left(5 - \dfrac{1}{10}\right) = 14.7 < 14.9 = 15 - \dfrac{1}{10}$$
-Thus, we chose a range where we found a value for which $f(x)$ does not fall within $\frac{1}{10}$ of 15. Let's now try with $\frac{1}{20}$, a smaller range, we notice that
-$$3\left(5 - \dfrac{1}{20}\right) = 14.85 < 14.9 = 15 - \dfrac{1}{10}$$
-Again, we made a poor decision. Now we are going to try with the range $\frac{1}{30}$
-$$3\left(5-\dfrac{1}{30}\right) = 14.9 = 15-\dfrac{1}{10}$$
-Similarly, if we try with the upper bound
-$$3\left(5+\dfrac{1}{30}\right) = 15.1 = 15+\dfrac{1}{10}$$
-With this, we have found a range where any number $x$ chosen within that range from $5$, $f(x)$ is going to fall within $\frac{1}{10}$ of $15$.
-The choice of $\frac{1}{30}$ should be pretty evident, since the behavior of $f(x)$ is very predictable. We can also conclude the answer using the following logic:
+The answer is $\frac{1}{30} \approx 0.03$. Let's consider why this is the correct answer. Our function is $f(x) = 3x$, meaning that whatever $x$ we input, we'll receive three times that value as an output. With this understanding, we need to find a range, with $5$ as its midpoint, such that when we take a value of $x$ within that range, the value of $f(x)$ falls within $\frac{1}{10}$ of $15$.
 
-We want $f(x) = 3x$ to be greater than $15-\frac{1}{10}$ and less than $15 + \frac{1}{10}$
+If we first attempt with a range of $\frac{1}{10}$, we notice that
+$$3\left(5 - \dfrac{1}{10}\right) = 14.7 < 14.9 = 15 - \dfrac{1}{10}.$$
+Thus, we chose a range where we found a value for which $f(x)$ does not fall within $\frac{1}{10}$ of $15$. Let's now try with $\frac{1}{20}$, a smaller range, and we notice that
+$$3\left(5 - \dfrac{1}{20}\right) = 14.85 < 14.9 = 15 - \dfrac{1}{10}.$$
+Again, we made a poor decision. Now we are going to try with the range $\frac{1}{30}$:
+$$3\left(5-\dfrac{1}{30}\right) = 14.9 = 15-\dfrac{1}{10}.$$
+Similarly, for the upper bound:
+$$3\left(5+\dfrac{1}{30}\right) = 15.1 = 15+\dfrac{1}{10}.$$
+With this, we have found a range where any number $x$ chosen within that range from $5$ ensures that $f(x)$ falls within $\frac{1}{10}$ of $15$. The choice of $\frac{1}{30}$ should be evident, given the predictable behavior of $f(x)$. We can also conclude the answer using the following logic. We want $f(x) = 3x$ to be greater than $15-\frac{1}{10}$ and less than $15 + \frac{1}{10}$:
 
-$$15-\frac{1}{10} < 3x < 15 + \frac{1}{10}$$
-We now resolve the inequality.
+$$15-\frac{1}{10} < 3x < 15 + \frac{1}{10}.$$
+
+We now resolve the inequality:
 \begin{alignat*}{2}
     -\frac{1}{10} &< 3x - 15 &&< \frac{1}{10} \\
     \frac{1}{3} \left(-\frac{1}{10}\right) &< \frac{1}{3}(3x - 15) &&< \frac{1}{3}\left(\frac{1}{10}\right) \\
-    -\frac{1}{30} &< x - 5 &&< \frac{1}{30}
+    -\frac{1}{30} &< x - 5 &&< \frac{1}{30}.
 \end{alignat*}
 
-This can be translated to $|x-5|<\frac{1}{30}$
+This is equivalent to $|x-5|<\dfrac{1}{30}$. Now, if would want to ask the same question but with the range $\frac{1}{100}$ around $15$, we know that $\frac{1}{300}$ would be the answer. In general, for any positive number $\epsilon$, the range $\frac{\epsilon}{3}$ can make that all values of $f(x)$, where $x$ is within $\frac{\epsilon}{3}$ from $5$, to fall within $\epsilon$ apart from $15$. In other words, for every positive number $\epsilon$, we can make $|3x-15|< \epsilon$ simply by requiring that $|x-5| < \dfrac{\epsilon}{3}$.
+
+Under this concept, the process of verifying a limit now becomes in a game, where given any positive number $\epsilon$, finding another number namely $\delta$, such that we can make $|f(x) - L| < \epsilon$ by requiring $|x-a| < \delta$, would confirm that $L$ is the limit of $f(x)$ as $x$ approaches $a$. With this, we should have a good intuitive base to talk about the formalization of the definition of a limit.
 
 \section{The formal definition of a limit}
 
-We will now provide a more analytic definition of limit, for this we must first define the notion of a neighborhood.
+We will now provide a more analytic definition of the concept of a limit, for this it is worth to first define the notion of a neighborhood.
 
 \begin{defBox}
     \textit{\textbf{Neighborhood}}. A neighborhood of a point $a$ is any open interval containing that point $a$ as its midpoint.
 \end{defBox}
 
 \begin{defBox}
-    The function $f(x)$ has a limit $L$ when $x$ approaches $a$, if for all $\epsilon > 0$ there exists $\delta > 0$ such that for all $x$, if $0 < |x-a| <\delta$, then $|f(x)-L| < \epsilon$. We then notate the limit of a function as $\lim_(x \to a) f(x) = L$.
+    The function $f(x)$ has a limit $L$, when $x$ approaches $a$, if for all $\epsilon > 0$ there exists $\delta > 0$ such that for all $x$, if $0 < |x-a| <\delta$, then $|f(x)-L| < \epsilon$. We then notate the limit of a function as $\lim_{x \to a} f(x) = L$.
 \end{defBox}
 
 \begin{thBox}
@@ -285,7 +287,7 @@ $$
     \lim_{x \to a} (f+g)(x) = f(a) + g(a) = (f+g)(a)
 $$
 
-There is another property that results very important and dictates how continuity behaves in function compositions.\\]
+There is another property that results very important and dictates how continuity behaves in function compositions.\\
 \begin{thBox}
     If $f$ is continuous at $g(a)$ and $g$ is continuous at $a$, then $f \circ g$ is continuous at $a$.
 \end{thBox}
