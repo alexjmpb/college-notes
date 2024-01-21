@@ -181,6 +181,19 @@ $$3\left(5-\dfrac{1}{30}\right) = 14.9 = 15-\dfrac{1}{10}$$
 Similarly, if we try with the upper bound
 $$3\left(5+\dfrac{1}{30}\right) = 15.1 = 15+\dfrac{1}{10}$$
 With this, we have found a range where any number $x$ chosen within that range from $5$, $f(x)$ is going to fall within $\frac{1}{10}$ of $15$.
+The choice of $\frac{1}{30}$ should be pretty evident, since the behavior of $f(x)$ is very predictable. We can also conclude the answer using the following logic:
+
+We want $f(x) = 3x$ to be greater than $15-\frac{1}{10}$ and less than $15 + \frac{1}{10}$
+
+$$15-\frac{1}{10} < 3x < 15 + \frac{1}{10}$$
+We now resolve the inequality.
+\begin{alignat*}{2}
+    -\frac{1}{10} &< 3x - 15 &&< \frac{1}{10} \\
+    \frac{1}{3} \left(-\frac{1}{10}\right) &< \frac{1}{3}(3x - 15) &&< \frac{1}{3}\left(\frac{1}{10}\right) \\
+    -\frac{1}{30} &< x - 5 &&< \frac{1}{30}
+\end{alignat*}
+
+This can be translated to $|x-5|<\frac{1}{30}$
 
 \section{The formal definition of a limit}
 
@@ -272,8 +285,7 @@ $$
     \lim_{x \to a} (f+g)(x) = f(a) + g(a) = (f+g)(a)
 $$
 
-There is another property that results very important and dictates how continuity behaves in function compositions.\\
-
+There is another property that results very important and dictates how continuity behaves in function compositions.\\]
 \begin{thBox}
     If $f$ is continuous at $g(a)$ and $g$ is continuous at $a$, then $f \circ g$ is continuous at $a$.
 \end{thBox}
