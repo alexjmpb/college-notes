@@ -1,0 +1,28 @@
+
+\usepackage[most,many,breakable]{tcolorbox}
+\usepackage{ntheorem,lipsum}
+\usepackage{xcolor}
+\theorembodyfont{\rm}%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{Figure}[theorem]{Figure}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{Example}[theorem]{Example}
+
+\definecolor{defBoxBorder}{HTML}{395144}
+\definecolor{thBoxBorder}{HTML}{AC8441}
+\definecolor{noteBoxBorder}{HTML}{4E6C50}
+\definecolor{axBoxBorder}{HTML}{AA5656}
+\definecolor{corBoxBorder}{HTML}{8B7E74}
+\definecolor{lemBoxBorder}{HTML}{B99B6B}
+\definecolor{ideaBoxBorder}{HTML}{272829}
+
+\newtcolorbox{defBox}{colback=white,colframe=defBoxBorder,arc=3pt, boxrule=0.5pt, drop fuzzy shadow, title=\begin{definition}\end{definition}}
+\newtcolorbox{thBox}{colback=white,colframe=thBoxBorder,arc=3pt, boxrule=0.5pt, drop fuzzy shadow, title=\begin{theorem}\end{theorem}}
+\newtcolorbox{noteBox}{colback=white,colframe=noteBoxBorder,arc=3pt, boxrule=0.5pt, drop fuzzy shadow, title=Note}
+\newtcolorbox{axBox}{colback=white,colframe=axBoxBorder,arc=3pt, boxrule=0.5pt, drop fuzzy shadow, title=\begin{axiom}\end{axiom}}
+\newtcolorbox{corBox}{colback=white,colframe=corBoxBorder,arc=3pt, boxrule=0.5pt, drop fuzzy shadow, title=\begin{corollary}\end{corollary}}
+\newtcolorbox{lemBox}{colback=white,colframe=lemBoxBorder,arc=3pt, boxrule=0.5pt, drop fuzzy shadow, title=\begin{lemma}\end{lemma}}
+\newtcolorbox{ideaBox}{colback=white,colframe=ideaBoxBorder,arc=3pt, boxrule=0.5pt, drop fuzzy shadow, title=Idea for Proof}

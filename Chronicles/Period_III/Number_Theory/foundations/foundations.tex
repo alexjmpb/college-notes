@@ -1,0 +1,68 @@
+\documentclass{report}
+\usepackage[english]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Number Theory }{ Foundations }{ Subtitle example. }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Foundations }
+
+    \section{Definition of the natural numbers and its operations}
+    Let's begin by defining our workbench, the natural numbers. We'll define the natural numbers in the most standard way, that is using Peano's axioms.
+
+    \subsection*{Peano's Axioms}
+    There exists the set of natural numbers $\mathbb{N}$
+    % Correct enumerate with axioms enumerate
+    \begin{enumerate}
+        \item $0 \in \mathbb{N}$.
+        \item If $x$ is a natural number, then $s(x)\in \mathbb{N}$.
+        \item Does not exists $x \in \mathbb{N}$ such that $s(x) = 0$.
+        \item Let $x,y \in \mathbb{N}$, if $s(x) = s(y)$, then $x=y$.
+        \item Let $B \subseteq \mathbb{N}$ such that:
+            \begin{itemize}
+                \item $0 \in B$
+                \item If $n\in B$, then $s(n)=B$
+            \end{itemize}
+        \begin{noteBox}
+            % IMPROVE GRAMMAR
+            $B$ is said to be an inductive set. The original Axioms stated $B$ as any set instead of a subset of $\mathbb{N}$, and then, by a theorem, $\mathbb{N}$ would be the smallest of all inductive sets. To avoid all this work, we state that $B$ is a subset of $\mathbb{N}$ and from this we can conclude that $B = \mathbb{N}$
+        \end{noteBox}
+    \end{enumerate}
+
+    The last axiom is known as the Principle of Mathematical Induction (PMI), we'll elaborate further in this topic since it's going to be used everywhere from now on.
+
+    \subsection*{Addition}
+
+    Addition is a recursive function $+$ with the following properties:
+
+    $$+: \mathbb{N}\times \mathbb{N} \to \mathbb{N}$$ where given $m,n \in \mathbb{N}$:
+
+    $$+(m,0) = m$$
+    $$+(m,s(n)) = s(+(m,n))$$
+
+    The output of the function is called the sum of $m$ and $n$ and is denoted as $m+n$ for convenience, with this notation our definition can be viewed as:
+
+    $$m+0 = m$$
+    $$m + s(n) = s(m, n)$$
+
+    Let's give a couple of examples to verify that this function is indeed the sum we are familiar with.
+
+    \begin{Example}
+        Let $m=2$ and $n=3$, then by definition
+
+        \begin{align*}
+            2+3 &= s(2+2)\\
+            &= s(s(2+1))\\
+            &= s(s(s(2+0)))\\
+            &= s(s(s(2)))\\
+            &= s(s(3))\\
+            &= s(4)\\
+            &= 5
+        \end{align*}
+    \end{Example}
+\end{document}

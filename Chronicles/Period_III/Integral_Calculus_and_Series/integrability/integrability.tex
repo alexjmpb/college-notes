@@ -1,0 +1,145 @@
+\documentclass{report}
+\usepackage[english]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Mathematics }{ Integral Calculus and Series }{ Integrability }{  }{ Alexander Mendoza }{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{ Integrability }
+    % Add a description of the chapter on weekend revision
+
+    % Add an introduction to the relation between integral and derivatives
+    To define the integral we will first need some definitions.
+    \subsection*{Inferior and Superior Sums}
+    We will use both the superior and inferior sums to define the concept of an integral.
+
+    \begin{defBox}
+        \textit{\textbf{Partition of an integral.}} Let $a, b$ be real numbers such that $a<b$ and let $P$ be the following set
+
+        $$P = \{x_0, x_1, \dots , x_n\}$$ with $a=x_0<x_1<\cdots<x_n=b$, then we say that $P$ is a partition of $[a,b]$
+    \end{defBox}
+
+    % Insert graphic
+    Figure 1, represents graphically the concept of partition.
+
+    \begin{defBox}
+        Let $f$ be a function bounded on $[a,b]$ and let $P = \{x_0, x_1, \dots x_n\}$ be a partition of $[a,b]$. then
+
+        The minimum of a function in $[a,b]$ is defined as
+        $$m_i := inf\{f(x) | x_{i-1} \leq x \leq x_i\}$$
+        And the maximum of a function in $[a,b]$ is defined as
+        $$M_i := sup\{f(x) | x_{i-1} \leq x \leq x_i\}$$
+    \end{defBox}
+
+    % Add examples
+
+    With this we can now define the upper and lower sums.
+
+    \begin{defBox}
+        Suppose $f$ is bounded on $[a,b]$, let $P = \{t_0,\dots,t_n\}$ be a partition of $[a,b]$ and let
+
+        $$m_i = inf\{f(x) | x_{i-1} \leq x \leq x_i\}$$
+        $$M_i = sup\{f(x) | x_{i-1} \leq x \leq x_i\}$$
+
+        Then we define the lower sum of $f$ for $P$, denoted by $L(f, P)$, as
+
+        $$L(f, P) = \sum_{i=1}^{n}m_i(t_{i} - t_{i-1})$$
+
+        and the upper sum of $f$ for $P$, denoted by $U(f, P)$, is defined as
+
+        $$U(f, P) = \sum_{i=1}^{n}M_i(t_{i} - t_{i-1})$$
+    \end{defBox}
+
+    % add examples
+
+    Let's now see which relation the lower and upper sum have. Our intuition may tell us that given $f$ bounded over $[a,b]$ and $P$ a partition of $[a,b]$, $L(f, P) \leq U(f, P)$, in fact this is true for any pair of distinct partitions. But, let's review first a lemma to demonstrate this fact.
+
+    \begin{lemBox}
+        Let $f$ be a bounded function and $P, Q$ be partitions of $[a,b]$. If $Q \subseteq P$, then
+
+        $$L(f, Q) \leq L(f, P) $$
+        $$U(f, P) \leq U(f, Q) $$
+    \end{lemBox}
+
+    \begin{ideaBox}
+        The idea for this proof is to first demonstrate that the lemma is true for a partition that contains only one more element, and then construct a succession of partitions, where each new partition will have one more element than the partition before it, and proof the general case.
+        % Expand more on this idea
+    \end{ideaBox}
+
+    \textit{\textbf{Proof.}} Let $f$ be a bounded function and $P, Q$ be partitions of $[a,b]$ where $Q \subseteq P$ and $P$ contains only one more element than $Q$, namely $u$. We can represent $P$ and $Q$ as
+
+    $$P = \{x_0,x_1,\dots,x_{k-1},x_k,\dots,x_n\}$$
+    $$Q = \{x_0,x_1,\dots,x_{k-1},u,x_k,\dots,x_n\}$$
+
+    Then by definition we have
+
+    \begin{align*}
+        L(f,P) &= \sum_{i=1}^{n} m_i(x_i-x_{i-1})\\
+        &= \sum_{i=1}^{k-1}m_i(x_i-x_{i-1}) + m_k(x_k-x_{k-1}) + \sum_{i=k+1}^{n}m_i(x_i-x_{i-1})
+    \end{align*}
+
+    Similarly
+
+    \begin{align*}
+        L(f,Q) &= \sum_{i=1}^{n} m_i(x_i-x_{i-1})\\
+        &= \sum_{i=1}^{k-1}m_i(x_i-x_{i-1}) + m'(u-x_{k-1}) + m''(x_k-u) + \sum_{i=k+1}^{n}m_i(x_i-x_{i-1})
+    \end{align*}
+
+    % COMPLETE THE PROOF
+
+    With this we can state a theorem that will allow us to then define the integral of a function. Before providing the theorem, a useful observation is that, given any partition $P$
+    $$L(f, P) \leq U(f, P)$$
+    We know this because
+    $$L(f, P) = \sum_{i=1}^{n}m_i(t_{i} - t_{i-1})$$
+    $$U(f, P) = \sum_{i=1}^{n}M_i(t_{i} - t_{i-1})$$
+    and by definition, for any $i$:
+    \begin{align*}
+        m_i &\leq M_i\\
+        m_i(t_{i} - t_{i-1}) &\leq M_i(t_{i} - t_{i-1})
+    \end{align*}
+
+    \begin{thBox}
+        Let $P_1, P_2$ be partitions of an interval $[a,b]$ and let $f$ be bounded over $[a,b]$, then it's true that
+
+        $$L(f, P_1) \leq U(f, P_2)$$
+    \end{thBox}
+
+    \textit{\textbf{Proof.}} Let $P = P_1 \cup P_2$, then by definition of union, $P_1 \subseteq P$ and $P_2 \subseteq P$, and by the previous lemma:
+
+    $$L(f, P_1) \leq L(f, P)$$
+    $$U(f, P) \leq U(f, P_2)$$
+    By the afore mentioned observation, we have
+    $$L(f, P) \leq U(f, P)$$
+    And all together
+    $$L(f, P_1) \leq L(f, P) \leq U(f, P) \leq U(f, P_2)$$
+    Finally, by transitivity, we therefore have
+    $$L(f, P_1) \leq U(f, P_2)$$
+    Concluding our proof.
+
+    % EXPAND ON WHY THIS IS IMPORTANT
+
+    With this, we can now define the integral of a function.
+
+    \begin{defBox}
+        Let $f$ be a function bounded on $[a,b]$, $f$ is said to be integrable on $[a,b]$ if
+
+
+        \begin{align*}
+            sup\{L(f,P) | P \text{ is a partition of } [a,b]\}\\
+            = inf\{U(f,P) | P \text{ is a partition of } [a,b]\}
+        \end{align*}
+
+        That common number is what we call the integral of $f$ over $[a,b]$ and is denoted by
+
+        $$\int_{b}^{a}f$$
+
+        And is read "the integral of $f$ over $[a,b]$"
+    \end{defBox}
+
+    % INSERT EXAMPLES
+\end{document}
