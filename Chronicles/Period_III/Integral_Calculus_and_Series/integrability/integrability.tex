@@ -10,15 +10,20 @@
     \tableofcontents
 
     \chapter*{Prologue}
-    After visiting the introductory to infinitesimal Calculus, differential Calculus, we'll now continue with the course that will unleash the full potential of the derivative, Integral Calculus. In this first part of the course we'll begin by giving an intuitive idea of what the integral is, stating the problems that originated it. We will then formally define the integral of a function and state its properties to easily find the integral of a function. And we will finally provide the theorem that unifies differential and integral calculus, thus making a relation between the integral and the derivative of a function.
+    After visiting the introductory course to infinitesimal Calculus, differential Calculus, we'll now continue with the course that will unleash the full potential of the derivative, Integral Calculus. In this first part of the course we'll begin by giving an intuitive idea of what the integral is, stating the problems that originated it. We will then formally define the integral of a function and state its properties to easily find its value. And we will finally provide the theorem that unifies differential and integral calculus, thus creating a relationship between the integral and the derivative of a function.
 
     \pagebreak
     \chapter{ Integrability }
-    
+    The main motivation of the integral was to have a way to calculate the area under some curve. For example, if you had a barrel without the bottom, you may want to know how much wood would you need to repair it. The first attempt known to tackle this problem was presented by Greek mathematicians, and was called the method of exhaustion. The method consisted of given a region, fill it up with a sequence of polynomial figures until filling up the area.
 
-    % Add an introduction to the relation between integral and derivatives
-    To define the integral we will first need some definitions.
-    \section*{Inferior and Superior Sums}
+    \begin{Figure}
+        \begin{center}
+        \includegraphics[width=1\textwidth]{images/exhaustion.png}
+        \end{center}
+    \end{Figure}
+
+    Before formally defining the integral we will first need some definitions.
+    \section{Inferior and Superior Sums}
     We will use both the superior and inferior sums to define the concept of an integral.
 
     \begin{defBox}
@@ -27,11 +32,19 @@
         $$P = \{x_0, x_1, \dots , x_n\}$$ with $a=x_0<x_1<\cdots<x_n=b$, then we say that $P$ is a partition of $[a,b]$
     \end{defBox}
 
-    % Insert graphic
-    Figure 1, represents graphically the concept of partition.
+    The concept of partition can be viewed simply as splitting the interval into smaller intervals and saving them inside a set.
+    \begin{Figure}
+        \begin{center}
+            \includegraphics[width=1\textwidth]{images/partitions2.png}
+        \end{center}
+    \end{Figure}
+    Figure 1.1.2 represents graphically the concept of a partition of an interval. Each colored part is a segment of the partition, and notice how the definition does not require the length of the segments to be equal.
 
+    \begin{Example}
+        Consider the interval $S = [-1, 6]$, then the set $\{0, \sqrt{2}, \frac{3}{2}, 4, 5\}$ would be a partition of $S$.
+    \end{Example}
     \begin{defBox}
-        Let $f$ be a function bounded on $[a,b]$ and let $P = \{x_0, x_1, \dots x_n\}$ be a partition of $[a,b]$. then
+        \textit{\textbf{Minimum and maximum}}. Let $f$ be a function bounded on $[a,b]$ and let $P = \{x_0, x_1, \dots x_n\}$ be a partition of $[a,b]$. then
 
         The minimum of a function in $[a,b]$ is defined as
         $$m_i := inf\{f(x) | x_{i-1} \leq x \leq x_i\}$$
@@ -40,6 +53,34 @@
     \end{defBox}
 
     % Add examples
+
+    \begin{Example}
+        Consider the function $$f(x) =
+        \begin{cases}
+        x^2 & \text{if } 0 \leq x < 1 \\
+        1.5 & \text{if } 1 \leq x \leq 3 \\
+        -1.5(x-5) & \text{if } 3 < x \leq 5
+        \end{cases}$$
+        Together with the interval $[0, 5]$ partition $P = \{\frac{1}{2}, \frac{3}{2}\}$
+
+        \begin{center}
+            \includegraphics[width=.5\textwidth]{images/minmax.png}
+        \end{center}
+
+        Then the table of min an max values would be as follows
+
+        \begin{center}
+            \begin{table}[h]
+                \begin{tabular}{l|l|l|l}
+                $i$ & $[x_{i-1}, x_i]$             & $m_i$         & $M_i$         \\ \hline
+                1   & $[0, \frac{1}{2}]$           & 0             & $\frac{1}{4}$ \\
+                2   & $[\frac{1}{2}, \frac{5}{2}]$ & $\frac{1}{4}$ & $\frac{3}{2}$ \\
+                3   & $[\frac{5}{2}, 5]$           & 0             & 3
+                \end{tabular}
+            \end{table}
+        \end{center}
+
+    \end{Example}
 
     With this we can now define the upper and lower sums.
 
@@ -58,7 +99,26 @@
         $$U(f, P) = \sum_{i=1}^{n}M_i(t_{i} - t_{i-1})$$
     \end{defBox}
 
-    % add examples
+    The lower and upper sums can be visualized as
+
+    \begin{Figure}
+        \begin{center}
+        \includegraphics[width=1\textwidth]{images/lowerupper.png}
+        \end{center}
+    \end{Figure}
+
+    \textbf{Function:} \( f(x) = x^2 \) over the interval \( [0, 2] \) with partition \( P = \{0, \frac{1}{2}, 1, \frac{3}{2}, 2\} \)
+
+    \textbf{Lower Sum:}
+    \[
+    L(f, P) = 0 \times \frac{1}{2} + \frac{1}{4} \times \frac{1}{2} + 1 \times \frac{1}{2} + \frac{9}{4} \times \frac{1}{2} = 2
+    \]
+
+    \textbf{Upper Sum:}
+
+    \[
+    U(f, P) = \frac{1}{4} \times \frac{1}{2} + 1 \times \frac{1}{2} + \frac{9}{4} \times \frac{1}{2} + 4 \times \frac{1}{2} = \frac{17}{4}
+    \]
 
     Let's now see which relation the lower and upper sum have. Our intuition may tell us that given $f$ bounded over $[a,b]$ and $P$ a partition of $[a,b]$, $L(f, P) \leq U(f, P)$, in fact this is true for any pair of distinct partitions. But, let's review first a lemma to demonstrate this fact.
 
@@ -70,32 +130,60 @@
     \end{lemBox}
 
     \begin{ideaBox}
-        The idea for this proof is to first demonstrate that the lemma is true for a partition that contains only one more element, and then construct a succession of partitions, where each new partition will have one more element than the partition before it, and proof the general case.
-        % Expand more on this idea
+        The idea for this proof is to first demonstrate that the lemma is true for a partition $Q$ that contains only one more element than a partition $P$, and then construct a sequence of partitions, where each new partition will have one more element than the partition before it, and proof the general case.
     \end{ideaBox}
 
-    \textit{\textbf{Proof.}} Let $f$ be a bounded function and $P, Q$ be partitions of $[a,b]$ where $Q \subseteq P$ and $P$ contains only one more element than $Q$, namely $u$. We can represent $P$ and $Q$ as
+    \textit{\textbf{Proof.}}
+    \noindent\textbf{First part of the proof}
+    Let $f$ be a bounded function over $[a,b]$ and $P, Q$ be partitions of $[a,b]$ where $Q \subseteq P$ and $P$ contains only one more element than $Q$, namely $u$. We can represent $P$ and $Q$ as
 
     $$P = \{x_0,x_1,\dots,x_{k-1},x_k,\dots,x_n\}$$
     $$Q = \{x_0,x_1,\dots,x_{k-1},u,x_k,\dots,x_n\}$$
 
-    Then by definition we have
+    Then let
+
+    $$m' = inf\{f(x) | t_{k-1} \leq x \leq u\}$$
+    $$m'' = inf\{f(x) | u \leq x \leq t_k\}$$
+
+    And by definition of lower sum we have
 
     \begin{align*}
         L(f,P) &= \sum_{i=1}^{n} m_i(x_i-x_{i-1})\\
-        &= \sum_{i=1}^{k-1}m_i(x_i-x_{i-1}) + m_k(x_k-x_{k-1}) + \sum_{i=k+1}^{n}m_i(x_i-x_{i-1})
+        &= \left(\sum_{i=1}^{k-1}m_i(x_i-x_{i-1})\right) \\
+        &+ m_k(x_k-x_{k-1}) \\
+        &+ \left(\sum_{i=k+1}^{n}m_i(x_i-x_{i-1})\right)
     \end{align*}
 
     Similarly
 
     \begin{align*}
         L(f,Q) &= \sum_{i=1}^{n} m_i(x_i-x_{i-1})\\
-        &= \sum_{i=1}^{k-1}m_i(x_i-x_{i-1}) + m'(u-x_{k-1}) + m''(x_k-u) + \sum_{i=k+1}^{n}m_i(x_i-x_{i-1})
+        &= \left(\sum_{i=1}^{k-1}m_i(x_i-x_{i-1})\right)\\
+        &+ m'(u-x_{k-1}) + m''(x_k-u)\\
+        &+ \left(\sum_{i=k+1}^{n}m_i(x_i-x_{i-1})\right)
     \end{align*}
 
-    % COMPLETE THE PROOF
+    With this, it would be sufficient to show that $m_k(t_k-t_{k-1}) \leq m'(u - t_{k-1}) + m''(t_k-u)$. We know that $m_k \leq m'$, this because $\{f(x) | t_{k-1} \leq x \leq u\} \subseteq \{f(x) | t_{k-1} \leq x \leq t_k\}$ thus, this latter set contains all elements of the first set and it may contain smaller elements. A similar reasoning can be made to conclude $m_k \leq m''$. Then we have
 
-    With this we can state a theorem that will allow us to then define the integral of a function. Before providing the theorem, a useful observation is that, given any partition $P$
+    \begin{align*}
+        m_k(t_k-t_{k-1}) &= m_k(t_k+0-t_{k-1})\\
+        &= m_k(t_k+(-u+u)-t_{k-1})\\
+        &= m_k((t_k-u)+(u-t_{k-1}))\\
+        &= m_k(t_k-u)+m_k(u-t_{k-1})\\
+        &\leq m''(t_k-u) + m'(u-t_{k-1}) &&\text{ This because inequality properties.}
+    \end{align*}
+    Therefore $L(f,P) \leq L(f, Q)$. The proof for the upper sum is analogous.\\
+
+    \noindent\textbf{Second part of the proof}
+
+    Suppose that $Q$ contains $m$ more points than $P$. Then we create a sequence of partitions for $[a,b]$, $\{P = P_0, P_1, P_2, \dots , P_m = Q\}$ where $P = P_0 \subseteq P_1 \subseteq P_2 \subseteq \dots \subseteq P_m = Q$ and $P_i$ contains one more point than $P{i-1}$, then by the first part of the proof
+
+    $$L(f,P) \leq L(f,P_1) \leq L(f,P_2) \leq \cdots \leq L(f,Q)$$
+
+    By transitivity, $L(f,P) \leq L(f,Q)$. Using a similar reasoning we have $U(f,P) \geq U(f,Q)$. Concluding our proof.
+    \\
+
+    Another useful observation is that, given any partition $P$
     $$L(f, P) \leq U(f, P)$$
     We know this because
     $$L(f, P) = \sum_{i=1}^{n}m_i(t_{i} - t_{i-1})$$
@@ -105,6 +193,8 @@
         m_i &\leq M_i\\
         m_i(t_{i} - t_{i-1}) &\leq M_i(t_{i} - t_{i-1})
     \end{align*}
+
+    With this we can state a theorem that will allow us to then define the integral of a function.
 
     \begin{thBox}
         Let $P_1, P_2$ be partitions of an interval $[a,b]$ and let $f$ be bounded over $[a,b]$, then it's true that
@@ -122,15 +212,16 @@
     $$L(f, P_1) \leq L(f, P) \leq U(f, P) \leq U(f, P_2)$$
     Finally, by transitivity, we therefore have
     $$L(f, P_1) \leq U(f, P_2)$$
-    Concluding our proof.
+    Concluding our proof.\\
 
-    % EXPAND ON WHY THIS IS IMPORTANT
-
+    With this we can state a theorem that will allow us to then define the integral of a function.
     \subsection*{The integral of a function}
 
-    % Description
+    The formal definition of the integral is certainly complicated to provide. This can be noticed since we have already provided multiple definitions of things and sill haven't stated one for the integral. However, like all things in Mathematics, it's important to state concepts unambiguously, and it's not the exception with the integral. All this effort will be compensated, when we provide the fundamental theorem of calculus, reaching the full potential of the integral.
+
+    We'll use the Darboux definition of the integral, which states as follows.
     \begin{defBox}
-        Let $f$ be a function bounded on $[a,b]$, $f$ is said to be integrable on $[a,b]$ if
+        Integral of a function. Let $f$ be a function bounded on $[a,b]$, $f$ is said to be integrable on $[a,b]$ if
 
 
         \begin{align*}
@@ -145,5 +236,31 @@
         And is read "the integral of $f$ over $[a,b]$"
     \end{defBox}
 
-    % INSERT EXAMPLES
+    This definition can be interpreted analytically as: whenever we have that the closest lower sum to the curve is equal to the closest upper sum to the curve, that common number is the integral. Graphically:
+
+    \begin{Figure}
+        \begin{center}
+        \includegraphics[width=.5\textwidth]{images/darbouxintegral.png}
+        \end{center}
+    \end{Figure}
+
+    \begin{Example}
+        Let $f(x) = C$ be a bounded function over $[a,b ]$ for some constant $C$. Then $C = m_i = M_i$ for any partition $P$ in $[a,b]$. Then
+
+        $L(f, P) = U(f, P) = C(b-a)$
+
+        Thus, we have
+
+        $$sup\{L(f, P)\} = inf\{U(f, P)\}$$
+
+        Therefore, $f$ is integrable over $[a,b]$ and $\int_{b}^{a}f = C(b-a)$. Which would be the formula for a rectangle. Graphically:
+
+        \begin{center}
+            \includegraphics[width=1\textwidth]{images/integralconstant.png}
+        \end{center}
+    \end{Example}
+
+    \begin{Example}
+
+    \end{Example}
 \end{document}
