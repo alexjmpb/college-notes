@@ -183,9 +183,13 @@
     By transitivity, $L(f,P) \leq L(f,Q)$. Using a similar reasoning we have $U(f,P) \geq U(f,Q)$. Concluding our proof.
     \\
 
-    Another useful observation is that, given any partition $P$
-    $$L(f, P) \leq U(f, P)$$
-    We know this because
+    Another useful observation goes as follows
+
+    \begin{lemBox}
+        Given any partition $P$
+        $$L(f, P) \leq U(f, P)$$
+    \end{lemBox}
+    \textit{\textbf{Proof}}. We know this because
     $$L(f, P) = \sum_{i=1}^{n}m_i(t_{i} - t_{i-1})$$
     $$U(f, P) = \sum_{i=1}^{n}M_i(t_{i} - t_{i-1})$$
     and by definition, for any $i$:
@@ -193,8 +197,6 @@
         m_i &\leq M_i\\
         m_i(t_{i} - t_{i-1}) &\leq M_i(t_{i} - t_{i-1})
     \end{align*}
-
-    With this we can state a theorem that will allow us to then define the integral of a function.
 
     \begin{thBox}
         Let $P_1, P_2$ be partitions of an interval $[a,b]$ and let $f$ be bounded over $[a,b]$, then it's true that
@@ -215,22 +217,20 @@
     Concluding our proof.\\
 
     With this we can state a theorem that will allow us to then define the integral of a function.
-    \subsection*{The integral of a function}
+    \section*{The integral of a function}
 
     The formal definition of the integral is certainly complicated to provide. This can be noticed since we have already provided multiple definitions of things and sill haven't stated one for the integral. However, like all things in Mathematics, it's important to state concepts unambiguously, and it's not the exception with the integral. All this effort will be compensated, when we provide the fundamental theorem of calculus, reaching the full potential of the integral.
 
     We'll use the Darboux definition of the integral, which states as follows.
+
     \begin{defBox}
         Integral of a function. Let $f$ be a function bounded on $[a,b]$, $f$ is said to be integrable on $[a,b]$ if
-
-
         \begin{align*}
-            sup\{L(f,P) | P \text{ is a partition of } [a,b]\}\\
-            = inf\{U(f,P) | P \text{ is a partition of } [a,b]\}
+            \sup\{L(f,P) | P \text{ is a partition of } [a,b]\} \\
+            = \inf\{U(f,P) | P \text{ is a partition of } [a,b]\}
         \end{align*}
 
         That common number is what we call the integral of $f$ over $[a,b]$ and is denoted by
-
         $$\int_{b}^{a}f$$
 
         And is read "the integral of $f$ over $[a,b]$"
@@ -245,13 +245,11 @@
     \end{Figure}
 
     \begin{Example}
-        Let $f(x) = C$ be a bounded function over $[a,b ]$ for some constant $C$. Then $C = m_i = M_i$ for any partition $P$ in $[a,b]$. Then
-
+        Let $f(x) = C$ be a bounded function over $[a,b]$ for some constant $C$. Then $C = m_i = M_i$ for any partition $P$ in $[a,b]$. Then
         $L(f, P) = U(f, P) = C(b-a)$
 
         Thus, we have
-
-        $$sup\{L(f, P)\} = inf\{U(f, P)\}$$
+        $$\sup\{L(f, P)\} = \inf\{U(f, P)\}$$
 
         Therefore, $f$ is integrable over $[a,b]$ and $\int_{b}^{a}f = C(b-a)$. Which would be the formula for a rectangle. Graphically:
 
@@ -261,6 +259,184 @@
     \end{Example}
 
     \begin{Example}
+        Let $$f(x) =
+        \begin{cases}
+        1 & \text{if } x \text{ is rational} \\
+        0 & \text{if } x \text{ is irrational}
+        \end{cases}$$
+        be a bounded function over the interval $[0,1]$
 
+        We know that for any partition $P$, $m_i = 0$ and $M_i = 1$. Then
+        $$ L(f, P) = 0 \neq U(f, P) = 1$$
+
+        Thus
+        $$\sup\{L(f, P)\} \neq \inf\{U(f, P)\}$$
+
+        and therefore $f$ is not integrable over $[0,1]$.
     \end{Example}
+
+    \section{Criterion for integrability}
+    Now that we know how to know whether the integral of a function exists, we need an easier route to find the value of the integral.
+
+    \begin{thBox}
+        \textit{\textbf{Criterion for Integrability}}. If $f$ is bounded on $[a,b]$, then $f$ is integrable on $[a,b]$ if and only if, for every $\epsilon > 0$ there is a partition $P$ of $[a,b]$ such that
+        $$U(f,P)- L(f,P) < \epsilon$$
+    \end{thBox}
+
+    \begin{noteBox}
+        During the proof we'll use the fact that $a-b < \epsilon$ for any $\epsilon > 0$ implies that $a = b$. This can be checked using the archimedean property of the real numbers as follows:\\
+
+        Suppose that $a \not = b$, then $a-b > 0$, by archimedean property, there exists n such that
+
+        $$a-b > \frac{1}{n}$$
+
+        This means that given $\epsilon = 1/n$, $a-b>\epsilon$, which contradicts our premise. Therefore $a=b$.
+    \end{noteBox}
+
+    \textit{\textbf{Proof.}} Let's start with the first implication of the proof. Suppose that for all $\epsilon > 0$, there exists $P$, partition of $[a,b]$, such that $U(f, P) - L(f, P) < \epsilon$ and let $\mathcal{P}$ be the set of all partitions of $[a,b]$, from this we get the following inequalities:
+    \begin{align}
+        \sup\{L(f, Q) | Q \in \mathcal{P}\} &\geq L(f,P)\\
+        \inf\{U(f, Q) | Q \in \mathcal{P}\} &\leq U(f,P)
+    \end{align}
+
+    Multiplying the inequality 1.1 by $-1$ and add it to the inequality $1.2$ we get:
+    $$
+        \sup\{L(f, Q) | Q \in \mathcal{P}\} - \inf\{U(f, Q) | Q \in \mathcal{P}\} \leq U(f,P) - L(f,P)
+    $$
+
+    This implies:
+    $$
+        \sup\{L(f, Q) | Q \in \mathcal{P}\} - \inf\{U(f, Q) | Q \in \mathcal{P}\} < \epsilon
+    $$
+
+    And therefore $\sup\{L(f, Q) | Q \in \mathcal{P}\} = \inf\{U(f, Q) | Q \in \mathcal{P}\}$.\\
+
+    Conversely, now suppose that $f$ is integrable over $[a,b]$, that is:
+    $$\sup\{L(f, Q) | Q \in \mathcal{P}\} = \inf\{U(f, Q) | Q \in \mathcal{P}\}$$
+    Then there exist $P', P'' \in \mathcal{P}$ such that $$U(f, P'') - L(f, P') < \epsilon$$ for all $\epsilon > 0$. If this is not true, we'll find a contradiction because of the supremum and infimum definitions.
+
+    Now, let $P = P' \cup P''$, then by lemma 1.1.8 we have the following inequalities:
+    \begin{align}
+        L(f, P'') &\leq L(f, P)\\
+        U(f, P') &\geq U(f, P)
+    \end{align}
+    And multiplying inequality 1.3 by $-1$ and adding it to inequality 1.4, we get
+    $$U(f,P)-L(f, P) \leq U(f, P') - L(f, P'') < \epsilon$$
+
+    And therefore, $U(f,P)-L(f, P) < \epsilon$.
+
+    \begin{Example}
+        Let $f(x) = x$ where $x \in [0,b]$, we then have that $m_i = x_{i-1}$ and that $M_i = x_i$. Then, by definition we know that:
+
+        \begin{align*}
+            L(f, P) &= \sum_{i=1}^{n} m_{i}(x_{i} - x_{i-1})\\
+            &= \sum_{i=1}^{n}x_{i-1}(x_{i} - x_{i-1})
+        \end{align*}
+        And similarly:
+        $$U(f, P) = \sum_{i=1}^{n}x_{i}(x_{i} - x_{i-1})$$
+
+        Then
+
+        \begin{align*}
+            U(f, P)- L(f, P) &= \sum_{i=1}^{n} \left[x_i(x_i-x_{i-1}) - x_{i-1}(x_i-x_{i-1})\right]\\
+            &= \sum_{i=1}^{n} \left[(x_i-x_{i-1})(x_i-x_{i-1})\right]\\
+            &= \sum_{i=1}^{n} (x_i-x_{i-1})^2
+        \end{align*}
+
+        Now, let $P_n$ be partition of $[0,b]$ such that $x_i - x_{i-1} = \frac{b-a}{n} = \frac{b-0}{n} = \frac{b}{n}$, then:
+
+        \begin{align*}
+            U(f, P)- L(f, P) &= \sum_{i=1}^{n} \left(\frac{b}{n}\right)^2\\
+            &= \frac{b^2}{n}
+        \end{align*}
+
+        Now, given $\epsilon > 0$ let $P_n$ be the previously defined partition of $[0,b]$ with $n > \frac{b^2}{\epsilon}$ in such a way that:
+
+        $$U(f, P)- L(f, P) = \frac{b^2}{n} < \epsilon$$
+
+        Therefore, $f$ is integrable.
+
+        % COMPLETE THE PROOF FOR THE VALUE OF THE INTEGRAL
+    \end{Example}
+
+    % INSERT THE EXAMPLE FOR x^2
+
+    \section{Uniform Continuity}
+
+    We now shall define a concept that is going to help us to provide a theorem that will make our life easier to find whether a function is integrable or not.
+
+    \begin{noteBox}
+        Remember that the standard definition of continuity goes as follows:
+
+        $f$ is continuous on a point $a$ if and only if, for all $\epsilon > 0$, there exists $\delta > 0$ in such a way that for all $x$, if $|x-a|<\delta$, then $|f(x) -f(a)| < \epsilon$.
+    \end{noteBox}
+    \begin{defBox}
+        \textit{\textbf{Uniform continuity}}. $f$ is uniformly continuous over an interval $A$ if and only if, for all $\epsilon > 0$ there exists $\delta > 0$ in such a way that for all $x, y \in A$, if $|x-y| < \delta$, then $|f(x) - f(y)| < \epsilon$
+    \end{defBox}
+
+    This definition can be interpreted as follows, when small changes occur in $x$, they produce small changes in $f(x)$, but such changes on $f(x)$ do not depend of the value of $x$.
+
+    % INSERT EXAMPLES FOR UNIFORM CONTINUITY
+
+    Knowing this, we'll state some theorems that will help us prove that a continuous function is integrable.
+
+    \begin{thBox}
+        If $f$ is uniformly continuous over an interval $I$, then $f$ is continuous over $I$
+    \end{thBox}
+
+    \begin{thBox}
+        \textit{\textbf{Heine-Cantor theorem}}. If $f$ is continuous over $[a,b]$ then $f$ is uniformly continuous over $[a,b]$
+    \end{thBox}
+
+    \begin{thBox}
+        If $f$ is continuous over $[a,b]$, then $f$ is integrable over $[a,b]$
+    \end{thBox}
+
+    % COMPLETE THE PROOF
+
+    \section{Algebra of integrals}
+
+    So far we have stated some theoretical theorems, let's now review some operational ones.
+
+    \begin{thBox}
+        $f$ is integrable over $[a,b]$ if and only if, $f$ is integrable over $[a,c]$ and over $[c,b]$. Moreover:
+
+        $$\int_{a}^{b}f = \int_{a}^{c}f + \int_{c}^{b}g$$
+    \end{thBox}
+
+    \begin{thBox}
+        If $f$ and $g$ are integrable over $[a,b]$, then $f+g$ is integrable. Moreover:
+
+        $$\int_{a}^{b}f+g = \int_{a}^{b}f + \int_{a}^{b}g$$
+    \end{thBox}
+
+    \begin{defBox}
+        $$\int_{a}^{a}f = 0$$;
+        $$\int_{a}^{b}f = - \int_{b}^{a}f \text{ if } a> b$$
+    \end{defBox}
+
+    \begin{thBox}
+        If $f$ is integrable over $[a,b]$, then $c\cdot f$ is also integrable over $[a,b]$. Moreover:
+
+        $$\int_{a}^{b}cf = c\cdot \int_{a}^{b}f$$
+    \end{thBox}
+
+    \begin{thBox}
+        If $f$ is integrable over $[a,b]$ and $m\leq f(x) \leq M$ for all $x \in [a,b]$ then:
+
+        $$m(b-a) \leq \int_{a}^{b}f \leq M(b-a)$$
+    \end{thBox}
+
+    % INSERT EXAMPLES ABOUT INTEGRABLE FUNCTIONS
+
+    \section{The Fundamental Theorem of Calculus}
+
+    After defining the integral, using a not very intuitive method; finding a criterion for integrability, which facilitates the process of finding integrable functions; proving that continuous functions are integrable; and lastly stating some properties of the integral, we'll now begin to construct our way to the most important theorem in all of Calculus, the fundamental theorem of calculus. This theorem will reveal the full potential of the integral and the derivative, unifying them together.
+
+    \begin{thBox}
+        If $f$ is integrable over $[a,b]$ and $F$ is defined on $[a,b]$ by $F(x) = \int_{a}^{x}f$, then $F$ is continuous over $[a,b]$.
+    \end{thBox}
+
+    % WRITE EXAMPLES
+
 \end{document}
