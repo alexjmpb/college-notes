@@ -1,0 +1,25 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Computación Científica 1 }{ Relaciones }{  }{ Alexander Mendoza }{\today}
+
+    \section*{Relaciones}
+
+    \begin{enumerate}
+        \item Sea $X$ el conjunto de todas las cadenas de 4 bits (por ejemplo, $0011,0101,1000)$. Defina una relación $R$ sobre $\mathrm{X}$ como $s_1 R s_2$ si alguna subcadena $s_1$ de longitud 2 es igual a alguna subcadena $s_2$ de longitud 2. Ejemplo: $0111 R 1010$ (porque ambas 0111 y 1010 contienen 01). $1110 \not{R} 0001$ (porque 1110 y 0001 no tienen una subcadena común de longitud 2). ¿Es ésta una relación reflexiva, simétrica, antisimétrica, transitiva y/o de un orden parcial?
+
+        \begin{itemize}
+            \item \textit{\textbf{Simetría}}. Sean $s_1, s_2 \in X$ tal que $s_1 R s_2$, luego existe una subcadena de $s_1$ de longitud 2 que es igual a alguna subcadena de $s_2$ de longitud 2, por definición, $s_2 R s_1$.
+            \item \textit{\textbf{Reflexividad}}. Sea $s_1 \in X$ y sea $s_1' = s_1$, luego cualquier subcadena de $s_1$ de longitud 2 es también subcadena de $s_1'$, por lo tanto $s_1 R s_1 = s_1'$.
+            \item \textit{\textbf{Transitividad}}. Sean $s_1 = 1111, s_2 = 1100, s_3 = 0000$, luego, $s_1 R s_2$ y $s_2 R s_3$ ya que 11 es subcadena de $s_1$ y de $s_2$ y 00 es subcadena de $s_2$ y $s_3$, sin embargo $s_1 \not R s_3$ ya que no existe una cadena de longitud dos que sea subcadena de $s_1$ y $s_3$.
+            \item \textit{\textbf{Antisimetría}}. Sean $s_1 = 1111, s_2 = 1100$ luego sabemos que $s_1 R s_2$ y $s_2 R s_1$, sin embargo $s_1 \not s_2$.
+            \item \textit{\textbf{Orden parcial}}. Debido a que la relación no es transitiva ni antisimétrica, no es un orden parcial.
+        \end{itemize}
+    \end{enumerate}
+
+\end{document}
