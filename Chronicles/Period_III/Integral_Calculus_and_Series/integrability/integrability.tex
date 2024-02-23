@@ -422,7 +422,7 @@
     \end{defBox}
 
     \begin{thBox}
-        If $f$ is integrable over $[a,b]$, then $c\cdot f$ is also integrable over $[a,b]$. Moreover:
+        If $f$ is integrable over $[a,b]$, then $c\cdot f$ is also integrable over $[a,b]$ Moreover:
 
         $$\int_{a}^{b}cf = c\cdot \int_{a}^{b}f$$
     \end{thBox}
@@ -444,5 +444,26 @@
     \end{thBox}
 
     % WRITE EXAMPLES
+
+    \begin{thBox}
+        \textit{\textbf{First fundamental theorem of the infinitesimal Calculus}}. Let $f$ be an integrable function over $[a,b]$ and let $F$ be defined on $[a,b]$ by $F(x) = \int_{a}^{x}f$.\\
+        If $f$ is continuous in $c \in [a,b]$, then $F$ is derivable in $c$ and
+
+        $$F'(c) = f(c)$$
+    \end{thBox}
+
+    \textit{\textbf{Proof.}}
+
+    \begin{corBox}
+        If $f$ is continuous on $[a,b]$ and $f = g'$ for some function $g$, then
+
+        $$\int_{a}^{b}f = g(b) - g(a)$$
+    \end{corBox}
+
+    \begin{noteBox}
+        It's important to note that some books cite Corollary 1.5.3 as the second part of the fundamental theorem of Calculus, this is not entirely correct and we later state the second part.
+    \end{noteBox}
+
+    
 
 \end{document}
