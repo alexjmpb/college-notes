@@ -15,11 +15,319 @@
         \item Sea
         $$A = \begin{bmatrix}
             -1 & -3 & 9\\
-            0 & 5 & 10\\
+            0 & 5 & 18\\
             0 & -2 & -7
         \end{bmatrix}$$
         Encontrar los valores propios, vectores propios y $E_\lambda$.
 
-        \textit{\textbf{Respuesta}}. Sabemos que el polinomio
+        \textit{\textbf{Respuesta}}. Sabemos que el polinomio polinomio característico es de la siguiente forma:
+
+        $$f(\lambda) = \det\left(A - \lambda I\right)$$
+
+        Luego, \begin{align*}
+            \det\left(A - \lambda I\right) &= \det\left(
+                \begin{bmatrix}
+                    -1 & -3 & 9\\
+                    0 & 5 & 18\\
+                    0 & -2 & -7
+                \end{bmatrix}
+            - \lambda
+                \begin{bmatrix}
+                    1 & 0 & 0\\
+                    0 & 1 & 0\\
+                    0 & 0 & 1
+                \end{bmatrix}
+            \right)\\\\
+            &= \det\left(
+                \begin{bmatrix}
+                    -1-\lambda & -3 & 9\\
+                    0 & 5-\lambda & 18\\
+                    0 & -2 & -7-\lambda
+                \end{bmatrix}
+            \right)\\\\
+            &= -\lambda^3 -3\lambda^2 -3\lambda -1
+        \end{align*}
+
+        Ahora para encontrar los valores propios, debemos encontrar las raíces del polinomio. Se puede observar que $-\lambda^3 -3\lambda^2 -3\lambda -1$ es de la forma expandida de un binomio al cubo, por lo tanto, el polinomio se puede factorizar de la siguiente forma:
+
+        $$-(\lambda + 1)^3$$
+
+        De esta manera, al igualar a cero, $-(\lambda + 1)^3 = $, se puede concluir que $\lambda_1 = -1, \lambda_2 = -1, \lambda_3 = -1$. Encontremos ahora los vectores propios, para esto resolveremos el siguiente sistema homogéneo: $Ax = 0$, donde $x = (x_1, x_2, x_3)$ y $x_1, x_2, x_3 \in F$. Así, el sistema homogéneo para $\lambda = -1$ quedaría de la siguiente forma:
+        \begin{align*}
+            \begin{bmatrix}
+                0 & -3 & 9\\
+                0 & 6 & 18\\
+                0 & -2 & -6
+            \end{bmatrix}
+            \begin{bmatrix}
+                x_1\\ x_2\\ x_3
+            \end{bmatrix} = \begin{bmatrix}
+                0\\0\\0
+            \end{bmatrix}
+        \end{align*}
+
+        Resolviendo el sistema tenemos que el vector
+
+        $$\begin{bmatrix}
+            1\\0\\0
+        \end{bmatrix}$$
+
+        Es una solución para el sistema y por lo tanto es un vector propio para $A$.
+
+        \item Demostrar el siguiente teorema. Si $A$ es similar a una matriz diagonal, entonces los elementos de esta matriz diagonal son los valores propios de $A$.
+        \textit{\textbf{Demostración}}. Si $P^{-1}AP=D$ para alguna matriz invertible $P$ donde $D$ es una matriz diagonal. Luego
+
+        \begin{align*}
+            \det(A - \lambda I) &= \det(PDP^{-1} - \lambda I)\
+            &= \det(PDP^{-1}-\lambda PP^{-1})\\
+            &= \det(P(D-\lambda I)P^{-1})\\
+            &= \det(P) \det(D-\lambda I) \det(P^{-1})
+        \end{align*}
+
+        Sabemos que $det(P) \in \mathbb{R}$ y que $\det(P^{-1}) = \frac{1}{\det(P)}$, además, como $P$ es invertible $det(P) \not = 0$ por lo tanto tenemos lo siguiente:
+
+        \begin{align*}
+            \det(P) \det(D-\lambda I) \det(P^{-1}) &= \det(P) \det(P^{-1}) \det(D-\lambda I)\\
+            &= \det(P) \frac{1}{\det(P)} \det(D-\lambda I)
+            &= \det(D-\lambda I)
+        \end{align*}
+
+        Con lo cual concluimos que $\det(A - \lambda I) = \det(D-\lambda I)$.
+
+        \item Sea $\beta = \{u_1, u_2, \dots , u_n\}$ una base ordenada para $V$, y sea $T$ un mapeo de coordenadas tal que $T(v) = [v]_\beta$, luego $T$ es una transformación lineal.
+    
+        \textit{\textbf{Demostración}}. Demostremos primero que $T(v + w) = T(v) + T(w)$ para todo $v, w \in V$.
+
+        Sean $v, w \in V$, luego tenemos lo siguiente:
+
+        $$T(v) = [v]_\beta = \begin{bmatrix}
+            \alpha_1\\ \alpha_2\\ \vdots \\ \alpha_n
+        \end{bmatrix}$$
+
+        Donde $\alpha_1,\dots, \alpha_n$ son escalares tal que
+
+        $$v = \sum_{i=1}^{n} \alpha_i u_i$$
+        y de manera similar
+
+        $$T(v) = [v]_\beta = \begin{bmatrix}
+            \gamma_1\\ \gamma_2\\ \vdots \\ \gamma_n
+        \end{bmatrix}$$
+
+        Donde $\gamma_1,\dots, \gamma_n$ son escalares tal que
+
+        $$w = \sum_{i=1}^{n} \gamma_i u_i$$
+
+        Por lo tanto,
+
+        \begin{align*}
+        T(v + w) &= [v + w]_\beta \\
+        &= \left[\sum_{i=1}^{n} (\alpha_i + \gamma_i) u_i\right]_\beta \\
+        &= \begin{bmatrix}
+            \alpha_1 + \gamma_1\\ \alpha_2 + \gamma_2\\ \vdots \\ \alpha_n + \gamma_n
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+            \alpha_1\\ \alpha_2\\ \vdots \\ \alpha_n
+        \end{bmatrix} + \begin{bmatrix}
+            \gamma_1\\ \gamma_2\\ \vdots \\ \gamma_n
+        \end{bmatrix} \\
+        &= T(v) + T(w)
+        \end{align*}
+
+        Demostremos que $T(cv) = cT(v)$ para todo $c \in \mathbb{R}$ y todo $v \in V$.
+
+        Sean $v \in V$ y $c \in \mathbb{R}$, entonces tenemos:
+
+        $$T(v) = [v]_\beta = \begin{bmatrix}
+            \alpha_1\\ \alpha_2\\ \vdots \\ \alpha_n
+        \end{bmatrix}$$
+
+        Donde $\alpha_1,\dots, \alpha_n$ son escalares tal que
+
+        $$v = \sum_{i=1}^{n} \alpha_i n_i$$
+
+        Entonces,
+
+        \begin{align*}
+        T(cv) &= [cv]_\beta \\
+        &= \left[\sum_{i=1}^{n} (c\alpha_i) n_i\right]_\beta \\
+        &= \begin{bmatrix}
+            c\alpha_1\\ c\alpha_2\\ \vdots \\ c\alpha_n
+        \end{bmatrix} \\
+        &= c\begin{bmatrix}
+            \alpha_1\\ \alpha_2\\ \vdots \\ \alpha_n
+        \end{bmatrix} \\
+        &= cT(v)
+        \end{align*}
+
+        \item Sea $T: \mathcal{M}_{2x2}(\mathbb{R}) \to P_2(\mathbb{R})$ tal que
+
+        $$T\left(\begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}\right)$$
+
+        y sean $\beta_1$ y $\beta_2$ bases de $\mathcal{M}_{2x2}(\mathbb{R})$ y $P_2(\mathbb{R})$ tal que
+
+        $$\beta_1 = \left\{
+            \begin{bmatrix}
+                1 & 0 \\
+                0 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 1 \\
+                0 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 0 \\
+                1 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 0 \\
+                0 & 1
+            \end{bmatrix}
+        \right\}$$
+
+        $$\beta_2 = \left\{1, x, x^2\right\}$$
+
+        Encuentre $[T]_{\beta_1}^{\beta_2}$.
+
+        Para encontrar $[T]_{\beta_1}^{\beta_2}$ debemos aplicar la transformación a cada vector de $\beta_1$ y luego obtener la matriz de la transformación. En este orden de ideas, para $v_j \in \beta_1$ tenemos lo siguiente:
+
+        $$T(v_1) = T \left(\begin{bmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{bmatrix}\right) = (1 + 0) + 2\cdot 0x + 0x^2 = 1$$
+
+        $$T(v_2) = T \left(\begin{bmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{bmatrix}\right) = (0 + 1) + 2\cdot 0x + 1x^2 = 1 + x^2$$
+
+        $$T(v_3) = T \left(\begin{bmatrix}
+            0 & 0 \\
+            1 & 0
+        \end{bmatrix}\right) = (0 + 0) + 2\cdot 0x + 0x^2 = 0$$
+
+        $$T(v_4) = T \left(\begin{bmatrix}
+            0 & 0 \\
+            0 & 1
+        \end{bmatrix}\right) = (0 + 0) + 2\cdot 1x + 0x^2 = 2x$$
+
+        Luego
+
+        $$[T]_{\beta_1}^{\beta_2} = \begin{bmatrix}
+            1 & 1 & 0 & 0\\
+            0 & 0 & 0 & 2\\
+            0 & 1 & 0 & 0
+        \end{bmatrix}$$
+
+        \item Sea $F=\mathbb{R}^3 \to \mathbb{R}^2$.
+        $$
+        F(x, y, z)=(3x+2y-4z, x-5y+3z)
+        $$
+        \begin{enumerate}
+            \item Hallar la matriz de $F$ para las siguientes bases de $\mathbb{R}^3$ y $\mathbb{R}^2$
+
+            $$\beta_1=\{(1,1,1),(1,1,0),(1,0,0)\}$$
+            $$\beta_2=\{(1,3),(2,5)\}$$
+
+            \item Dada $V \in \mathbb{R}^3$, verifique
+            $$[F]_{\beta_1}^{\beta_2}[v]_{\beta_1}=[F(v)]_{\beta_2}$$
+        \end{enumerate}
+        
+        \begin{enumerate}
+            \item Por definición de $F$, 
+            $$F((1,1,1)) = (3(1) + 2(1) - 4(1), 1-5(1)+3(1)) = (1,-1)$$
+            $$F((1,1,0)) = (3(1) + 2(1) - 4(0), 1-5(1)+3(0)) = (5, -4)$$ y
+            $$F((1,0,0)) = (3(1) + 2(0) - 4(0), 1-5(0)+3(0)) = (3, 1)$$
+
+            
+            Luego $$\begin{bmatrix}
+                1\\-1
+            \end{bmatrix}_{\beta_2} = \begin{bmatrix}
+                -7\\1
+            \end{bmatrix}$$, $$\begin{bmatrix}
+                5\\-4
+            \end{bmatrix}_{\beta_2} = \begin{bmatrix}
+                -33\\19
+            \end{bmatrix}$$ $$\begin{bmatrix}
+                3\\-1
+            \end{bmatrix}_{\beta_2} = \begin{bmatrix}
+                -13\\8
+            \end{bmatrix}$$
+
+            Por último,
+
+            $$[F]_{\beta_1}^{\beta_2} = \begin{bmatrix}
+                -7 & -33 & -13 \\
+                1 & 19 & 8
+            \end{bmatrix}$$
+
+            \item Sea $v = (a, b, c)$ Tenemos que
+
+            $$[F(v)_{\beta_2}] = \begin{bmatrix}
+                a\\b
+            \end{bmatrix}\beta_2 = \begin{bmatrix}
+                \begin{bmatrix}
+                1 & 2 & 3a + 2b - 4c \\
+                3 & 5 & a - 5b + 3c
+                \end{bmatrix} = \begin{bmatrix}
+                    -13a  -20b +26c \\
+                    8a + 11b -15c
+                \end{bmatrix}
+            \end{bmatrix}$$
+
+            Luego de manera similar tenemos que 
+
+            $$
+            [v]_{\beta_1} = \begin{bmatrix}
+                c\\
+                b-c\\
+                a-b
+            \end{bmatrix}
+            $$
+            Por último
+            \begin{align*}
+                [F]_{\beta_1}^{\beta_2}[v]_{\beta_1} &=
+                \begin{bmatrix}
+                    -7 & -33 & -13 \\
+                    1 & 19 & 8
+                \end{bmatrix} \begin{bmatrix}
+                    c\\
+                    b-c\\
+                    a-b
+                \end{bmatrix}\\
+                &= \begin{bmatrix}
+                    -13a  -20b +26c \\
+                    8a + 11b -15c
+                \end{bmatrix}\\
+                &= [F(v)_{\beta_2}]
+            \end{align*}
+        \end{enumerate}
+
+        \item Sea $W_1$ el conjunto que denota todos las polinomios, $f(x)$ en $P(F)$ tal que se tiene la representación
+        $$
+        f(x)=a_n x^n+a_{n-1} x^{n-1}+\cdots+a_1 x+a_0
+        $$
+
+        Tenemos que $a_i=0$ si $i$ es par
+        Sea $W_2$ que denota el conjunto de todos los polinomios $g(x) \in F$ tal que su representación
+        $$
+        g(x)=b_m x^m+b_{m-1} x^{m-1}+\cdots+b_1 x+b_0
+        $$
+        tenemos que $b_i=0$, i es impar. Demuestre que $P(F) = W_1 \oplus W_2$
+
+        Para demostrar que $P(F) = W_1 \oplus W_2$, donde $W_1$ y $W_2$ son definidos como:
+
+        \[ W_1 = \{ f(x) \in F \, | \, a_i = 0 \text{ si } i \text{ es impar} \} \]
+        \[ W_2 = \{ g(x) \in F \, | \, b_i = 0 \text{ si } i \text{ es impar} \} \]
+
+        Demostramos que $P(F) = W_1 + W_2$ y $W_1 \cap W_2 = \{0\}$.
+
+        Primero, para $h(x) \in P(F)$, $h(x) = f(x) + g(x)$, donde $f(x) \in W_1$ y $g(x) \in W_2$. Así, $P(F) = W_1 + W_2$.
+
+        Luego, si $h(x) \in W_1 \cap W_2$, entonces $h(x) = 0$. Por lo tanto, $W_1 \cap W_2 = \{0\}$.
+
+        Por lo tanto, $P(F) = W_1 \oplus W_2$.
     \end{enumerate}
 \end{document}
