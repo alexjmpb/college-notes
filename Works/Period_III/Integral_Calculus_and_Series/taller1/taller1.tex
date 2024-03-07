@@ -1,6 +1,8 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
 \newtheorem{lemma}{Lema}
+\usepackage{array}
+\usepackage{float}
 
 \renewcommand{\theenumii}{\roman{enumii}}
 \input{setup.tex}
@@ -51,7 +53,7 @@
 
         $$U(f, P_n) - L(f, P_n) = \dfrac{b^4}{n} < \epsilon$$
 
-        Así, dado cualquier $\epsilon > 0$, podemos encontrar una partición $P_n$ de $[0,b]$ tal que $U(f, P_n) - L(f, P_n) < \epsilon$. Por lo tanto, $f$ es integrable. Luego como tanto $U(f, P_n)$ y $L(f, P_n)$ se aproximan a $\frac{b^4}{4}$ dado un $n$ lo suficiente mente grande, $\frac{b^4}{4}$ es el único número tal que
+        Así, dado cualquier $\epsilon > 0$, podemos encontrar una partición $P_n$ de $[0,b]$ tal que $U(f, P_n) - L(f, P_n) < \epsilon$. Por lo tanto, $f$ es integrable. Luego como tanto $U(f, P_n)$ y $L(f, P_n)$ se aproximan a $\dfrac{b^4}{4}$ dado un $n$ lo suficiente mente grande, $\dfrac{b^4}{4}$ es el único número tal que
 
         $$L(f, P_n) = \dfrac{b^4}{4} \dfrac{(n-1)^2}{n^2} \leq \dfrac{b^4}{4} \leq \dfrac{b^4}{4} \dfrac{(n+1)^2}{n^2} = U(f, P_n)$$
 
@@ -92,14 +94,14 @@
 
         \begin{align*}
             U(f, P_n) - L(f, P_n) &= \dfrac{b^5}{5} + \dfrac{b^5 5(2+3n)n^2-1}{30n^4} - \dfrac{b^5}{5} + \dfrac{b^5 5(2-3n)n^2-1}{30n^4}\\
-            &= \frac{b^5}{n}
+            &= \dfrac{b^5}{n}
         \end{align*}
 
         De esta manera, dado $\epsilon > 0$ si $n > \dfrac{b^4}{\epsilon}$, entonces
 
         $$U(f, P_n) - L(f, P_n) = \dfrac{b^5}{n} < \epsilon$$
 
-        Así, dado cualquier $\epsilon > 0$, podemos encontrar una partición $P_n$ de $[0,b]$ tal que $U(f, P_n) - L(f, P_n) < \epsilon$. Por lo tanto, $f$ es integrable. Luego como tanto $U(f, P_n)$ y $L(f, P_n)$ se aproximan a $\frac{b^5}{5}$ dado un $n$ lo suficiente mente grande, $\frac{b^5}{5}$ es el único número tal que
+        Así, dado cualquier $\epsilon > 0$, podemos encontrar una partición $P_n$ de $[0,b]$ tal que $U(f, P_n) - L(f, P_n) < \epsilon$. Por lo tanto, $f$ es integrable. Luego como tanto $U(f, P_n)$ y $L(f, P_n)$ se aproximan a $\dfrac{b^5}{5}$ dado un $n$ lo suficiente mente grande, $\dfrac{b^5}{5}$ es el único número tal que
 
         $$L(f, P_n) = \dfrac{b^5}{5} + \dfrac{b^5 5(2-3n)n^2-1}{30n^4} \leq \dfrac{b^5}{5} \leq \dfrac{b^5}{5} + \dfrac{b^5 5(2+3n)n^2-1}{30n^4} = U(f, P_n)$$
 
@@ -113,7 +115,7 @@
                 La gráfica de la función es la siguiente:
 
                 \begin{center}
-                    \includegraphics[width=.5\textwidth]{images/grafica1.png}
+                    \fbox{\adjustbox{trim=1 1 1 1, width=.5\textwidth}{\includegraphics{images/grafica1.png}}}
                 \end{center}
 
                 Observando la función, podemos observar que es impar, esto se puede verificar ya que
@@ -135,7 +137,7 @@
                     &= 0 + 3\int_{-1}^{1}\sqrt{1-xdx}\\
                     &= 6\int_{0}^{1}\sqrt{1-xdx}\\
                     &= 6 \left(\dfrac{\pi}{4}\right)\\
-                    &= \frac{3\pi}{4}
+                    &= \dfrac{3\pi}{4}
                 \end{align*}
             \end{enumerate}
             \setcounter{enumi}{6}
@@ -156,6 +158,7 @@
                     &= 0
                 \end{align*}
 
+                \setcounter{enumii}{2}
                 \item $f(x) = x + [x]$
 
                 La función es integrable y su integral se calcula de la siguiente manera
@@ -167,15 +170,159 @@
                     &= 3
                 \end{align*}
 
+                \setcounter{enumii}{5}
                 \item $f(x) = \begin{cases}
-                    \dfrac{1}{\left[\frac{1}{x}\right]}, & 0 < x \leq 1\\
+                    \dfrac{1}{\left[\dfrac{1}{x}\right]}, & 0 < x \leq 1\\
                     0, & x=0 \text{ o } x > 1
                 \end{cases}$
 
-                La gráfica de la función es la siguiente\\
+                Analicemos los valores que toma nuestra función
+
+                \begin{table}[H]
+                    \setlength{\extrarowheight}{20pt}
+                    \centering
+                    \begin{adjustbox}{valign=c}
+                    \begin{tabular}{|c|c|}
+                        \hline
+                        $\left[\dfrac{1}{x}\right]$ & Condición                           \\ \hline
+                        $\dfrac{1}{1}$              & $1 \leq \dfrac{1}{x} < 2 \leftrightarrow \dfrac{1}{2} < x \leq 1$               \\ \hline
+                        $\dfrac{1}{2}$              & $2 \leq \dfrac{1}{x} < 3 \leftrightarrow \dfrac{1}{3} < x \leq \dfrac{1}{2}$     \\ \hline
+                        $\dfrac{1}{2}$              & $3 \leq \dfrac{1}{x} < 4 \leftrightarrow \dfrac{1}{4} < x \leq \dfrac{1}{3}$     \\ \hline
+                        $\vdots$                    & $\vdots$                                                                       \\ \hline
+                        $\dfrac{1}{n}$                & $n \leq \dfrac{1}{x} < n+1 \leftrightarrow \dfrac{1}{n+1} < x \leq \dfrac{1}{n}$ \\ \hline
+                    \end{tabular}
+                \end{adjustbox}
+                \end{table}
+
+                Con esta tabla de valores podemos obtener la siguiente gráfica\\
                 \begin{center}
-                    \includegraphics[width=.5\textwidth]{images/grafica2.png}
+                    \fbox{\adjustbox{trim=1 1 1 1, width=.5\textwidth}{\includegraphics{images/grafica2.png}}}
                 \end{center}
+
+                Así, podemos dividir $(0, 1]$ en intervalos, obtener el área de esos intervalos y sumar las áreas. Haremos esto de la siguiente manera, primero veamos cuál es el área de los intervalos
+
+                $$\int_{\dfrac{1}{2}}^{1} f(x)dx = 1(1-\dfrac{1}{2}) = \dfrac{1}{2}$$
+                $$\int_{\dfrac{1}{3}}^{\dfrac{1}{2}} f(x)dx = \dfrac{1}{2}(\dfrac{1}{2} - \dfrac{1}{3}) = \dfrac{1}{12}$$
+                $$\int_{\dfrac{1}{4}}^{\dfrac{1}{3}} f(x)dx = \dfrac{1}{3}(\dfrac{1}{3} - \dfrac{1}{4}) = \dfrac{1}{36}$$
+
+                Luego, nuestra integral toma el siguiente valor
+
+                \begin{align*}
+                    \int_{0}^{2}f(x)dx &= \int_{0}^{1}f(x)dx + \int_{1}^{2}f(x)dx\\
+                    &= \int_{0}^{1}f(x)dx + 0\\
+                    &= 1(1-\dfrac{1}{2}) + \dfrac{1}{2}(\dfrac{1}{2} - \dfrac{1}{3}) + \dfrac{1}{3}(\dfrac{1}{3} - \dfrac{1}{4}) + \cdots\\
+                    &= \sum_{n=1}^{\infty} \dfrac{1}{n^2(n+1)}\\
+                    &= \frac{1}{6}(\pi^2-6)
+                \end{align*}
+
+                \item $f$ es la función indicada en la siguiente figura
+                \begin{center}
+                    \fbox{\adjustbox{trim=1 1 1 1, clip, width=0.7\textwidth}{\includegraphics{images/grafica3.png}}}
+                \end{center}
+
+                Analicemos el área en cada intervalo en el cambia la función. En cada intervalo la función forma un triángulo, algunos intervalos en los que podemos observar que cambia la función son $[1,2]$, $[\frac{1}{2}, 1$], $[\frac{1}{4}, \frac{1}{2}]$, $[\frac{1}{8}, \frac{1}{4}]$.
+
+                $\int_{1}^{2}f(x)dx = \frac{1(2-1)}{2} = \frac{1}{2}$
+                Para el intervalo $[\frac{1}{2}, 1]$, el área del triángulo es:
+
+                \[
+                \int_{\frac{1}{2}}^{1} f(x) \, dx = \frac{1 (1-\frac{1}{2})}{2} = \frac{1}{4}
+                \]
+
+                Para el intervalo $[\frac{1}{4}, \frac{1}{2}]$, el área del triángulo es:
+
+                \[
+                \int_{\frac{1}{4}}^{\frac{1}{2}} f(x) \, dx = \frac{1 (\frac{1}{2}-\frac{1}{4})}{2} = \frac{1}{8}
+                \]
+
+                Finalmente, para el intervalo $[\frac{1}{8}, \frac{1}{4}]$, el área del triángulo es:
+
+                \[
+                \int_{\frac{1}{8}}^{\frac{1}{4}} f(x) \, dx = \frac{1 (\frac{1}{4}-\frac{1}{8})}{2} = \frac{1}{16}
+                \]
+
+                Con esto tenemos que
+
+                \begin{align*}
+                    \int_{0}^{2} f(x)dx &= \int_{1}^{2}f(x)dx + \int_{\frac{1}{2}}^{1}f(x)\,dx + \int_{\frac{1}{4}}^{\frac{1}{2}}f(x)\,dx + \cdots\\
+                    &= \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots\\
+                    &= \sum_{n=1}^{\infty}\frac{1}{2^n}\\
+                    &= 1
+                \end{align*}
             \end{enumerate}
+
+            \item Hallar las áreas de las regiones limitadas por
+            \begin{enumerate}
+                \setcounter{enumii}{2}
+                \item Las gráficas de $f(x) = x^2$ y $g(x) = 1 - x^2$
+                \begin{center}
+                    \fbox{\adjustbox{trim=1 1 1 1, width=.5\textwidth}{\includegraphics{images/grafica4.png}}}
+                \end{center}
+
+                Consideraremos el intervalo $[-1, 1]$, sabemos que la altura va a ser $h = (2-x^2)-x^2$, luego
+
+                \begin{align*}
+                    A &= \int_{-1}^{1}1-2x^2\,dx\\
+                    &= \int_{-1}^{1}1\,dx - \int_{-1}^{1}2x^2\,dx\\
+                    &= \left. x - \frac{2^3}{x} \right|_{-1}^{1}\\
+                    &= \frac{2}{3}
+                \end{align*}
+                \setcounter{enumii}{5}
+                \item La gráfica de $f(x) = \sqrt{x}$, el eje horizontal y la vertical por $(2, 0)$.
+                La gráfica de la función es la siguiente
+
+                \begin{center}
+                    \fbox{\adjustbox{trim=1 1 1 1, width=.7\textwidth}{\includegraphics{images/grafica5.png}}}
+                \end{center}
+
+            \end{enumerate}
+            \item Hallar
+            $$\int_{a}^{b}\left(\int_{c}^{d}f(x)g(y)dy\right)$$
+            en términos de $\int_{a}^{b}f$ y $\int_{a}^{b}g$.
+
+            Para esto, consideraremos las constantes que están dentro de las integrales, observemos que en integral de adentro, $f(x)$ sería una constante ya que se está integrando con respecto a $y$ y no a $x$. Así, tenemos
+
+            \begin{align*}
+                \int_{a}^{b}\left(\int_{c}^{d}f(x)g(y)dy\right)\, dx &= \int_{a}^{b}f(x)\left(\int_{c}^{d}g(y)\, dy\right)\, dx
+            \end{align*}
+
+            Observemos ahora que la integral de adentro es constante con respecto a la integral de afuera, así se puede concluir lo siguiente
+
+            \begin{align*}
+                \int_{a}^{b}f(x)\left(\int_{c}^{d}g(y)\, dy\right)\, dx &= \int_{c}^{d}g(y)\,dy \int_{a}^{b}f(x)\,dx
+            \end{align*}
+
+            \setcounter{enumi}{12}
+            \item Si $a < b < c < d$ y $f$ es integrable sobre $[a, d]$, demostrar que $f$ es integrable sobre $[b,c]$.
+
+            Para el ejercicio usaremos el Teorema 4. Como $a < b < c < d$, tenemos que $a<c<d$ y como $f$ es integrable sobre $[a, d]$, por el Teorema 4 tenemos que $f$ es integrable sobre $[a,c]$ y sobre $[c,d]$. Luego, como $a<b<c$, aplicando nuevamente el Teorema 4 tenemos que $f$ es integrable sobre $[b, c]$.
+
+            \setcounter{enumi}{19}
+            \item Supongamos que $f$ está acotada sobre $[a,b]$ y que $f$ es continua en todo punto de $[a,b]$ con la excepción de $x_0$ de $(a,b)$. Demostrar que $f$ es integrable sobre $[a,b]$.
+
+            Primero definamos las siguientes funciones
+
+            $$f_1(x) = \begin{cases}
+                f(x), & x<x_0\\
+                0, & x>x_0\\
+                m, & x = x_0
+            \end{cases}$$
+
+            Donde $m = \lim_{x \to x_0^-} f(x)$
+
+            $$f_2(x) = \begin{cases}
+                f(x), & x>x_0\\
+                0, & x<x_0\\
+                n, & x = x_0
+            \end{cases}$$
+
+            Donde $n = \lim_{x \to x_0^+} f(x)$. Y sea
+
+            $$f_3(x) = \begin{cases}
+                0, & x\not=x_0\\
+                f(x_0)-m-n, & x=x_0\\
+            \end{cases}$$
+
+            Luego $f = f_1 + f_2 + f_3$, como $f_1, f_2, f_3$ son integrables, $f$ es integrable por el Teorema 5.
     \end{enumerate}
 \end{document}
