@@ -3,16 +3,20 @@
 \newtheorem{lemma}{Lema}
 \usepackage{array}
 \usepackage{float}
+\usepackage[dvipsnames]{xcolor}
 
-\renewcommand{\theenumii}{\roman{enumii}}
 \input{setup.tex}
 
 \begin{document}
     \coverPage{ Matemáticas }{ Cálculo Integral y Series }{ Taller 1 }{  }{ Alexander Mendoza }{\today}
 
-    \section*{Spivak Capítulo 13}
+    \textbf{\textcolor{NavyBlue}{Las respuestas para el capítulo 13 del Spivak se encuentran señaladas en azul}}\\
+    \textbf{\textcolor{Red}{Las respuestas para el capítulo 14 del Spivak se encuentran señaladas en rojo}}\\
+    \textbf{\textcolor{OliveGreen}{Las respuestas para los ejercicios complementarios se encuentran señaladas en verde}}\\
 
-    \begin{enumerate}
+    \section*{\textcolor{NavyBlue}{Spivak Capítulo 13}}
+
+    \begin{enumerate}[label=\textcolor{NavyBlue}{\textbf{\arabic*.}}]
         \item Demostrar que $\int_{0}^{b}x^3dx = \dfrac{b^4}{4}$.
 
         Consideremos la partición de [0, b] $P_n$ tal que $t_i - t_{i-1} = \dfrac{b}{n}$, así $t_0 = 0, t_1 = \dfrac{b}{n}, \dots , t_i =\dfrac{ib}{n}$. Con esto, sabemos que
@@ -109,7 +113,7 @@
 
         \setcounter{enumi}{4}
         \item Obtener sin cálculos
-            \begin{enumerate}
+            \begin{enumerate}[label=\textcolor{NavyBlue}{\textbf{\roman*.}}]
                 \item $\int_{-1}^{1}x^3\sqrt{1-x^2}dx$
 
                 La gráfica de la función es la siguiente:
@@ -142,7 +146,7 @@
             \end{enumerate}
             \setcounter{enumi}{6}
             \item Decidir cuáles de las siguientes funciones siguientes son integrables sobre $[0,2]$, y calcular la integral cuando sea posible.
-            \begin{enumerate}
+            \begin{enumerate}[label=\textcolor{NavyBlue}{\textbf{\roman*.}}]
                 \item $f(x) = \begin{cases}
                     x, & 0\leq x < 1\\
                     x-2, & 1\leq x \leq 2
@@ -252,7 +256,7 @@
             \end{enumerate}
 
             \item Hallar las áreas de las regiones limitadas por
-            \begin{enumerate}
+            \begin{enumerate}[label=\textcolor{NavyBlue}{\textbf{\roman*.}}]
                 \setcounter{enumii}{2}
                 \item Las gráficas de $f(x) = x^2$ y $g(x) = 1 - x^2$
                 \begin{center}
@@ -324,5 +328,240 @@
             \end{cases}$$
 
             Luego $f = f_1 + f_2 + f_3$, como $f_1, f_2, f_3$ son integrables, $f$ es integrable por el Teorema 5.
+    \end{enumerate}
+    \section*{\textcolor{Red}{Spivak Capítulo 14}}
+    \begin{enumerate}[label=\textcolor{Red}{\textbf{\arabic*.}}]
+        \item Hallar las derivadas de cada una de las funciones siguientes:
+        \begin{enumerate}[label=\textcolor{Red}{\textbf{\roman*.}}]
+            \setcounter{enumii}{2}
+            \item $$F(x) = \int_{15}^{x}\left(\int_{8}^{y}\dfrac{1}{1+t^2+\sin^2t}\,dt\right)dy$$
+            Sea $f(y) = \int_{8}^{y}\dfrac{1}{1+t^2+\sin^2t}\,dt$, así por el teorema fundamental del cálculo
+
+            \begin{align*}
+                F'(x) &= -f(x)\\
+                &= -\int_{8}^{x}\dfrac{1}{1+t^2+\sin^2t}\,dt\\
+                &= \int_{x}^{8}\dfrac{1}{1+t^2+sin^2t}
+            \end{align*}
+            \setcounter{enumii}{4}
+            \item
+            $$F(x) = \int_{a}^{b}\dfrac{x}{1+t^2+sin^2t}dt$$
+            Como $x$ es constante, tenemos
+            $$x\int_{a}^{b}\dfrac{1}{1+t^2+sin^2t}dt$$
+            Además, la integral es una integral definida por lo cual sabemos que tomará algún valor fijo, por lo cual la función se puede ver como una variable $x$ por una constante, así
+
+            $$F'(x) = \int_{a}^{b}\dfrac{1}{1+t^2+sin^2t}$$
+            \setcounter{enumii}{7}
+            \item $F^{-1}$, donde $$F(x) = \int_{0}^{x}\dfrac{1}{\sqrt{1-t^2}}dt$$
+
+            Tenemos que
+
+            \begin{align*}
+                (F^{-1})'(x) &= \dfrac{1}{F'(F^{-1}(x))}\\
+                &= \dfrac{1}{\dfrac{1}{\sqrt{1-(F^{-1}(x))^2}}}\\
+                &= \sqrt{1-(F^{-1}(x))^2}
+            \end{align*}
+
+        \end{enumerate}
+
+        \item Para cada una de las $f$ siguientes, si $F(x) = \int_{0}^{x}f$, ¿En qué puntos $x$ es $F'(x) = f(x)$?
+
+        \begin{enumerate}[label=\textcolor{Red}{\textbf{\roman*.}}]
+            \setcounter{enumii}{1}
+            \item $f(x) = 0$ si $x < 1$, $f(x) = 1$ si $x \geq 1$.\\
+            Como la función es continua en todos los puntos excepto en $1$, por el primer teorema fundamental del cálculo tenemos que $F'(x) = f(x)$ en todo $x \not = 1$.
+            \item $f(x) = 0$ si $x \not = 1$, $f(x) = 1$ si $x = 1$.\\
+            Nuevamente, como la función es continua en todos los puntos excepto en $1$, por el primer teorema fundamental del cálculo tenemos que $F'(x) = f(x)$ en todo $x \not = 1$.
+            \setcounter{enumii}{5}
+            \item $f(x) = 0$ si $x \leq 0$, $f(x) = \frac{1}{\left[\frac{1}{x}\right]}$ si $x \geq 0$.\\
+            $F'(x) = f(x)$ para todo $x$ irracional.
+        \end{enumerate}
+
+        \setcounter{enumi}{3}
+        \item Demostrar que los valores de las expresiones siguientes no dependen de $x$.
+
+        \begin{enumerate}[label=\textcolor{Red}{\textbf{\roman*.}}]
+            \item $$\int_{0}^{x}\dfrac{1}{1+t^2}dt + \int_{0}^{\frac{1}{x}}\dfrac{1}{1+t^2}dt$$
+            Consideremos $f(x)$ como la expresión de arriba, luego
+
+            \begin{align*}
+                f'(x) &= \dfrac{1}{1+x^2} + \dfrac{1}{1+(\frac{1}{x})^2}\left(-\dfrac{1}{x^2}\right)\\
+                &= \dfrac{1}{1+x^2}-\dfrac{1}{x^2+1}\\
+                &= 0
+            \end{align*}
+
+            Sabemos que si $f'(x) = 0$, entonces $f(x) = c$ para alguna constante $c$, de esta manera, $f$ no depende de $x$.
+
+            \item $$$$
+        \end{enumerate}
+        \setcounter{enumi}{5}
+        \item Hallar una función $g$ tal que
+        \begin{enumerate}[label=\textcolor{Red}{\textbf{\roman*.}}]
+            \item $$ \int_{0}^{x} tg(t)dt = x + x^2$$
+            Aplicando el teorema fundamental del cálculo tenemos que
+            $$g(t) = \frac{1}{t}+2$$
+        \end{enumerate}
+
+        \setcounter{enumi}{11}
+        \item Hallar  $F'(x)$ si $F(x)=\int_{0 }^{x}xf(t)dt$.
+        \begin{align*}
+            F'(x) &= \left( \int_{0}^{x} xf(t) \, dt \right)' \\
+            &= \left( 1 \cdot \int_{0}^{x} f(t) \, dt + x \cdot \left( \int_{0}^{x} f(t) \, dt \right)' \right) \\
+            &= \int_{0}^{x} f(t) \, dt + x \cdot f(x).
+        \end{align*}
+
+        \item Demostrar que si $f$ es continua, entonces
+        $$\int_{0}^{x}f(u)(x-u)du=\int_{0}^{x}\left( \int_{0}^{u}f(t)dt\right) du$$
+
+        Sea $F(x) = \int_{0}^{x}f(u)(x-u)du$ y $G(x) = \int_{0}^{x}\left( \int_{0}^{u}f(t)dt\right) du$, luego derivemos ambas funciones y tenemos
+
+        $F'(x) = \int_{0 }^{x}f(t)dt+x f(x)- xf(x)$
+
+        Usando el ejercicio anterior tenemos que $F'(x) = \int_{0}^{x}f(t)dt$
+
+        De manera similar
+
+        $G'(x) = \int_{0}^{x}f(t)dt$
+
+        Así, como sus derivadas son iguales, entonces $F(x) = G(x)$\pagebreak
+
+        \section*{\textcolor{OliveGreen}{Ejercicios Complementarios}}
+
+        \begin{enumerate}[label=\textcolor{OliveGreen}{\textbf{\arabic*.}}]
+            \item Dibuje las regiones encerradas por cada una de las curvas dadas. Decida si integra respecto a $x 0$ y. Trace un rectángulo representativo de aproximación e indique su altura y su ancho. Luego determine el área de la región.
+            \begin{enumerate}[label=\textcolor{OliveGreen}{\textbf{\roman*.}}]
+                \item $$
+                y=\frac{1}{x}, \quad y=x, \quad y=\frac{1}{4} x, \quad x>0
+                $$
+
+                \begin{center}
+                \fbox{\adjustbox{trim=1 1 1 1, width=.5\textwidth}{\includegraphics{images/grafica6.png}}}
+                \end{center}
+
+                Los puntos de intersección son $x = 0, x=2, x=1$, así
+
+                $$\int_{-2}^{-1}\left(-\frac{1}{x}+\frac{x}{4}\right) d x+\int_{-1}^0-\frac{3 x}{4} d x+\int_0^2 0 d x=\log (2) \approx 0.693147$$
+
+                \item $$
+                y=\frac{1}{4} x^{2}, \quad y=2 x^{2}, \quad x+y=3, \quad x \geq 0
+                $$
+
+                Los puntos de intersección son $x=0, x=2, x=1$, luego
+
+                $$\int_{-6}^{-\frac{3}{2}}\left(3-x-\frac{x^2}{4}\right) d x+\int_{-\frac{3}{2}}^0 \frac{7 x^2}{4} d x+\int_0^1 0 d x+\int_1^2 0 d x=\frac{117}{8}$$
+            \end{enumerate}
+            \item Plantee una integral para el volumen del solido obtenido al hacer girar cada una de las regiones delimitadas por las curvas dadas, alrededor de la recta especificada. Después utilice su calculadora para evaluar la integral con una aproximación a cinco cifras decimales.
+
+            \begin{enumerate}[label=\textcolor{OliveGreen}{\textbf{\roman*.}}]
+                \item $y = e^{-x^2}, y=0, x=-1, x=1$
+
+                Alrededor del eje $x$. Procederemos por el métodos de la arandela, así
+
+                $$
+                V=\pi \int_{-1}^{1}\left(e^{-x^{2}}\right)^{2} dx \approx 3.75825
+                $$
+
+                Alrededor de $y=-1$. Procederemos de la misma forma por el método de la arandela.
+
+                $$
+                V=\pi \int_{-1}^{1}\left(e^{-x^{2}}-1\right)^{2}-(1)^{2} dx \approx 6.93975
+                $$
+
+                \item $y = 0, y = cos^2x, \frac{2\pi}{2} \leq x \leq \frac{\pi}{2}$
+                
+                Alrededor del eje $x$. De igual forma procederemos por el método de las arandelas
+
+                $$
+                V=\pi \int_{-\pi / 2}^{\pi / 2}\left(\cos ^{2} x\right)^{2} dx \approx 3.70110
+                $$
+
+                Alrededor de $y=1$. Procederemos nuevamente por el método de las arandelas
+
+                $$V = \pi \int_{-\pi / 2}^{\pi / 2}(1)^{2}-\left(1-\cos ^{2} x\right)^{2} dx \approx 1.9635 $$
+
+                \item $x^2 + 4y^2 = 4$
+                
+                Alrededor de $y=2$. Procederemos nuevamente por el método de la arandela
+
+                $$V = \pi \int_{-1}^{1} \left(2(1 + \sqrt{1-y^2})\right)^{2} - \left(2(1-\sqrt{1-y^2})\right)^{2} \, dy \approx 39.47841$$
+
+                Alrededor de $x = 2$.Procederemos por el método de los cascarones de cilindro.
+
+                $$4 \pi \sqrt{1 - \frac{(2 + x)^2}{4 x (4 + x)}} \cdot |x| \approx 121.7486
+                $$
+
+                \item $$
+                y=x^{2}, \quad x^{2}+y^{2}=1, \quad y \geq 0
+                $$
+            \end{enumerate}
+
+            \item
+            a. Plantee una integral para el volumen del solido que se genera al hacer rotar la región que definen las curvas dadas alrededor del eje especificado.
+            b. Utilice su calculadora para evaluar la integral con una aproximación de cinco decimales.
+            \begin{enumerate}[label=\textcolor{OliveGreen}{\textbf{\roman*.}}]
+                \item $$
+                y=x e^{-x}, \quad y=0, \quad x=2
+                $$
+
+                Alrededor del eje $y$ tenemos que
+
+                $$
+                V=2 \pi \int_{0}^{2} x^{2} e^{-x} d x \approx 4.06300
+                $$
+
+                \item $y = tanx, y= 0, x=\dfrac{pi}{4}$
+                Alrededor de $x = \dfrac{\pi}{2}$. Tenemos que
+
+                $$V = 2\pi\int_{0}^{\frac{\pi}{4}\left(\frac{\pi}{2}-x\right)\tan x\,dx} \approx 2.25323$$
+            \end{enumerate}
+            \item Determine la longitud exacta de las siguientes curvas
+            $$
+            y=1+6 x^{3 / 2}, \quad 0 \leq x \leq 1, \quad y^{\prime}=9(x)^{1 / 2}
+            $$
+            \begin{align*}
+                L &= \int_{0}^{1} \sqrt{1+\left(9(x)^{1 / 2}\right)^{2}} dx \\
+                &= \int_{0}^{1} \sqrt{1+81 x} dx \\
+                &= \int_{0}^{1}(1+81 x)^{1 / 2} dx\\
+                &= 6.10322
+            \end{align*}
+
+            \item $$
+            y^{2}=4(x+4)^{3}, \quad 0 \leq x \leq 2, \quad y>0
+            $$
+
+            \begin{align*}
+                L &= \int_{0}^{2} \sqrt{1 + \left(3(x+4)^{1/2}\right)^{2}} dx \\
+                &= \int_{0}^{2} \sqrt{1 + 9(x+4)} dx \\
+                &\approx 13.54287
+            \end{align*}
+            \item $$
+            y=\frac{x^{3}}{3}+\frac{1}{4 x}, \quad 1 \leq x \leq 2, \quad y^{\prime}=\frac{4 x^{4}-1}{4 x^{2}}
+            $$
+            \begin{align*}
+                L &= \int_{1}^{2} \sqrt{1+\left(\frac{4 x^{4}-1}{4 x^{2}}\right)^{2}} d x \\
+                &= \frac{59}{24} \approx 2.45833
+            \end{align*}
+            \item $$
+            x=\frac{y^{4}}{8}+\frac{1}{4 y^{2}}, \quad 1 \leq y \leq 2
+            $$
+
+            $$L=\int_{1}^{2} \sqrt{1+\left(\frac{y^{3}}{2}-\frac{1}{2 y^{3}}\right)^{2}} dy \approx 2.0625 $$
+
+            \item Determine el area de la superficie obtenida al hacer girar la curva en torno al eje $x$
+            $$y=x^{3}, \quad 0 \leq x \leq 2 $$
+
+            $$A=2 \pi \int_{0}^{2} x^{3} \sqrt{1+\left(3 x^{2}\right)^{2}} dx = \frac{\pi}{27}(145 \sqrt{145}-1)$$
+
+            \item $$
+            9 x=y^{2}+18, \quad 2 \leq x \leq 6
+            $$
+            \begin{align*}
+                A &= 2 \pi \int_{0}^{6} y \sqrt{1+\left(\frac{d x}{d y}\right)^{2}} d y \\
+                &= 49\pi
+            \end{align*}
+
+            \item $$y=\sqrt{1+4 x}, \quad 1 \leq x \leq 5, \quad f^{\prime}(x)=\frac{2}{\sqrt{1+4 x}}$$
+            
+            $$A =2 \pi \int_{1}^{5} \sqrt{1+4 x} \sqrt{1+\left(\frac{2}{\sqrt{1+4 x}}\right)^{2}} dx = \frac{98\pi}{3}$$
+        \end{enumerate}
     \end{enumerate}
 \end{document}
