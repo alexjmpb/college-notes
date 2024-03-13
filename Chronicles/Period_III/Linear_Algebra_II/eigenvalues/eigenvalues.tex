@@ -8,7 +8,6 @@
 \begin{document}
     \coverPage{ Mathematics }{ Linear Algebra II }{ Eigenvalues and Eigenvectors }{  }{ Alexander Mendoza }{\today}
     \tableofcontents
-
     \pagebreak
     \chapter{ Eigenvalues and Eigenvectors }
 
@@ -26,7 +25,20 @@
     \section{Eigenvalues and Eigenvectors}
 
     \begin{defBox}
-        \textit{\textbf{Definition}}. Let $T$ be a linear operation on vector space $V$. A nonzero vector $v$ is called an eigenvector of $T$ if there exists an scalar $\lambda \in F$ such that $T(v) = \lambda v$
+        \textit{\textbf{Definition}}. Let $T$ be a linear operation on vector space $V$. A nonzero vector $v$ is called an eigenvector of $T$ if there exists an scalar $\lambda \in F$ such that $T(v) = \lambda v$. The scalar $\lambda$ is called the eigenvalue corresponding to the eigenvector $v$.
     \end{defBox}
 
+    \begin{thBox}
+        Let $T$ be a linear operator over a finite dimensional vector space $V$. And let $\lambda$ be a scalar, then the following are equivalent
+
+        \begin{enumerate}
+            \item $\lambda$ is an eigenvalue of $T$
+            \item The operator $(T - \lambda I)$ is singular (it doesn't have inverse)
+            \item $\det(T-\lambda I) = 0$
+        \end{enumerate}
+    \end{thBox}
+
+    \begin{defBox}
+        If $A$ is a matrix over a field $F$, an eigenvalue of $A$ in $F$ is a scalar in $F$, such that $(A - \lambda I)$ is singular.
+    \end{defBox}
 \end{document}

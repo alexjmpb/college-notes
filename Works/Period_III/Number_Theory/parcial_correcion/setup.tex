@@ -1,0 +1,74 @@
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{eurosym}
+\usepackage[export]{adjustbox}
+\usepackage{amssymb}
+\usepackage{bussproofs}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{titletoc}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black
+}
+
+\newcommand{\coverPage}[6]{%
+%----------------------------------------------------------------------------------------
+%	COVER START
+%----------------------------------------------------------------------------------------
+\begin{titlepage}
+
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \newcommand{\department}{#1}
+    \newcommand{\course}{#2}
+    \newcommand{\titleValue}{#3}
+    \newcommand{\subtitleValue}{#4}
+    \newcommand{\authorName}{#5}
+
+    \center
+
+    %----------------------------------------------------------------------------------------
+    %	HEADER
+    %----------------------------------------------------------------------------------------
+    \includegraphics{images/logo_usa.png}
+    \vspace{0.5cm}
+    \textsc{\Large \department}\\[0.5cm]
+    \textsc{\Large \course}\\[0.5cm]
+    \vfill
+
+    %----------------------------------------------------------------------------------------
+    %	TITLE
+    %----------------------------------------------------------------------------------------
+
+    \HRule\\
+    \Huge
+    \textbf{\titleValue}\\[0.5cm]
+    \Large
+    \textbf{\subtitleValue}\\
+    \HRule\\[0.5cm]
+
+    %----------------------------------------------------------------------------------------
+    %	AUTHOR AND DATE
+    %----------------------------------------------------------------------------------------
+
+    \vfill
+    \Large
+    \textit{\authorName}\\
+    {\large \today}\\[2cm]
+
+\end{titlepage}
+%----------------------------------------------------------------------------------------
+%	COVER END
+%----------------------------------------------------------------------------------------
+}
