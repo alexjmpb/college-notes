@@ -1,0 +1,61 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Álgebra Lineal II }{ Valores propios y vectores propios }{  }{ Alexander Mendoza }{\today}
+    \tableofcontents
+    \pagebreak
+    \chapter{ Diagonalización }
+
+    \section{Algunos elementos para recordar}
+
+    \begin{defBox}
+        Sea <span class="math-inline">\\mathcal\{T\}</span> el conjunto de todas las transformaciones lineales de <span class="math-inline">V</span> a <span class="math-inline">W</span>, y sea <span class="math-inline">L\(V,W\) \= \\\{T \\mid T \\in \\mathcal\{T\}\\\}</span>, entonces <span class="math-inline">L\(V,W\)</span> es un espacio vectorial donde sus operaciones se definen como:
+
+        \begin{itemize}
+            \item \textit{\textbf{Suma de vectores}}. Sean <span class="math-inline">T\_1, T\_2 \\in L\(V,W\)</span> entonces para todo <span class="math-inline">v\_1 \\in V</span>
+            <span class="math-block">\(T\_1\+T\_2\)\(v\_1\) \= T\_1\(v\_1\) \+ T\_2\(v\_1\)</span>
+            \item \textit{\textbf{Producto por escalar}}. Sea <span class="math-inline">T \\in L\(V,W\)</span> y sea <span class="math-inline">\\alpha \\in F</span>, entonces para todo <span class="math-inline">v\_1 \\in V</span>
+            <span class="math-block">\(\\alpha T\)\(v\_1\) \= \\alpha T\(v\_1\)</span>
+        \end{itemize}
+    \end{defBox}
+
+    \begin{defBox}
+        \textit{\textbf{Multiplicación matricial por la izquierda}}. Sea <span class="math-inline">A</span> una matriz <span class="math-inline">m \\times n</span> con entradas de un cuerpo <span class="math-inline">F</span>. Denotamos por <span class="math-inline">\\mathrm\{L\}\_A</span> la aplicación <span class="math-inline">\\mathrm\{L\}\_A\: \\mathrm\{F\}^n \\rightarrow \\mathrm\{F\}^m</span> definida por <span class="math-inline">\\mathrm\{L\}\_A\(x\)\=A x</span> (el producto matricial de <span class="math-inline">A</span> y <span class="math-inline">x</span> ) para cada vector columna <span class="math-inline">x \\in \\mathrm\{F\}^n</span>. Llamamos a <span class="math-inline">\\mathrm\{L\}\_A</span> una transformación de multiplicación por la izquierda.
+    \end{defBox}
+
+    \begin{defBox}
+        \textit{\textbf{Matriz diagonal}}. Una matriz se llama diagonal si todas sus entradas <span class="math-inline">A\_\{ij\}</span> son cero excepto cuando <span class="math-inline">i \= j</span>.
+    \end{defBox}
+
+    \section{Valores propios y vectores propios}
+
+    \begin{defBox}
+        \textit{\textbf{Valor propio y vector propio}}. Definiciones. Sea <span class="math-inline">\\mathrm\{T\}</span> un operador lineal en un espacio vectorial V. Un vector <span class="math-inline">v \\in \\mathrm\{V\}</span> no nulo se llama vector propio de <span class="math-inline">\\mathrm\{T\}</span> si existe un escalar <span class="math-inline">\\lambda</span> tal que <span class="math-inline">\\mathrm\{T\}\(v\)\=\\lambda v</span>. El escalar <span class="math-inline">\\lambda</span> se llama valor propio correspondiente al vector propio <span class="math-inline">v</span>.\\
+
+        Sea <span class="math-inline">A</span> estar en <span class="math-inline">\\mathrm\{M\}\_\{n \\times n\}\(F\)</span>. Un vector <span class="math-inline">v \\in \\mathrm\{F\}^n</span> no nulo se llama vector propio de <span class="math-inline">A</span> si <span class="math-inline">v</span> es un vector propio de <span class="math-inline">\\mathrm\{L\}\_A</span>; es decir, si <span class="math-inline">A v\=\\lambda v</span> para algún escalar <span class="math-inline">\\lambda</span>. El escalar <span class="math-inline">\\lambda</span> se llama valor propio de <span class="math-inline">A</span> correspondiente al vector propio <span class="math-inline">v</span>.
+    \end{defBox}
+
+    \begin{thBox}
+        Sea <span class="math-inline">T</span> un operador lineal sobre un espacio vectorial de dimensión finita <span class="math-inline">V</span>. Y sea <span class="math-inline">\\lambda</span> un escalar, entonces los siguientes son equivalentes
+
+        \begin{enumerate}
+            \item <span class="math-inline">\\lambda</span> es un valor propio de <span class="math-inline">T</span>
+            \item El operador <span class="math-inline">\(T \- \\lambda I\)</span> es singular (no tiene inverso)
+            \item <span class="math-inline">\\det\(T\-\\lambda I\) \= 0</span>
+        \end{enumerate}
+    \end{thBox}
+
+    \begin{defBox}
+        Si <span class="math-inline">A</span> es una matriz sobre un cuerpo <span class="math-inline">F</span>, un valor propio de <span class="math-inline">A</span> en <span class="math-inline">F</span> es un escalar en <span class="math-inline">F</span>, tal que <span class="math-inline">\(A \- \\lambda I\)</span> es singular.
+    \end{defBox}
+
+    \begin{defBox}
+        Sea <span class="math-inline">A</span> una matriz cuadrada. La función <span class="math-inline">P\_A\: \\mathbb\{R\} \\to \\mathbb\{R\}</span> donde <span class="math-inline">P\_A\(\\lambda\) \= \\det\(A \- \\lambda I\)</span> se llama el polinomio característico de <span class="math-inline">A</span>.
+    \end{defBox}
+
+    

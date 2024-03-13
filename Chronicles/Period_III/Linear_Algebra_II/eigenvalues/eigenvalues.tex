@@ -6,26 +6,38 @@
 \input{setup.tex}
 
 \begin{document}
-    \coverPage{ Mathematics }{ Linear Algebra II }{ Eigenvalues and Eigenvectors }{  }{ Alexander Mendoza }{\today}
+    \coverPage{ Mathematics }{ Linear Algebra II }{ Diagonalization }{  }{ Alexander Mendoza }{\today}
     \tableofcontents
     \pagebreak
-    \chapter{ Eigenvalues and Eigenvectors }
+    \chapter{ Diagonalization }
 
-    \section{The vector space of linear combinations}
+    \section{Some things to remember}
 
-    Let $\mathcal{T}$ be the set of all linear transformations from $V$ into $W$, and let $L(V,W) = \{T| T \in \mathcal{T}\}$, then $L(V,W)$ is a vector space where its operations are defined as:
+    \begin{defBox}
+        Let $\mathcal{T}$ be the set of all linear transformations from $V$ into $W$, and let $L(V,W) = \{T \mid T \in \mathcal{T}\}$, then $L(V,W)$ is a vector space where its operations are defined as:
 
-    \begin{itemize}
-        \item \textit{\textbf{Vector addition}}. Let $T_1, T_2 \in L(V,W)$ then for every $v_1 \in V$
-        $$(T_1+T_2)(v_1) = T_1(v_1) + T_2(v_1)$$
-        \item \textit{\textbf{Scalar multiplication}}. Let $T \in L(V,W)$ and let $\alpha \in F$, then for all $v_1 \in V$
-        $$(\alpha T)(v_1) = \alpha T(v_1)$$
-    \end{itemize}
+        \begin{itemize}
+            \item \textit{\textbf{Vector addition}}. Let $T_1, T_2 \in L(V,W)$ then for every $v_1 \in V$
+            $$(T_1+T_2)(v_1) = T_1(v_1) + T_2(v_1)$$
+            \item \textit{\textbf{Scalar multiplication}}. Let $T \in L(V,W)$ and let $\alpha \in F$, then for all $v_1 \in V$
+            $$(\alpha T)(v_1) = \alpha T(v_1)$$
+        \end{itemize}
+    \end{defBox}
+
+    \begin{defBox}
+        \textit{\textbf{Matrix left multiplication}}. Let $A$ be an $m \times n$ matrix with entries from a field $F$. We denote by $\mathrm{L}_A$ the mapping $\mathrm{L}_A: \mathrm{F}^n \rightarrow \mathrm{F}^m$ defined by $\mathrm{L}_A(x)=A x$ (the matrix product of $A$ and $x$ ) for each column vector $x \in \mathrm{F}^n$. We call $\mathrm{L}_A$ a left-multiplication transformation.
+    \end{defBox}
+
+    \begin{defBox}
+        \textit{\textbf{Diagonal matrix}}. A matrix is called diagonal if all its entries $A_{ij}$ are zero except when $i = j$.
+    \end{defBox}
 
     \section{Eigenvalues and Eigenvectors}
 
     \begin{defBox}
-        \textit{\textbf{Definition}}. Let $T$ be a linear operation on vector space $V$. A nonzero vector $v$ is called an eigenvector of $T$ if there exists an scalar $\lambda \in F$ such that $T(v) = \lambda v$. The scalar $\lambda$ is called the eigenvalue corresponding to the eigenvector $v$.
+        \textit{\textbf{Eigenvector and Eigenvalues}}. Definitions. Let $\mathrm{T}$ be a linear operator on a vector space V. A nonzero vector $v \in \mathrm{V}$ is called an eigenvector of $\mathrm{T}$ if there exists a scalar $\lambda$ such that $\mathrm{T}(v)=\lambda v$. The scalar $\lambda$ is called the eigenvalue corresponding to the eigenvector $v$.\\
+
+        Let $A$ be in $\mathrm{M}_{n \times n}(F)$. A nonzero vector $v \in \mathrm{F}^n$ is called an eigenvector of $A$ if $v$ is an eigenvector of $\mathrm{L}_A$; that is, if $A v=\lambda v$ for some scalar $\lambda$. The scalar $\lambda$ is called the eigenvalue of $A$ corresponding to the eigenvector $v$.
     \end{defBox}
 
     \begin{thBox}
@@ -41,4 +53,751 @@
     \begin{defBox}
         If $A$ is a matrix over a field $F$, an eigenvalue of $A$ in $F$ is a scalar in $F$, such that $(A - \lambda I)$ is singular.
     \end{defBox}
+
+    \begin{defBox}
+        Let $A$ be an squared matrix. The function $P_A: \mathbb{R} \to \mathbb{R}$ where $P_A(\lambda) = \det(A - \lambda I)$ is called the characteristic polynomial of $A$.
+    \end{defBox}
+
+    With these theorems and definitions, we can obtain eigenvalues of a matrix by finding the roots of the characteristic polynomial and obtain the eigenvector $v$ corresponding to an eigenvalue $\lambda$ by solving the system $(A-\lambda I)v = 0$
+
+    \begin{Example}
+        Let
+        $$A = \begin{bmatrix}
+            -1 & -3 & 9\\
+            0 & 5 & 18\\
+            0 & -2 & -7
+        \end{bmatrix}$$
+        To find the eigenvalues, eigenvectors, and the characteristic polynomial, we start with
+
+        $$f(\lambda) = \det\left(A - \lambda I\right)$$
+
+        Then, \begin{align*}
+            \det\left(A - \lambda I\right) &= \det\left(
+                \begin{bmatrix}
+                    -1 & -3 & 9\\
+                    0 & 5 & 18\\
+                    0 & -2 & -7
+                \end{bmatrix}
+            - \lambda
+                \begin{bmatrix}
+                    1 & 0 & 0\\
+                    0 & 1 & 0\\
+                    0 & 0 & 1
+                \end{bmatrix}
+            \right)\\\\
+            &= \det\left(
+                \begin{bmatrix}
+                    -1-\lambda & -3 & 9\\
+                    0 & 5-\lambda & 18\\
+                    0 & -2 & -7-\lambda
+                \end{bmatrix}
+            \right)\\\\
+            &= -\lambda^3 -3\lambda^2 -3\lambda -1
+        \end{align*}
+
+        Now, to find the eigenvalues, we need to find the roots of the polynomial. It can be observed that $-\lambda^3 -3\lambda^2 -3\lambda -1$ is in the expanded form of a cube of a binomial, therefore, the polynomial can be factorized as follows:
+
+        $$-(\lambda + 1)^3$$
+
+        Thus, by setting $-(\lambda + 1)^3 = 0$, we can conclude that $\lambda_1 = -1, \lambda_2 = -1, \lambda_3 = -1$. Now let's find the eigenvectors, for this, we will solve the following homogeneous system: $Ax = 0$, where $x = (x_1, x_2, x_3)$ and $x_1, x_2, x_3 \in F$. So, the homogeneous system for $\lambda = -1$ would be as follows:
+        \begin{align*}
+            \begin{bmatrix}
+                0 & -3 & 9\\
+                0 & 6 & 18\\
+                0 & -2 & -6
+            \end{bmatrix}
+            \begin{bmatrix}
+                x_1\\ x_2\\ x_3
+            \end{bmatrix} = \begin{bmatrix}
+                0\\0\\0
+            \end{bmatrix}
+        \end{align*}
+
+        Solving the system, we find that the vector
+
+        $$\begin{bmatrix}
+            1\\0\\0
+        \end{bmatrix}$$
+
+        is a solution to the system and therefore is an eigenvector for $A$.
+    \end{Example}
+
+    \begin{defBox}
+        Let $\mathrm{T}$ be a linear operator on a vector space $\mathrm{V}$, and let $\lambda$ be an eigenvalue of $\mathrm{T}$. Define $\mathrm{E}_\lambda=\{x \in \mathrm{V}: \mathrm{T}(x)=\lambda x\}=\mathrm{N}\left(\mathrm{T}-\lambda \mathrm{I}_{\mathrm{V}}\right)$. The set $\mathrm{E}_\lambda$ is called the eigenspace of $\mathrm{T}$ corresponding to the eigenvalue $\lambda$. Analogously, we define the eigenspace of a square matrix $A$ corresponding to the eigenvalue $\lambda$ to be the eigenspace of $\mathrm{L}_A$ corresponding to $\lambda$.
+    \end{defBox}
+
+    Continuing with the previous example, its eigenspace $E_\lambda$ would be
+
+    $$ E_\lambda = \left\{ \begin{bmatrix}1\\0\\0\end{bmatrix} \right\}$$
+
+    \section{Working with the characteristic polynomial}
+    It's worth to remember some tools to find the determinants of a matrix and the roots of a polynomial. Let's first remember the definition of determinant.
+
+    We'll first state a theorem that will help us to find some parts of the characteristic polynomial.
+
+    \begin{thBox}
+        Denote the $n$ eigenvalues of a $A \in M_n(c)$, by $\lambda_1, \lambda_2, \dots , \lambda_n$ and its characteristic polynomial by
+
+        $$P_a(\lambda) = (-1)^n\lambda^n + C_{n-1}\lambda^{n-1} + \cdots + C_1\lambda + C_0$$
+
+        Then $$C_0 = \det(A) = \lambda_1 \lambda_2 \cdots \lambda_n$$ and $$(-1)^{n-1}C_{n-1} = tr(A) = \lambda_1 + \lambda_2 + \cdots + \lambda_n$$
+    \end{thBox}
+
+    \subsection*{Determinants}
+    We extend the definition of the determinant to $n \times n$ matrices for $n \geq 3$. For this definition, it is convenient to introduce the following notation: Given $A \in \mathrm{M}_{n \times n}(F)$, for $n \geq 2$, denote the $(n-1) \times(n-1)$ matrix obtained from $A$ by deleting row $i$ and column $j$ by $\bar{A}_{i j}$. Thus for
+    $$
+    A=\left(\begin{array}{lll}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+    \end{array}\right) \in \mathrm{M}_{3 \times 3}(R),
+    $$
+    we have
+    $$
+    \tilde{A}_{11}=\left(\begin{array}{ll}
+    5 & 6 \\
+    8 & 9
+    \end{array}\right), \quad \tilde{A}_{13}=\left(\begin{array}{ll}
+    4 & 5 \\
+    7 & 8
+    \end{array}\right), \quad \text { and } \quad \tilde{A}_{32}=\left(\begin{array}{ll}
+    1 & 3 \\
+    4 & 6
+    \end{array}\right),
+    $$
+    and for
+    $$
+    B=\left(\begin{array}{rrrr}
+    1 & -1 & 2 & -1 \\
+    -3 & 4 & 1 & -1 \\
+    2 & -5 & -3 & 8 \\
+    -2 & 6 & -4 & 1
+    \end{array}\right) \in \mathrm{M}_{4 \times 4}(R),
+    $$
+    we have
+    $$
+    \tilde{B}_{23}=\left(\begin{array}{rrr}
+    1 & -1 & -1 \\
+    2 & -5 & 8 \\
+    -2 & 6 & 1
+    \end{array}\right) \quad \text { and } \quad \tilde{B}_{42}=\left(\begin{array}{rrr}
+    1 & 2 & -1 \\
+    -3 & 1 & -1 \\
+    2 & -3 & 8
+    \end{array}\right) .
+    $$
+
+    \begin{defBox}
+        Let $A \in \mathrm{M}_{n \times n}(F)$. If $n=1$, so that $A=\left(A_{11}\right)$, we define $\operatorname{det}(A)=A_{11}$. For $n \geq 2$, we $\operatorname{define} \operatorname{det}(A)$ recursively as
+        $$
+        \operatorname{det}(A)=\sum_{j=1}^n(-1)^{1+j} A_{1 j} \cdot \operatorname{det}\left(\tilde{A}_{1 j}\right) .
+        $$
+    \end{defBox}
+
+    The scalar $\operatorname{det}(A)$ is called the determinant of $A$ and is also denoted by $|A|$. The scalar
+    $$
+    (-1)^{i+j} \operatorname{det}\left(\tilde{A}_{i j}\right)
+    $$
+    is called the cofactor of the entry of $A$ in row $i$, column $j$.
+
+    The determinant of a $2x2$ matrix $A$ would be $det(A) = A_{11}A_{22} - A_{21}A_{12}$. Also, remember that the determinant of a $3x3$ matrix can be obtained from the following algorithm
+    \begin{center}
+        \includegraphics[width=1\textwidth]{images/3x3det.png}
+    \end{center}
+
+    \begin{Example}
+        Let
+        $$
+        A=\left(\begin{array}{rrr}
+        1 & 3 & -3 \\
+        -3 & -5 & 2 \\
+        -4 & 4 & -6
+        \end{array}\right) \in \mathrm{M}_{3 \times 3}(R) .
+        $$
+
+        Using cofactor expansion along the first row of $A$, we obtain
+        $$
+        \begin{aligned}
+        \operatorname{det}(A)= & (-1)^{1+1} A_{11} \cdot \operatorname{det}\left(\tilde{A}_{11}\right)+(-1)^{1+2} A_{12} \cdot \operatorname{det}\left(\tilde{A}_{12}\right) \\
+        & +(-1)^{1+3} A_{13} \cdot \operatorname{det}\left(\tilde{A}_{13}\right) \\
+        = & (-1)^2(1) \cdot \operatorname{det}\left(\begin{array}{rr}
+        -5 & 2 \\
+        4 & -6
+        \end{array}\right)+(-1)^3(3) \cdot \operatorname{det}\left(\begin{array}{rr}
+        -3 & 2 \\
+        -4 & -6
+        \end{array}\right) \\
+        & \quad+(-1)^4(-3) \cdot \operatorname{det}\left(\begin{array}{rr}
+        -3 & -5 \\
+        -4 & 4
+        \end{array}\right) \\
+        = & 1[-5(-6)-2(4)]-3[-3(-6)-2(-4)]-3[-3(4)-(-5)(-4)] \\
+        = & 1(22)-3(26)-3(-32) \\
+        = & 40 .
+        \end{aligned}
+        $$
+    \end{Example}
+
+    \subsubsection*{Properties of determinants}
+
+    \begin{enumerate}
+        \item If $B$ is a matrix obtained by interchanging any two rows or interchanging any two columns of an $n \times n$ matrix $A$, then $\operatorname{det}(B)=-\operatorname{det}(A)$.
+
+        \item If $B$ is a matrix obtained by multiplying each entry of some row or column of an $n \times n$ matrix $A$ by a scalar $k$, then $\operatorname{det}(B)=k \cdot \operatorname{det}(A)$.
+
+        \item If $B$ is a matrix obtained from an $n \times n$ matrix $A$ by adding a multiple of row $i$ to row $j$ or a multiple of column $i$ to column $j$ for $i \neq j$, then $\operatorname{det}(B)=\operatorname{det}(A)$.
+
+        As an example of the use of these three properties in evaluating determinants, let us compute the determinant of the $4 \times 4$ matrix $A$ considered previously. Our procedure is to introduce zeros into the second column of $A$ by employing property 3, and then to expand along that column. (The elementary row operations used here consist of adding multiples of row 1 to rows 2 and 4.) This procedure yields
+        $$
+        \begin{aligned}
+        \operatorname{det}(A) & =\operatorname{det}\left(\begin{array}{rrrr}
+        2 & 1 & 1 & 5 \\
+        1 & 1 & -4 & -1 \\
+        2 & 0 & -3 & 1 \\
+        3 & 6 & 1 & 2
+        \end{array}\right)=\operatorname{det}\left(\begin{array}{rrrr}
+        2 & 1 & 1 & 5 \\
+        -1 & 0 & -5 & -6 \\
+        2 & 0 & -3 & 1 \\
+        -9 & 0 & -5 & -28
+        \end{array}\right) \\
+        & =1(-1)^{1+2} \operatorname{det}\left(\begin{array}{rrr}
+        -1 & -5 & -6 \\
+        2 & -3 & 1 \\
+        -9 & -5 & -28
+        \end{array}\right) .
+        \end{aligned}
+        $$
+
+        The resulting determinant of a $3 \times 3$ matrix can be evaluated in the same manner: Use type 3 elementary row operations to introduce two zeros into the first column, and then expand along that column. This results in the value $-102$. Therefore
+        $$
+        \operatorname{det}(A)=1(-1)^{1+2}(-102)=102
+        $$
+
+        \item The determinant of an upper triangular matrix is the product of its diagonal entries. In particular, $\operatorname{det}(I)=1$.
+
+        \item If two rows (or columns) of a matrix are identical, then the determinant of the matrix is zero.
+
+        As an illustration of property 4, notice that
+        $$
+        \operatorname{det}\left(\begin{array}{rrr}
+        -3 & 1 & 2 \\
+        0 & 4 & 5 \\
+        0 & 0 & -6
+        \end{array}\right)=(-3)(4)(-6)=72.
+        $$
+
+        \item For any $n \times n$ matrices $A$ and $B$, $\operatorname{det}(A B)=\operatorname{det}(A) \cdot \operatorname{det}(B)$.
+
+        \item An $n \times n$ matrix $A$ is invertible if and only if $\operatorname{det}(A) \neq 0$. Furthermore, if $A$ is invertible, then $\operatorname{det}\left(A^{-1}\right)=\frac{1}{\operatorname{det}(A)}$.
+
+        \item For any $n \times n$ matrix $A$, the determinants of $A$ and $A^{t}$ are equal.
+
+        For example, property 7 guarantees that the matrix $A$ on page 233 is invertible because $\operatorname{det}(A)=102$.
+
+        The final property, stated as Exercise 15 of Section 4.3, is used in Chapter 5. It is a simple consequence of properties 6 and 7.
+
+        \item If $A$ and $B$ are similar matrices, then $\operatorname{det}(A)=\operatorname{det}(B)$.
+    \end{enumerate}
+
+
+    \subsection*{Roots of a polynomial}
+    The process of finding the roots of a polynomial can be either very straight forward or very complicated. Over the time we've developed multiple tools that help us in this task, we'll list a few of them to help us work with the characteristic polynomial. The most useful method for finding roots is to factorize the polynomials into factors of the form $(x - c)$ where $c$ is a real number, or find quadratic factors to then apply the quadratic formula. To find these factors we can use the synthetic division algorithm.
+
+    \begin{thBox}
+        \textit{\textbf{Fundamental Theorem Of Algebra}}. Every polynomial with complex coefficients has at least one complex zero.
+    \end{thBox}
+
+    \begin{thBox}
+        \textit{\textbf{Roots theorem}}. Every polynomial of degree $n \geq 1$ has exactly $n$ zeros, provided that a zero of multiplicity $k$ is counted $k$ times.
+    \end{thBox}
+
+    \begin{thBox}
+        \textit{\textbf{Rational Zeros Theorem}}. If the polynomial $P(x)=a_n x^n+a_{n-1} x^{n-1}+\cdots+a_1 x+a_0$ has integer coefficients, then every rational zero of $P$ is of the form
+        $$
+        \frac{p}{q}
+        $$
+        where $\quad p$ is a factor of the constant coefficient $a_0$
+        and $\quad q$ is a factor of the leading coefficient $a_n$.
+    \end{thBox}
+
+    \begin{noteBox}
+        \textit{\textbf{Finding the Rational Zeros of a Polynomial}}.
+        \begin{enumerate}
+            \item List Possible Zeros. List all possible rational zeros using the Rational Zeros Theorem.
+            \item Divide. Use synthetic division to evaluate the polynomial at each of the candidates for rational zeros that you found in Step 1. When the remainder is 0 , note the quotient you have obtained.
+            \item Repeat. Repeat Steps 1 and 2 for the quotient. Stop when you reach a quotient that is quadratic or factors easily, and use the quadratic formula or factor to find the remaining zeros.
+        \end{enumerate}
+    \end{noteBox}
+
+    \section{Diagonalization of a Matrix}
+
+    \subsection*{Multiplicity}
+
+    \begin{defBox}
+        \textit{\textbf{Geometrical multiplicity of an eigenvalue}}. Let $A$ be a squared matrix with the eigenvalue $\lambda$. The geometrical multiplicity of $\lambda$ is the dimension of $E_\lambda$ (The space generated by $\lambda$).
+    \end{defBox}
+
+    For example 1.2.5, the geometrical multiplicity of $\lambda = -1$ is $1$ since
+    $$E_\lambda = \left\{ \begin{bmatrix}1\\0\\0\end{bmatrix} \right\}$$
+
+    \begin{defBox}
+        Let $A$ be a squared matrix with the eigenvalue $\lambda$. The algebraic multiplicity of $\lambda$ is the largest positive integer $k$ for which $(t-\lambda)^k$ is a factor of $f(t)$.
+    \end{defBox}
+
+    \begin{Example}
+        Let
+
+        $$A =\begin{pmatrix}
+            3 & 1 & 0\\
+            0 & 3 & 4\\
+            0 & 0 & 4
+        \end{pmatrix}$$
+
+        which has characteristic polynomial $f(t) = -(t-3)^2(t-4)$. Hence $\lambda = 3$ is an eigenvalue of $A$ with multiplicity of 2, and $\lambda = 4$ is an eigenvalue of $A$ with multiplicity 1.
+    \end{Example}
+
+    \begin{thBox}
+        Let $T$ be a linear operation on a finite-dimensional vector space $V$. And let $\lambda$ be an eigenvalue of $T$. Having algebraic multiplicity of $m$. Then $1 \leq dim(E_\lambda) \leq m$.
+    \end{thBox}
+
+    \subsection*{Similar matrices}
+
+    \begin{defBox}
+        \textit{\textbf{Similar matrices}}. Two square matrices $A$ and $B$ are said to be similar if there exists a non-singular matrix $P$ such that
+
+        $$B = P^{-1}AP$$
+    \end{defBox}
+
+    \begin{thBox}
+        Let $A \in \mathrm{M}_{n \times n}(F)$, and let $\gamma$ be an ordered basis for $\mathrm{F}^n$. Then $\left[\mathrm{L}_A\right]_\gamma=Q^{-1} A Q$, where $Q$ is the $n \times n$ matrix whose $j$ th column is the $j$ th vector of $\gamma$.
+    \end{thBox}
+
+    \begin{thBox}
+        Similar matrices have the same eigenvalues counting multiplicity.
+    \end{thBox}
+
+    \subsection*{Diagonalization of a Matrix}
+
+    \begin{defBox}
+        \textit{\textbf{Diagonalization of a Matrix}}. A linear operator $\mathrm{T}$ on a finite-dimensional vector space $\mathrm{V}$ is called diagonalizable if there is an ordered basis $\beta$ for $\mathrm{V}$ such that $[\mathrm{T}]_\beta$ is a diagonal matrix.
+
+        A square matrix $A$ is called diagonalizable if $\mathrm{L}_A$ is diagonalizable. In other words we say that an squared matrix $A$ is diagonalizable if and only if there exists an invertible matrix $P$ such that
+
+        $$D = P^{-1}AP$$ or
+        $$A = PDP^{-1}$$
+    \end{defBox}
+
+    \begin{thBox}
+        If $A$ is similar to a diagonal matrix $D$, then the elements of $D$ are the eigenvalues of $A$; And the values are independent of the form in which a linear transformation is represented.
+    \end{thBox}
+
+    \begin{thBox}
+        A $nxn$ matrix is diagonalizable if and only if admits a linearly independent eigenvectors.
+    \end{thBox}
+
+    \begin{thBox}
+        The following are equivalent
+
+        \begin{enumerate}
+            \item $T: V \to V$ is diagonalizable
+            \item For every eigenvalue $\lambda$ of $T$, the geometric multiplicity of $\lambda$ coincides with the algebra multiplicity.
+        \end{enumerate}
+    \end{thBox}
+
+    \subsection*{Change of Basis}
+
+    \begin{defBox}
+        \textit{\textbf{Ordered basis}}. Let $V$ be a finite-dimensional vector space. An ordered basis for such space is endowed with a specific order, that is, an ordered basis for $V$ is a sequence of linearly independent vectors in $V$ that generate $V$.
+    \end{defBox}
+
+    \begin{Example}
+        Let $V = F^3$.
+
+        $$\beta = \left\{ e_1, e_2, e_3 \right\}$$
+        $$\alpha = \left\{ e_2, e_1, e_3 \right\}$$
+
+        Then $\beta \not = \alpha$. And $\beta, \alpha$ are ordered basis.
+    \end{Example}
+
+    \begin{defBox}
+        Let $\beta = \left\{ u_1, u_2, \dots , u_n \right\}$ be an ordered basis for $V$. For each $v \in V$, let $\alpha_1, \alpha_2, \dots , \alpha_n$ be the unique scalars such that
+
+        $$v = \sum_{i=1}^{n}\alpha_iu_i$$
+
+        We define the coordinate vector of $v$ relative to $\beta$, denoted by
+
+        $$[v]_\beta = \begin{pmatrix}
+            \alpha_1\\ \alpha_2 \\ \vdots \\ \alpha_n
+        \end{pmatrix}$$
+    \end{defBox}
+
+    \begin{Example}
+        Let $P_2(\mathbb{R})$ and let $\beta = \left\{ 1, x, x^2 \right\}$ and $\alpha = \left\{ x^2, x, 1 \right\}$ if $v = f(x) = 4 + 6x -7x^2$.
+
+        $$[v]_\beta = \begin{pmatrix}
+            4\\6\\-7
+        \end{pmatrix}$$
+
+        $$[v]_\alpha = \begin{pmatrix}
+            -7\\6\\4
+        \end{pmatrix}$$
+    \end{Example}
+
+    \begin{thBox}
+        Let $\beta = \left\{ u_1, u_2, \dots , u_n \right\}$ an ordered basis for $V$, then a coordinate map
+
+        $$[]_\beta: V \to \mathbb{R}^n$$
+        $$V \to [v]_\beta$$
+
+        Is a linear transformation from $V \to \mathbb{R}^n$
+    \end{thBox}
+
+    \begin{defBox}
+        We call $mxn$ matrix $A$ defined by $A_{ij} = a_{ij}$. The matrix representation of $T$ in the ordered basis $\beta$ and $\beta'$ and write $A = [T]_\beta$.\\
+
+        If $V = W$ and $\beta = \beta'$, then $A = [T]_\beta$.
+    \end{defBox}
+
+    \begin{Example}
+        Let $\beta = \{u_1, u_2, \dots , u_n\}$ be an ordered basis for $V$, and let $T$ be a coordinate mapping such that $T(v) = [v]_\beta$. Then $T$ is a linear transformation.
+
+        \textit{\textbf{Proof}}. First, let's show that $T(v + w) = T(v) + T(w)$ for all $v, w \in V$.
+
+        Let $v, w \in V$. We have:
+
+        $$T(v) = [v]_\beta = \begin{bmatrix}
+            \alpha_1\\ \alpha_2\\ \vdots \\ \alpha_n
+        \end{bmatrix}$$
+
+        where $\alpha_1,\dots, \alpha_n$ are scalars such that
+
+        $$v = \sum_{i=1}^{n} \alpha_i u_i$$
+
+        and similarly,
+
+        $$T(w) = [w]_\beta = \begin{bmatrix}
+            \gamma_1\\ \gamma_2\\ \vdots \\ \gamma_n
+        \end{bmatrix}$$
+
+        where $\gamma_1,\dots, \gamma_n$ are scalars such that
+
+        $$w = \sum_{i=1}^{n} \gamma_i u_i$$
+
+        Therefore,
+
+        \begin{align*}
+        T(v + w) &= [v + w]_\beta \\
+        &= \left[\sum_{i=1}^{n} (\alpha_i + \gamma_i) u_i\right]_\beta \\
+        &= \begin{bmatrix}
+            \alpha_1 + \gamma_1\\ \alpha_2 + \gamma_2\\ \vdots \\ \alpha_n + \gamma_n
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+            \alpha_1\\ \alpha_2\\ \vdots \\ \alpha_n
+        \end{bmatrix} + \begin{bmatrix}
+            \gamma_1\\ \gamma_2\\ \vdots \\ \gamma_n
+        \end{bmatrix} \\
+        &= T(v) + T(w)
+        \end{align*}
+
+        Next, let's show that $T(cv) = cT(v)$ for all $c \in \mathbb{R}$ and all $v \in V$.
+
+        Let $v \in V$ and $c \in \mathbb{R}$. Then we have:
+
+        $$T(v) = [v]_\beta = \begin{bmatrix}
+            \alpha_1\\ \alpha_2\\ \vdots \\ \alpha_n
+        \end{bmatrix}$$
+
+        where $\alpha_1,\dots, \alpha_n$ are scalars such that
+
+        $$v = \sum_{i=1}^{n} \alpha_i u_i$$
+
+        So,
+
+        \begin{align*}
+        T(cv) &= [cv]_\beta \\
+        &= \left[\sum_{i=1}^{n} (c\alpha_i) u_i\right]_\beta \\
+        &= \begin{bmatrix}
+            c\alpha_1\\ c\alpha_2\\ \vdots \\ c\alpha_n
+        \end{bmatrix} \\
+        &= c\begin{bmatrix}
+            \alpha_1\\ \alpha_2\\ \vdots \\ \alpha_n
+        \end{bmatrix} \\
+        &= cT(v)
+        \end{align*}
+
+        Thus, $T$ is a linear transformation.
+
+    \end{Example}
+
+    \begin{Example}
+        Sea $T: \mathcal{M}_{2x2}(\mathbb{R}) \to P_2(\mathbb{R})$ tal que
+
+        $$T\left(\begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}\right)$$
+
+        y sean $\beta_1$ y $\beta_2$ bases de $\mathcal{M}_{2x2}(\mathbb{R})$ y $P_2(\mathbb{R})$ tal que
+
+        $$\beta_1 = \left\{
+            \begin{bmatrix}
+                1 & 0 \\
+                0 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 1 \\
+                0 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 0 \\
+                1 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 0 \\
+                0 & 1
+            \end{bmatrix}
+        \right\}$$
+
+        $$\beta_2 = \left\{1, x, x^2\right\}$$
+
+        Encuentre $[T]_{\beta_1}^{\beta_2}$.
+
+        Para encontrar $[T]_{\beta_1}^{\beta_2}$ debemos aplicar la transformación a cada vector de $\beta_1$ y luego obtener la matriz de la transformación. En este orden de ideas, para $v_j \in \beta_1$ tenemos lo siguiente:
+
+        $$T(v_1) = T \left(\begin{bmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{bmatrix}\right) = (1 + 0) + 2\cdot 0x + 0x^2 = 1$$
+
+        $$T(v_2) = T \left(\begin{bmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{bmatrix}\right) = (0 + 1) + 2\cdot 0x + 1x^2 = 1 + x^2$$
+
+        $$T(v_3) = T \left(\begin{bmatrix}
+            0 & 0 \\
+            1 & 0
+        \end{bmatrix}\right) = (0 + 0) + 2\cdot 0x + 0x^2 = 0$$
+
+        $$T(v_4) = T \left(\begin{bmatrix}
+            0 & 0 \\
+            0 & 1
+        \end{bmatrix}\right) = (0 + 0) + 2\cdot 1x + 0x^2 = 2x$$
+
+        Luego
+
+        $$[T]_{\beta_1}^{\beta_2} = \begin{bmatrix}
+            1 & 1 & 0 & 0\\
+            0 & 0 & 0 & 2\\
+            0 & 1 & 0 & 0
+        \end{bmatrix}$$
+    \end{Example}
+
+    \begin{Example}
+            Let $T: \mathcal{M}_{2 \times 2}(\mathbb{R}) \to P_2(\mathbb{R})$ be such that
+
+        $$T\left(\begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}\right)$$
+
+        and let $\beta_1$ and $\beta_2$ be bases of $\mathcal{M}_{2 \times 2}(\mathbb{R})$ and $P_2(\mathbb{R})$ respectively, given by
+
+        $$\beta_1 = \left\{
+            \begin{bmatrix}
+                1 & 0 \\
+                0 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 1 \\
+                0 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 0 \\
+                1 & 0
+            \end{bmatrix},
+            \begin{bmatrix}
+                0 & 0 \\
+                0 & 1
+            \end{bmatrix}
+        \right\}$$
+
+        $$\beta_2 = \left\{1, x, x^2\right\}$$
+
+        Find $[T]_{\beta_1}^{\beta_2}$.
+
+        To find $[T]_{\beta_1}^{\beta_2}$, we must apply the transformation to each vector in $\beta_1$ and then obtain the matrix of the transformation. In this vein, for $v_j \in \beta_1$ we have the following:
+
+        $$T(v_1) = T \left(\begin{bmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{bmatrix}\right) = (1 + 0) + 2 \cdot 0x + 0x^2 = 1$$
+
+        $$T(v_2) = T \left(\begin{bmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{bmatrix}\right) = (0 + 1) + 2 \cdot 0x + 1x^2 = 1 + x^2$$
+
+        $$T(v_3) = T \left(\begin{bmatrix}
+            0 & 0 \\
+            1 & 0
+        \end{bmatrix}\right) = (0 + 0) + 2 \cdot 0x + 0x^2 = 0$$
+
+        $$T(v_4) = T \left(\begin{bmatrix}
+            0 & 0 \\
+            0 & 1
+        \end{bmatrix}\right) = (0 + 0) + 2 \cdot 1x + 0x^2 = 2x$$
+
+        Then
+
+        $$[T]_{\beta_1}^{\beta_2} = \begin{bmatrix}
+            1 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 2 \\
+            0 & 1 & 0 & 0
+        \end{bmatrix}$$
+
+        Let $F: \mathbb{R}^3 \to \mathbb{R}^2$ be defined as
+
+        $$F(x, y, z) = (3x + 2y - 4z, x - 5y + 3z)$$
+
+        \begin{enumerate}
+            \item Find the matrix of $F$ for the following bases of $\mathbb{R}^3$ and $\mathbb{R}^2$
+
+            $$\beta_1 = \{(1,1,1), (1,1,0), (1,0,0)\}$$
+            $$\beta_2 = \{(1,3), (2,5)\}$$
+
+            \item Given $V \in \mathbb{R}^3$, verify
+            $$[F]_{\beta_1}^{\beta_2}[v]_{\beta_1} = [F(v)]_{\beta_2}$$
+        \end{enumerate}
+
+        \begin{enumerate}
+            \item By definition of $F$, 
+            $$F((1,1,1)) = (3(1) + 2(1) - 4(1), 1 - 5(1) + 3(1)) = (1, -1)$$
+            $$F((1,1,0)) = (3(1) + 2(1) - 4(0), 1 - 5(1) + 3(0)) = (5, -4)$$
+            and
+            $$F((1,0,0)) = (3(1) + 2(0) - 4(0), 1 - 5(0) + 3(0)) = (3, 1)$$
+
+            Then
+            $$\begin{bmatrix}
+                1 \\ -1
+            \end{bmatrix}_{\beta_2} = \begin{bmatrix}
+                -7 \\ 1
+            \end{bmatrix}$$
+            $$\begin{bmatrix}
+                5 \\ -4
+            \end{bmatrix}_{\beta_2} = \begin{bmatrix}
+                -33 \\ 19
+            \end{bmatrix}$$
+            $$\begin{bmatrix}
+                3 \\ -1
+            \end{bmatrix}_{\beta_2} = \begin{bmatrix}
+                -13 \\ 8
+            \end{bmatrix}$$
+
+            Finally,
+
+            $$[F]_{\beta_1}^{\beta_2} = \begin{bmatrix}
+                -7 & -33 & -13 \\
+                1 & 19 & 8
+            \end{bmatrix}$$
+
+            \item Let $v = (a, b, c)$. We have
+
+            $$[F(v)]_{\beta_2} = \begin{bmatrix}
+                a \\ b
+            \end{bmatrix}_{\beta_2} = \begin{bmatrix}
+                \begin{bmatrix}
+                    1 & 2 & 3a + 2b - 4c \\
+                    3 & 5 & a - 5b + 3c
+                \end{bmatrix} = \begin{bmatrix}
+                    -13a - 20b + 26c \\
+                    8a + 11b - 15c
+                \end{bmatrix}
+            \end{bmatrix}$$
+
+            Similarly, we have
+
+            $$[v]_{\beta_1} = \begin{bmatrix}
+                c \\ b - c \\ a - b
+            \end{bmatrix}$$
+
+            Finally
+
+            \begin{align*}
+                [F]_{\beta_1}^{\beta_2}[v]_{\beta_1} &=
+                \begin{bmatrix}
+                    -7 & -33 & -13 \\
+                    1 & 19 & 8
+                \end{bmatrix} \begin{bmatrix}
+                    c \\
+                    b - c \\
+                    a - b
+                \end{bmatrix} \\
+                &= \begin{bmatrix}
+                    -13a - 20b + 26c \\
+                    8a + 11b - 15c
+                \end{bmatrix} \\
+                &= [F(v)]_{\beta_2}
+            \end{align*}
+        \end{enumerate}
+    \end{Example}
+
+    \begin{thBox}
+        If $T: V \to V$ is a linear operator and $\beta = \left\{ \alpha_1, \dots , \alpha_n \right\}$ and $\beta' = \left\{ \alpha_1', \dots , \alpha_n' \right\}$ two ordered bases for $V$, there exists a matrix $P \in M_{nxn}$ invertible such that
+
+        $$[T]_{\beta'} = P^{-1}[T]P$$
+    \end{thBox}
+
+    \begin{thBox}
+        Let $V$ and $W$ be finite dimensional vector space $V$ with the ordered bases $\beta$ and $\gamma$, respectively and let $T: V \to W$ be a linear transformation, for every $v \in V$, we have
+
+        $$[T(v)]_\gamma = [T]_\beta^\gamma[v]_\beta$$
+    \end{thBox}
+
+    \begin{thBox}
+        If $T: V \to W$ is a linar transformation, such that $T \in L(V, W)$, and $\beta = \left\{ \alpha_1, \dots \alpha_n \right\}$ a base for $V$, and $\beta' = \left\{ \alpha_1', \dots \alpha_n' \right\}$ be a base for $W$, then there exists a unique matrix $A \in M_{nxn}$ such that for each $x \in V$
+
+        $$[T(x)]_\beta = A[x]_\beta$$
+    \end{thBox}
+
+    \section{Sum of subspaces}
+
+    \begin{defBox}
+        \textit{\textbf{Sum of sets}}. Suppose that $U_1, \dots U_m$ are subsets of a vector space $V$. Then the sum of $U_1, \dots , U_m$ denoted by $U_1 + \cdots + U_m $ is the set of all possible sums of the elements of $U_1, \dots , U_m$, more precisely
+
+        $$U_1 + \cdots U_m = \left\{ u_1 + \cdots u_m \mid u_1 \in U_1 , \dots , u_m \in U_m \right\}$$
+    \end{defBox}
+
+    \begin{Example}
+        $$U = \left\{ (x, 0, 0) \in F^3 \mid x \in F \right\}$$
+        $$W = \left\{ (0, y, 0) \in F^3 \mid x \in F \right\}$$
+
+        Then
+
+        $$U + W = \left\{ (x, y, 0) \in F^3 \mid x, y \in F \right\}$$
+    \end{Example}
+
+    \begin{Example}
+        $$W_1 = \left\{ m(1,0) \mid m \in \mathbb{R} \right\}$$
+        $$W_2 = \left\{ l(0,1) \mid l \in \mathbb{R} \right\}$$
+
+        Then
+
+        $$W_1 + W_2 = \left\{ m(1,0) + l(1,0) \mid m, l \in \mathbb{R} \right\}$$
+    \end{Example}
+
+    \begin{thBox}
+        \textit{\textbf{The sum of subspaces is also a subspace}}. Let $V_1, \dots , V_n$ subspaces of a vector space $V$, then
+
+        $$ V_1 + \cdots V_n $$
+    \end{thBox}
+
+    % \begin{defBox}
+    %     \textit{\textbf{Direct Sum}}. Suppose $U_1, \dots , U_n$ are subspaces of $V$.
+
+    %     \begin{enumerate}
+    %         \item The sum $U_1 + \cdots + U_n$ then we call it a direct sum if each element of $U_1 + \cdots + U_n$ can be written in a unique form like a sum $U_1 + \cdots + U_m$
+    %     \end{enumerate}
+    % \end{defBox}
 \end{document}
