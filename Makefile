@@ -5,3 +5,6 @@ start_project:
 
 sync_all:
 	bash ./sync_util/sync_all.sh $(shell pwd)
+
+translate_tex:
+	python translation_script.py $(tex_path) $(language) $(translate_to)

@@ -1,0 +1,371 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Álgebra Lineal II }{ Diagonalización }{  }{ Alexander Mendoza }{\today}
+    \tableofcontents
+    \pagebreak
+    \chapter{ Diagonalización }
+    
+    \section{Algunas cosas para recordar}
+    
+    \begin{defBox}
+        Sean $\mathcal{T}$ el conjunto de todas las transformaciones lineales de $V$ a $W$, y $L(V,W) = \{T \mid T \in \mathcal{T}\}$, entonces $L(V,W)$ es un espacio vectorial donde sus operaciones se definen como:
+        
+        \begin{itemize}
+            \item \textit{\textbf{Suma de vectores}}. Sean $T_1, T_2 \in L(V,W)$ entonces para cada $v_1 \in V$
+            $$(T_1+T_2)(v_1) = T_1(v_1) + T_2(v_1)$$
+            \item \textit{\textbf{Multiplicación por un escalar}}. Sea $T \in L(V,W)$ y sea $\alpha \in F$, entonces para todo $v_1 \in V$
+            $$(\alpha T)(v_1) = \alpha T(v_1)$$
+        \end{itemize}
+    \end{defBox}
+    
+    \begin{defBox}
+        \textit{\textbf{Multiplicación de matrices por la izquierda}}. Sea $A$ una matriz de $m \times n$ con entradas de un campo $F$. Denotamos por $\mathrm{L}_A$ la función $\mathrm{L}_A: \mathrm{F}^n \rightarrow \mathrm{F}^m$ definida por $\mathrm{L}_A(x)=A x$ (el producto matriz de $A$ y $x$) para cada vector columna $x \in \mathrm{F}^n$. Llamamos $\mathrm{L}_A$ una transformación de multiplicación por la izquierda.
+    \end{defBox}
+    
+    \begin{defBox}
+        \textit{\textbf{Matriz diagonal}}. Una matriz se llama diagonal si todas sus entradas $A_{ij}$ son cero excepto cuando $i = j$.
+    \end{defBox}
+    
+    \section{Valores propios y vectores propios}
+    
+    \begin{defBox}
+        \textit{\textbf{Vector propio y valores propios}}. Definiciones. Sea $\mathrm{T}$ un operador lineal en un espacio vectorial V. Un vector no nulo $v \in \mathrm{V}$ se llama un vector propio de $\mathrm{T}$ si existe un escalar $\lambda$ tal que $\mathrm{T}(v)=\lambda v$. El escalar $\lambda$ se llama un valor propio correspondiente al vector propio $v$.\\
+        
+        Sea $A$ en $\mathrm{M}_{n \times n}(F)$. Un vector de longitud no nulo $v \in \mathrm{F}^n$ se llama un vector propio de $A$ si $v$ es un vector propio de $\mathrm{L}_A$; es decir, si $A v=\lambda v$ para algún escalar $\lambda$. El escalar $\lambda$ se llama un valor propio de $A$ correspondiente al vector propio $v$.
+    \end{defBox}
+    
+    \begin{thBox}
+        Sea $T$ un operador lineal sobre un espacio vectorial de dimension finita $V$. Y sea $\lambda$ un escalar, entonces las siguientes afirmaciones son equivalentes
+    
+        \begin{enumerate}
+            \item $\lambda$ es un valor propio de $T$
+            \item El operador $(T - \lambda I)$ es singular (no tiene inversa)
+            \item $\det(T-\lambda I) = 0$
+        \end{enumerate}
+    \end{thBox}
+    
+    \begin{defBox}
+        Si $A$ es una matriz sobre un campo $F$, un valor propio de $A$ en $F$ es un escalar en $F$, tal que $(A - \lambda I)$ es singular.
+    \end{defBox}
+    
+    \begin{defBox}
+        Sea $A$ una matriz cuadrada. La función $P_A: \mathbb{R} \to \mathbb{R}$ donde $P_A(\lambda) = \det(A - \lambda I)$ se llama el polinomio característico de $A$.
+    \end{defBox}
+    
+    Con estos teoremas y definiciones, podemos obtener los valores propios de una matriz encontrando las raíces del polinomio característico y obtener el vector propio $v$ definido por el valor propio $\lambda$ resolviendo el sistema $(A-\lambda I)v = 0$
+    
+    \begin{Example}
+        Sea
+        $$A = \begin{bmatrix}
+            -1 & -3 & 9\\
+            0 & 5 & 18\\
+            0 & -2 & -7
+        \end{bmatrix}$$
+        Para encontrar los valores propios, vectores propios y el polinomio característico, comenzamos con
+        $$f(\lambda) = \det\left(A - \lambda I\right)$$
+        Luego, \begin{align*}
+            \det\left(A - \lambda I\right) &= \det\left(
+                \begin{bmatrix}
+                    -1 & -3 & 9\\
+                    0 & 5 & 18\\
+                    0 & -2 & -7
+                \end{bmatrix}
+            - \lambda
+                \begin{bmatrix}
+                    1 & 0 & 0\\
+                    0 & 1 & 0\\
+                    0 & 0 & 1
+                \end{bmatrix}
+            \right)\\\\
+            &= \det\left(
+                \begin{bmatrix}
+                    -1-\lambda & -3 & 9\\
+                    0 & 5-\lambda & 18\\
+                    0 & -2 & -7-\lambda
+                \end{bmatrix}
+            \right)\\\\
+            &= -\lambda^3 -3\lambda^2 -3\lambda -1
+        \end{align*}
+        Ahora, para encontrar los valores propios, necesitamos encontrar las raíces del polinomio. Se puede observar que $-\lambda^3 -3\lambda^2 -3\lambda -1$ es de la forma expandida de un binomio al cubo, por lo tanto, el polinomio puede ser factorizado de la siguiente manera:
+        $$-(\lambda + 1)^3$$
+        Así, al establecer $-(\lambda + 1)^3 = 0$, podemos concluir que $\lambda_1 = -1, \lambda_2 = -1, \lambda_3 = -1$. Ahora, vamos a encontrar los vectores propios, para esto, resolveremos el siguiente sistema homogéneo: $Ax = 0$, donde $x = (x_1, x_2, x_3)$ y $x_1, x_2, x_3 \in F$. Entonces, el sistema homogéneo para $\lambda = -1$ sería el siguiente:
+        \begin{align*}
+            \begin{bmatrix}
+                0 & -3 & 9\\
+                0 & 6 & 18\\
+                0 & -2 & -6
+            \end{bmatrix}
+            \begin{bmatrix}
+                x_1\\ x_2\\ x_3
+            \end{bmatrix} = \begin{bmatrix}
+                0\\0\\0
+            \end{bmatrix}
+        \end{align*}
+        Al resolver el sistema, encontramos que el vector
+        $$\begin{bmatrix}
+            1\\0\\0
+        \end{bmatrix}$$
+        Es una solución para el sistema y, por lo tanto, es un vector propio para $A$.
+    \end{Example}
+    
+    \begin{defBox}
+        Sea $\mathrm{T}$ un operador lineal sobre un espacio vectorial $\mathrm{V}$, y sea $\lambda$ un valor propio de $\mathrm{T}$. Definimos $\mathrm{E}_\lambda=\{x \in \mathrm{V}: \mathrm{T}(x)=\lambda x\}=\mathrm{N}\left(\mathrm{T}-\lambda \mathrm{I}_{\mathrm{V}}\right)$. Al conjunto $\mathrm{E}_\lambda$ se le llama espacio propio $\mathrm{T}$ correspondiente al valor propio $\lambda$. Análogamente, definimos el espacio propio de una matriz cuadrada $A$ correspondiente al valor propio $\lambda$ como el espacio propio de $\mathrm{L}_A$ correspondiente a $\lambda$.
+    \end{defBox}
+    
+    Continuando con el ejemplo anterior, su espacio propio $E_\lambda$ sería
+    
+    $$ E_\lambda = \left\{ \begin{bmatrix}1\\0\\0\end{bmatrix} \right\}$$
+    
+    \section{Trabajando con el polinomio característico}
+    Vale la pena recordar algunas herramientas para encontrar los determinantes de una matriz y las raíces de un polinomio. Recordemos primordialmente la definición de determinante.
+    
+    Primero estableceremos un teorema que nos ayudará a encontrar algunas partes del polinomio característico.
+    
+    \begin{thBox}
+        Denotemos los $n$ valores propios de una matriz $A \in M_n(c)$, por $\lambda_1, \lambda_2, \dots , \lambda_n$ y su polinomio característico por
+        
+        $$P_a(\lambda) = (-1)^n\lambda^n + C_{n-1}\lambda^{n-1} + \cdots + C_1\lambda + C_0$$
+        
+        Entonces $$C_0 = \det(A) = \lambda_1 \lambda_2 \cdots \lambda_n$$ y $$(-1)^{n-1}C_{n-1} = tr(A) = \lambda_1 + \lambda_2 + \cdots + \lambda_n$$
+    \end{thBox}
+    
+    \begin{thBox}
+        \textit{\textbf{Teorema de las raíces}}. Todo polinomio de grado $n \geq 1$ tiene exactamente $n$ raíces, siempre y cuando una raíz de multiplicidad $k$ se cuente $k$ veces.
+    \end{thBox}
+    
+    \begin{thBox}
+        \textit{\textbf{Teorema de las raíces racionales}}. Si el polinomio $P(x)=a_n x^n+a_{n-1} x^{n-1}+\cdots+a_1 x+a_0$ tiene coeficientes enteros, entonces todos los ceros racionales de $P$ tienen la forma
+        
+        $$\frac{p}{q}$$
+        
+        donde $\quad p$ es un factor del coeficiente constante $a_0$
+        y $\quad q$ es un factor del coeficiente principal $a_n$.
+    \end{thBox}
+    
+    \begin{noteBox}
+        \textit{\textbf{Encontrando los ceros racionales de un polinomio}}.
+        \begin{enumerate}
+            \item Listar los ceros posibles. Enumera todos los ceros racionales posibles utilizando el teorema de los ceros racionales.
+            \item Dividir. Usa la división sintética para evaluar el polinomio en cada uno de los candidatos a ceros racionales que se encontraron en el paso 1. Cuando el residuo es $0$, anota el cociente que has obtenido.
+            \item Repetir. Repite los pasos 1 y 2 para el cociente. Detente cuando alcances un cociente que es cuadrático o se puede factorizar fácilmente, y usa la fórmula cuadrática o el factor para encontrar los ceros restantes.
+        \end{enumerate}
+    \end{noteBox}
+    
+    \section{Diagonalización de una matriz}
+    
+    \subsection*{Multiplicidad}
+    
+    \begin{defBox}
+        \textit{\textbf{Multiplicidad geométrica de un valor propio}}. Sea $A$ una matriz cuadrada con valor propio $\lambda$. La multiplicidad geométrica de $\lambda$ es la dimensión de $E_\lambda$ (el espacio generado por $\lambda$).
+    \end{defBox}
+    
+    Por ejemplo 1.2.5, la multiplicidad geométrica de $\lambda = -1$ es $1$ ya que
+    $$E_\lambda = \left\{ \begin{bmatrix}1\\0\\0\end{bmatrix} \right\}$$
+    
+    \begin{defBox}
+        Deje que A sea una matriz cuadrada con valor propio $\lambda$. La multiplicidad algebraica de $\lambda$ es el entero positivo más grande $k$ para el cual $(t-\lambda)^k$ es un factor de $f(t)$.
+    \end{defBox}
+
+    \begin{Example}
+        Sea
+
+        $$A =\begin{pmatrix}
+            3 & 1 & 0\\
+            0 & 3 & 4\\
+            0 & 0 & 4
+        \end{pmatrix}$$
+
+        que tiene polinomio característico $f(t) = -(t-3)^2(t-4)$. Por lo tanto $\lambda = 3$ es un valor propio de $A$ con multiplicidad de 2, y $\lambda = 4$ es un valor propio de $A$ con una multiplicidad de 1.
+    \end{Example}
+    
+    \begin{thBox}
+        Deje que A sea una matriz cuadrada con valor propio $\lambda$. La multiplicidad algebraica de $\lambda$ es el entero positivo más grande $k$ para el cual $(t-\lambda)^k$ es un factor de $f(t)$.
+    \end{thBox}
+    
+    \begin{thBox}
+        La multiplicidad de una eigenvalor no excede a su multiplicidad algebraica.
+    \end{thBox}
+    
+    \subsection*{Matrices similares}
+    
+    \begin{defBox}
+        \textit{\textbf{Matrices similares}}. Dos matrices cuadradas $A$ y $B$ se dice que son similares si existe una matriz no singular $P$ tal que
+
+        $$B = P^{-1}AP$$
+    \end{defBox}
+    
+    \begin{thBox}
+        Las matrices similares tienen los mismos valores propios contados con multiplicidad.
+    \end{thBox}
+    
+    \subsection*{Diagonalización de una matriz}
+    
+    \begin{defBox}
+        \textit{\textbf{Diagonalización de una matriz}}. Un operador lineal $T$ en un espacio vectorial de dimensional finita $V$ se llama diagonalizable si existe una base ordenada $B$ para $V$ tal que $[\mathrm{T}]_\beta$ es una matriz diagonal.
+
+        Una matriz cuadrada $A$ se llama diagonalizable si $\mathrm{L}_A$ es diagonalizable. En otras palabras decimos que una matriz cuadrada $A$ es diagonalizable si y solo si existe una matriz invertible $P$ tal que
+
+        $$D = P^{-1}AP$$ o
+        $$A = PDP^{-1}$$
+    \end{defBox}
+    
+    \begin{thBox}
+        Si $A$ es similar a una matriz diagonal $D$, entonces los elementos de $D$ son los valores propios de $A$; y los valores son independientes de la forma en la cual se representa una transformación lineal.
+    \end{thBox}
+    
+    \begin{thBox}
+        Una matriz $nxn$ es diagonalizable si y solo si tiene vectores propios linealmente independientes.
+    \end{thBox}
+    
+    \begin{thBox}
+        Lo siguiente son equivalentes
+
+        \begin{enumerate}
+            \item $T: V \to V$ es diagonalizable
+            \item Para cada valor propio $\lambda$ de $T$, la multiplicidad geométrica de $\lambda$ coincide con la multiplicidad algebraica.
+        \end{enumerate}
+    \end{thBox}
+    
+    \subsection*{Cambio de base}
+    
+    \begin{defBox}
+        \textit{\textbf{Base ordenada}}. Sea $V$ un espacio vectorial de dimensional finita. Una base ordenada para tal espacio está provista de un orden específico, es decir, una base ordenada para $V$ es una secuencia de vectores linealmente independientes en $V$ que generan $V$.
+    \end{defBox}
+    
+    \begin{Example}
+        Sea $V = F^3$.
+
+        $$\beta = \left\{ e_1, e_2, e_3 \right\}$$
+        $$\alpha = \left\{ e_2, e_1, e_3 \right\}$$
+
+        Entonces $\beta \not = \alpha$, y $\beta, \alpha$ son bases ordenadas.
+    \end{Example}
+    
+    \begin{defBox}
+        Sea $\beta = \left\{ u_1, u_2, \dots , u_n \right\}$ una base ordenada para $V$. Para cada $v \in V$, dejamos que $\alpha_1, \alpha_2, \dots , \alpha_n$ sean los escalares únicos tales que
+
+        $$v = \sum_{i=1}^{n}\alpha_iu_i$$
+
+        Definimos el vector de coordenadas de $v$ relativo a $\beta$, denotado por
+
+        $$[v]_\beta = \begin{pmatrix}
+            \alpha_1\\ \alpha_2 \\ \vdots \\ \alpha_n
+        \end{pmatrix}$$
+    \end{defBox}
+    
+    \begin{Example}
+        Sea $P_2(\mathbb{R})$ y sea $\beta = \left\{ 1, x, x^2 \right\}$ y $\alpha = \left\{ x^2, x, 1 \right\}$ si $v = f(x) = 4 + 6x -7x^2$.
+
+        $$[v]_\beta = \begin{pmatrix}
+            4\\6\\-7
+        \end{pmatrix}$$
+
+        $$[v]_\alpha = \begin{pmatrix}
+            -7\\6\\4
+        \end{pmatrix}$$
+    \end{Example}
+    
+    \begin{thBox}
+        Sean $f_\beta: V \to \mathbb{R}^n$ y $g_\beta:\mathbb{R}^n \to V$ las funciones siguientes:
+        
+        $$f_\beta(v) = [v]_beta$$
+        
+        $$g_\beta([v]_\beta) = v$$
+        
+        Entonces $f_\beta$ y $g_\beta$ son linealments y $g_\beta \circ f_\beta$ es la identidad en $V$ y $f_\beta \circ g_\beta$ es la identidad en $\mathbb{R}^n$
+    \end{thBox}
+    
+    \begin{Example}
+        Sean las siguientes fórmulas
+        
+        $$f(\alpha) = A\alpha$$
+        
+        $$P = [I]_\beta^\gamma$$
+        
+        Donde
+        
+        $$A = \begin{bmatrix}
+            3 & 1 & 2\\
+            0 & 2 & 0\\
+            0 & 0 & 1
+        \end{bmatrix}$$
+        
+        $$\alpha = \begin{bmatrix}
+            2\\1\\3
+        \end{bmatrix}$$
+        
+        $$[I]_\beta^\gamma = \begin{bmatrix}
+            1 & -2 & -1\\
+            0 & 3 & -1
+        \end{bmatrix}$$
+        
+        Entonces si calculamos $f(\alpha)$ obtenemos
+        
+        $$f(\alpha) = A\alpha = \begin{bmatrix}
+            3 & 1 & 2\\
+            0 & 2 & 0\\
+            0 & 0 & 1
+        \end{bmatrix}\begin{bmatrix}
+            2\\1\\3
+        \end{bmatrix} = \begin{bmatrix}
+            12\\2\\3
+        \end{bmatrix}$$
+        
+        y si calculamos $Pf(\alpha)$ tenemos
+        
+        $$Pf(\alpha) = [I]_\beta^\gamma f(\alpha) = \begin{bmatrix}
+            1 & -2 & -1\\
+            0 & 3 & -1
+        \end{bmatrix}\begin{bmatrix}
+            12\\2\\3
+        \end{bmatrix} = \begin{bmatrix}
+            -10\\ 6
+        \end{bmatrix}$$
+    \end{Example}
+    
+    \section{Suma de subespacios}
+    
+    \begin{defBox}
+        \textit{\textbf{Suma de conjuntos}}. Supongamos que $U_1, \dots U_m$ son subconjuntos de un espacio vectorial $V$. Entonces la suma de $U_1, \dots , U_m$ denotada por $U_1 + \cdots + U_m $ es el conjunto de todas las sumas posibles de los elementos de $U_1, \dots , U_m$, más precisamente
+        
+        $$U_1 + \cdots U_m = \left\{ u_1 + \cdots u_m \mid u_1 \in U_1 , \dots , u_m \in U_m \right\}$$
+    \end{defBox}
+    
+    \begin{Example}
+        $$U = \left\{ (x, 0, 0) \in F^3 \mid x \in F \right\}$$
+        $$W = \left\{ (0, y, 0) \in F^3 \mid x \in F \right\}$$
+
+        Entonces
+
+        $$U + W = \left\{ (x, y, 0) \in F^3 \mid x, y \in F \right\}$$
+    \end{Example}
+
+    \begin{Example}
+        $$W_1 = \left\{ m(1,0) \mid m \in \mathbb{R} \right\}$$
+        $$W_2 = \left\{ l(0,1) \mid l \in \mathbb{R} \right\}$$
+
+        Entonces
+
+        $$W_1 + W_2 = \left\{ m(1,0) + l(1,0) \mid m, l \in \mathbb{R} \right\}$$
+    \end{Example}
+    
+    \begin{thBox}
+        \textit{\textbf{La suma de subespacios también es un subespacio}}. Sea $V_1, \dots , V_n$ subespacios de un espacio vectorial $V$, entonces
+        
+        $$ V_1 + \cdots V_n $$
+    \end{thBox}
+    
+    % \begin{defBox}
+    %     \textit{\textbf{Suma directa}}. Supongamos que $U_1, \dots , U_n$ son subespacios de $V$.
+
+    %     \begin{enumerate}
+    %         \item La suma $U_1 + \cdots + U_n$ se llama suma directa si cada elemento de $U_1 + \cdots + U_n$ se puede escribir en una forma única como una suma $U_1 + \cdots + U_m$
+    %     \end{enumerate}
+    % \end{defBox}
+\end{document}

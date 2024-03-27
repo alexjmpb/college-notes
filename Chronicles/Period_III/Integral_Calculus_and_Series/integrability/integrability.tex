@@ -1,5 +1,8 @@
 \documentclass{report}
 \usepackage[english]{babel}
+\usepackage{array}
+\usepackage{float}
+\usepackage[dvipsnames]{xcolor}
 
 \input{boxes.tex}
 
@@ -70,7 +73,9 @@
         Then the table of min an max values would be as follows
 
         \begin{center}
-            \begin{table}[h]
+            \begin{table}[H]
+                \setlength{\extrarowheight}{20pt}
+                \centering
                 \begin{tabular}{l|l|l|l}
                 $i$ & $[x_{i-1}, x_i]$             & $m_i$         & $M_i$         \\ \hline
                 1   & $[0, \frac{1}{2}]$           & 0             & $\frac{1}{4}$ \\
@@ -463,7 +468,4 @@
     \begin{noteBox}
         It's important to note that some books cite Corollary 1.5.3 as the second part of the fundamental theorem of Calculus, this is not entirely correct and we later state the second part.
     \end{noteBox}
-
-    
-
 \end{document}

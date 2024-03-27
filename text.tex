@@ -1,0 +1,68 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\input{boxes.tex}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{Matemáticas}{Teoría de Números}{Fundamentos}{Ejemplo de Subtítulo.}{Alexander Mendoza}{\today}
+    \tableofcontents
+
+    \pagebreak
+    \chapter{Fundamentos}
+
+    \section{Definición de los números naturales y sus operaciones}
+    Comencemos definiendo nuestro banco de trabajo, los números naturales. Definiremos los números naturales de la manera más estándar, utilizando los axiomas de Peano.
+
+    \subsection*{Axiomas de Peano}
+    Existe el conjunto de números naturales $\mathbb{N}$
+    % Enumeración correcta con axiomas enumerate
+    \begin{enumerate}
+        \item $0 \in \mathbb{N}$.
+        \item Si $x$ es un número natural, entonces $s(x)\in \mathbb{N}$.
+        \item No existe $x \in \mathbb{N}$ tal que $s(x) = 0$.
+        \item Sean $x,y \in \mathbb{N}$, si $s(x) = s(y)$, entonces $x=y$.
+        \item Sea $B \subseteq \mathbb{N}$ tal que:
+            \begin{itemize}
+                \item $0 \in B$
+                \item Si $n\in B$, entonces $s(n)=B$
+            \end{itemize}
+        \begin{noteBox}
+            % MEJORAR LA GRAMÁTICA
+            Se dice que $B$ es un conjunto inductivo. Los Axiomas originales establecían que $B$ podía ser cualquier conjunto en lugar de un subconjunto de $\mathbb{N}$, y luego, mediante un teorema, se demostraría que $\mathbb{N}$ sería el más pequeño de todos los conjuntos inductivos. Para evitar todo este trabajo,  establecemos que $B$ es un subconjunto de $\mathbb{N}$ y a partir de esto podemos concluir que $B = \mathbb{N}$
+        \end{noteBox}
+    \end{enumerate}
+
+    El último axioma se conoce como el Principio de Inducción Matemática (PIM), profundizaremos más en este tema ya que se utilizará en todas partes a partir de ahora.
+
+    \subsection*{Adición}
+
+    La adición es una función recursiva $+$ con las siguientes propiedades:
+
+    $$+: \mathbb{N}\times \mathbb{N} \to \mathbb{N}$$ donde dados $m,n \in \mathbb{N}$:
+
+    $$+(m,0) = m$$
+    $$+(m,s(n)) = s(+(m,n))$$
+
+    La salida de la función se llama la suma de $m$ y $n$ y se denota como $m+n$ por conveniencia, con esta notación nuestra definición puede ser vista como:
+
+    $$m+0 = m$$
+    $$m + s(n) = s(m, n)$$
+
+    Damos un par de ejemplos para verificar que esta función es de hecho la suma con la que estamos familiarizados.
+
+    \begin{Example}
+        Sea $m=2$ y $n=3$, entonces por definición
+
+        \begin{align*}
+            2+3 &= s(2+2)\\
+            &= s(s(2+1))\\
+            &= s(s(s(2+0)))\\
+            &= s(s(s(2)))\\
+            &= s(s(3))\\
+            &= s(4)\\
+            &= 5
+        \end{align*}
+    \end{Example}
+\end{document}
