@@ -1,0 +1,352 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Álgebra Lineal II }{ Taller 2 }{  }{ Alexander Mendoza }{\today}
+
+    \section*{Taller 2}
+    
+    \begin{enumerate}
+        \item Si $A \in M_{nxn}(F)$ es invertible y $deg m_A(x) = P$. Demostrar que $A^{-1}$ es una combinación de $I_n, A, A^2, \dots A^{P-1}$.
+
+        Sea $\mathrm{A}$ una matriz invertible de $n \times n$. Dado que $A$ es invertible, $\det(A) \neq 0$, lo que implica que el polinomio característico $P_{A}(\lambda) \neq 0$, es decir, $\lambda \neq 0$. Por el teorema de Cayley-Hamilton, $P(A)=0$. Si escribimos $P(A)$ de forma general como $b_{0} I + b_{1} A + \ldots + b_{n} A^{n} = 0$, entonces $A^{-1}$ se puede expresar como:
+
+        $$
+        A^{-1} = \left(\frac{-b_{1}}{b_{0}} \cdot I - \frac{b_{2}}{b_{0}} \cdot A - \ldots - \frac{b_{n}}{b_{0}} A^{n-1}\right)
+        $$
+
+        \item Determine el polinomio característico y el polinomio mínimo de cada una de las siguientes matrices.
+
+        \begin{enumerate}
+            \item $$\begin{bmatrix}
+                1 & 2 & 3\\
+                0 & 1 & 2\\
+                0 & 0 & 1
+            \end{bmatrix}$$
+
+            $$
+            A = \begin{bmatrix}
+            1 & 2 & 3 \\
+            0 & 1 & 2 \\
+            0 & 0 & 1
+            \end{bmatrix}
+            $$
+
+            $P_{A}(\lambda) = -(1-\lambda)(1-\lambda)(1-\lambda)$
+
+            $P_{A} = -(A-I)^{3} = 0$
+
+            \begin{enumerate}
+                \item $(I-A)^{2} = \begin{bmatrix} 0 & -2 & -3 \\ 0 & 0 & -2 \\ 0 & 0 & 0 \end{bmatrix}$
+                \item $(I-A)^{2} = \begin{bmatrix} 0 & 2 & 3 \\ 0 & 0 & 2 \\ 0 & 0 & 0 \end{bmatrix} \cdot \begin{bmatrix} 0 & 2 & 3 \\ 0 & 0 & 2 \\ 0 & 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 4 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$
+            \end{enumerate}
+
+            Por el teorema, $(I-A)^{3} = 0$, por lo tanto, el polinomio característico es el mismo que el minimal.
+
+            \item Sea la matriz $$\begin{bmatrix}
+                1 & 1 & 0\\
+                -1 & 1 & 1\\
+                0 & 1 & -1
+            \end{bmatrix}$$
+
+            \[
+                A = \begin{bmatrix}
+                1 & 1 & 0 \\
+                -1 & 1 & 1 \\
+                0 & 1 & -1
+                \end{bmatrix}, \quad
+                D = \begin{bmatrix}
+                -\lambda & 0 & 0 \\
+                0 & -\lambda & 0 \\
+                0 & 0 & -\lambda
+                \end{bmatrix}
+                \]
+                
+                La suma $A + D$ es:
+                
+                \[
+                A + D = \begin{bmatrix}
+                1-\lambda & 1 & 0 \\
+                -1 & 1-\lambda & 1 \\
+                0 & 1 & -1-\lambda
+                \end{bmatrix}
+                \]
+                
+                El polinomio característico se calcula como:
+                
+                \[
+                \begin{aligned}
+                \det(A + D) &= (1-\lambda)((\lambda^{2}-2)-1-\lambda) \\
+                &= -\lambda^{3}+\lambda^{2}+\lambda-3 \\
+                &= (\lambda+1,3593)(\lambda-1,1797+0,9030 i)(\lambda-1,1797-0,90301 i)
+                \end{aligned}
+                \]
+                
+                donde $\alpha = 1+1,3593$, $\beta = 1-1,1797+0,9030 i$, y $\gamma = 1-1,1797-0,90301 i$.
+                
+                Para la posibilidad 1:
+                
+                \[
+                (A+1,3593 I)(A-1,1797 I+0,90301 i I) = \begin{bmatrix}
+                2,36 & 0 & 0 \\
+                -1 & 2,36 & 0 \\
+                0 & 0 & -0,64
+                \end{bmatrix}
+                \]
+                
+                \[
+                \begin{aligned}
+                & \begin{bmatrix}
+                1 & 1 & 0 \\
+                -1 & 1 & 1 \\
+                0 & 1 & -1
+                \end{bmatrix} + \begin{bmatrix}
+                -0,1797 & 1 & 0 \\
+                -1 & -0,8571 & 1 \\
+                0 & 1 & -2,1797
+                \end{bmatrix} \\
+                & = \text{Resultado de la suma}
+                \end{aligned}
+                \]
+
+            \item Sea la matriz $$\begin{bmatrix}
+                0 & 0 & 2\\
+                1 & 0 & -1\\
+                0 & 1 & 1
+            \end{bmatrix}$$
+
+            \item Sea la matriz y sean $a, b \in \mathbb{R}$
+            $$\begin{bmatrix}
+                b & a & 0\\
+                0 & b & a\\
+                0 & 0 & b
+            \end{bmatrix}$$
+
+            \[
+                A = \begin{bmatrix}
+                b & a & 0 \\
+                0 & b & a \\
+                0 & 0 & b
+                \end{bmatrix}
+                \]
+                
+                Dado que $A$ es triangular superior, su polinomio característico es $(b-\lambda)^3$.
+                
+                Para encontrar el polinomio minimal, consideramos las potencias de $(b-\lambda)$:
+                
+                1) $(b-\lambda)$:
+                \[
+                (bI - A) = \begin{bmatrix}
+                b-\lambda & -a & 0 \\
+                0 & b-\lambda & -a \\
+                0 & 0 & b-\lambda
+                \end{bmatrix}
+                \]
+                Si $a=0$, el polinomio minimal es $(b-\lambda)$. Si $a\neq0$, continuamos.
+                
+                2) $(b-\lambda)^2$:
+                \[
+                (bI - A)^2 = \begin{bmatrix}
+                0 & -a & 0 \\
+                0 & 0 & -a \\
+                0 & 0 & 0
+                \end{bmatrix} \begin{bmatrix}
+                0 & -a & 0 \\
+                0 & 0 & -a \\
+                0 & 0 & 0
+                \end{bmatrix} = \begin{bmatrix}
+                0 & 0 & a^2 \\
+                0 & 0 & 0 \\
+                0 & 0 & 0
+                \end{bmatrix}
+                \]
+                
+                3) $(b-\lambda)^3 = (b-\lambda)^2 \cdot (bI - A)$:
+                \[
+                (bI - A)^3 = \begin{bmatrix}
+                0 & 0 & a^2 \\
+                0 & 0 & 0 \\
+                0 & 0 & 0
+                \end{bmatrix} \begin{bmatrix}
+                b-\lambda & -a & 0 \\
+                0 & b-\lambda & -a \\
+                0 & 0 & b-\lambda
+                \end{bmatrix} = \begin{bmatrix}
+                0 & 0 & 0 \\
+                0 & 0 & 0 \\
+                0 & 0 & 0
+                \end{bmatrix}
+                \]
+
+            Con esto, el polinomio minimal de $A$ es el mismo que su polinomio característico.
+
+            \item Sea la matriz  $$\begin{bmatrix}
+                2 & 8 & 0 & 0 & 0 & 0 & 0\\
+                0 & 2 & 0 & 0 & 0 & 0 & 0\\
+                0 & 0 & 4 & 2 & 0 & 0 & 0\\
+                0 & 0 & 1 & 3 & 0 & 0 & 0\\
+                0 & 0 & 0 & 0 & 0 & 3 & 0\\
+                0 & 0 & 0 & 0 & 0 & 0 & 0\\
+                0 & 0 & 0 & 0 & 0 & 0 & 5\\
+            \end{bmatrix}$$
+
+            Calcular el polinomio característico de $A$ es equivalente a calcular el de las submatrices que lo conforman.
+
+            \[
+            \begin{aligned}
+            &\begin{bmatrix}
+            2-\lambda & 8 \\
+            0 & 2-\lambda
+            \end{bmatrix} = (2-\lambda)^{2}-8(0) = (2-\lambda)^{2} \\
+            &\begin{bmatrix}
+            4-\lambda & 2 \\
+            1 & 3-\lambda
+            \end{bmatrix} = (4-\lambda)(3-\lambda)-(1)(2) = (\lambda-5)(\lambda-2) \\
+            &\begin{bmatrix}
+            0-\lambda & 3 & 0 \\
+            0 & 0-\lambda & 0 \\
+            0 & 0 & 5-\lambda
+            \end{bmatrix} = -\lambda
+            \begin{bmatrix}
+            -\lambda & 0 \\
+            0 & 5-\lambda
+            \end{bmatrix} - 3
+            \begin{bmatrix}
+            0 & 0 \\
+            0 & 5-\lambda
+            \end{bmatrix}
+            \end{aligned}
+            \]
+            
+            Realizando los cálculos, obtenemos que:
+            
+            \[
+            P_{A}(\lambda) = (2-\lambda)^{2}(\lambda-5)^{2}(\lambda-2)(-\lambda)^{2}
+            \]
+            
+            Posibilidades:
+            
+            \[
+            \begin{bmatrix}
+            4 & 32 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 4 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 18 & 14 & 0 & 0 & 0 \\
+            0 & 0 & 7 & 11 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 25
+            \end{bmatrix}
+            \]
+            
+            Minimal: $(-\lambda)^{2}(\lambda-5)^{2}(\lambda-2)$
+            
+            \[
+            \begin{aligned}
+            &\text{Minimal: }(-\lambda)^{2}(\lambda-5)^{2}(\lambda-2) \\
+            &\begin{bmatrix}
+            4 & 32 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 4 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 18 & 14 & 0 & 0 & 0 \\
+            0 & 0 & 7 & 11 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 25
+            \end{bmatrix}
+            \times
+            \begin{bmatrix}
+            0 & 8 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 2 & 2 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & -2 & 3 & 0 \\
+            0 & 0 & 0 & 0 & 0 & -2 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 3
+            \end{bmatrix} \\
+            &=
+            \begin{bmatrix}
+            0 & 32 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 50 & 50 & 0 & 0 & 0 \\
+            0 & 0 & 25 & 25 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 75
+            \end{bmatrix} \\
+            &= (\lambda^{2})(\lambda-2)
+            \end{aligned}
+            \]
+            
+            $(\lambda-5)$
+            
+            \[
+            \begin{bmatrix}
+            -3 & 8 & 0 & 0 & 0 & 0 & 0 \\
+            0 & -3 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 2 & 0 & 0 & 0 \\
+            0 & 0 & 1 & -2 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 3 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0
+            \end{bmatrix}
+            = (\lambda-5) \Rightarrow
+            \begin{bmatrix}
+            9 & -48 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 9 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 3 & -6 & 0 & 0 & 0 \\
+            0 & 0 & -3 & 6 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0
+            \end{bmatrix}
+            = (\lambda-5)^{2}
+            \]
+            
+            Por lo tanto, el polinomio minimal es $(-\lambda)^{2}(\lambda-5)^{2}(\lambda-2)$.
+        \end{enumerate}
+
+        \item Demuestre que la transpuesta $A^t$ de una matriz $A$ tienen el mismo polinomio minimal.
+        
+        Para demostrar que la matriz transpuesta $A^T$ de una matriz $A$ tiene el mismo polinomio minimal, observamos que
+
+        \[
+        \begin{aligned}
+        \lambda_{A}(\lambda) & = \operatorname{det}(\lambda \operatorname{In}-A) \\
+        & = \operatorname{det}(\lambda(\operatorname{In}^T)-A) \\
+        & = \operatorname{det}(\lambda \operatorname{In}-A^{T}) = \lambda^{t}(A)(\lambda)
+        \end{aligned}
+        \]
+
+        Esto muestra que el polinomio minimal de $A$ es igual al de $A^T$. Por lo tanto, $A$ y $A^T$ tienen el mismo polinomio minimal.
+
+        \item Demuestre que el término constante en el polinomio característico de $A$ es $\det(A)$
+        
+        Según la definición, tenemos:
+        \[
+        P(\lambda) = \det\left[\begin{array}{cccc}
+        a_{11}-\lambda & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22}-\lambda & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda
+        \end{array}\right] = (-1)^n(\lambda^n + c_1\lambda^{n-1} + c_2\lambda^{n-2} + \cdots + c_n)
+        \]
+
+        Sustituimos \( \lambda = 0 \):
+        \[
+        P(0) = \det\left[\begin{array}{cccc}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn}
+        \end{array}\right] = (-1)^n(0^n + c_1\cdot 0^{n-1} + c_2\cdot 0^{n-2} + \cdots + c_n)
+        \]
+
+        Simplificando, obtenemos:
+        \[
+        \det(A) = c_n
+        \]
+    \end{enumerate}
+\end{document}
