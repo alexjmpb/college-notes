@@ -1,0 +1,108 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Álgebra Lineal II }{ Taller 3 }{  }{ Alexander Mendoza }{\today}
+
+    \section*{Taller}
+
+    \begin{enumerate}
+        \item Demuestra que
+        \begin{align*}
+            \|x\|_1 := \sum_{i=1}^n \left| x_i \right|
+        \end{align*}
+        para cada $x \in \mathbb{R}^n$.
+    
+        Demostración:
+        \begin{enumerate}
+            \item Para cada $x \in \mathbb{R}^n$ y $\alpha \in \mathbb{R}$, $\|x\| \geq 0$. La norma está definida como la suma de los valores absolutos de cada $x_i$, es decir,
+            \begin{align*}
+                \|x\|_1 = \left| x_1 \right| + \left| x_2 \right| + \ldots + \left| x_n \right|
+            \end{align*}
+            Cada $\left| x_i \right| \geqslant 0$, entonces
+            \begin{align*}
+                \left| x_1 \right| + \left| x_2 \right| + \ldots + \left| x_n \right| = \sum_{i=1}^n \left| x_i \right| \geq 0
+            \end{align*}
+            
+            \item $\|x\|_1 = 0$ si y solo si $x = (0,0, \ldots, 0)$.
+            \begin{enumerate}
+                \item Primera parte de la implicación: Si $\|x\|_1 = 0$, entonces $\left| x_1 \right| + \left| x_2 \right| + \ldots + \left| x_n \right| = 0$. Como $\left| x_1 \right| \geq 0$, en la suma no existe un $\left| x_k \right|$ que sea el inverso aditivo de algún $\left| x_i \right|$. Por lo tanto,
+                \begin{align*}
+                    \sum_{j=1}^n \left| x_i \right| = \sum_{i=1}^n \left| 0_i \right| = (0,0, \ldots, 0)
+                \end{align*}
+                En otras palabras, $x_i$ tiene que ser igual a $|0|$.
+                \item Si $x = (0,3)$, entonces $\left| x_i \right| = 0$, por lo que
+                \begin{align*}
+                    \left| x_1 \right| + \left| x_2 \right| + \ldots + \left| x_n \right| = 0
+                \end{align*}
+            \end{enumerate}
+            
+            \item Para $\alpha \in \mathbb{R}$, se cumple $\| \alpha x \|_1 = | \alpha | \| x \|_1$.
+            \begin{align*}
+                \sum_{i=1}^n \| \alpha x \| &= \left\| \alpha x_1 \right\| + \ldots + \left\| \alpha x_n \right\| \\
+                &= | \alpha | \left( \| x_1 \| + \ldots + \| x_n \| \right) \\
+                &= | \alpha | \sum_{j=1}^n \| x_i \| \\
+                &= | \alpha | \cdot \| x \|_1
+            \end{align*}
+            
+            \item $\| x + y \|_1 \leq \| x \|_1 + \| y \|_1$
+            \begin{align*}
+                & \| x + y \|_1 = \sum_{j=1}^n \mid \left( x_j + y_j \|_1 \right| = \sum_{j=1}^n \left| x_j + x_j \right| \leq \\
+                & \leq \sum_{j=1}^n \left( \left| x_j \right| + \left| y_j \right| \right) = \sum_{j=1}^n \left| x_j \right| + \sum_{j=1}^n \left| y_j \right| = \| x \|_1 + \| y \|_1
+            \end{align*}
+        \end{enumerate}
+        \item Demuestre:
+            $\|x\|_{\infty}=\max \left\{\left|x_1,\right| x_2|, \ldots,| x_n \mid\right\}$
+            Por definición, la norma infinito de un vector $x$ se define como:
+
+            \[
+            \|x\|_{\infty}=\max \left\{\left|x_1\right|,\left|x_2\right|, \ldots, \left|x_n\right|\right\}
+            \]
+
+            Esto significa que $\|x\|_{\infty}$ es igual al máximo valor absoluto de todas las componentes del vector $x$. Por lo tanto, necesitamos demostrar que $\|x\|_{\infty}$ es de hecho el máximo de dichos valores absolutos.
+
+            \begin{enumerate}
+                \item $\|x\|_{\infty} \geq 0$:
+                
+                Notamos que cada componente $\left|x_i\right|$ del vector $x$ es un valor absoluto, lo que implica que es no negativo ($\left|x_i\right| \geq 0$). Por lo tanto, el máximo de estos valores absolutos, que es $\|x\|_{\infty}$, también es no negativo. Por lo tanto, $\|x\|_{\infty} \geq 0$.
+                
+                \item $\|x\|_{\infty}=0$ si y solo si $x=(0, \ldots, 0)$:
+                
+                Si $\|x\|_{\infty}=0$, entonces el máximo de los valores absolutos de las componentes de $x$ es cero. Esto implica que cada componente $\left|x_i\right|$ de $x$ debe ser cero, ya que no puede ser negativo y el máximo es cero. Por lo tanto, $x$ debe ser el vector cuyas componentes son todas cero, es decir, $x=(0, \ldots, 0)$.
+                
+                Por otro lado, si $x=(0, \ldots, 0)$, entonces cada componente $\left|x_i\right|$ es cero, y por lo tanto, el máximo de estos valores absolutos es cero. Por lo tanto, $\|x\|_{\infty}=0$.
+            \end{enumerate}
+
+            Por lo tanto, hemos demostrado que $\|x\|_{\infty}=\max \left\{\left|x_1\right|,\left|x_2\right|, \ldots, \left|x_n\right|\right\}$.
+        
+        \item Halle $\langle x, y\rangle = \sum_{i, j=1}^3 \alpha_{ij} \alpha_i \beta_j \quad x \in \mathbb{R}^3 \quad \text{donde}$
+        \begin{align*}
+            A=\left[\alpha_{ij}\right] &= \left[\begin{array}{lll}
+            2 & 1 & 0 \\
+            1 & 2 & 0 \\
+            0 & 1 & 4
+            \end{array}\right]
+        \end{align*}
+
+        y $\alpha=\left(\alpha_1, \alpha_2, \alpha_3\right)$ y $\beta=\left(\beta_1, \beta_2, \beta_3\right)$, luego expandimos $\langle x, y\rangle$ utilizando las definiciones de $\alpha_{ij}$:
+        \begin{align*}
+            \langle x, y\rangle &= \sum_{i=1}^3 \sum_{j=1}^3 \alpha_{ij} \alpha_i \beta_j \\
+            \text{Cuando } i=1, &\ \alpha_{i1}=2, \alpha_{i2}=1, \alpha_{i3}=0 \\
+            \text{Cuando } i=2, &\ \alpha_{i1}=1, \alpha_{i2}=2, \alpha_{i3}=0 \\
+            \text{Cuando } i=3, &\ \alpha_{i1}=0, \alpha_{i2}=1, \alpha_{i3}=4
+        \end{align*}
+
+        Sustituimos estos valores en la expresión de $\langle x, y\rangle$:
+        \begin{align*}
+            \langle x, y\rangle &= 2 \alpha_1 \beta_1 + 1 \alpha_1 \beta_2 + 0 \alpha_1 \beta_3 \\
+            &\quad + 1 \alpha_2 \beta_1 + 2 \alpha_2 \beta_2 + 0 \alpha_2 \beta_3 \\
+            &\quad + 0 \alpha_3 \beta_1 + 1 \alpha_3 \beta_2 + 4 \alpha_3 \beta_3 \\
+            &= \alpha_1(2 \beta_1 + \beta_2) + \alpha_2(\beta_1 + 2 \beta_2) + \alpha_3(\beta_2 + 4 \beta_3)
+        \end{align*}
+            \end{enumerate}
+    
+\end{document}

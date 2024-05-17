@@ -1,0 +1,56 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Álgebra Lineal II }{ Tarea 4 }{  }{ Alexander Mendoza }{\today}
+
+    \section*{Tarea}
+    \begin{enumerate}
+        \item Mostrar que el conjunto $B=\{1,x,2x^2-1\}$ está en $p^2[-1,1]$ con el producto punto $<f,g>=\int_{-1}^1\frac{f(x)g(x)}{\sqrt{1-x^2}}\, dx$. Si es ortogonal, entonces obtenga la base ortonormal.
+        
+            Para verificar si es ortogonal, tenemos que demostrar que:
+        
+            \begin{itemize}
+                \item Para $f(x)=1$ y $g(x)=x$, tenemos:
+                $$<f,g>=\int_{-1}^1\frac{1 \cdot x}{\sqrt{1-x^2}}\, dx.$$ 
+                Como la función es impar y está en un intervalo simétrico, podemos asegurar que la integral es cero.
+        
+                \item Para $f(x)=x$ y $g(x)=2x^2-1$, tenemos:
+                $$<f,g>=\int_{-1}^1\frac{x(2x^2-1)}{\sqrt{1-x^2}}\, dx.$$ 
+                Como la función es impar y está en un intervalo simétrico, podemos asegurar que la integral es cero.
+        
+                \item Para $f(x)=1$ y $g(x)=2x^2-1$, tenemos:
+                $$<f,g>=\int_{-1}^1\frac{2x^2-1}{\sqrt{1-x^2}}\, dx.$$ 
+                Podemos separar esta integral:
+                $$\int_{-1}^1\frac{2x^2}{\sqrt{1-x^2}}\, dx - \int_{-1}^1\frac{1}{\sqrt{1-x^2}}\, dx = \pi - \pi = 0.$$ 
+                Así, hemos demostrado que esta integral también es cero.
+            \end{itemize}
+               
+            Como ya comprobamos que el conjunto es ortogonal, obtengamos la base ortonormal:
+        
+            \begin{itemize}
+                \item Paso 1: 
+                $$h_1(x)=\frac{1}{||1||}=1.$$
+        
+                \item Paso 2: 
+                $$g_2(x)=x-<x,1>1=x-\int_{-1}^1\frac{x}{\sqrt{1-x^2}}\, dx = x,$$ 
+                $$h_2(x)=\frac{g_2(x)}{||g_2(x)||}=\frac{x}{\left(\int_{-1}^1\frac{x^2}{\sqrt{1-x^2}}\, dx\right)^{1/2}}=\frac{x}{\sqrt{\frac{\pi}{2}}}=\frac{x\sqrt{2}}{\sqrt{\pi}}.$$
+        
+                \item Paso 3: 
+                $$g_3(x)=2x^2-1-<2x^2-1,x>x - <2x^2-1,\frac{x\sqrt{2}}{\sqrt{\pi}}>\frac{x\sqrt{2}}{\sqrt{\pi}}.$$
+                
+                Evaluando las integrales:
+                \begin{align*}
+                &= 2x^2 - 1 - \int_{-1}^1 \frac{2x^2 - 1}{\sqrt{1-x^2}} \, dx - \left(\int_{-1}^1 \frac{(2x^2-1)\left(\frac{x\sqrt{2}}{\sqrt{\pi}}\right)}{\sqrt{1-x^2}} \, dx\right)\left( \frac{x\sqrt{2}}{\sqrt{\pi}}\right) \\
+                &= 2x^2-1-0-\left(\frac{\sqrt{2}}{\sqrt{\pi}}\int_{-1}^1\frac{(2x^2-1)x}{\sqrt{1-x^2}}\, dx\right)\left(\frac{x\sqrt{2}}{\sqrt{\pi}}\right) \\
+                &= 2x^2-1.
+                \end{align*}
+            \end{itemize}
+        
+            De esta manera, tenemos que la base ortonormal es: $C=\{1, \frac{x\sqrt{2}}{\sqrt{\pi}}, 2x^2-1\}$.
+    \end{enumerate}
+\end{document}

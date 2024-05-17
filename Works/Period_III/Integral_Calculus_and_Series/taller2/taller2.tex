@@ -7,19 +7,1442 @@
 
 \begin{document}
     \coverPage{ Matemáticas }{ Cálculo Integral y Series }{ Tarea 2 }{  }{ Alexander Mendoza }{\today}
-    \tableofcontents
-
-    \pagebreak
     \chapter{ Tarea 2 }
 
-    \begin{enumerate}
-        \item Pag 255,sección 5.5 ejercicio 13.
-
-        Demostrar que
-
+    \begin{enumerate}\item Pag 255,sección 5.5 ejercicio 13. Demostrar que
+        \[
+        \int_{0}^{x}(t+|t|)^{2} dt=\frac{2 x^{2}}{3}(x+|x|) \text { para todo } x \text { real. }
+        \]
+        
+        Demostración:
+        
+        Consideremos dos casos:
+        
+        Caso 1: \(x \geq 0\)
+        
+        En este caso, para todo \(t \in [0,x]\), tenemos que \(t = |t|\). Por lo tanto, podemos simplificar la integral de la siguiente manera:
+        
+        \begin{align*}
+        \int_{0}^{x}(t+|t|)^{2} dt &= \int_{0}^{x} 4t^{2} dt \\
+        &= \frac{4}{3}x^{3} \\
+        &= \frac{2}{3}x^{2}(2x) \\
+        &= \frac{2x^{2}}{3}(x+|x|)
+        \end{align*}
+        
+        Caso 2: \(x < 0\)
+        
+        En esta situación, para todo \(t \in [0,x]\), tenemos que \(-t = |t|\). Por lo tanto, podemos simplificar la integral de la siguiente manera:
+        
+        \begin{align*}
+        \int_{0}^{x}(t+|t|)^{2} dt &= \int_{0}^{x}(t-t)^{2} dt \\
+        &= 0 \\
+        &= \frac{2x^{2}}{3}(x+|x|)
+        \end{align*}
+        
+        En ambos casos, hemos demostrado que la igualdad es válida para todos los valores reales de \(x\).
+        
+        \item Pag 255,sección 5.5 ejercicio 14 Calcular $f\left(\frac{1}{4} \pi\right)$ y $f^{\prime}\left(\frac{1}{4} \pi\right)$ dado que $f$ es continua para cualquier $x$ y satisface la ecuación
+        
         $$
-        \int_{0}^{x}(t+|t|)^{2} d t=\frac{2 x^{2}}{3}(x+|x|) \text { para todo } x \text { real. }
-        $$\\
-    \end{enumerate}
+        \int_{0}^{x} f(t) d t=-\frac{1}{2}+x^{2}+x \sin(2x)+\frac{1}{2} \cos(2x)
+        $$
+        
+        Demostración:
+        
+        Sea $A(x)=\int_{0}^{x} f(t) d t=-\frac{1}{2}+x^{2}+x \sin(2x)+\frac{1}{2} \cos(2x)$. Por el Teorema Fundamental del Cálculo, sabemos que $A(x)$ tiene una derivada, es decir,
+        
+        $$
+        A(x)=f(x)=2x+\sin(2x)+2x\cos(2x)-\sin(2x)=2x+2x\cos(2x)
+        $$
+        
+        Para calcular $f\left(\frac{1}{4} \pi\right)$, evaluamos $A\left(\frac{1}{4} \pi\right)$:
+        
+        \begin{align*}
+        f\left(\frac{1}{4} \pi\right) &= A'\left(\frac{1}{4} \pi\right) \\
+        &= \frac{1}{2}\pi+ \frac{1}{2}\pi\cos\left(\frac{1}{2}\pi\right) \\
+        &= \frac{1}{2}\pi+ \frac{1}{2}\pi\cdot 0 \\
+        &= \frac{1}{2}\pi
+        \end{align*}
+        
+        Luego, para calcular $f'\left(\frac{1}{4} \pi\right)$, derivamos $f(x)$:
+        
+        \begin{align*}
+        f'(x) &= 2x+2x\cos(2x)-4x\sin(2x)
+        \end{align*}
+        
+        Evaluamos $f'\left(\frac{1}{4} \pi\right)$:
+        
+        \begin{align*}
+        f'\left(\frac{1}{4} \pi\right) &= 2+2\cos\left(\frac{1}{2}\pi\right)-4\cdot\frac{1}{4}\pi\sin\left(\frac{1}{2}\pi\right) \\
+        &= 2+2\cdot 0 - \pi \\
+        &= 2-\pi
+        \end{align*}
+        
+        \item Pag 255,sección 5.5 ejercicio 17. Se desea encontrar una función $f(x)$ que sea continua para todo número real $x$ y que satisfaga la siguiente ecuación:
+        
+        \[
+        \int_{0}^{x} f(t) dt = \int_{z}^{1} t^{2} f(t) dt + \frac{x^{16}}{8} + \frac{x^{18}}{9} + c
+        \]
+        
+        donde $c$ es una constante. Además, se nos pide obtener una fórmula explícita para $f(x)$ y encontrar el valor de la constante $c$.
+        
+        Demostración:
+        
+        Comencemos definiendo $P(x) = \int_{z}^{1} t^{2} f(t) dt$. Aplicando los teoremas fundamentales del cálculo, podemos derivar la función $P(x)$ respecto a $x$ para obtener:
+        
+        \[
+        f(x) = [P(1) - P(x)]' + 2x^{15} + 2x^{17}
+        \]
+        
+        Simplificando esta expresión, tenemos:
+        
+        \[
+        f(x) = x^2 f(x) + 2x^{15} + 2x^{17}
+        \]
+        
+        Podemos despejar la función $f(x)$ dividiendo ambos lados de la ecuación por $(x^2 + 1)$:
+        
+        \[
+        f(x) = \frac{2x^{15}}{(x^2 + 1)}
+        \]
+        
+        Ahora, reemplazamos la función $f(x)$ en la ecuación original:
+        
+        \[
+        \int_{0}^{x} 2t^{15} dt = \int_{z}^{1} t^{2} \cdot 2t^{15} dt + \frac{x^{16}}{8} + \frac{x^{18}}{9} + c
+        \]
+        
+        Realizamos la integración en ambos lados de la ecuación:
+        
+        \[
+        \left. \frac{t^{16}}{8} \right|_{0}^{x} = \left. \frac{t^{18}}{9} \right|_{z}^{1} + \frac{x^{16}}{8} + \frac{x^{18}}{9} + c
+        \]
+        
+        Simplificando esta expresión, obtenemos:
+        
+        \[
+        \frac{x^{16}}{8} = \frac{1}{9} - \frac{z^{18}}{9} + \frac{x^{16}}{8} + \frac{x^{18}}{9} + c
+        \]
+        
+        De aquí, podemos notar que la constante $c$ es igual a $-\frac{1}{9}$.
+        
+        Por lo tanto, la función $f(x)$ es:
+        
+        \[
+        f(x) = \frac{2x^{15}}{(x^2 + 1)}
+        \]
+        
+        y la constante $c$ es $-\frac{1}{9}$.
+        
+        \item Pag 255,sección 5.5 ejercicio 19. Dada una función $g$, continua para todo $x$, tal que $g(1)=5$ e $\int_{0}^{1} g(t) d t=2$. Sea $f(x)=\frac{1}{2} \int_{0}^{x}(x-t)^{2} g(t) d t$. Demuestra que $f^{\prime}(x)=x \int_{0}^{x} g(t) d t-\int_{0}^{x} t g(t) d t,$ y calcula $f^{\prime \prime}(1)$ y $f^{\prime \prime \prime}$.
+        
+        Demostración: Escribamos $f(x)$ de una forma más útil:
+        
+        \begin{align*}
+        f(x) &= \frac{1}{2}\int_{0}^{x}(x-t)^2dt \\
+        &= \frac{1}{2}\int_{0}^{x}(x^2-2xt+t^2)dt \\
+        &= \frac{1}{2}\int_{0}^{x}(x^2g(t)-2xtg(t)+t^2g(t))dt \\
+        &= \frac{1}{2}\int_{0}^{x}x^2g(t)dt - \frac{1}{2}\int_{0}^{x}2xtg(t)dt + \frac{1}{2}\int_{0}^{x}t^2g(t)dt \\
+        &= \frac{x^2}{2}\int_{0}^{x}g(t)dt - x\int_{0}^{x}tg(t)dt + \frac{1}{2}\int_{0}^{x}t^2g(t)dt
+        \end{align*}
+        
+        Derivamos la expresión utilizando TFC:
+        
+        \begin{align*}
+        f'(x) &= \frac{x^2}{2}\int_{0}^{x}g(t)dt - x\int_{0}^{x}tg(t)dt + \frac{1}{2}\int_{0}^{x}t^2g(t)dt \\
+        &= x\int_{0}^{x}g(t)dt + \frac{x^2}{2}g(x) - \int_{0}^{x}tg(t)dt - xg(x) + \frac{x^2}{2}g(x) \\
+        &= x\int_{0}^{x}g(t)dt - \int_{0}^{x}tg(t)dt
+        \end{align*}
+        
+        De esta manera, hemos demostrado que $f^{\prime}(x)=x \int_{0}^{x} g(t) d t-\int_{0}^{x} t g(t) d t$.
+        
+        Ahora, calculemos $f^{\prime \prime}(1)$ y $f^{\prime \prime \prime}$:
+        
+        \begin{align*}
+        f''(x) &= \int_{0}^{x}g(t)dt + xg(x) - xg(x) \\
+        &= \int_{0}^{x}g(t)dt
+        \end{align*}
+        
+        \begin{align*}
+        f'''(x) &= g(x)
+        \end{align*}
+        
+        Calculando, tenemos:
+        
+        \begin{align*}
+        f''(1) &= \int_{0}^{1}g(t)dt \\
+        &= 2
+        \end{align*}
+        
+        \begin{align*}
+        f'''(1) &= g(1) \\
+        &= 5
+        \end{align*}
+        
+        \item Pag 264 ,sección 5.8 ejercicio 3. Calcular la integral definida $\int x^{2} \sqrt{x+1} \,dx$.
+        
+        Demostración:
+        
+        Procederemos por sustitución. Sea $u = x + 1$ y $du = dx$, así
+        
+        \begin{align*}
+            \int x^{2} \sqrt{x+1} \,dx &= \int (u-1)^2\sqrt{u} \,du \\
+            &= \int (u^2 -2u +1)\sqrt{u} \,du\\
+            &= \int u^2\sqrt{u} \,du - 2\int u\sqrt{u} \,du + \int \sqrt{u} \,du\\
+            &= \int u^{\frac{5}{2}} \,du - 2\int u^{\frac{3}{2}} \,du + \int u^{\frac{1}{2}}\,du\\
+            &= \frac{2}{7}u^{\frac{7}{2}} - \frac{4}{5}u^{\frac{5}{2}} + \frac{2}{3}u^\frac{3}{2} + C\\
+            &= \frac{2}{7}(x+1)^{\frac{7}{2}} - \frac{4}{5}(x+1)^{\frac{5}{2}} + \frac{2}{3}(x+1)^\frac{3}{2} + C
+        \end{align*}
+        
+        \item Pag 264 ,sección 5.8 ejercicio 6 Encuentra la integral indefinida de $\sin^3(x) \, dx$.
+        
+        Demostración:
+        
+        \[
+        \begin{align*}
+        \int \sin^3(x) \, dx &= \int \sin^2(x) \cdot \sin(x) \, dx \\
+        &= \int (1 - \cos^2(x)) \cdot \sin(x) \, dx \\
+        &= \int (-1)(-1 + \cos^2(x)) \cdot (-1)(-\sin(x)) \, dx \\
+        &= \int (-1 + \cos^2(x)) \cdot (-\sin(x)) \, dx \\
+        & \text{Hacemos el cambio de variable } u = \cos(x) \\
+        & \text{Entonces, } du = -\sin(x) \, dx \\
+        &= \int (-1 + u^2) \, du \\
+        &= -\int 1 \, du + \int u^2 \, du \\
+        &= -u + \frac{u^3}{3} + C \\
+        &= -\cos(x) + \frac{\cos^3(x)}{3} + C
+        \end{align*}
+        \]
+        
+        
+        \item Pag 264 ,sección 5.8 ejercicio 7. Calcula la integral $\int z(z - 1)^{\frac{1}{3}} dz$.
+        
+        Demostración:
+        
+        Empezamos utilizando el cambio de variable $u = z - 1$, lo que implica que $u + 1 = z$. También tenemos $du = dz$. Sustituyendo estos valores, podemos reescribir la integral como:
+        
+        $$
+        \int z(z - 1)^{\frac{1}{3}} dz = \int (u + 1)(u)^{\frac{1}{3}} du
+        $$
+        
+        Distribuimos el integrando y obtenemos:
+        
+        $$
+        \int (u^{\frac{4}{3}} + u^{\frac{1}{3}}) du
+        $$
+        
+        Ahora, realizamos la integral término por término, obteniendo:
+        
+        $$
+        \int u^{\frac{4}{3}} du + \int u^{\frac{1}{3}} du = \frac{u^{\frac{7}{3}}}{\frac{7}{3}} + \frac{u^{\frac{4}{3}}}{\frac{4}{3}} + c
+        $$
+        
+        Simplificando, tenemos:
+        
+        $$
+        3 \frac{u^{\frac{7}{3}}}{7} + 3 \frac{u^{\frac{4}{3}}}{4} + c
+        $$
+        
+        Finalmente, reemplazamos $u$ por su valor original ($z - 1$):
+        
+        $$
+        3 \frac{(z - 1)^{\frac{7}{3}}}{7} + 3 \frac{(z - 1)^{\frac{4}{3}}}{4} + c
+        $$
+        
+        Por lo tanto, la integral $\int z(z - 1)^{\frac{1}{3}} dz$ es igual a $3 \frac{(z - 1)^{\frac{7}{3}}}{7} + 3 \frac{(z - 1)^{\frac{4}{3}}}{4} + c$.
+        
+        \item Pag 264 ,sección 5.8 ejercicio 16. Calcula la integral indefinida $\int \left(x^{2}+1\right)^{-3 / 2} \, dx$.
+        
+        Demostración:
+        
+        Para resolver esta integral indefinida, usaremos el método de sustitución trigonométrica. Primero, observemos que 
+        
+        \begin{align*}
+            \int\left(x^{2}+1\right)^{-3 / 2} \, dx &= \int \dfrac{1}{\sqrt{x^2+1}^3}\,dx\\
+        \end{align*}
+        
+        Ahora, sea $x = \tan \theta$, luego $dx= \sec^2\theta\,d\theta$. Además, 
+        
+        \begin{align*}
+            \sqrt{x^2+1} &= \sqrt{\tan^2\theta +1}\\
+            &= \sqrt{\sec^2\theta}\\
+            &= \sec \theta
+        \end{align*}
+        
+        con esto tenemos lo siguiente
+        
+        \begin{align*}
+            \int \dfrac{1}{\sqrt{x^2+1}^3}\,dx &= \int \dfrac{\sec^2\theta}{\sec^3\theta}\,d\theta\\
+            &= \int \dfrac{1}{\sec\theta}\,d\theta\\
+            &= \int \cos\theta d\theta\\
+            &= \sin \theta + C\\
+        \end{align*}
+        
+        Sustituyendo de vuelta $x = \tan \theta$, obtenemos 
+        
+        \begin{align*}
+            \int\left(x^{2}+1\right)^{-3 / 2} \, dx &= \sin \theta + C\\
+            &= \dfrac{x}{\sqrt{x^2+1}} + C
+        \end{align*}
+        
+        \item Pag 264 ,sección 5.8 ejercicio 19. Calcula la integral
+        
+        $$\int \frac{x}{\sqrt{1+x^{2}+\sqrt{\left(1+x^{2}\right)^{3}}}} d x$$
+        
+        Demostración:
+        
+        Empezamos por hacer una sustitución. Sea $u = 1+x^{2}$, entonces $du = \frac{x}{\sqrt{1+x^{2}}} dx$. Por lo tanto, la integral se convierte en:
+        
+        \begin{align*}
+        \int \frac{x}{\sqrt{1+x^{2}+\sqrt{\left(1+x^{2}\right)^{3}}}} d x &= \int \frac{1}{\sqrt{u}} d u\\
+        &= \int u^{-\frac{1}{2}} d u\\
+        &= 2\sqrt{u} + C\\
+        &= 2\sqrt{1+\sqrt{1+x^{2}}} + C
+        \end{align*}
+        
+        Por lo tanto,
+        
+        $$\int \frac{x}{\sqrt{1+x^{2}+\sqrt{\left(1+x^{2}\right)^{3}}}} d x = 2\sqrt{1+\sqrt{1+x^{2}}} + C$$
+        
+        \item Pag 264 ,sección 5.8 ejercicio 20. Calcular la integral indefinida:
+        
+        \[
+        \int \frac{\left(x^{2}+1-2 x\right)^{1 / 5} d x}{1-x}
+        \]
+        
+        
+        Demostración:
+        
+        Primero, vamos a manipular la expresión:
+        
+        \begin{align*}
+        \int{\frac{\left(x^2+1-2x\right)^{1/5}}{1-x}dx} &= \int{\frac{\left(\left(x-1\right)^2\right)^{1/5}}{1-x}dx} \\
+        &= \int{\left(x-1\right)^{2/5}\left(1-x\right)^{-1}dx} \\
+        &= -\int{\left(x-1\right)^{2/5}\left(x-1\right)^{-1}dx} \\
+        &= -\int{\left(x-1\right)^{-3/5}dx}
+        \end{align*}
+        
+        Ahora, hagamos la sustitución \( u=x-1 \), \( du=dx \). Al hacer esta sustitución, obtendremos:
+        
+        \[
+        -\int{\left(x-1\right)^{-3/5}dx} = -\int{\left(u\right)^{-3/5}du} = -\frac{5}{2}u^{2/5} = -\frac{5}{2}\left(x-1\right)^{2/5} + C
+        \]
+        
+        Por lo tanto, la integral indefinida es:
+        
+        \[
+        \int \frac{\left(x^{2}+1-2 x\right)^{1 / 5} d x}{1-x} = -\frac{5}{2}\left(x-1\right)^{2/5} + C
+        \]
+        
+        \item Pag 264 ,sección 5.8 ejercicio 23. Demostrar que
+        
+        \begin{align*}
+        \int_{x}^{1} \frac{d t}{1+t^{2}}=\int_{1}^{1 / x} \frac{d t}{1+t^{2}} \quad \text { si } \quad x>0 .
+        \end{align*}
+        
+        Demostración:
+        
+        Primero, nombremos algunas variables. Sea:
+        
+        \begin{align*}
+        u &= \frac{1}{t}, \quad du = -\frac{1}{t^2}dt
+        \end{align*}
+        
+        A partir de esto, podemos obtener:
+        
+        \begin{align*}
+        t &= \frac{1}{u}, \quad dt = -t^2 du \rightarrow dt = -\frac{1}{u^2}du
+        \end{align*}
+        
+        Ahora, tenemos:
+        
+        \begin{align*}
+        \int_{x}^{1}\frac{dt}{1+t^2} &= \int_{u(x)}^{u(1)}\frac{-\frac{1}{u^2}du}{1+\left(\frac{1}{u}\right)^2} \\
+        &= \int_{u(x)}^{u(1)}{-\frac{u^2du}{u^2(u^2+1)}} \\
+        &= -\int_{1/x}^{1}\frac{du}{(u^2+1)} \\
+        &= \int_{1}^{1/x}\frac{du}{1+u^2}
+        \end{align*}
+        
+        Por último, podemos cambiar el nombre de la variable de integración (ya que todo lo que hemos hecho es cambiar el nombre de la variable):
+        
+        \begin{align*}
+        \int_{1}^{1/x}\frac{du}{1+u^2} = \int_{1}^{1/x}\frac{dt}{1+t^2}
+        \end{align*}
+        
+        De esta manera, queda demostrado que las dos integrales son iguales.
+        
+        \item Pag 264 ,sección 5.8 ejercicio 24. Demostrar que 
+        
+        \[\int_{0}^{1} x^{m}(1-x)^{n} dx = \int_{0}^{1} x^{n}(1-x)^{m} dx,\]
+        
+        donde $m$ y $n$ son enteros positivos.
+        
+        Demostración: Para simplificar la notación, nombremos la variable de integración como $u$, y tengamos en cuenta que $x = 1 - u$ y $dx = -du$. Entonces, podemos escribir:
+        
+        \[\int_{0}^{1} x^{m}(1-x)^{n} dx = \int_{u=1}^{u=0} (1 - u)^{m}u^{n} (-du) = \int_{1}^{0}(1 - u)^{m}u^{n}du.\]
+        
+        Ahora, podemos cambiar los límites de integración y obtener:
+        
+        \[\int_{0}^{1} x^{m}(1-x)^{n} dx = \int_{0}^{1} u^{n}(1 - u)^{m} du.\]
+        
+        Finalmente, podemos volver a nombrar la variable de integración como $x$ para obtener:
+        
+        \[\int_{0}^{1} x^{m}(1-x)^{n} dx = \int_{0}^{1} x^{n}(1 - x)^{m} dx.\]
+        
+        De esta forma, hemos demostrado la igualdad.
+        
+        \item Pag 264 ,sección 5.8 ejercicio 25. Demostrar que
+        
+        \begin{align*}
+        \int_{0}^{\frac{\pi}{2}} \cos^m(x) \sin^m(x) dx = 2^{-m} \int_{0}^{\frac{\pi}{2}} \cos^m(x) dx,
+        \end{align*}
+        
+        si $m$ es un número entero positivo.
+        
+        Demostración:
+        
+        Manipulemos la expresión inicial usando algunas propiedades trigonométricas:
+        
+        \begin{align*}
+        \int_{0}^{\frac{\pi}{2}} \cos^m(x) \sin^m(x) dx &= \int_{0}^{\frac{\pi}{2}} (\cos(x)\sin(x))^m dx\\
+        &= \int_{0}^{\frac{\pi}{2}} \left(\frac{1}{2}\sin(2x)\right)^m dx\\
+        &= \frac{1}{2^m}\int_{0}^{\frac{\pi}{2}} \sin^m(2x) dx.
+        \end{align*}
+        
+        A continuación, realizamos una sustitución para simplificar la integral:
+        
+        \begin{align*}
+        u &= 2x\\
+        du &= 2dx  \quad \Rightarrow \quad \frac{du}{2} = dx.
+        \end{align*}
+        
+        Así, la integral se convierte en:
+        
+        \begin{align*}
+        \frac{1}{2^m}\int_{0}^{\frac{\pi}{2}} \sin^m(2x) dx &= \frac{1}{2^m}\int_{u(0)}^{u\left(\frac{\pi}{2}\right)} \sin^m(u)\frac{du}{2}\\
+        &= \frac{1}{2^{m+1}}\int_{0}^{\pi} \sin^m(u) du.
+        \end{align*}
+        
+        Usando la propiedad de la paridad de la función seno, podemos escribir la integral como:
+        
+        \begin{align*}
+        \frac{1}{2^{m+1}}\int_{0}^{\pi} \sin^m(u) du &= \frac{1}{2^{m+1}}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin^m\left(u+\frac{\pi}{2}\right) du\\
+        &= \frac{1}{2^{m+1}}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos^m(u) du\\
+        &= \frac{1}{2^{m+1}}\int_{u(-\frac{\pi}{2})}^{u(\frac{\pi}{2})} \cos^m(2x) 2dx\\
+        &= \frac{1}{2^m} \int_{-\pi}^{\pi} \cos^m(2x) dx\\
+        &= \frac{1}{2^m}\int_{0}^{\frac{\pi}{2}} \cos^m(x) dx\\
+        &= 2^{-m} \int_{0}^{\frac{\pi}{2}} \cos^m(x) dx.
+        \end{align*}
+        
+        \item Pag 264 ,sección 5.8 ejercicio 26a. Demostrar que
+        
+        \begin{align*}
+        \int_{0}^{\pi} x f(\sin x) d x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) d x. \quad[\text { Indicación: } u=\pi-x].
+        \end{align*}
+        
+        Demostración: 
+        
+        Para simplificar, nombremos algunas variables. Entonces, sea $u = \pi - x$ y $du = -dx$. 
+        
+        Podemos reescribir la integral de la siguiente manera:
+        
+        \begin{align*}
+        \int_{0}^{\pi} x f(\sin x) d x &= -\int_{u(0)}^{u(\pi)} (\pi - u) f(\sin(\pi - u)) d u \\
+        &= -\int_{\pi}^{0} (\pi - u) f(\sin u) d u \\
+        &= \int_{0}^{\pi} (\pi - u) f(\sin u) d u \\
+        &= \int_{0}^{\pi} \pi f(\sin u) d u - \int_{0}^{\pi} u f(\sin u) d u. 
+        \end{align*}
+        
+        Por último, podemos cambiar el nombre de la variable de integración (ya que todo lo que hemos hecho es cambiar el nombre de la variable):
+        
+        \begin{align*}
+        \int_{0}^{\pi} \pi f(\sin u) d u - \int_{0}^{\pi} u f(\sin u) d u &= \int_{0}^{\pi} \pi f(\sin u) d u - \int_{0}^{\pi} x f(\sin x) d x \\
+        &= \int_{0}^{\pi} x f(\sin x) d x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) d x.
+        \end{align*}
+        
+        \item Pag 269, sección 5.10 ejercicio 6. Encuentra la integral $$\int x \operatorname{sen} x \cos x dx$$
+        
+        Demostración:
+        
+        Usando la fórmula de identidad trigonométrica $\sin(2x) = 2(\sin x \cdot \cos x)$, podemos escribir la integral como
+        \begin{align*}
+        \int x \sin x \cos x dx &= \frac{1}{2} \int x \sin(2x) dx \\
+        &= \frac{1}{2} \int u dv \quad \text{(con $u = x$ y $dv = \sin(2x) dx$)} \\
+        &= \frac{1}{2} \left[ uv - \int v du \right] \\
+        &= \frac{1}{2} \left[ -\frac{1}{2} x \cos(2x) - \int \left(-\frac{1}{2} \cos(2x) \right) dx \right] \\
+        &= -\frac{1}{4} x \cos(2x) + \frac{1}{4} \int \cos(2x) dx \\
+        &= -\frac{1}{4} x \cos(2x) + \frac{1}{8} \sin(2x) + c.
+        \end{align*}
+        
+        Por lo tanto, la integral $\int x \operatorname{sen} x \cos x dx$ es igual a $-\frac{1}{4} x \cos(2x) + \frac{1}{8} \sin(2x) + c$, donde $c$ es una constante de integración.
+        
+        \item Pag 269, sección 5.10 ejercicio 8. Deducir la fórmula 
+        
+        $$
+        \int \operatorname{sen}^{n} x d x=-\operatorname{sen}^{n-1} x \cos x+(n-1) \int \operatorname{sen}^{n-2} x \cos ^{2} x d x
+        $$
+        
+        La fórmula se puede deducir mediante la integración por partes. Comenzamos escribiendo la integral de la forma $\int \sin^n x \, dx$, donde $n$ es un número natural mayor o igual a 1. Luego, separamos el integrando en dos factores: $\sin(x)$ y $\sin^{n-1}(x)$.
+        
+        Aplicando la fórmula de integración por partes, establecemos $u=\sin^{n-1}(x)$ como nuestra función a diferenciar y $dv=\sin(x) \, dx$ como nuestra función a integrar. Con esto, obtenemos $du=(n-1) \sin^{n-2}(x) \cdot \cos(x) \, dx$ y $v=-\cos(x)$.
+        
+        Al aplicar la fórmula de integración por partes, tenemos:
+        
+        \[
+        \begin{aligned}
+        \int \sin^n x \, dx & =\int \sin(x) \cdot \sin^{n-1}(x) \, dx \\
+        & =-\sin^{n-1}(x) \cos(x)+(n-1) \int \cos(x) \cdot \sin^{n-2}(x) \cdot \cos(x) \, dx \\
+        & =-\sin^{n-1}(x) \cos(x)+(n-1) \int \cos^2(x) \cdot \sin^{n-2}(x) \, dx \\
+        & =-\sin^{n-1}(x) \cos(x)+(n-1) \int \left(1-\sin^2(x)\right) \cdot \sin^{n-2}(x) \, dx \\
+        & =-\sin^{n-1}(x) \cos(x)+(n-1) \int \sin^{n-2}(x) \, dx-(n-1) \int \sin^n(x) \, dx
+        \end{aligned}
+        \]
+        
+        A continuación, simplificamos la segunda integral obtenida. Usando la identidad trigonométrica $\cos^2(x) = 1-\sin^2(x)$, reemplazamos $\cos^2(x)$ en la segunda integral:
+        
+        \[
+        \begin{aligned}
+        \int \sin^n x \, dx & =-\sin^{n-1}(x) \cos(x)+(n-1) \int \sin^{n-2}(x) \, dx-(n-1) \int \sin^n(x) \, dx \\
+        & =-\sin^{n-1}(x) \cos(x)+(n-1) \int \left(1-\sin^2(x)\right) \cdot \sin^{n-2}(x) \, dx \\
+        & =-\sin^{n-1}(x) \cos(x)+(n-1) \int \sin^{n-2}(x)-(n-1) \int \sin^n(x) \, dx
+        \end{aligned}
+        \]
+        
+        Finalmente, reorganizamos la ecuación para obtener la fórmula deseada:
+        
+        \[
+        \begin{aligned}
+        \int \sin^n x \, dx & =-\sin^{n-1}(x) \cdot \cos(x)+(n-1) \int \sin^{n-2}(x)-(n-1) \int \sin^n(x) \, dx \\
+        & =n \int \sin^n x \, dx=-\sin^{n-1}(x) \cdot \cos(x)+(n-1) \int \sin^{n-2} \, dx \\
+        & =\int \sin^n(x) \, dx=\frac{-\sin^{n-1}(x) \cdot \cos(x)}{n} +  \frac{(n-1)}{n} \cdot \int \sin^{n-2} \, dx
+        \end{aligned}
+        \]
+        
+        Hemos obtenido la fórmula deseada:
+        
+        \[
+        \int \sin^{n} x \, dx = -\frac{\sin^{n-1} x \cos x}{n} + \frac{n-1}{n} \int \sin^{n-2} x \, dx
+        \]
+        
+        \item Pag 269, sección 5.10 ejercicio 12
+        
+        Demostración:
+        
+        Integrando por partes, podemos deducir la fórmula recurrente:
+        
+        \begin{align*}
+        \int \cos^{n} x \, dx &=\frac{\cos^{n-1} x \sin x}{n}+\frac{n-1}{n} \int \cos^{n-2} x \, dx \\
+        &= \int \cos(x) \cos^{n-1} x \, dx \\
+        &= \int \cos(x) \cdot \cos^{n-1} x \, dx \\
+        &= \int \cos(x) \cdot d(\sin(x)\cos^{n-1} x) \\
+        &= \cos(x) \sin(x)\cos^{n-1} x - \int \sin(x) \cdot (-\sin(x)) \cdot \cos^{n-1} x \, dx \\
+        &= \cos(x) \sin(x)\cos^{n-1} x - \int \sin^2(x) \cos^{n-1} x \, dx \\
+        &= \cos(x) \sin(x)\cos^{n-1} x + \int (1-\cos^2(x)) \cos^{n-1} x \, dx \\
+        &= \cos(x) \sin(x)\cos^{n-1} x + \int \cos^{n-1} x \, dx - \int \cos^{n+1} x \, dx \\
+        &= \cos(x) \sin(x)\cos^{n-1} x + \int \cos^{n-1} x \, dx - (n-1) \int \cos^{n-2} x \, dx
+        \end{align*}
+        
+        Por lo tanto,
+        \[
+        \int \cos^{n} x \, dx = \frac{\cos^{n-1} x \sin x}{n}+\frac{n-1}{n} \int \cos^{n-2} x \, dx
+        \]
+        
+        Demostración:
+        
+        \item Pag 269, sección 5.10 ejercicio 14. Dado el integral definido:
+        
+        \[
+        \int \sqrt{1-x^{2}} d x
+        \]
+        
+        Vamos a utilizar la técnica de integración por partes para evaluarlo. Tomamos:
+        
+        \[
+        u = \sqrt{1-x^{2}} \quad \Rightarrow \quad du = -\frac{1}{2}(1-x^2)^{-1/2}(2x) \, dx
+        \]
+        
+        \[
+        dv = dx \quad \Rightarrow \quad v = x
+        \]
+        
+        Aplicando la fórmula de integración por partes:
+        
+        \[
+        \int u \, dv = uv - \int v \, du
+        \]
+        
+        Tenemos:
+        
+        \[
+        \begin{aligned}
+        \int \sqrt{1-x^2} \, dx &= x \cdot \sqrt{1-x^2} - \int x \, \left(-\frac{1}{2}(1-x^2)^{-1/2}(2x)\right) \, dx \\
+        &= x \cdot \sqrt{1-x^2} + \frac{1}{2} \int x^2 (1-x^2)^{-1/2} \, dx
+        \end{aligned}
+        \]
+        
+        Simplificamos el segundo término de la integral:
+        
+        \[
+        \begin{aligned}
+        \int \sqrt{1-x^2} \, dx &= x \cdot \sqrt{1-x^2} + \frac{1}{2} \int \frac{x^2(x^2-1)+x^2}{\sqrt{1-x^2}} \, dx \\
+        &= x \cdot \sqrt{1-x^2} + \frac{1}{2} \int \frac{x^4-x^2+x^2}{\sqrt{1-x^2}} \, dx \\
+        &= x \cdot \sqrt{1-x^2} + \frac{1}{2} \int \frac{x^4}{\sqrt{1-x^2}} \, dx + \frac{1}{2} \int \frac{x^2}{\sqrt{1-x^2}} \, dx \\
+        \end{aligned}
+        \]
+        
+        Observamos que podemos expresar el primer término de la segunda integral como:
+        
+        \[
+        \begin{aligned}
+        \frac{x^4}{\sqrt{1-x^2}} = \frac{(x^2-1+1)x^2}{\sqrt{1-x^2}} = \frac{x^2-1}{\sqrt{1-x^2}} + \frac{1}{\sqrt{1-x^2}}
+        \end{aligned}
+        \]
+        
+        Sustituyendo en la integral, tenemos:
+        
+        \[
+        \begin{aligned}
+        \int \sqrt{1-x^2} \, dx &= x \cdot \sqrt{1-x^2} + \frac{1}{2} \int \left(\frac{x^2-1}{\sqrt{1-x^2}} + \frac{1}{\sqrt{1-x^2}}\right) \, dx + \frac{1}{2} \int \frac{x^2}{\sqrt{1-x^2}} \, dx \\
+        &= x \cdot \sqrt{1-x^2} + \frac{1}{2} \left(\int \frac{x^2-1}{\sqrt{1-x^2}} \, dx + \int \frac{1}{\sqrt{1-x^2}} \, dx\right) + \frac{1}{2} \int \frac{x^2}{\sqrt{1-x^2}} \, dx
+        \end{aligned}
+        \]
+        
+        Simplificamos términos:
+        
+        \[
+        \begin{aligned}
+        \int \sqrt{1-x^2} \, dx &= x \cdot \sqrt{1-x^2} + \frac{1}{2} \left(-\int \sqrt{1-x^2} \, dx + \int \frac{1}{\sqrt{1-x^2}} \, dx\right) + \frac{1}{2} \int \frac{x^2}{\sqrt{1-x^2}} \, dx \\
+        &= x \cdot \sqrt{1-x^2} -\int \sqrt{1-x^2} \, dx + \int \frac{1}{\sqrt{1-x^2}} \, dx + \frac{1}{2} \int \frac{x^2}{\sqrt{1-x^2}} \, dx \\
+        \end{aligned}
+        \]
+        
+        Agrupamos términos y simplificamos:
+        
+        \[
+        \begin{aligned}
+        2 \int \sqrt{1-x^2} \, dx &= x \cdot \sqrt{1-x^2} + \int \frac{1}{\sqrt{1-x^2}} \, dx \\
+        \int \sqrt{1-x^2} \, dx &= \frac{1}{2} \cdot x \cdot \sqrt{1-x^2} + \frac{1}{2} \int \frac{1}{\sqrt{1-x^2}} \, dx \\
+        \end{aligned}
+        \]
+        
+        Por lo tanto, hemos demostrado que:
+        
+        \[
+        \int \sqrt{1-x^2} \, dx = \frac{1}{2} \cdot x \cdot \sqrt{1-x^2} + \frac{1}{2} \int \frac{1}{\sqrt{1-x^2}} \, dx
+        \]
+        
+        
+        
+        \item Pag 269, sección 5.10 ejercicio 16a. Si $I_{n}(x)=\int_{0}^{x} t^{n}\left(t^{2}+a^{2}\right)^{-1 / 2} d t$, aplica el método de integración por partes para demostrar que
+        
+        $$
+        n I_{n}(x)=x^{n-1} \sqrt{x^{2}+a^{2}}-(n-1) a^{2} I_{n-2}(x) \quad \text {si} \quad n \geq 2
+        $$
+        
+        Demostración: 
+        
+        Integrando por partes, podemos tomar $u = t^{n-1}$ y $dv = t(t^2+a^2)^{-1/2}dt$. Esto implica que $du = (n-1)t^{n-2}dt$ y $v = (t^2+a^2)^{1/2}$. 
+        
+        Aplicando la fórmula de integración por partes, tenemos:
+        
+        \begin{align*}
+        I_{n}(x) &= \int_{0}^{x} t^{n}\left(t^{2}+a^{2}\right)^{-1 / 2} d t \\
+        &= \left. t^{n-1}(t^2+a^2)^{1/2} \right|_{0}^{x} - \int_{0}^{x} (n-1)t^{n-2}(t^2+a^2)^{1/2}dt \\
+        &= x^{n-1}(x^2+a^2)^{1/2} - \int_{0}^{x} (n-1)t^{n-2}(t^2+a^2)\left(t^2+a^2\right)^{-1/2}dt \\
+        &= x^{n-1}(x^2+a^2)^{1/2} - (n-1) \int_{0}^{x} t^n (t^2+a^2)^{-1/2}dt - (n-1)a^2 \int_{0}^{x} t^{n-2}(t^2+a^2)^{-1/2}dt \\
+        &= x^{n-1}(x^2+a^2)^{1/2} - (n-1) I_{n}(x) - (n-1)a^2 I_{n-2}(x)
+        \end{align*}
+        
+        Simplificando la expresión, obtenemos:
+        
+        $$
+        n I_{n}(x) = x^{n-1}(x^2+a^2)^{1/2} - (n-1)a^2 I_{n-2}(x)
+        $$
+        
+        Y así se concluye la demostración.
+        
+
+        \item Pag 269, sección 5.10 ejercicio 18. Deducir la fórmula
+        $$\int \frac{\sin^{n+1} x}{\cos^{m+1} x} dx=\frac{1}{m} \frac{\sin^{n} x}{\cos^{m} x}-\frac{n}{m} \int \frac{\sin^{n-1} x}{\cos^{m-1} x} dx .$$
+        
+        Demostración:
+        
+        Para demostrar la fórmula, vamos a utilizar el método de integración por partes. Sea $u = \sin^n(x)$ y $dv = \frac{\sin(x)}{\cos^{m+1}(x)} dx$. Entonces, tenemos:
+        
+        $$du = n\sin^{n-1}(x) \cdot \cos(x) dx$$
+        $$v = \int \frac{\sin(x)}{\cos^{m+1}(x)} dx = \int \frac{-du}{u^{m+1}} = \int u^{-(m+1)} du = \frac{-u^{-m}}{-m} = \frac{1}{m} \frac{1}{u^m} = \frac{1}{m} \frac{1}{\sin^m(x)}.$$
+        
+        Aplicando la fórmula de integración por partes, tenemos:
+        
+        \begin{align*}
+        \int \frac{\sin^{n+1} x}{\cos^{m+1} x} dx &= u \cdot v - \int v \cdot du \\
+        &= \sin^n(x) \cdot \frac{1}{m} \frac{1}{\sin^m(x)} - \int \frac{1}{m} \frac{1}{\sin^m(x)} \cdot n\sin^{n-1}(x) \cdot \cos(x) dx \\
+        &= \frac{1}{m} \frac{\sin^n(x)}{\cos^m(x)} - \frac{n}{m} \int \frac{\sin^{n-1}(x)}{\cos^{m-1}(x)} dx.
+        \end{align*}
+        
+        Por lo tanto, la fórmula está demostrada.
+        
+        Aplicar la fórmula para integrar $\int \tan^2 x dx$ y $\int \tan^4 x dx$.
+        
+        Para integrar $\int \tan^2x dx$, utilizamos $n = 1$ y $m = 1$ en la fórmula. Entonces, tenemos:
+        
+        \begin{align*}
+        \int \tan^2x dx &= \frac{1}{1} \frac{\sin^1(x)}{\cos^1(x)} - \frac{1}{1} \int \frac{\sin^0(x)}{\cos^0(x)} dx \\
+        &= \frac{\sin(x)}{\cos(x)} - \int \frac{1}{\cos^0(x)} dx \\
+        &= \frac{\sin(x)}{\cos(x)} - \int dx \\
+        &= \frac{\sin(x)}{\cos(x)} - x + C.
+        \end{align*}
+        
+        Para integrar $\int \tan^4x dx$, utilizamos $n = 3$ y $m = 3$ en la fórmula. Entonces, tenemos:
+        
+        \begin{align*}
+        \int \tan^4x dx &= \frac{1}{3} \frac{\sin^3(x)}{\cos^3(x)} - \frac{3}{3} \int \frac{\sin^2(x)}{\cos^2(x)} dx \\
+        &= \frac{\sin^3(x)}{3\cos^3(x)} - \int \frac{1-\cos^2(x)}{\cos^2(x)} dx \\
+        &= \frac{\sin^3(x)}{3\cos^3(x)} - \int \sec^2(x) dx + \int dx \\
+        &= \frac{\sin^3(x)}{3\cos^3(x)} - \tan(x) + x + C.
+        \end{align*}
+        
+        \item Pag 314, sección 6.22 ejercicio 30. Calcula la integral:
+        
+        \[ \int \frac{d x}{\sqrt{1-2 x-x^{2}}} \]
+        
+        Demostración:
+        
+        Reescribamos la expresión de otra manera:
+        
+        \begin{align*}
+        \int\frac{dx}{\sqrt{1-2x-x^2}} &= \int\frac{dx}{\sqrt{-\left(x^2+2x-1\right)}} \\
+        &= \int\frac{dx}{\sqrt{-\left(x^2+2x+1-2\right)}} \\
+        &= \int\frac{dx}{\sqrt{-\left(\left(x+1\right)^2-2\right)}} \\
+        &= \int\frac{dx}{\sqrt{2-\left(x+1\right)^2}} \\
+        \end{align*}
+        
+        Ahora podemos aplicar la sustitución:
+        
+        \[ u=x+1, \quad du=dx \]
+        
+        Haciendo la sustitución obtenemos:
+        
+        \[ \int\frac{dx}{\sqrt{2-\left(x+1\right)^2}} = \int\frac{du}{\sqrt{2-u^2}} \]
+        
+        Una vez hecho esto, podemos usar la fórmula $\int{\frac{1}{\sqrt{a^2-x^2}}dx} = arcsin{\left(\frac{x}{a}\right)}$, donde $a=\sqrt{2}$. Aplicando esta fórmula, obtenemos:
+        
+        \[ \int\frac{du}{\sqrt{2-u^2}} = arcsin{\left(\frac{u}{\sqrt{2}}\right)} = arcsin{\left(\frac{x+1}{\sqrt{2}}\right)} + C \]
+        
+        La integral es igual a $arcsin{\left(\frac{x+1}{\sqrt{2}}\right)} + C$.
+        
+        \item Pag 314, sección 6.22 ejercicio 33. Calcular la integral:
+        
+        \[
+        \int \frac{dx}{x^{2}-x+2}.
+        \]
+        
+        Demostración:
+        
+        \[
+        \begin{align*}
+        \int \frac{dx}{x^2-x+2} &= \int \frac{dx}{x^2-x+2+\frac{1}{4}-\frac{1}{4}} \\
+        &= \int \frac{dx}{\left(x^2-x+\frac{1}{4}\right)+\frac{7}{4}} \\
+        &= \int \frac{dx}{\left(x+\frac{1}{2}\right)^2+\frac{7}{4}} \\
+        &= \int \frac{dx}{\frac{7}{4}\left(4/7(x+1/2)^2+1\right)} \\
+        &= \frac{4}{7} \int \frac{dx}{\left(\frac{2}{\sqrt{7}} x-\frac{1}{\sqrt{7}}\right)^2+1}.
+        \end{align*}
+        \]
+        
+        Ahora, hacemos el cambio de variable:
+        
+        \[
+        u = \frac{2}{\sqrt{7}} x-\frac{1}{\sqrt{7}} \quad \text{ y } \quad du = \frac{2}{\sqrt{7}} dx \quad \Rightarrow \quad \frac{\sqrt{7}}{2} du = dx.
+        \]
+        
+        Reemplazando en la integral, tenemos:
+        
+        \[
+        \frac{4}{7} \cdot \frac{\sqrt{7}}{2} \int \frac{du}{u^2+1} = \frac{2\sqrt{7}}{7} \cdot \tan^{-1}\left(\frac{2}{\sqrt{7}} x-\frac{1}{\sqrt{7}}\right)+C.
+        \]
+        
+        \item Pag 314, sección 6.22 ejercicio 35. Calcular la integral $\int x^2 \arccos x \, dx$.
+        
+        Demostración:
+        
+        Integramos por partes utilizando la fórmula $\int u \, dv = uv - \int v \, du$:
+        
+        Sea $u = \arccos(x)$ y $dv = x^2 \, dx$. Luego calculamos $du$ y $v$:
+        
+        \[ du = -\frac{1}{\sqrt{1-x^2}} \, dx \]
+        
+        \[ v = \frac{x^3}{3} \]
+        
+        Aplicando la fórmula de integración por partes, tenemos:
+        
+        \[ \int x^2 \arccos x \, dx = \arccos(x) \cdot \frac{x^3}{3} - \int \frac{x^3}{3} \cdot \left(-\frac{1}{\sqrt{1-x^2}}\right) \, dx \]
+        
+        Simplificando la expresión, obtenemos:
+        
+        \[ \int x^2 \arccos x \, dx = \frac{x^3}{3} \arccos(x) + \frac{1}{3} \int \frac{x^3}{\sqrt{1-x^2}} \, dx \]
+        
+        A continuación, hacemos una sustitución en la segunda integral. Sea $u = 1-x^2$, entonces $-x^2 = u-1$ y $du = -2x \, dx \Rightarrow -\frac{du}{2} = x \, dx$. La integral se convierte en:
+        
+        \[ \int x^2 \arccos x \, dx = \frac{x^3}{3} \arccos(x) + \frac{1}{6} \int \frac{1-u}{\sqrt{u}} \cdot \left(-\frac{du}{2}\right) \]
+        
+        Simplificando nuevamente la expresión, tenemos:
+        
+        \[ \int x^2 \arccos x \, dx = \frac{x^3}{3} \arccos(x) + \frac{1}{6} \int \frac{u-1}{\sqrt{u}} \, du \]
+        
+        Continuamos simplificando la integral:
+        
+        \[ \int x^2 \arccos x \, dx = \frac{x^3}{3} \arccos(x) + \frac{1}{6} \int \left(u^{1/2} - u^{-1/2}\right) \, du \]
+        
+        Aplicamos la regla de potencias para integrar:
+        
+        \[ \int x^2 \arccos x \, dx = \frac{x^3}{3} \arccos(x) + \frac{1}{6} \left(\int u^{1/2} \, du - \int u^{-1/2} \, du \right) \]
+        
+        Calculando las integrales, obtenemos:
+        
+        \[ \int x^2 \arccos x \, dx = \frac{x^3}{3} \arccos(x) + \frac{1}{6} \left(\frac{2}{3} u^{3/2} - 2 u^{1/2}\right) \]
+        
+        Simplificamos la expresión:
+        
+        \[ \int x^2 \arccos x \, dx = \frac{x^3}{3} \arccos(x) + \frac{1}{9} u^{3/2} - \frac{1}{3} u^{1/2} \]
+        
+        Reemplazando $u$ por $1-x^2$, obtenemos la respuesta final:
+        
+        \[ \int x^2 \arccos x \, dx = \frac{x^3}{3} \arccos(x) + \frac{1}{9} \sqrt{(1-x^2)^3} - \frac{1}{3} \sqrt{1-x^2} + C \]
+        
+        \item Pag 314, sección 6.22 ejercicio 38. Calcular la siguiente integral:
+        
+        $$\int \frac{\arctan \sqrt{x}}{\sqrt{x}(1+x)} d x$$
+        
+        Demostración:
+        
+        Comenzamos realizando el cambio de variable $u=\sqrt{x}$. Esto implica que $u^{2}=x$ y que $du = \frac{1}{2 \sqrt{x}} dx$. 
+        
+        Reescribiendo la integral con estas nuevas variables, tenemos:
+        
+        $$2 \int \frac{\tan^{-1}(u)}{1+u^2} du$$
+        
+        A continuación, hacemos otro cambio de variable, $w = \tan^{-1}(u)$. Esto implica que $d\omega = \frac{1}{1+u^2} du$.
+        
+        La integral se transforma en:
+        
+        $$2 \int \omega d \omega = 2 \frac{\omega^2}{2} + c = \omega^2 + c = (\arctan(u))^2 + c$$
+        
+        Reemplazando nuevamente las variables $u$ por $\sqrt{x}$, obtenemos la solución final de la integral:
+        
+        $$(\arctan(\sqrt{x}))^2 + c$$
+        
+        \item Pag 314, sección 6.22 ejercicio 40. Calcular la integral:
+        
+        \[ \int \frac{x e^{\arctan x}}{\left(1+x^{2}\right)^{3 / 2}} d x \]
+        
+        Demostración:
+        
+        Reescribamos la expresión de otra manera:
+        
+        \[ \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} = \int{\frac{x}{(1+x^2)^{3/2}} \cdot e^{\arctan(x)}dx} \]
+        
+        Integrando por partes, tenemos:
+        
+        \[ u = e^{\arctan(x)}, \quad du = \frac{e^{\arctan(x)}}{1+x^2}dx \]
+        \[ dv = \frac{x}{(1+x^2)^{3/2}}dx, \quad v = -\frac{1}{\sqrt{1+x^2}} \]
+        
+        Ahora obtenemos:
+        
+        \[ \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} = e^{\arctan(x)} \cdot \left(-\frac{1}{\sqrt{1+x^2}}\right) - \int{-\frac{1}{\sqrt{1+x^2}} \cdot \frac{e^{\arctan(x)}}{1+x^2}dx} \]
+        \[ = -\frac{e^{\arctan(x)}}{\sqrt{1+x^2}} + \int{\frac{e^{\arctan(x)}}{(1+x^2)\sqrt{1+x^2}}dx} \]
+        \[ = -\frac{e^{\arctan(x)}}{\sqrt{1+x^2}} + \int{\frac{e^{\arctan(x)}}{(1+x^2)^{3/2}}dx} \]
+        
+        Nuevamente por partes en la segunda integral, tenemos:
+        
+        \[ u = e^{\arctan(x)}, \quad du = \frac{e^{\arctan(x)}}{1+x^2}dx \]
+        \[ dv = \frac{1}{(1+x^2)^{3/2}}dx, \quad v = \frac{x}{\sqrt{1+x^2}} \]
+        
+        Ahora obtenemos:
+        
+        \[ \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} = -\frac{e^{\arctan(x)}}{\sqrt{1+x^2}} + e^{\arctan(x)} \cdot \frac{x}{\sqrt{1+x^2}} - \int{\frac{x}{\sqrt{1+x^2}} \cdot \frac{e^{\arctan(x)}}{1+x^2}dx} \]
+        \[ = -\frac{e^{\arctan(x)}}{\sqrt{1+x^2}} + \frac{xe^{\arctan(x)}}{\sqrt{1+x^2}} - \int{\frac{xe^{\arctan(x)}}{(1+x^2)\sqrt{1+x^2}}dx} \]
+        \[ = -\frac{e^{\arctan(x)}}{\sqrt{1+x^2}} + \frac{xe^{\arctan(x)}}{\sqrt{1+x^2}} - \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} \]
+        
+        Observamos que obtenemos la misma integral inicial, por lo que despejaremos de la ecuación para encontrar su valor:
+        
+        \[ \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} = -\frac{e^{\arctan(x)}}{\sqrt{1+x^2}} + \frac{xe^{\arctan(x)}}{\sqrt{1+x^2}} - \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} \]
+        
+        \[ \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} + \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} = -\frac{e^{\arctan(x)}}{\sqrt{1+x^2}} + \frac{xe^{\arctan(x)}}{\sqrt{1+x^2}} \]
+        
+        \[ 2\int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} = -\frac{e^{\arctan(x)}}{\sqrt{1+x^2}} + \frac{xe^{\arctan(x)}}{\sqrt{1+x^2}} \]
+        
+        \[ \int{\frac{xe^{\arctan(x)}}{(1+x^2)^{3/2}}dx} = -\frac{e^{\arctan(x)}}{2\sqrt{1+x^2}} + \frac{xe^{\arctan(x)}}{2\sqrt{1+x^2}} + C \]
+        
+        \item Pag 314, sección 6.22 ejercicio 42. Calcula la integral
+        
+        $$\int \frac{x^{2}}{\left(1+x^{2}\right)^{2}} d x$$
+        
+        Demostración:
+        
+        Reescribamos la expresión de otra manera:
+        
+        \begin{align*}
+        \int{\frac{x^2}{(1+x^2)^2}\,dx} &= \int{x \cdot \frac{x}{(1+x^2)^2}\,dx}
+        \end{align*}
+        
+        Integrando por partes:
+        
+        \begin{align*}
+        u &= x, &du &= dx \\
+        dv &= \frac{x}{(1+x^2)^2}\,dx, &v &= -\frac{1}{2(1+x^2)}
+        \end{align*}
+        
+        Ahora obtenemos:
+        
+        \begin{align*}
+        \int{\frac{x^2}{(1+x^2)^2}\,dx} &= x \cdot \left(-\frac{1}{2(1+x^2)}\right) - \int{-\frac{1}{2(1+x^2)}\,dx} \\
+        &= -\frac{x}{2(1+x^2)} + \frac{1}{2}\int{\frac{1}{1+x^2}\,dx}
+        \end{align*}
+        
+        Una vez hecho esto, podemos usar $\int \frac{1}{{x^2+a}^2}dx = \frac{1}{a}\arctan{\left(\frac{x}{a}\right)}$ en la segunda integral, además de que sabemos que $a = \sqrt{1} = 1$. Entonces, tenemos:
+        
+        \begin{align*}
+        \int{\frac{x^2}{(1+x^2)^2}\,dx} &= -\frac{x}{2(1+x^2)} + \frac{1}{2}\arctan(x) + C
+        \end{align*}
+        
+        \item Pag 314, sección 6.22 ejercicio 44. Calcular la integral $\int \frac{\operatorname{arccot} e^{x}}{e^{x}} d x$.
+        
+        Demostración:
+        
+        Reescribamos la expresión de otra manera:
+        
+        \begin{align*}
+        \int{\frac{arccot{\left(e^x\right)}}{e^x}dx} &= \int{arccot{\left(e^x\right)}\cdot\frac{1}{e^x}dx}
+        \end{align*}
+        
+        Integrando por partes:
+        
+        \begin{align*}
+        u&=arccot{\left(e^x\right)}, &du&=-\frac{1}{\sqrt{1-\left(e^x\right)^2}}\cdot e^xdx \\
+        dv&=\frac{1}{e^x}dx, &v&=-e^{-x}
+        \end{align*}
+        
+        Ahora obtenemos:
+        
+        \begin{align*}
+        \int{\frac{arccot{\left(e^x\right)}}{e^x}dx} &= arccot{\left(e^x\right)}\cdot(-e^{-x}) - \int{-e^{-x}\cdot\left(-\frac{1}{\sqrt{1-\left(e^x\right)^2}}\cdot e^xdx\right)} \\
+        &= -e^{-x}arccot{\left(e^x\right)} - \int{\frac{1}{\sqrt{1-e^{2x}}}dx}
+        \end{align*}
+        
+        Ahora por sustitución haremos la segunda integral:
+        
+        \begin{align*}
+        u&=\sqrt{1-e^{2x}}, &-e^{2x}&=u^2-1, &du&=-\frac{e^{2x}}{\sqrt{1-e^{2x}}}dx, &-\frac{du}{e^{2x}}&=\frac{1}{\sqrt{1-e^{2x}}}dx
+        \end{align*}
+        
+        Sustituyendo las variables, tenemos:
+        
+        \begin{align*}
+        \int{\frac{arccot{\left(e^x\right)}}{e^x}dx} &= -e^{-x}arccot{\left(e^x\right)} - \int{\frac{du}{u^2-1}}
+        \end{align*}
+        
+        Una vez sustituyendo, nos centraremos únicamente en la resolución de esa integral y luego volvemos a la expresión original. Esa integral la podemos resolver mediante el método de fracciones parciales:
+        
+        \begin{align*}
+        \int{\frac{du}{u^2-1}} &= \int{\frac{1}{\left(u+1\right)\left(u-1\right)}du} \\
+        &= \int{\frac{A}{u+1}+\frac{B}{u-1}du} \\
+        \end{align*}
+        
+        \begin{align*}
+        \frac{A}{u+1}+\frac{B}{u-1} &= \frac{A\left(u-1\right)+B\left(u+1\right)}{\left(u+1\right)\left(u-1\right)} \\
+        &= \frac{Au-A+Bu+B}{\left(u+1\right)\left(u-1\right)} \\
+        &= \frac{\left(A+B\right)u-A+B}{\left(u+1\right)\left(u-1\right)} \\
+        &= \frac{1}{\left(u+1\right)\left(u-1\right)}
+        \end{align*}
+        
+        \begin{align*}
+        &0=A+B, &1=-A+B \\
+        &-A=B, &1=2B \\
+        &A=-\frac{1}{2}, &\frac{1}{2}=B \\
+        &-\frac{\frac{1}{2}}{u+1}+\frac{\frac{1}{2}}{u-1}
+        \end{align*}
+        
+        \begin{align*}
+        \int{\frac{A}{u+1}+\frac{B}{u-1}du}&=\int{-\frac{1}{2\left(u+1\right)}+\frac{1}{2\left(u-1\right)}du} \\
+        &=\int{-\frac{1}{2\left(u+1\right)}du}+\int{\frac{1}{2\left(u-1\right)}du} \\
+        &=-\frac{1}{2}\int{\frac{1}{u+1}du}+\frac{1}{2}\int{\frac{1}{u-1}du}
+        \end{align*}
+        
+        Luego usando la integral de $\frac{1}{x}$ que es $ln{\left|x\right|}$, $x\neq0$, tenemos:
+        
+        \begin{align*}
+        &=-\frac{1}{2}ln{\left|u+1\right|}+\frac{1}{2}ln{\left|u-1\right|}+C
+        \end{align*}
+        
+        Volviendo a la integral principal, tenemos:
+        
+        \begin{align*}
+        \int{\frac{arccot{\left(e^x\right)}}{e^x}dx} &= -e^{-x}arccot{\left(e^x\right)} - \left(-\frac{1}{2}ln{\left|u+1\right|}+\frac{1}{2}ln{\left|u-1\right|}\right) \\
+        &=-e^{-x}arccot{\left(e^x\right)} + \frac{1}{2}ln{\left|\sqrt{1-e^{2x}}+1\right|} - \frac{1}{2}ln{\left|\sqrt{1-e^{2x}}-1\right|}+C
+        \end{align*}
+        
+        \item Pag 314, sección 6.22 ejercicio 47. Calcula la integral indefinida:
+        
+        $$\int \frac{d x}{\sqrt{(x-a)(b-x)}}, \quad b \neq a$$
+        
+        Demostración:
+        
+        Para resolver esta integral, hacemos la sustitución indicada:
+        
+        $$x-a=(b-a)\sin^2(u)$$
+        
+        Simplificamos la ecuación anterior para despejar $x$:
+        
+        $$x-a=b-b+(b-a)\sin^2(u)$$
+        $$b-a=b-x+(b-a)\sin^2(u)$$
+        $$b-a-(b-a)\sin^2(u)=b-x$$
+        $$b-x=(b-a)(1-\sin^2(u))$$
+        
+        Ahora podemos hacer una segunda sustitución:
+        
+        $$x-a=(b-a)\sin^2(u)$$
+        $$\frac{x-a}{b-a}=\sin^2(u)$$
+        $$\sqrt{\frac{x-a}{b-a}}=\sin(u)$$
+        $$u=\arcsin{\left(\sqrt{\frac{x-a}{b-a}}\right)}$$
+        $$du=\frac{dx}{2(b-a)\sin(u)\cos(u)}$$
+        $$dx=2(b-a)\sin(u)\cos(u)du$$
+        
+        Haciendo la sustitución en nuestra integral original, obtenemos:
+        
+        $$\int \frac{dx}{\sqrt{(x-a)(b-x)}}=\int \frac{2(b-a)\sin(u)\cos(u)du}{\sqrt{(b-a)\sin^2(u)(b-a)(1-\sin^2(u))}}$$
+        $$=\int \frac{2(b-a)\sin(u)\cos(u)du}{\sqrt{(b-a)^2\sin^2(u)\cos^2(u)}}$$
+        $$=\int \frac{2(b-a)\sin(u)\cos(u)du}{|b-a|\sin(u)\cos(u)}$$
+        $$=\frac{2(b-a)}{|b-a|}\int du$$
+        $$=\frac{2(b-a)}{|b-a|}u+C$$
+        
+        Reemplazando la sustitución original, obtenemos:
+        
+        $$\int \frac{dx}{\sqrt{(x-a)(b-x)}}=\frac{2(b-a)}{|b-a|}\arcsin{\left(\sqrt{\frac{x-a}{b-a}}\right)}+C$$
+        
+        \item Pag 326, sección 6.25 ejercicio 4. Calcular la integral
+        
+        $$\int \frac{x^{4}+2 x-6}{x^{3}+x^{2}-2 x} d x$$
+        
+        Demostración:
+        
+        Para resolver esta integral, primero vamos a dividir el numerador por el denominador:
+        
+        \begin{align*}
+        \frac{x^4+2x-6}{x^3+x^2-2x} &= x-1+\frac{3x^2-6}{x^3+x^2-2x}
+        \end{align*}
+        
+        A continuación, factorizamos el denominador y reemplazamos por lo que encontramos:
+        
+        \begin{align*}
+        \int{\frac{x^4+2x-6}{x^3+x^2-2x}dx} &= \int x dx-\int 1 dx+3\int{\frac{x^2-2}{x(x+2)(x-1)}dx} \\
+        &= \frac{x^2}{2}-x+3\int{\frac{x^2-2}{x(x+2)(x-1)}dx}
+        \end{align*}
+        
+        Luego, hacemos fracciones parciales en la segunda integral:
+        
+        \begin{align*}
+        \int{\frac{x^2-2}{x(x+2)(x-1)}dx} &= \int{\frac{A}{x}+\frac{B}{x+2}+\frac{C}{x-1}dx}
+        \end{align*}
+        
+        Buscamos los valores de $A$, $B$ y $C$ para determinar la integral:
+        
+        \begin{align*}
+        \frac{x^2-2}{x(x+2)(x-1)} &= \frac{A}{x}+\frac{B}{x+2}+\frac{C}{x-1} \\
+        \frac{x^2-2}{x(x+2)(x-1)} &= \frac{A(x+2)(x-1)+B(x)(x-1)+C(x)(x+2)}{x(x+2)(x-1)} \\
+        x^2-2 &= (A+B+C)x^2+(A-B+2C)x-2A
+        \end{align*}
+        
+        De esto, podemos deducir:
+        
+        \begin{align*}
+        A+B+C &= 1 \\
+        A-B+2C &= 0 \\
+        -2A &= -2
+        \end{align*}
+        
+        Resolviendo este sistema de ecuaciones, encontramos:
+        
+        \begin{align*}
+        A &= 1 \\
+        B &= \frac{1}{3} \\
+        C &= -\frac{1}{3}
+        \end{align*}
+        
+        Sustituyendo los valores obtenidos en la integral:
+        
+        \begin{align*}
+        \int{\frac{1}{x}+\frac{\frac{1}{3}}{x+2}+\frac{-\frac{1}{3}}{x-1}dx} &= \int{\frac{1}{x}dx}+\int{\frac{1}{3(x+2)}dx}-\int{\frac{1}{3(x-1)}dx}
+        \end{align*}
+        
+        Usamos la integral de $\frac{1}{x}$, que es $\ln{|x|}$ ($x \neq 0$):
+        
+        \begin{align*}
+        \int{\frac{x^2-2}{x(x+2)(x-1)}dx} &= \ln{|x|}+\frac{1}{3}\ln{|x+2|}-\frac{1}{3}\ln{|x-1|}+C
+        \end{align*}
+        
+        Finalmente, escribimos este resultado en nuestra integral principal:
+        
+        \begin{align*}
+        \int{\frac{x^4+2x-6}{x^3+x^2-2x}dx} &= \frac{x^2}{2}-x+3\left(\ln{|x|}+\frac{1}{3}\ln{|x+2|}-\frac{1}{3}\ln{|x-1|}\right)+C \\
+        &=\frac{x^2}{2}-x+\ln{|x|}+\ln{|x+2|}^{1/3}-\ln{|x-1|}^{1/3}+C \\
+        &=\frac{x^2}{2}-x+\ln{\left|\frac{x^3(x+2)}{x-1}\right|}+C
+        \end{align*}
+        
+        \item Pag 326, sección 6.25 ejercicio 6. Determine la siguiente integral:
+        $$\int \frac{4 x^{2}+x+1}{x^{3}-1} d x$$
+        
+        Demostración:
+        
+        Primero, reescribamos la expresión de otra manera:
+        \begin{align*}
+        \int{\frac{4x^2+x+1}{x^3-1}dx}=\int{\frac{4x^2+x+1}{(x-1)(x^2+x+1)}dx}
+        \end{align*}
+        
+        Luego, hagamos una descomposición en fracciones parciales:
+        \begin{align*}
+        \int{\frac{4x^2+x+1}{(x-1)(x^2+x+1)}dx}=\int{\frac{A}{x-1}+\frac{Bx+C}{x^2+x+1}dx}
+        \end{align*}
+        
+        Ahora, busquemos los valores de A, B y C para poder determinar la integral. Igualamos los denominadores:
+        \begin{align*}
+        \frac{4x^2+x+1}{(x-1)(x^2+x+1)}=\frac{A}{x-1}+\frac{Bx+C}{x^2+x+1}
+        \end{align*}
+        
+        Multiplicamos ambos lados por el denominador común $(x-1)(x^2+x+1)$:
+        \begin{align*}
+        \frac{4x^2+x+1}{(x-1)(x^2+x+1)}=\frac{A(x^2+x+1)+(Bx+C)(x-1)}{(x-1)(x^2+x+1)}
+        \end{align*}
+        
+        Igualamos los numeradores:
+        \begin{align*}
+        4x^2+x+1=A(x^2+x+1)+(Bx+C)(x-1)
+        \end{align*}
+        
+        Simplificamos la expresión y obtenemos:
+        \begin{align*}
+        4x^2+x+1=(A+B)x^2+(A-B+C)x+(A-C)
+        \end{align*}
+        
+        Comparando los coeficientes de cada término, encontramos las siguientes ecuaciones:
+        \begin{align*}
+        A+B=4 \\
+        A-B+C=1 \\
+        A-C=1
+        \end{align*}
+        
+        Resolviendo este sistema de ecuaciones, obtenemos que $A=2$, $B=2$ y $C=1$.
+        
+        Entonces, la integral se convierte en:
+        \begin{align*}
+        \int{\frac{4x^2+x+1}{x^3-1}dx}=\int{\frac{2}{x-1}+\frac{2x+1}{x^2+x+1}dx}=2\int{\frac{1}{x-1}dx}+\int{\frac{2x+1}{x^2+x+1}dx}
+        \end{align*}
+        
+        Usando la integral de $\frac{1}{x}$, que es $\ln{|x|}$ (con $x\neq0$), y haciendo el método de sustitución en la segunda integral, tenemos:
+        \begin{align*}
+        u=x^2+x+1, \quad du=(2x+1)dx
+        \end{align*}
+        
+        Por lo tanto,
+        \begin{align*}
+        \int{\frac{4x^2+x+1}{x^3-1}dx}=2\ln{|x-1|}+\int{\frac{1}{u}du}=2\ln{|x-1|}+\ln{|u|}+C=2\ln{|x-1|}+\ln{|x^2+x+1|}+C
+        \end{align*}
+        
+        \item Pag 326, sección 6.25 ejercicio 8. Dado el siguiente problema:
+        
+        \[
+        \int \frac{x+2dx}{x^2+x}
+        \]
+        
+        Demostración:
+        
+        Primero, vamos a simplificar la expresión original:
+        
+        \[
+        \int \frac{x+2}{x(x+1)}dx
+        \]
+        
+        Luego, vamos a descomponer la fracción en fracciones parciales:
+        
+        \[
+        \int \frac{x+2}{x(x+1)}dx = \int \left(\frac{A}{x} + \frac{B}{x+1}\right)dx
+        \]
+        
+        Donde A y B son valores desconocidos que queremos determinar.
+        
+        Igualamos la fracción original a la descomposición:
+        
+        \[
+        \frac{x+2}{x(x+1)} = \frac{A}{x} + \frac{B}{x+1}
+        \]
+        
+        Multiplicamos ambos lados de la ecuación por $x(x+1)$:
+        
+        \[
+        x+2 = A(x+1) + Bx
+        \]
+        
+        Expandimos los términos:
+        
+        \[
+        x+2 = Ax + A + Bx
+        \]
+        
+        Agrupamos los términos con x:
+        
+        \[
+        x+2 = (A+B)x + A
+        \]
+        
+        Esta ecuación es válida para todos los valores de x, por lo que los coeficientes correspondientes deben ser iguales:
+        
+        \[
+        A+B = 1 \quad \text{(1)}
+        \]
+        
+        \[
+        A = 2 \quad \text{(2)}
+        \]
+        
+        Resolvemos el sistema de ecuaciones para encontrar los valores de A y B:
+        
+        Sustituyendo (2) en (1):
+        
+        \[
+        2 + B = 1
+        \]
+        
+        \[
+        B = -1
+        \]
+        
+        Por lo tanto, A = 2 y B = -1.
+        
+        Ahora podemos reescribir la integral original:
+        
+        \[
+        \int \frac{x+2dx}{x^2+x} = \int \left(\frac{2}{x} - \frac{1}{x+1}\right)dx
+        \]
+        
+        Calculamos las integrales individuales:
+        
+        \[
+        \int \frac{2}{x}dx = 2\ln|x| + C_1
+        \]
+        
+        \[
+        \int \frac{-1}{x+1}dx = -\ln|x+1| + C_2
+        \]
+        
+        Donde $C_1$ y $C_2$ son constantes de integración.
+        
+        Finalmente, la solución de la integral original es:
+        
+        \[
+        \int \frac{x+2dx}{x^2+x} = 2\ln|x| - \ln|x+1| + C
+        \]
+        
+        Donde C es una constante de integración.
+        
+        \item Pag 326, sección 6.25 ejercicio 22. Calcula la integral indefinida $\int \frac{dx}{x^{4}-1}$.
+        
+        Demostración:
+        
+        \[
+        \begin{aligned}
+        \int \frac{dx}{x^4-1} &= \int \left(x^2+1\right)(x+1)(x-1)\,\mathrm{d}x \\
+        &= \frac{A}{\left(x^2+1\right)}+\frac{B}{(x+1)}+\frac{C}{(x-1)} \\
+        &= \frac{A \cdot(x+1)(x-1)+B \cdot\left(x^2+1\right)(x-1)+C\left(x^2+1\right)(x+1)}{\left(x^2+1\right)(x+1)(x-1)} \\
+        &= 1=A \cdot(x+1)(x-1)+B\left(x^2+1\right)(x-1)+C\left(x^2+1\right)(x+1) \\
+        &x=1 \Rightarrow C(2)(2)=1 \Rightarrow \frac{1}{4}=C \\
+        &x=-1 \Rightarrow B(2)(-2)=1 \Rightarrow-\frac{1}{4}=B \\
+        &x=0 \Rightarrow A(-1)+0.5+0.5=1 \Rightarrow-\frac{-1}{2}=A \\
+        &\int \frac{dx}{x^4-1}=\int \left(\left.\frac{-1}{2\left(x^2+1\right)}-\frac{1}{4(x+1)}+\frac{1}{4(x-1)} \right\rvert\,\right. \\
+        &=\frac{-1}{2} \cdot \int \frac{1}{\left(x^2+1\right)}=\frac{-1}{2} \cdot \arctan (x) \\
+        &=\frac{-1}{4} \cdot \int \frac{1}{x+1}=-\frac{1}{4} \ln |x+1| \\
+        &=\frac{1}{4} \int \frac{1}{x-1}=\frac{1}{4} \operatorname{Ln}|x-1| \\
+        &\int \frac{dx}{x^4-1}=\frac{1}{4} \operatorname{Ln}|x-1|-\frac{1}{4} \ln |x+1|-\frac{1}{2} \arctan (x)+C
+        \end{aligned}
+        \]
+        
+        \item Pag 326, sección 6.25 ejercicio 24. Calcular la integral indefinida:
+        
+        \[
+        \int \frac{x^{2} dx}{\left(x^{2}+2 x+2\right)^{2}}
+        \]
+        
+        Demostración:
+        
+        \[
+        \begin{aligned}
+        & \int \frac{x^2}{\left(x^2+2 x+2\right)^2} dx = \int \frac{x^2}{((x^2+2 x+1)+1)^2} dx \\
+        & = \int \frac{x^2}{(x+1)^2+1)^2} dx \\
+        & u = x + 1 \Rightarrow x = u - 1 \\
+        & du = dx \\
+        & = \int \frac{(v-1)^2}{(u^2+1)^2} dv = \int \frac{u^2-2 u+1}{(u^2+1)^2} du = \int \frac{(v^2+1)(u^2-2 u+1)}{(u^2+1)^3} du \\
+        & = \int \frac{(u^2+1)[(u^2+1)-2 u]}{(u^2+1)^3} du = \int \frac{(u^2+1)^2-2 u(u^2+1)}{(u^2+1)^3} du \\
+        & = \int \frac{(u^2+1)^2}{(u^2+1)^3} du - \int \frac{2 u(u^2+1)}{(u^2+1)^3} = \int \frac{1}{(u^2+1)} du - \int \frac{2 u}{(u^2+1)^2} du \\
+        & \Rightarrow \int \frac{1}{u^2+1} du = \arctan(u) = \arctan(x+1) \\
+        & \Rightarrow -\int \frac{2 u}{u^2+1} du = -2 \int \frac{u}{(u^2+1)^2} du \\
+        & v = u^2+1 \\
+        & \frac{dv}{2} = u \cdot du \\
+        & = -2 \int \frac{1}{2} \cdot \frac{dv}{v^2} = -\int v^{-2} dv = \frac{-v^{-1}}{-1} = \frac{1}{v} \\
+        & \int \frac{x^2}{\left(x^2+2 x+2\right)^2} dx = \arctan(x+1) + \frac{1}{v} + C \\
+        & = \arctan(x+1) + \frac{1}{\left(u^2+1\right)} + C \\
+        & = \arctan(x+1) + \frac{1}{\left((x+1)^2+1\right)} + C \\
+        & = \arctan(x+1) + \frac{1}{\left(x^2+2 x+2\right)} + C \\
+        \end{aligned}
+        \]
+        
+        \item Pag 326, sección 6.25 ejercicio 26. Calcular la integral:
+        
+        $$
+         \int \frac{d x}{2 \operatorname{sen} x-\cos x+5} \text {. }
+        $$
+        
+        Demostración:
+        
+        Reescribamos la expresión de otra manera:
+        Hagamos la sustitución $u=\tan \frac{x}{2}$. Esto nos da
+        
+        $$
+        x=2 \arctan u, \quad d x=\frac{2}{1+u^{2}} d u .
+        $$
+        
+        También tenemos las siguientes expresiones para $\sin x$ y $\cos x$,
+        
+        \begin{align*}
+        \sin x &= 2 \sin \frac{x}{2} \cos \frac{x}{2} = \frac{2 \tan \frac{x}{2}}{\sec^{2} \frac{x}{2}} = \frac{2 u}{1+u^{2}} \\
+        \cos x &= 2 \cos^{2} \frac{x}{2} - 1 = \frac{2}{\sec^{2} \frac{x}{2}} - 1 = \frac{2}{1+u^{2}} - 1 = \frac{1-u^{2}}{1+u^{2}} .
+        \end{align*}
+        
+        Por lo tanto,
+        
+        \begin{align*}
+        \int \frac{d x}{2 \sin x - \cos x + 5} &= \int\left(\frac{1+u^{2}}{4 u-1+u^{2}+5+5 u^{2}} \cdot \frac{2}{1+u^{2}}\right) d u \\
+        &= \int \frac{d u}{3 u^{2}+2 u+2} \\
+        &= \int \frac{3 d u}{(3 u+1)^{2}+5} .
+        \end{align*}
+        
+        Ahora hagamos la sustitución $3 u+1=t \sqrt{5}$ lo que implica $d u=\frac{\sqrt{5}}{3} d t$. Entonces tenemos
+        
+        \begin{align*}
+        \int \frac{3 d u}{(3 u+1)^{2}+5} &= \int \frac{\sqrt{5}}{5 t^{2}+5} d t \\
+        &= \frac{1}{\sqrt{5}} \int \frac{d t}{t^{2}+1} \\
+        &= \frac{1}{\sqrt{5}} \arctan t+C \\
+        &= \frac{1}{\sqrt{5}} \arctan \left(\frac{3 u+1}{\sqrt{5}}\right)+C \\
+        &= \frac{1}{\sqrt{5}} \arctan \left(\frac{3 \tan \left(\frac{x}{2}\right)+1}{\sqrt{5}}\right)+C .
+        \end{align*}
+        
+        \item Pag 326, sección 6.25 ejercicio 32. Calcular la integral: 
+        
+        $$
+        \int_{0}^{\pi / 2} \frac{\operatorname{sen} x d x}{1+\cos x+\operatorname{sen} x}
+        $$
+        
+        Demostración:
+        
+        Reescribamos la integral usando una sustitución. Tomemos $u=\tan \left(\frac{x}{2}\right)$. Entonces, tenemos:
+        
+        $$
+        \begin{aligned}
+        \sin x & =\frac{2 u}{u^{2}+1} \\
+        \cos x & =\frac{1-u^{2}}{1+u^{2}} \\
+        d x & =\frac{2 d u}{u^{2}+1}
+        \end{aligned}
+        $$
+        
+        Para los límites de integración tenemos:
+        
+        $$
+        \tan \left(\frac{0}{2}\right)=\tan 0=0, \quad \tan \left(\frac{\pi}{4}\right)=1
+        $$
+        
+        Entonces, la integral se convierte en:
+        
+        $$
+        \begin{aligned}
+        \int_{0}^{\frac{\pi}{2}} \frac{\sin x d x}{1+\cos x+\sin x} & =\int_{0}^{1} \frac{\left(\frac{2 u}{u^{2}+1}\right)\left(\frac{2 d u}{u^{2}+1}\right)}{\left(\frac{2 u}{u^{2}+1}\right)+\left(\frac{1-u^{2}}{1+u^{2}}\right)+1} \\
+        & =\int_{0}^{1} \frac{4 u d u}{2 u^{3}+2 u^{2}+2 u+2} \\
+        & =2 \int_{0}^{1} \frac{u d u}{\left(u^{2}+1\right)(u+1)} .
+        \end{aligned}
+        $$
+        
+        Ahora, podemos usar fracciones parciales para reescribir el integrando. Primero, descomponemos la fracción en dos términos:
+        
+        $$
+        \frac{u}{\left(u^{2}+1\right)(u+1)}=\frac{A u+B}{u^{2}+1}+\frac{C}{u+1} .
+        $$
+        
+        Multiplicamos cada lado de la ecuación por el denominador común $(u^2+1)(u+1)$ y obtenemos la ecuación:
+        
+        $$
+        (A u+B)(u+1)+C\left(u^{2}+1\right)=u
+        $$
+        
+        Evaluamos la ecuación en $u=-1$ y obtenemos $C=-\frac{1}{2}$. Luego, sustituyendo este valor de $C$ y resolviendo para $A$ y $B$ obtenemos $A=B=\frac{1}{2}$. Por lo tanto,
+        
+        $$
+        \begin{aligned}
+        2 \int_{0}^{1} \frac{u d u}{\left(u^{2}+1\right)(u+1)} & =2 \int_{0}^{1}\left(\frac{1}{2} \frac{u+1}{u^{2}+1}-\frac{1}{2} \frac{1}{u+1}\right) d u \\
+        & =\int_{0}^{1} \frac{u+1}{u^{2}+1} d u-\int_{0}^{1} \frac{1}{u+1} d u \\
+        & =\int_{0}^{1} \frac{1}{u^{2}+1} d u+\frac{1}{2} \int_{0}^{1} \frac{2 u}{u^{2}+1} d u-\int_{0}^{1} \frac{1}{u+1} d u \\
+        & =\left.\left(\arctan u+\frac{1}{2} \log \left(u^{2}+1\right)-\log |1+u|\right)\right|_{0} ^{1} \\
+        & =\frac{\pi}{4}+\frac{1}{2} \log 2-\log 2 \\
+        & =\frac{\pi}{4}-\frac{1}{2} \log 2
+        \end{aligned}
+        $$
+        
+        \item Pag 326, sección 6.25 ejercicio 36. Calcula la integral: 
+        $$\int \frac{\sqrt{x^{2}+x}}{x} dx$$
+        
+        \textbf{Respuesta:} Reescribimos la expresión: 
+        
+        $$
+        \int \frac{\sqrt{x^{2}+x}}{x} dx=\int \frac{\sqrt{x} \sqrt{x+1}}{x} dx=\int \sqrt{\frac{x+1}{x}} dx .
+        $$
+        
+        Hacemos la sustitución, $u=\frac{x+1}{x}$, lo cual nos da $du=\frac{-1}{x^{2}} dx$ y $dx=\frac{1}{(1-u)^{2}}$. Por lo tanto,
+        
+        $$
+        \int \frac{\sqrt{x^{2}+x}}{x} dx=-\int \frac{\sqrt{u}}{(1-u)^{2}} du .
+        $$
+        
+        Hacemos otra sustitución, $t=\sqrt{u}$, tal que $dt=\frac{1}{2 \sqrt{u}} du$. De esta manera,
+        
+        $$
+        -\int \frac{\sqrt{u}}{(1-u)^{2}} du=-2 \int \frac{t^{2}}{\left(1-t^{2}\right)^{2}} dt=-2 \int \frac{t^{2}}{\left(t^{2}-1\right)^{2}} dt=-2 \int \frac{t^{2}}{(t+1)^{2}(t-1)^{2}} dt.
+        $$
+        
+        Usamos fracciones parciales para simplificar el integrando:
+        
+        $$
+        \frac{t^{2}}{(t+1)^{2}(t-1)^{2}}=\frac{A}{t+1}+\frac{B}{(t+1)^{2}}+\frac{C}{t-1}+\frac{D}{(t-1)^{2}}.
+        $$
+        
+        Esto nos lleva a la ecuación:
+        
+        $$
+        A(t+1)(t-1)^{2}+B(t-1)^{2}+C(t+1)(t-1)+D(t+1)^{2}=t^{2}.
+        $$
+        
+        Resolviendo esto para $A, B, C$ y $D$ obtenemos $A=-\frac{1}{4}, \quad B=C=D=\frac{1}{4}$. Por lo tanto,
+        
+        \begin{align*}
+            -2 \int \frac{t^{2}}{\left(t^{2}-1\right)^{2}} dt &= -2 \int\left(\frac{-1}{4(t+1)}+\frac{1}{4(t+1)^{2}}+\frac{1}{4(t-1)}+\frac{1}{4(t-1)^{2}}\right) dt \\
+            &= \frac{1}{2}\left(\frac{1}{t-1}+\frac{1}{t+1}\right)+\frac{1}{2} \log \left|\frac{t+1}{t-1}\right|.
+        \end{align*}
+        
+        Reemplazando de nuevo $t=\sqrt{u}$ tenemos:
+        
+        $$
+        \begin{aligned}
+        \int \frac{\sqrt{x^{2}+x}}{x} dx&=-\int \frac{\sqrt{u}}{(1-u)^{2}} du \\
+        &=\frac{1}{2}\left(\frac{2 t}{t^{2}-1}\right)+\frac{1}{2} \log \left|\frac{\sqrt{u}+1}{\sqrt{u}-1}\right| \\
+        &=\frac{1}{2}\left(\frac{2 \sqrt{u}}{u-1}\right)+\frac{1}{2} \log \left|\frac{\sqrt{\frac{x+1}{x}}+1}{\sqrt{\frac{x+1}{x}}-1}\right| \\
+        &=\sqrt{x^{2}+x}+\frac{1}{2} \log \left|\frac{\sqrt{x+1}+\sqrt{x}}{\sqrt{x+1}-\sqrt{x}}\right| \\
+        &=\sqrt{x^{2}+x}+\frac{1}{2} \log (\sqrt{x+1}+\sqrt{x})^{2}.
+        \end{aligned}
+        $$
+        
+        \end{enumerate}
 
 \end{document}
