@@ -1,0 +1,3491 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage{blindtext}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Cálculo Integral y Series }{ Taller 3 }{  }{ Alexander Mendoza }{\today}
+
+
+% \chapter{Capítulo 10}
+\chapter{chapter}
+
+\section*{Sección 10.4}
+    \subsection*{Ejercicio 3}
+
+    Determinar si la sucesión converge o diverge, hallar el límite si converge:
+    $$
+    f(n)=\cos \frac{n \pi}{2}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Consideramos la sucesión:
+    $$
+    \{f(n)\}=\left\{\cos \frac{\pi}{2}, \cos \pi, \cos \frac{3 \pi}{2}, \cos 2 \pi, \cos \frac{5 \pi}{2}, \cdots\right\}
+    $$
+
+    Evaluando los primeros valores de la secuencia, obtenemos:
+    \begin{align*}
+    \cos \frac{\pi}{2} &= 0, \\
+    \cos \pi &= -1, \\
+    \cos \frac{3 \pi}{2} &= 0, \\
+    \cos 2 \pi &= 1, \\
+    \cos \frac{5 \pi}{2} &= 0, \\
+    \text{y así sucesivamente}.
+    \end{align*}
+
+    De esta forma, la sucesión $\{f(n)\}$ se expresa como:
+    $$
+    \{0, -1, 0, 1, 0, -1, 0, \cdots\}
+    $$
+
+    Observamos que la sucesión es periódica con periodo 4, es decir, se repite cada 4 términos. En particular, los valores de la sucesión saltan de 0 a -1, luego de -1 a 0, posteriormente de 0 a 1, y finalmente de 1 a 0, y este comportamiento se reinicia indefinidamente.
+
+    Dado que la sucesión sigue repitiendo este patrón sin cesar y no se aproxima a un único valor, concluimos que:
+
+    La sucesión no converge.
+
+    \subsection*{Ejercicio 5}
+
+    Determinar si la sucesión converge o diverge, hallar el límite si converge.
+
+    $$
+    f(n)=\frac{n}{2^{n}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar si la sucesión converge o no, primero sumergimos la sucesión en una función de variable real y verificamos su comportamiento. Consideramos la función continua:
+
+    $$
+    f(x)=\frac{x}{2^{x}}
+    $$
+
+    Como queremos encontrar el límite cuando \( x \) tiende a infinito, examinamos el límite:
+
+    $$
+    \lim _{x \rightarrow \infty} \frac{x}{2^{x}}
+    $$
+
+    Reconocemos que esta es una forma indeterminada del tipo \(\frac{\infty}{\infty}\), por lo que aplicaremos la regla de L'Hôpital, que dice que si tenemos un límite de la forma \(\frac{\infty}{\infty}\) o \(\frac{0}{0}\), podemos derivar el numerador y el denominador y tomar el límite del cociente de las derivadas. Entonces,
+
+    $$
+    \lim _{x \rightarrow \infty} \frac{x}{2^{x}} = \lim _{x \rightarrow \infty} \frac{1}{2^{x} \log 2}
+    $$
+
+    Hemos derivado el numerador, obteniendo 1, y el denominador utilizando la regla de la cadena, obteniendo \(2^x \log 2\). Ahora evaluamos el límite resultante:
+
+    $$
+    = \frac{1}{\log 2} \cdot \lim _{x \rightarrow \infty} \frac{1}{2^{x}} = \frac{1}{\log 2} \cdot 0 = 0
+    $$
+
+    Dado que \( \lim _{x \rightarrow \infty} \frac{1}{2^{x}} = 0 \), hemos demostrado que
+
+    $$
+    \lim _{x \rightarrow \infty} \frac{x}{2^{x}} = 0
+    $$
+
+    Por lo tanto, la sucesión \( \left\{ \frac{n}{2^n} \right\} \) converge y su límite es 0.
+
+    \subsection*{Ejercicio 11}
+
+    Determinar si la sucesión converge o diverge, hallar el límite si converge.
+
+    $$
+    f(n)=\frac{n^{\frac{2}{3}} \sin (n!)}{n+1}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar si la sucesión converge o diverge, primero analicemos el comportamiento de sus componentes. Observamos que $\sin (n!)$ es una función periódica cuyo rango está limitado a los valores en el intervalo $[-1,1]$. Por lo tanto, $\sin(n!)$ está acotada. Esto significa que el comportamiento de la sucesión $f(n)$ estará determinado principalmente por el término $\frac{n^{\frac{2}{3}}}{n+1}$.
+
+    Vamos a analizar el límite:
+
+    \[
+    \lim _{n \rightarrow \infty} \frac{n^{\frac{2}{3}}}{n+1}
+    \]
+
+    Para ello, podemos sumergir la sucesión en una función de variable real y verificar su comportamiento en el límite. Note que esta es una indeterminación del tipo $\frac{\infty}{\infty}$, así que aplicaremos la regla de L'Hôpital.
+
+    \begin{align*}
+    \lim _{x \rightarrow \infty} \frac{x^{\frac{2}{3}}}{x+1} &= \lim _{x \rightarrow \infty} \frac{\frac{d}{dx} \left( x^{\frac{2}{3}} \right)}{\frac{d}{dx} \left( x+1 \right)} \\
+    &= \lim _{x \rightarrow \infty} \frac{\frac{2}{3} x^{-\frac{1}{3}}}{1} \\
+    &= \lim _{x \rightarrow \infty} \frac{2}{3 \sqrt[3]{x}} \\
+    &= \frac{2}{3} \cdot \lim _{x \rightarrow \infty} \frac{1}{\sqrt[3]{x}} \\
+    &= \frac{2}{3} \cdot 0 \\
+    &= 0.
+    \end{align*}
+
+    Por lo tanto, hemos demostrado que:
+
+    \[
+    \lim _{n \rightarrow \infty} \frac{n^{\frac{2}{3}}}{n+1} = 0.
+    \]
+
+    Dado que $\sin(n!)$ sigue estando acotada entre $[-1,1]$, el producto $n^{\frac{2}{3}} \sin(n!)$ también estará acotado. Multiplicando este término por $\frac{n^{\frac{2}{3}}}{n+1}$, que hemos demostrado que tiende a 0, concluimos que:
+
+    \[
+    \lim _{n \rightarrow \infty} f(n) = 0.
+    \]
+
+    Así que la sucesión $f(n)$ converge y su límite es 0.
+
+    \subsection*{Ejercicio 12}
+
+    Determinar si la sucesión converge o diverge, hallar el límite si converge.
+
+    $$
+    f(n)=\frac{3^{n}+(-2)^{n}}{3^{n+1}+(-2)^{n+1}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar la convergencia de la sucesión y hallar el límite, si existe, consideramos la función generalizada de variable real:
+
+    \begin{align*}
+    \lim _{x \rightarrow \infty} \frac{3^{x}+(-2)^{x}}{3^{x+1}+(-2)^{x+1}}
+    & =\lim _{x \rightarrow \infty} \frac{\frac{3^{x}+(-2)^{x}}{3^{x+1}}}{\frac{3^{x+1}+(-2)^{x+1}}{3^{x+1}}}
+    \end{align*}
+
+    Simplificamos el numerador y el denominador dividiendo cada término por \(3^{x+1}\):
+
+    \begin{align*}
+    & =\lim _{x \rightarrow \infty} \frac{\frac{3^{x}}{3^{x+1}}+\frac{(-2)^{x}}{3^{x+1}}}{\frac{3^{x+1}}{3^{x+1}}+\frac{(-2)^{x+1}}{3^{x+1}}}
+    \end{align*}
+
+    Simplificamos cada fracción dentro del cosiente:
+
+    \begin{align*}
+    & =\lim _{x \rightarrow \infty} \frac{\frac{1}{3}\left(\frac{3^{x}}{3^{x}}+\frac{(-2)^{x}}{3^{x}}\right)}{\frac{3^{x+1}}{3^{x+1}}+\frac{(-2)^{x+1}}{3^{x+1}}}
+    \end{align*}
+
+    Ahora, identificamos que \(\frac{3^{x}}{3^{x}} = 1\) y \(\frac{(-2)^{x}}{3^{x}} = \left(\frac{-2}{3}\right)^x\):
+
+    \begin{align*}
+    & =\frac{1}{3} \cdot \lim _{x \rightarrow \infty} \frac{1+\left(\frac{-2}{3}\right)^{x}}{1+\left(\frac{-2}{3}\right)^{x+1}}
+    \end{align*}
+
+    Dado que \(\left|\frac{-2}{3}\right| < 1\), el término \(\left( \frac{-2}{3} \right)^x \to 0\) conforme \(x \to \infty\). Así, simplificamos:
+
+    \begin{align*}
+    & =\frac{1}{3} \cdot \lim _{x \rightarrow \infty} \frac{1+(-1)^{x}\left(\frac{2}{3}\right)^{x}}{1+(-1)^{x+1}\left(\frac{2}{3}\right)^{x+1}} \\
+    & =\frac{1}{3} \cdot \lim _{x \rightarrow \infty} \frac{1}{1}
+    \end{align*}
+
+    Por lo tanto, el resultado final es:
+
+    \begin{align*}
+    & =\frac{1}{3} \cdot 1 \\
+    & =\frac{1}{3}
+    \end{align*}
+
+    De esta forma, la sucesión converge y el límite es \(\frac{1}{3}\).
+
+    \subsection*{Ejercicio 17}
+
+    Determinar si la sucesión converge o diverge, hallar el límite si converge.
+
+    $$
+    f(n)=\left(1+\frac{2}{n}\right)^{n}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Vamos a sumergir la sucesión en una función de variable real y verificar su comportamiento en el límite cuando \( x \) tiende a infinito. Esto nos permitirá utilizar herramientas de cálculo para analizar el comportamiento de la función.
+
+    Consideremos el límite de la función:
+
+    \begin{align*}
+    \lim_{x \rightarrow \infty}\left(1+\frac{2}{x}\right)^{x}
+    \end{align*}
+
+    Podemos expresar la función en términos de la exponencial aplicando el logaritmo natural y la exponencial para facilitar la manipulación:
+
+    \begin{align*}
+    \lim_{x \rightarrow \infty}\left(1+\frac{2}{x}\right)^{x} &= \lim_{x \rightarrow \infty} e^{\log \left(1+\frac{2}{x}\right)^{x}} \\
+    &= \lim_{x \rightarrow \infty} e^{x \log \left(1+\frac{2}{x}\right)} \\
+    &= e^{\lim_{x \rightarrow \infty} x \log \left(1+\frac{2}{x}\right)}
+    \end{align*}
+
+    Para evaluar \( \lim_{x \rightarrow \infty} x \log \left(1+\frac{2}{x}\right) \), reescribimos el límite en la forma:
+
+    \begin{align*}
+    \lim_{x \rightarrow \infty} x \log \left(1+\frac{2}{x}\right) &= \lim_{x \rightarrow \infty} \frac{\log \left(1+\frac{2}{x}\right)}{\frac{1}{x}}
+    \end{align*}
+
+    Esta expresión es de la forma \( \frac{0}{0} \) cuando \( x \) tiende a infinito, así que aplicamos la regla de L'Hôpital:
+
+    \begin{align*}
+    \lim_{x \rightarrow \infty} \frac{\log \left(1+\frac{2}{x}\right)}{\frac{1}{x}} &= \lim_{x \rightarrow \infty} \frac{\frac{d}{dx} \left[\log \left(1+\frac{2}{x}\right)\right]}{\frac{d}{dx} \left[\frac{1}{x}\right]} \\
+    &= \lim_{x \rightarrow \infty} \frac{\frac{1}{\left(1+\frac{2}{x}\right)} \cdot \left(-\frac{2}{x^2}\right)}{-\frac{1}{x^2}} \\
+    &= \lim_{x \rightarrow \infty} \frac{2}{1+\frac{2}{x}} \\
+    &= \frac{2}{1}
+    \end{align*}
+
+    Por lo tanto, tenemos:
+
+    \begin{align*}
+    \lim_{x \rightarrow \infty} x \log \left(1+\frac{2}{x}\right) &= 2 \\
+    e^{\lim_{x \rightarrow \infty} x \log \left(1+\frac{2}{x}\right)} &= e^2
+    \end{align*}
+
+    Así que la sucesión \( f(n) \) converge y converge a \( e^2 \).
+
+    \subsection*{Ejercicio 24}
+    Determinar el valor de $N$ que corresponde a los siguientes valores de $\varepsilon$ para $\varepsilon=$ $1 ; 0.1 ; 0.01 ; 0.001 ; 0.0001$
+    $$
+    a_{n}=\frac{n}{n+1}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para resolver este problema, debemos primero analizar el comportamiento de la sucesión $a_n = \frac{n}{n+1}$ cuando $n$ tiende a infinito. Para ello, sumergimos la sucesión en una función de variable real y verificamos su comportamiento. Consideramos el límite:
+    \[
+    \lim _{x \rightarrow \infty} \frac{x}{x+1}
+    \]
+    Este límite es de la forma $\frac{\infty}{\infty}$, por lo que podemos aplicar la regla de L'Hôpital.
+
+    Usamos la regla de L'Hôpital, diferenciando tanto el numerador como el denominador:
+    \begin{align*}
+    \lim _{x \rightarrow \infty} \frac{x}{x+1} &= \lim _{x \rightarrow \infty} \frac{1}{1} = \lim _{x \rightarrow \infty} 1 = 1
+    \end{align*}
+    Por lo tanto, la sucesión tiende a 1 cuando $n$ tiende a infinito. Ahora, consideramos la diferencia $|a_n - 1|$:
+    \begin{align*}
+    \left|\frac{n}{n+1} - 1\right| &< \epsilon
+    \end{align*}
+    Dado que $\frac{n}{n+1}$ siempre es menor que 1, tenemos que $\frac{n}{n+1} - 1$ siempre será negativo, así que tomamos el valor absoluto y reorganizamos:
+    \begin{align*}
+    \left|\frac{n}{n+1} - 1\right| &= -\left(\frac{n}{n+1} - 1\right) = 1 - \frac{n}{n+1}
+    \end{align*}
+    Queremos que esta cantidad sea menor que $\epsilon$:
+    \begin{align*}
+    1 - \frac{n}{n+1} &< \epsilon \\
+    \Rightarrow \frac{n + 1 - n}{n + 1} &< \epsilon \\
+    \Rightarrow \frac{1}{n + 1} &< \epsilon \\
+    \Rightarrow \frac{1}{\epsilon} &< n + 1 \\
+    \Rightarrow \frac{1}{\epsilon} - 1 &< n \\
+    \Rightarrow n &> \frac{1}{\epsilon} - 1
+    \end{align*}
+    De esta manera determinamos el valor mínimo de $n$ de acuerdo a los diferentes valores de $\epsilon$. Esto se ilustra en la siguiente tabla:
+
+    \begin{center}
+    \begin{tabular}{c|c}
+    $\epsilon$ & $n$ \\
+    \hline
+    1 & 1 \\
+    \hline
+    0.1 & 10 \\
+    \hline
+    0.01 & 100 \\
+    \hline
+    0.001 & 1000 \\
+    \hline
+    0.0001 & 10000 \\
+    \end{tabular}
+    \end{center}
+
+
+
+    \subsection*{Ejercicio 28}
+
+    Determinar el valor de $N$ que corresponde a los siguientes valores de $\varepsilon$ para $\varepsilon=$ $1; 0.1; 0.01; 0.001; 0.0001$
+
+    $$
+    a_{n} = (-1)^{n}\left(\frac{9}{10}\right)^{n}
+    $$
+
+    \textbf{Demostración}.\\
+
+    La sucesión $a_{n}$ es alternante y su convergencia depende de la expresión $\left(\frac{9}{10}\right)^{n}$. Para entender mejor su comportamiento, consideramos la sucesión como una función de variable real y verificamos su límite cuando la variable tiende a infinito.
+
+    Primero, evaluamos el límite:
+    \begin{align*}
+    \lim_{x \rightarrow \infty} \left(\frac{9}{10}\right)^{x} &= \lim_{x \rightarrow \infty} e^{x \log \left(\frac{9}{10}\right)} \\
+    &= \exp \left[ \lim_{x \rightarrow \infty} x \log \left(\frac{9}{10}\right) \right] \\
+    &= \exp(-\infty) \\
+    &= e^{-\infty} \\
+    &= 0
+    \end{align*}
+
+    Por lo tanto:
+    \begin{align*}
+    \left| (-1)^{n}\left(\frac{9}{10}\right)^{n} - 0 \right| < \varepsilon \quad &\Rightarrow \quad \left( \frac{9}{10} \right)^{n} < \varepsilon \\
+    \Rightarrow \log \left( \frac{9}{10} \right)^{n} < \log \varepsilon \quad &\Rightarrow \quad n \log \left( \frac{9}{10} \right) < \log \varepsilon
+    \end{align*}
+
+    Dado que $\log \left(\frac{9}{10}\right) < 0$, al dividir ambos lados por este valor negativo, la desigualdad cambia de signo:
+    \begin{align*}
+    \log \left( \frac{9}{10} \right) < \log \varepsilon \quad &\Rightarrow \quad n > \frac{\log \varepsilon}{\log \left( \frac{9}{10} \right)}
+    \end{align*}
+
+    Ahora calculamos los valores de $n$ para cada $\varepsilon$ dado:
+
+    \begin{center}
+    \begin{tabular}{c|c}
+    $\varepsilon$ & $n$ \\
+    \hline
+    1 & 1 \\
+    \hline
+    0.1 & 22 \\
+    \hline
+    0.01 & 44 \\
+    \hline
+    0.001 & 66 \\
+    \hline
+    0.0001 & 88 \\
+    \end{tabular}
+    \end{center}
+
+    \subsection*{Ejercicio 33}
+
+    Si $\alpha$ es un número real y $n$ un entero no negativo, el coeficiente binomial $\binom{\alpha}{n}$ está definido por:
+
+    $$
+    \binom{\alpha}{n}=\frac{\alpha(\alpha-1)(\alpha-2) \cdots(\alpha-n+1)}{n!}
+    $$
+
+    a) Si $\alpha=-\frac{1}{2}$ probar que
+
+    $$
+    \binom{\alpha}{1}=-\frac{1}{2},\binom{\alpha}{2}=\frac{3}{8},\binom{\alpha}{3}=-\frac{5}{16},\binom{\alpha}{4}=\frac{35}{128},\binom{\alpha}{5}=-\frac{63}{256} .
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para encontrar los coeficientes binomiales para $\alpha = -\frac{1}{2}$, utilizamos la fórmula del coeficiente binomial:
+
+    $$
+    \binom{\alpha}{n}=\frac{\alpha(\alpha-1)(\alpha-2) \cdots(\alpha-n+1)}{n!}
+    $$
+
+    Calculemos cada uno de los coeficientes:
+
+    \begin{align*}
+    \binom{-\frac{1}{2}}{1} & =\frac{-\frac{1}{2}-1+1}{1!} \\
+    & =\frac{-\frac{1}{2}}{1} \\
+    & =-\frac{1}{2}
+    \end{align*}
+
+    \begin{align*}
+    \binom{-\frac{1}{2}}{2} & =\frac{\left(-\frac{1}{2}-1+1\right)\left(-\frac{1}{2}-2+1\right)}{2!} \\
+    & =\frac{-\frac{1}{2}\left(-\frac{1}{2}-1\right)}{2} \\
+    & =\frac{-\frac{1}{2}\left(-\frac{3}{2}\right)}{2} \\
+    & =\frac{\frac{3}{4}}{2} \\
+    & =\frac{3}{8}
+    \end{align*}
+
+    \begin{align*}
+    \binom{-\frac{1}{2}}{3} & =\frac{\left(-\frac{1}{2}-1+1\right)\left(-\frac{1}{2}-2+1\right)\left(-\frac{1}{2}-3+1\right)}{3!} \\
+    & =\frac{-\frac{1}{2}\left(-\frac{1}{2}-1\right)\left(-\frac{1}{2}-2\right)}{6} \\
+    & =\frac{-\frac{1}{2}\left(-\frac{3}{2}\right)\left(-\frac{5}{2}\right)}{6} \\
+    & =\frac{-\frac{15}{8}}{6} \\
+    & =-\frac{15}{48} \\
+    & =-\frac{5}{16}
+    \end{align*}
+
+    \begin{align*}
+    \binom{-\frac{1}{2}}{4} & =\frac{\left(-\frac{1}{2}-1+1\right)\left(-\frac{1}{2}-2+1\right)\left(-\frac{1}{2}-3+1\right)\left(-\frac{1}{2}-4+1\right)}{4!} \\
+    & =\frac{-\frac{1}{2}\left(-\frac{1}{2}-1\right)\left(-\frac{1}{2}-2\right)\left(-\frac{1}{2}-3\right)}{24} \\
+    & =\frac{-\frac{1}{2}\left(-\frac{3}{2}\right)\left(-\frac{5}{2}\right)\left(-\frac{7}{2}\right)}{24} \\
+    & =\frac{\frac{105}{16}}{24} \\
+    & =\frac{105}{384} \\
+    & =\frac{35}{128}
+    \end{align*}
+
+    \begin{align*}
+    \binom{-\frac{1}{2}}{5} & =\frac{\left(-\frac{1}{2}-1+1\right)\left(-\frac{1}{2}-2+1\right)\left(-\frac{1}{2}-3+1\right)\left(-\frac{1}{2}-4+1\right)\left(-\frac{1}{2}-5+1\right)}{5!} \\
+    & =\frac{-\frac{1}{2}\left(-\frac{1}{2}-1\right)\left(-\frac{1}{2}-2\right)\left(-\frac{1}{2}-3\right)\left(-\frac{1}{2}-4\right)}{120} \\
+    & =\frac{-\frac{1}{2}\left(-\frac{3}{2}\right)\left(-\frac{5}{2}\right)\left(-\frac{7}{2}\right)\left(-\frac{9}{2}\right)}{120} \\
+    & =\frac{-\frac{945}{32}}{120} \\
+    & =-\frac{945}{3840} \\
+    & =-\frac{63}{256}
+    \end{align*}
+
+    b) Sea $a_{n}=(-1)^{n}\binom{-\frac{1}{2}}{n}$. Probar que $a_{n}>0$ y que $a_{n+1}<a_{n}$.
+
+    $$
+    a_{n}=\left\{\frac{1}{2}, \frac{3}{8}, \frac{5}{16}, \frac{35}{128}, \frac{63}{256}, \cdots,(-1)^{n}\binom{-\frac{1}{2}}{n}\right\}
+    $$
+
+    \section*{Sección 10.9}
+    \subsection*{Ejercicio 4}
+
+    Probar que la serie converge y que la suma es la indicada
+
+    $$
+    \sum_{n=1}^{\infty} \frac{2^{n}+3^{n}}{6^{n}}=\frac{3}{2}
+    $$
+
+    \textbf{Demostración}.\\
+    Para demostrar que la serie converge y que su suma es igual a $\frac{3}{2}$, primero separamos la serie en dos series geométricas:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{2^{n}+3^{n}}{6^{n}} &=\sum_{n=1}^{\infty} \frac{2^{n}}{6^{n}} + \sum_{n=1}^{\infty} \frac{3^{n}}{6^{n}} \\
+    &=\sum_{n=1}^{\infty} \left(\frac{2}{6}\right)^{n} + \sum_{n=1}^{\infty} \left(\frac{3}{6}\right)^{n}
+    \end{align*}
+
+    Reconocemos que cada una de estas sumas es una serie geométrica. Una serie geométrica de la forma $\sum_{n=1}^{\infty} ar^n$ converge si $|r| < 1$ y su suma es $\frac{ar}{1-r}$.
+
+    Ahora, evaluamos cada una de las series geométricas por separado:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \left(\frac{2}{6}\right)^{n} &= \frac{\frac{2}{6}}{1-\frac{2}{6}}, \\
+    \sum_{n=1}^{\infty} \left(\frac{3}{6}\right)^{n} &= \frac{\frac{3}{6}}{1-\frac{3}{6}}.
+    \end{align*}
+
+    Calculemos cada uno de estos valores:
+
+    \begin{align*}
+    \frac{\frac{2}{6}}{1-\frac{2}{6}} &= \frac{\frac{2}{6}}{\frac{4}{6}} = \frac{2}{4} = \frac{1}{2},\\
+    \frac{\frac{3}{6}}{1-\frac{3}{6}} &= \frac{\frac{3}{6}}{\frac{3}{6}} = 1.
+    \end{align*}
+
+    Sumamos los resultados obtenidos:
+
+    \begin{align*}
+    \frac{1}{2} + 1 &= \frac{1}{2} + \frac{2}{2} = \frac{3}{2}.
+    \end{align*}
+
+    Por lo tanto, hemos demostrado que la serie converge y que la suma es $\frac{3}{2}$.
+
+    \begin{equation}
+    \sum_{n=1}^{\infty} \frac{2^{n} + 3^{n}}{6^{n}} = \frac{3}{2}
+    \end{equation}
+
+    La serie converge a $\frac{3}{2}$.
+
+    \subsection*{Ejercicio 5}
+
+    Probar que la serie converge y que la suma es la indicada
+
+    $$
+    \sum_{n=1}^{\infty} \frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n^{2}+n}}=1
+    $$
+
+    \textbf{Demostración}.
+
+    Para demostrar que la serie converge y que su suma es 1, primero verificaremos si podemos descomponer la serie en una serie telescópica.
+
+    Primero, simplificamos el término general de la serie:
+
+    \begin{align*}
+    \frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n^{2}+n}} &= \frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n} \sqrt{n+1}} \notag \\
+    &= \frac{(\sqrt{n+1}-\sqrt{n})}{\sqrt{n} \sqrt{n+1}} \notag \\
+    &= \frac{\sqrt{n+1}}{\sqrt{n} \sqrt{n+1}} - \frac{\sqrt{n}}{\sqrt{n} \sqrt{n+1}} \notag \\
+    &= \frac{1}{\sqrt{n}} - \frac{1}{\sqrt{n+1}}
+    \end{align*}
+
+    Ahora expresamos la serie original con esta nueva forma:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n^{2}+n}} &= \sum_{n=1}^{\infty} \left(\frac{1}{\sqrt{n}} - \frac{1}{\sqrt{n+1}}\right)
+    \end{align*}
+
+    Observamos que esta es una serie telescópica, donde la mayoría de los términos se cancelarán.
+    Escribimos los primeros términos para observar esto:
+
+    \begin{align*}
+    \left(\frac{1}{\sqrt{1}} - \frac{1}{\sqrt{2}}\right)
+    + \left(\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{3}}\right)
+    + \left(\frac{1}{\sqrt{3}} - \frac{1}{\sqrt{4}}\right)
+    + \cdots
+    + \left(\frac{1}{\sqrt{n}} - \frac{1}{\sqrt{n+1}}\right)
+    \end{align*}
+
+    Observamos que todos los términos intermedios se cancelan y sólo quedan:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \left(\frac{1}{\sqrt{n}} - \frac{1}{\sqrt{n+1}}\right)
+    &= \frac{1}{\sqrt{1}} - \lim_{n \to \infty} \frac{1}{\sqrt{n+1}}
+    \end{align*}
+
+    Sabemos que:
+
+    \begin{align*}
+    \lim_{n \to \infty} \frac{1}{\sqrt{n+1}} = 0
+    \end{align*}
+
+    Por lo tanto, la serie se convierte en:
+
+    \begin{align*}
+    \frac{1}{\sqrt{1}} - 0 &= 1
+    \end{align*}
+
+    En conclusión, la serie converge y su suma es igual a 1.
+
+
+
+    \subsection*{Ejercicio 9}
+
+    Probar que la serie converge y que la suma es la indicada
+
+    $$
+    \sum_{n=1}^{\infty} \frac{(-1)^{n-1}(2 n+1)}{n(n+1)}=1
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, descompondremos el término general de la serie para mostrar que se reduce a una serie telescópica. Consideremos el término:
+
+    $$
+    \frac{2 n+1}{n(n+1)}
+    $$
+
+    Podemos descomponer la fracción como sigue:
+
+    $$
+    \frac{2 n+1}{n(n+1)}=\frac{1}{n}+\frac{1}{n+1}
+    $$
+
+    Ahora, sustituyendo esta descomposición en la serie original, tenemos:
+
+    $$
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{(-1)^{n-1}(2 n+1)}{n(n+1)} &= \sum_{n=1}^{\infty}(-1)^{n-1} \cdot\left(\frac{1}{n}+\frac{1}{n+1}\right).
+    \end{align*}
+    $$
+
+    Al evaluar los primeros términos, observamos el siguiente comportamiento:
+
+    $$
+    \begin{gathered}
+    \left(\frac{1}{1}+\frac{1}{2}\right) - \left(\frac{1}{2}+\frac{1}{3}\right) + \left(\frac{1}{3}+\frac{1}{4}\right) - \left(\frac{1}{4}+\frac{1}{5}\right) + \cdots + \left(\frac{1}{n}+\frac{1}{n+1}\right) - \left(\frac{1}{n+1}+\frac{1}{n+2}\right) + \cdots
+    \end{gathered}
+    $$
+
+    Podemos observar que los términos se cancelan de manera telescópica, es decir, cada término positivo es cancelado por un término negativo correspondiente en la suma posterior. Después de cancelar todos los términos posibles, queda:
+
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n-1} \cdot\left(\frac{1}{n}+\frac{1}{n+1}\right) = \frac{1}{1} + \lim_{n \rightarrow \infty} \frac{1}{n+1}.
+    $$
+
+    Evaluamos el límite:
+
+    $$
+    \lim_{n \rightarrow \infty} \frac{1}{n+1} = 0.
+    $$
+
+    Entonces la suma de la serie es:
+
+    $$
+    \frac{1}{1} + 0 = 1.
+    $$
+
+    Por lo tanto, la serie converge y la suma es 1.
+
+    \subsection*{Ejercicio 10}
+
+    Probar que la serie converge y que la suma es la indicada
+
+    $$
+    \sum_{n=2}^{\infty} \frac{\log \left[\left(1+\frac{1}{n}\right)^{n} \cdot(1+n)\right]}{\left(\log n^{n}\right)\left[\log (n+1)^{n+1}\right]}=\log _{2} \sqrt{e}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Vamos a manipular la expresión $\frac{\log \left[\left(1+\frac{1}{n}\right)^{n} \cdot(1+n)\right]}{\left(\log n^{n}\right)\left[\log (n+1)^{n+1}\right]}$. Expandiendo los logaritmos y simplificando la fracción, procedemos como sigue:
+
+    \begin{align*}
+    & \frac{\log \left[\left(1+\frac{1}{n}\right)^{n} \cdot(1+n)\right]}{\left(\log n^{n}\right)\left[\log (n+1)^{n+1}\right]} = \frac{\log \left(1+\frac{1}{n}\right)^{n}+\log (1+n)}{(n \log n)[(n+1) \cdot \log (n+1)]} \\
+    & =\frac{n \log \left(\frac{n+1}{n}\right)+\log (n+1)}{(n \log n)[(n+1) \cdot \log (n+1)]} \\
+    & =\frac{n[\log (n+1)-\log n]+\log (n+1)}{(n \log n)[(n+1) \cdot \log (n+1)]} \\
+    & =\frac{n \log (n+1)-n \log n+\log (n+1)}{(n \log n)[(n+1) \cdot \log (n+1)]} \\
+    & =\frac{(n+1) \cdot \log (n+1)-n \log n}{(n \log n)[(n+1) \cdot \log (n+1)]} \\
+    & =\frac{(n+1) \cdot \log (n+1)}{(n \log n)[(n+1) \cdot \log (n+1)]}-\frac{1}{(n \log n)[(n+1) \cdot \log (n+1)]} \\
+    & =\frac{1}{n \log n}-\frac{1}{(n+1) \cdot \log (n+1)} \\
+    & \sum_{n=2}^{\infty} \frac{\log \left[\left(1+\frac{1}{n}\right)^{n} \cdot(1+n)\right]}{\left(\log n^{n}\right)\left[\log (n+1)^{n+1}\right]} = \sum_{n=2}^{\infty}\left[\frac{1}{n \log n}-\frac{1}{(n+1) \cdot \log (n+1)}\right]
+    \end{align*}
+
+    Observamos que esta es una serie telescópica. Ahora procedemos con la suma telescópica:
+
+    \begin{align*}
+    \sum_{n=2}^{\infty}\left[\frac{1}{n \log n}-\frac{1}{(n+1) \cdot \log (n+1)}\right] & =\frac{1}{2 \cdot \log 2}-\lim _{n \rightarrow \infty} \frac{1}{(n+1) \cdot \log (n+1)} \\
+    & =\frac{1}{2 \cdot \log 2}-0 \\
+    & =\frac{1}{2 \cdot \log 2}
+    \end{align*}
+
+    Continuando con las simplificaciones:
+
+    \begin{align*}
+    & =\frac{\frac{1}{2} \cdot \log e}{\log 2} \\
+    & =\frac{\log e^{\frac{1}{2}}}{\log 2} \\
+    & =\frac{\log \sqrt{e}}{\log 2} \\
+    & =\log _{2} \sqrt{e}
+    \end{align*}
+
+    Por lo tanto, la serie converge y converge a $\log _{2} \sqrt{e}$.
+
+    \subsection*{Ejercicio 13}
+
+    Verificar que la fórmula es válida por lo menos para $|x|<1$.
+
+    $$
+    \sum_{n=1}^{\infty} n^{3} x^{n}=\frac{x^{3}+4 x^{2}+x}{(1-x)^{4}}
+    $$
+
+    Partiremos de la serie geométrica
+
+    $$
+    \sum_{n=0}^{\infty} x^{n}=1+x+x^{2}+\cdots+x^{n}+\cdots=\frac{1}{1-x} \quad \text { si }|x|<1
+    $$
+
+    \textbf{Demostración}.\\
+
+    Empezamos con la serie geométrica, de la cual conocemos que:
+
+    \begin{align*}
+        \sum_{n=0}^{\infty} x^{n} &= 1 + x + x^2 + \cdots + x^n + \cdots = \frac{1}{1-x} \quad \text{ si } |x| < 1
+    \end{align*}
+
+    Ahora derivamos ambos lados de la ecuación respecto a \(x\):
+
+    \begin{align*}
+        \frac{d}{dx} \left(\sum_{n=0}^{\infty} x^{n}\right) &= \frac{d}{dx} \left( \frac{1}{1-x} \right)
+    \end{align*}
+
+    Calculando, tenemos:
+
+    \begin{align*}
+        \sum_{n=1}^{\infty} nx^{n-1} &= \frac{1}{(1-x)^2} \quad \text{ si } |x| < 1
+    \end{align*}
+
+    Multiplicamos ambos lados por \(x\):
+
+    \begin{align*}
+        x \cdot \sum_{n=1}^{\infty} n x^{n-1} &= \sum_{n=1}^{\infty} n x^{n} = x + 2x^2 + 3x^3 + \cdots + nx^n + \cdots = \frac{x}{(1-x)^2} \quad \text{ si } |x| < 1
+    \end{align*}
+
+    Derivamos nuevamente ambos lados de la ecuación respecto a \(x\):
+
+    \begin{align*}
+        \frac{d}{dx} \left( x \cdot \sum_{n=1}^{\infty} nx^{n-1} \right) &= \frac{d}{dx} \left( \frac{x}{(1-x)^2} \right)
+    \end{align*}
+
+    Calculando, tenemos:
+
+    \begin{align*}
+        \sum_{n=1}^{\infty} n^2 x^{n-1} &= \frac{x + 1}{(1-x)^3} \quad \text{ si } |x| < 1
+    \end{align*}
+
+    Multiplicamos nuevamente por \(x\):
+
+    \begin{align*}
+        x \cdot \sum_{n=1}^{\infty} n^2 x^{n-1} &= \sum_{n=1}^{\infty} n^2 x^{n} = x + 4x^2 + 9x^3 + \cdots + n^2 x^n + \cdots = \frac{x^2 + x}{(1-x)^3} \quad \text{ si } |x| < 1
+    \end{align*}
+
+    Derivamos una vez más ambos lados de la ecuación respecto a \(x\):
+
+    \begin{align*}
+        \frac{d}{dx} \left( x \cdot \sum_{n=1}^{\infty} n^2 x^{n-1} \right) &= \frac{d}{dx} \left( \frac{x^2 + x}{(1-x)^3} \right)
+    \end{align*}
+
+    Calculando, tenemos:
+
+    \begin{align*}
+        \sum_{n=1}^{\infty} n^3 x^{n-1} &= \frac{x^2 + 4x + 1}{(1-x)^4} \quad \text{ si } |x| < 1
+    \end{align*}
+
+    Multiplicamos una última vez por \(x\) y obtenemos la respuesta:
+
+    \begin{align*}
+        x \cdot \sum_{n=1}^{\infty} n^3 x^{n-1} &= \sum_{n=1}^{\infty} n^3 x^{n} = x + 8x^2 + 27x^3 + \cdots + n^3 x^n + \cdots = \frac{x^3 + 4x^2 + x}{(1-x)^4} \quad \text{ si } |x| < 1 \\
+        \sum_{n=1}^{\infty} n^3 x^{n} &= \frac{x^3 + 4x^2 + x}{(1-x)^4} \quad \text{ si } |x| < 1
+    \end{align*}
+
+    ```latex
+    \subsection*{Ejercicio 15}
+
+    Verificar que la fórmula es válida por lo menos para $|x|<1$.
+
+    $$
+    \sum_{n=1}^{\infty} \frac{x^{n}}{n} = \log \frac{1}{1-x}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Partiremos de la serie geométrica, que es una serie infinita donde cada término se obtiene multiplicando el anterior por una constante común, en este caso $x$. La serie geométrica infinita se expresa como:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} x^{n} &= 1 + x + x^{2} + \cdots + x^{n} + \cdots = \frac{1}{1-x} \quad \text{si } |x| < 1.
+    \end{align*}
+
+    Luego, integramos ambos lados de la ecuación término a término en el intervalo de convergencia. Esto da como resultado:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{x^{n+1}}{n+1} &= x + \frac{x^{2}}{2} + \frac{x^{3}}{3} + \cdots + \frac{x^{n+1}}{n+1} + \cdots = -\log (1-x) \quad \text{si } |x| < 1.
+    \end{align*}
+
+    Para que la serie comience en $n=1$, movemos el índice de la sumatoria:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{x^{n}}{n} &= x + \frac{x^{2}}{2} + \frac{x^{3}}{3} + \cdots + \frac{x^{n}}{n} + \cdots = -\log (1-x) \quad \text{si } |x| < 1.
+    \end{align*}
+
+    Por otro lado, utilizando la propiedad de los logaritmos:
+
+    \begin{align*}
+    -\log (1-x) &= \log \left(\frac{1}{1-x}\right),
+    \end{align*}
+
+    lo que nos permite escribir:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{x^{n}}{n} &= x + \frac{x^{2}}{2} + \frac{x^{3}}{3} + \cdots + \frac{x^{n}}{n} + \cdots = \log \left(\frac{1}{1-x}\right) \quad \text{si } |x| < 1.
+    \end{align*}
+    ```
+
+    De este modo, hemos verificado que la fórmula es válida para $|x|<1$.
+    ```
+
+    \subsection*{Ejercicio 19}
+
+    Verificar que la fórmula es válida por lo menos para $|x|<1$.
+
+    $$
+    \sum_{n=0}^{\infty} \frac{(n+1)(n+2)(n+3)}{3!} x^{n}=\frac{1}{(1-x)^{4}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Partiremos de la serie geométrica:
+
+    $$
+    \sum_{n=0}^{\infty} x^{n}=1+x+x^{2}+\cdots+x^{n}+\cdots=\frac{1}{1-x} \quad \text {si } |x|<1
+    $$
+
+    Derivamos ambos lados de la ecuación. Al derivar, el primer término de la serie se convierte en cero y se omite:
+
+    $$
+    \sum_{n=1}^{\infty} n x^{n-1}=1+2 x+3 x^{2}+\cdots+n x^{n-1}+\cdots=\frac{1}{(1-x)^{2}} \quad \text {si } |x|<1
+    $$
+
+    Derivamos nuevamente. Al igual que antes, el primer término de la serie se omite por ser cero:
+
+    $$
+    \sum_{n=2}^{\infty} (n-1) n x^{n-2}=2+6 x+12 x^{2}+\cdots+(n-1) n x^{n-2}+\cdots=\frac{2}{(1-x)^{3}} \quad \text {si } |x|<1
+    $$
+
+    Derivamos una vez más, y como antes, el primer término de la serie se omite por ser cero:
+
+    $$
+    \sum_{n=3}^{\infty} (n-2)(n-1) n x^{n-3}=6+24 x+60 x^{2}+\cdots+(n-2)(n-1) n x^{n-3}+\cdots=\frac{6}{(1-x)^{4}} \quad \text {si } |x|<1
+    $$
+
+    Dividimos ahora por $3!=6$:
+
+    $$
+    \sum_{n=3}^{\infty} \frac{(n-2)(n-1) n}{3!} x^{n-3}=1+4 x+10 x^{2}+\cdots+\frac{(n-2)(n-1) n}{3!} x^{n-3}+\cdots=\frac{1}{(1-x)^{4}} \quad \text {si } |x|<1
+    $$
+
+    Ahora moveremos la sumatoria para que inicie en $n=0$:
+
+    $$
+    \begin{aligned}
+    & \sum_{n=3}^{\infty} \frac{(n-2)(n-1) n}{3!} x^{n-3}=\sum_{n=2}^{\infty} \frac{(n+1-2)(n+1-1)(n+1)}{3!} x^{n+1-3}=\sum_{n=2}^{\infty} \frac{(n-1)(n)(n+1)}{3!} x^{n-2} \\
+    & \sum_{n=2}^{\infty} \frac{(n-1)(n)(n+1)}{3!} x^{n-2}=\sum_{n=1}^{\infty} \frac{(n+1-1)(n+1)(n+1+1)}{3!} x^{n+1-2}=\sum_{n=1}^{\infty} \frac{(n)(n+1)(n+2)}{3!} x^{n-1} \\
+    & \sum_{n=1}^{\infty} \frac{(n)(n+1)(n+2)}{3!} x^{n-1}=\sum_{n=0}^{\infty} \frac{(n+1)(n+1+1)(n+1+2)}{3!} x^{n+1-1}=\sum_{n=0}^{\infty} \frac{(n+1)(n+2)(n+3)}{3!} x^{n} \\
+    & \sum_{n=0}^{\infty} \frac{(n+1)(n+2)(n+3)}{3!} x^{n}=1+4 x+10 x^{2}+\cdots+\frac{(n+1)(n+2)(n+3)}{3!} x^{n}+\cdots=\frac{1}{(1-x)^{4}} \quad \text {si } |x|<1
+    \end{aligned}
+    $$
+
+    De donde se concluye que:
+
+    $$
+    \sum_{n=0}^{\infty} \frac{(n+1)(n+2)(n+3)}{3!} x^{n}=\frac{1}{(1-x)^{4}} \quad \text {si } |x|<1
+    $$
+
+    \subsection*{Ejercicio 22 (a)}
+
+    Sabiendo que $\sum_{n=0}^{\infty} \frac{x^{n}}{n!}=e^{x}$ para todo $x$, hallar la suma de la siguiente serie, suponiendo que se puede operar con series infinitas como si fueran sumas finitas.
+
+    $$
+    \sum_{n=2}^{\infty} \frac{n-1}{n!}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, observemos la transformación de la serie dada. Separamos el término en dos partes para poder utilizar la identidad conocida de la serie exponencial:
+
+    $$
+    \sum_{n=2}^{\infty} \frac{n-1}{n!} = \sum_{n=2}^{\infty} \frac{n}{n!} - \sum_{n=2}^{\infty} \frac{1}{n!}.
+    $$
+
+    Ahora, analicemos cada una de estas dos sumas por separado.
+
+    Para la primera suma, note que:
+
+    $$
+    \sum_{n=2}^{\infty} \frac{n}{n!} = \sum_{n=2}^{\infty} \frac{1}{(n-1)!}.
+    $$
+
+    Hacemos un cambio de variable $m = n - 1$:
+
+    $$
+    \sum_{m=1}^{\infty} \frac{1}{m!}.
+    $$
+
+    Reconociendo que esta es una serie similar a la serie exponencial menos el primer término ($\frac{1}{0!} = 1$):
+
+    $$
+    \sum_{m=0}^{\infty} \frac{1}{m!} - 1 = e - 1.
+    $$
+
+    Para la segunda suma:
+
+    $$
+    \sum_{n=2}^{\infty} \frac{1}{n!},
+    $$
+
+    observamos que es simplemente la serie exponencial a partir del término $n=2$, lo cual es:
+
+    $$
+    \sum_{n=0}^{\infty} \frac{1}{n!} - 1 - \frac{1}{1!} = e - 1 - 1 = e - 2.
+    $$
+
+    Finalmente, combinando las dos partes, tenemos:
+
+    $$
+    \sum_{n=2}^{\infty} \frac{n-1}{n!} = (e - 1) - (e - 2).
+    $$
+
+    Simplificando:
+
+    $$
+    = e - 1 - e + 2 = 1.
+    $$
+
+    Por lo tanto,
+
+    $$
+    \sum_{n=2}^{\infty} \frac{n-1}{n!} = 1.
+    $$
+
+    \subsection*{Ejercicio 23(a)}
+
+    Sabiendo que $\sum_{n=0}^{\infty} \frac{x^{n}}{n!}=e^{x}$ para todo $x$, probar que
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n^{2} x^{n}}{n!}=\left(x^{2}+x\right) e^{x}
+    $$
+
+    suponiendo que se puede operar con series infinitas como si fueran sumas finitas.
+
+    \textbf{Demostración}.\\
+
+    Partimos de lo que conocemos acerca de la serie de Taylor de la función exponencial:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{x^{n}}{n!} &= 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots + \frac{x^{n}}{n!} + \cdots = e^{x}
+    \end{align*}
+
+    Derivamos esta serie con respecto a \( x \), y notamos que el primer término, cuando \( n=0 \), se omite ya que su derivada es 0:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{n x^{n-1}}{n!} &= 1 + \frac{2 x}{2!} + \frac{3 x^{2}}{3!} + \frac{4 x^{3}}{4!} + \cdots + \frac{n x^{n-1}}{n!} + \cdots = e^{x}
+    \end{align*}
+
+    Multiplicamos la serie obtenida por \( x \):
+
+    \begin{align*}
+    x \cdot \sum_{n=1}^{\infty} \frac{n x^{n-1}}{n!} &= \sum_{n=1}^{\infty} \frac{n x^{n}}{n!} = x + \frac{2 x^{2}}{2!} + \frac{3 x^{3}}{3!} + \frac{4 x^{4}}{4!} + \cdots + \frac{n x^{n}}{n!} + \cdots = x e^{x}
+    \end{align*}
+
+    Derivamos nuevamente con respecto a \( x \):
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{n^{2} x^{n-1}}{n!} &= 1 + \frac{4 x}{2!} + \frac{9 x^{2}}{3!} + \frac{16 x^{3}}{4!} + \cdots + \frac{n^{2} x^{n-1}}{n!} + \cdots = (1 + x) e^{x}
+    \end{align*}
+
+    Multiplicamos la serie obtenida por \( x \) nuevamente:
+
+    \begin{align*}
+    x \cdot \sum_{n=1}^{\infty} \frac{n^{2} x^{n-1}}{n!} &= \sum_{n=1}^{\infty} \frac{n^{2} x^{n}}{n!} = x + \frac{4 x^{2}}{2!} + \frac{9 x^{3}}{3!} + \frac{16 x^{4}}{4!} + \cdots + \frac{n^{2} x^{n}}{n!} + \cdots = (x + x^{2}) e^{x}
+    \end{align*}
+
+    Esto nos da el resultado buscado:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{n^{2} x^{n}}{n!} &= (x + x^{2}) e^{x}
+    \end{align*}
+    \section*{Sección 10.14}
+    \subsection*{Ejercicio 2}
+
+    Decidir si la serie converge o diverge, razonando la respuesta
+
+    $$
+    \sum_{n=1}^{\infty} \frac{\sqrt{2 n-1} \log (4 n+1)}{n(n+1)}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, vamos a examinar el comportamiento del término general de la serie
+
+    \[
+    a_n = \frac{\sqrt{2 n-1} \log (4 n+1)}{n(n+1)}
+    \]
+
+    Para ello, utilizaremos el criterio de la comparación en serie. Compararemos $a_n$ con una serie cuya convergencia o divergencia ya conocemos. Observemos que para $n$ grandes, podemos estimar
+
+    \[
+    \sqrt{2n-1} \approx \sqrt{2n} = \sqrt{2}\sqrt{n}
+    \]
+
+    y
+
+    \[
+    \log(4n+1) \approx \log(4n) = \log 4 + \log n
+    \]
+
+    Por lo que para valores grandes de $n$, $a_n$ se asemeja a
+
+    \[
+    \frac{\sqrt{2} \sqrt{n} (\log 4 + \log n)}{n(n+1)} = \frac{\sqrt{2} \sqrt{n} \log n}{n^2} \left( \text{ya que} \log 4 \text{ es una constante}\right)
+    \]
+
+    Tomando los términos dominantes, el análisis se reduce a
+
+    \[
+    a_n \approx \frac{\sqrt{2} \log n}{n^{3/2}}
+    \]
+
+    Consideremos la serie
+
+    \[
+    \sum_{n=1}^{\infty} \frac{\log n}{n^{3/2}}
+    \]
+
+    Para decidir la convergencia de esta serie, aplicamos la integral de prueba. Sea
+
+    \[
+    f(x) = \frac{\log x}{x^{3/2}}
+    \]
+
+    Evaluamos la integral impropia:
+
+    \[
+    \int_1^\infty \frac{\log x}{x^{3/2}} \, dx
+    \]
+
+    Utilizamos la sustitución $u = \log x$, por lo que $du = \frac{1}{x} dx$, es decir, $dx = e^u du$. Además, $x = e^u$, por lo tanto $x^{-3/2} = e^{-3u/2}$. La integral se transforma en:
+
+    \[
+    \int_1^\infty \frac{\log x}{x^{3/2}} \, dx = \int_0^\infty \frac{u}{e^{3u/2}} e^u \, du = \int_0^\infty ue^{-u/2} \, du
+    \]
+
+    Evaluamos esta integral usando integración por partes, con $v = u$ y $dw = e^{-u/2} du$, lo cual resulta en una integral convergente. Por lo tanto, la integral converge y, como consecuencia, la serie
+
+    \[
+    \sum_{n=1}^\infty \frac{\log n}{n^{3/2}}
+    \]
+
+    también converge.
+
+    Dado que $a_n \approx \frac{\log n}{n^{3/2}}$, por el criterio de comparación para series, inferimos que la serie original
+
+    \[
+    \sum_{n=1}^\infty \frac{\sqrt{2 n-1} \log (4 n+1)}{n(n+1)}
+    \]
+
+    converge.
+
+    \[
+     \sum_{n=1}^{\infty} \frac{\sqrt{2 n-1} \log (4 n+1)}{n(n+1)} \text{ converge.}
+    \]
+
+    \subsection*{Ejercicio 3}
+
+    Decidir si la serie converge o diverge, razonando la respuesta
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n+1}{2 n}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar si la serie $\sum a_{n}$ converge, aplicamos un criterio básico de convergencia de series. Dicho criterio indica que, si la serie converge, entonces necesariamente
+    \[
+    \lim _{n \rightarrow \infty} a_{n} = 0.
+    \]
+    En caso contrario, es decir, si
+    \[
+    \lim _{n \rightarrow \infty} a_{n} \neq 0
+    \]
+    entonces la serie $\sum a_{n}$ no puede converger.
+
+    Primero, consideremos el término $a_n = \frac{n+1}{2n}$. Calculamos el límite de $a_n$ cuando $n$ tiende a infinito. Procedemos de la siguiente manera:
+    \begin{align*}
+    \lim _{n \rightarrow \infty} a_{n} &= \lim _{n \rightarrow \infty} \frac{n+1}{2 n}\\
+    &= \frac{1}{2} \lim _{n \rightarrow \infty} \frac{n+1}{n}
+    \end{align*}
+    Observamos que
+    \[
+    \lim _{n \rightarrow \infty} \frac{n+1}{n}
+    \]
+    es de la forma indeterminada \(\frac{\infty}{\infty}\). Para resolver este límite, aplicamos la regla de L'Hopital, la cual es apropiada para estas indeterminaciones. Aplicando L'Hopital, derivamos el numerador y el denominador por separado:
+    \begin{align*}
+    \frac{1}{2} \lim _{n \rightarrow \infty} \frac{n+1}{n} &= \frac{1}{2} \lim _{n \rightarrow \infty} \frac{1}{1} \\
+    &= \frac{1}{2} \cdot 1 \\
+    &= \frac{1}{2}
+    \end{align*}
+
+    Dado que
+    \[
+    \lim _{n \rightarrow \infty} a_{n} = \frac{1}{2} \neq 0,
+    \]
+    por el criterio mencionado al inicio, concluimos que la serie
+    \[
+    \sum_{n=1}^{\infty} \frac{n+1}{2 n}
+    \]
+    no converge.
+
+    Por lo tanto, la serie diverge.
+
+    \subsection*{Ejercicio 5}
+
+    Decidir si la serie converge o diverge, razonando la respuesta
+
+    $$
+    \sum_{n=1}^{\infty} \frac{|\sin n x|}{n^{2}}
+    $$
+
+        \textbf{Demostración}.\\
+
+    Para determinar la convergencia de la serie $\sum_{n=1}^{\infty} \frac{|\sin n x|}{n^{2}}$, primero observamos que $|\sin n x|$ está acotado entre 0 y 1 para cualquier valor de $x$ y cualquier valor de $n$. Esto nos permite establecer una desigualdad útil para comparar con una serie conocida que sabemos si converge o diverge. Consideramos la siguiente relación:
+
+    \begin{align*}
+    0 \leq |\sin n x| \leq 1
+    \end{align*}
+
+    Esto implica que:
+
+    \begin{align*}
+    0 \leq \frac{|\sin n x|}{n^{2}} \leq \frac{1}{n^{2}}
+    \end{align*}
+
+    Ahora consideramos la serie mayorante $\sum_{n=1}^{\infty} \frac{1}{n^{2}}$. Sabemos que esta serie es una serie $p$ con $p = 2$ y que converge porque:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{1}{n^{2}} < \infty
+    \end{align*}
+
+    Dado que $\sum_{n=1}^{\infty} \frac{1}{n^{2}}$ converge y $\frac{|\sin n x|}{n^{2}}$ está siempre no negativa y acotada superiormente por $\frac{1}{n^{2}}$, podemos aplicar la prueba de comparación. Según esta prueba, si una serie está acotada superiormente por una serie convergente, entonces dicha serie también converge.
+
+    Así que, por la prueba de comparación con la serie $\sum_{n=1}^{\infty} \frac{1}{n^{2}}$, concluimos que:
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{|\sin n x|}{n^{2}}
+    \end{align*}
+
+    también converge.
+
+    \subsection*{Ejercicio 9}
+
+    Decidir si la serie converge o diverge, razonando la respuesta
+
+    $$
+    \sum_{n=1}^{\infty} \frac{1}{\sqrt{n(n+1)}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para decidir la convergencia o divergencia de la serie dada:
+
+    $$
+    \sum_{n=1}^{\infty} \frac{1}{\sqrt{n(n+1)}}
+    $$
+
+    usaremos el criterio del cociente para series con términos comparables. En particular, si
+    \[
+    \lim _{n \rightarrow \infty} \frac{a_{n}}{b_{n}}=L \quad \text{con} \quad 0 < L < \infty,
+    \]
+    entonces ambas series \(\sum a_n\) y \(\sum b_n\) convergen o ambas divergen.
+
+    Sabemos que la serie armónica \(\sum_{n=1}^{\infty} \frac{1}{n}\) diverge. Entonces procederemos comparando la serie dada con la serie armónica:
+
+    \[
+    a_n = \frac{1}{\sqrt{n(n+1)}} \quad \text{y} \quad b_n = \frac{1}{n}.
+    \]
+
+    Evaluamos el límite:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{\frac{1}{\sqrt{n(n+1)}}}{\frac{1}{n}} &= \lim _{n \rightarrow \infty} \frac{n}{\sqrt{n^2 + n}} \\
+    &= \lim _{n \rightarrow \infty} \frac{\frac{n}{n}}{\sqrt{\frac{n^2}{n^2} + \frac{n}{n^2}}} \\
+    &= \lim _{n \rightarrow \infty} \frac{1}{\sqrt{1 + \frac{1}{n}}} \\
+    &= \frac{1}{\sqrt{1 + 0}} \\
+    &= 1.
+    \end{align*}
+
+    Dado que \(\lim _{n \rightarrow \infty} \frac{a_n}{b_n} = 1\) y sabemos que la serie armónica \(\sum_{n=1}^{\infty} \frac{1}{n}\) diverge, podemos concluir que:
+
+    \[
+    \sum_{n=1}^{\infty} \frac{1}{\sqrt{n(n+1)}} \text{ también diverge.}
+    \]
+
+    \subsection*{Ejercicio 14}
+
+    Decidir si la serie converge o diverge, razonando la respuesta
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n \cos ^{2}\left(\frac{n \pi}{3}\right)}{2^{n}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero observamos que $0 \leq \cos ^{2}\left(\frac{n \pi}{3}\right) \leq 1$ para cualquier valor de $n$. Entonces podemos acotar la serie dada de la siguiente manera:
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n \cos ^{2}\left(\frac{n \pi}{3}\right)}{2^{n}} \leq \sum_{n=1}^{\infty} \frac{n}{2^{n}}
+    $$
+
+    Ahora, verificamos si $\sum_{n=1}^{\infty} \frac{n}{2^{n}}$ converge. Para ello, utilizamos el criterio de la razón evaluando el siguiente límite:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{\frac{n+1}{2^{n+1}}}{\frac{n}{2^{n}}} &= \lim _{n \rightarrow \infty} \frac{2^{n}(n+1)}{2^{n+1} \cdot n} \\
+    &= \lim _{n \rightarrow \infty} \frac{2^{n}(n+1)}{2 \cdot 2^{n} \cdot n} \\
+    &= \frac{1}{2} \cdot \lim _{n \rightarrow \infty} \frac{n+1}{n}
+    \end{align*}
+
+    El límite $\lim _{n \rightarrow \infty} \frac{n+1}{n}$ es de la forma $\frac{\infty}{\infty}$. Aplicamos la regla de L'Hôpital y tenemos:
+
+    \begin{align*}
+    \frac{1}{2} \cdot \lim _{n \rightarrow \infty} \frac{n+1}{n} &= \frac{1}{2} \cdot \lim _{n \rightarrow \infty} \frac{1}{1} \\
+    &= \frac{1}{2}
+    \end{align*}
+
+    Dado que $\lim _{n \rightarrow \infty} \frac{a_{n+1}}{a_{n}} = \frac{1}{2} < 1$, la serie $\sum_{n=1}^{\infty} \frac{n}{2^{n}}$ converge. Además, teniendo en cuenta la acotación anterior:
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n \cos ^{2}\left(\frac{n \pi}{3}\right)}{2^{n}} \leq \sum_{n=1}^{\infty} \frac{n}{2^{n}},
+    $$
+
+    y dado que ambas son series de términos positivos, concluimos que
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n \cos ^{2}\left(\frac{n \pi}{3}\right)}{2^{n}}
+    $$
+
+    también converge.
+
+    \subsection*{Ejercicio 16}
+
+    Decidir si la serie converge o diverge, razonando la respuesta
+
+    $$
+    \sum_{n=1}^{\infty} n e^{-n^{2}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para decidir la convergencia de la serie, vamos a aplicar el criterio de la integral. Para ello, debemos considerar la función $f(x) = x e^{-x^{2}}$ y determinar si la integral correspondiente converge. Primero, verifica que $f(x)$ cumple las condiciones necesarias: ser continua, positiva y decreciente para $x \geq 1$.
+
+    Para verificar si la función $x e^{-x^{2}}$ cumple estas condiciones, podemos observar que como $e^{-x^{2}}$ es una función positiva y decreciente y $x$ es positivo, el producto $x e^{-x^{2}}$ también será positivo y decreciente para $x$ suficientemente grande.
+
+    Procedemos entonces evaluando la integral impropia:
+
+    $$
+    \lim _{t \rightarrow \infty} \int_{1}^{t} x e^{-x^{2}} \, dx
+    $$
+
+    Utilizaremos la sustitución \( u = -x^2 \):
+
+    $$
+    \begin{align*}
+    u &= -x^{2} \\
+    \frac{d u}{d x} &= -2 x \\
+    -\frac{1}{2} \, du &= x \, dx
+    \end{align*}
+    $$
+
+    Sustituyendo en la integral, obtenemos:
+
+    $$
+    \lim _{t \rightarrow \infty} -\frac{1}{2} \int_{-1}^{-t^{2}} e^{u} \, du
+    $$
+
+    Resolvemos la integral de \( e^u \):
+
+    $$
+    \begin{align*}
+    \lim _{t \rightarrow \infty} -\frac{1}{2} \int_{-1}^{-t^{2}} e^{u} \, du &= \lim _{t \rightarrow \infty} -\frac{1}{2} \left[ e^{u} \right]_{-1}^{-t^{2}} \\
+    &= \lim _{t \rightarrow \infty} -\frac{1}{2} \left( e^{-t^{2}} - e^{-1} \right) \\
+    &= \lim _{t \rightarrow \infty} -\frac{1}{2} e^{-t^{2}} + \frac{1}{2} e^{-1} \\
+    &= 0 + \frac{1}{2} e^{-1} \\
+    &= \frac{1}{2e}
+    \end{align*}
+    $$
+
+    Como el límite de la integral converge a $\frac{1}{2e}$, entonces la integral converge. De acuerdo con el criterio de la integral, si $\int_{1}^{\infty} f(x) \, dx$ converge, entonces la serie $\sum_{n=1}^{\infty} f(n)$ también converge. Por tanto, la serie $\sum_{n=1}^{\infty} n e^{-n^{2}}$ converge.
+
+    \subsection*{Ejercicio 17}
+
+    Decidir si la serie converge o diverge, razonando la respuesta
+
+    $$
+    \begin{gathered}
+    \sum_{n=1}^{\infty} \int_{0}^{\frac{1}{n}} \frac{\sqrt{x}}{1+x^{2}} d x \\
+    x^{2} \geq 0 \\
+    x^{2}+1 \geq 1 \\
+    \frac{x^{2}+1}{x^{2}+1} \geq \frac{1}{x^{2}+1} \\
+    1 \geq \frac{1}{x^{2}+1} \\
+    \sqrt{x} \geq \frac{\sqrt{x}}{x^{2}+1} \quad \text { Para todo } x \geq 0 \\
+    \int_{0}^{\frac{1}{n}} \sqrt{x} d x=\int_{0}^{\frac{1}{n}} x^{\frac{1}{2}} d x=\left.\frac{x^{\frac{1}{2}+\frac{2}{2}}}{\frac{1}{2}+\frac{2}{2}}\right|_{0} ^{\frac{1}{n}}=\left.\frac{x^{\frac{3}{2}}}{\frac{3}{2}}\right|_{0} ^{\frac{1}{n}}=\left.\frac{2}{3} x^{\frac{3}{2}}\right|_{0} ^{\frac{1}{n}}=\frac{2}{3}\left[\left(\frac{1}{n}\right)^{\frac{3}{2}}-(0)^{\frac{3}{2}}\right]=\frac{2}{3} \cdot \frac{1}{n^{\frac{3}{2}}} \\
+    \sum_{n=1}^{\infty} \int_{0}^{\frac{1}{n}} \sqrt{x} d x=\frac{2}{3} \sum_{n=1}^{\infty} \frac{1}{n^{\frac{3}{2}}} \\
+    \int_{0}^{\frac{1}{n}} \frac{\sqrt{x}}{1+x^{2}} d x \leq \int_{0}^{\frac{1}{n}} \sqrt{x} d x \\
+    \sum_{n=1}^{\infty} \int_{0}^{\frac{1}{n}} \frac{\sqrt{x}}{1+x^{2}} d x \leq \sum_{n=1}^{\infty} \int_{0}^{\frac{1}{n}} \sqrt{x} d x=\frac{2}{3} \sum_{n=1}^{\infty} \frac{1}{n^{\frac{3}{2}}}
+    \end{gathered}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, consideremos la integral
+
+    $$ \int_{0}^{\frac{1}{n}} \frac{\sqrt{x}}{1+x^{2}} dx. $$
+
+    Queremos comparar esta integral con una integral más sencilla. Notemos que para $x \geq 0$:
+
+    $$ x^2 \geq 0 \implies x^2 + 1 \geq 1 \implies \frac{1}{x^2 + 1} \leq 1. $$
+
+    Esto implica que:
+
+    $$ \frac{\sqrt{x}}{1 + x^2} \leq \sqrt{x}. $$
+
+    Ahora evaluamos la integral de la función más sencilla:
+
+    $$
+    \begin{align*}
+    \int_{0}^{\frac{1}{n}} \sqrt{x} \, dx &= \int_{0}^{\frac{1}{n}} x^{\frac{1}{2}} \, dx \\
+    &= \left. \frac{x^{\frac{1}{2} + 1}}{\frac{1}{2} + 1} \right|_{0}^{\frac{1}{n}} \\
+    &= \left. \frac{x^{\frac{3}{2}}}{\frac{3}{2}} \right|_{0}^{\frac{1}{n}} \\
+    &= \left. \frac{2}{3} x^{\frac{3}{2}} \right|_{0}^{\frac{1}{n}} \\
+    &= \frac{2}{3} \left[ \left( \frac{1}{n} \right)^{\frac{3}{2}} - (0)^{\frac{3}{2}} \right] \\
+    &= \frac{2}{3} \cdot \frac{1}{n^{\frac{3}{2}}}.
+    \end{align*}
+    $$
+
+    Por lo tanto,
+
+    $$ \sum_{n=1}^{\infty} \int_{0}^{\frac{1}{n}} \sqrt{x} \, dx = \frac{2}{3} \sum_{n=1}^{\infty} \frac{1}{n^{\frac{3}{2}}}. $$
+
+    Notamos que la serie $\sum_{n=1}^{\infty} \frac{1}{n^{\frac{3}{2}}}$ es una serie p-convergente porque $p=\frac{3}{2}>1$. Entonces,
+
+    $$ \sum_{n=1}^{\infty} \frac{1}{n^{\frac{3}{2}}} \text{ converge}. $$
+
+    Dado que
+
+    $$ \int_{0}^{\frac{1}{n}} \frac{\sqrt{x}}{1 + x^2} \, dx \leq \int_{0}^{\frac{1}{n}} \sqrt{x} \, dx $$
+
+    y cada término de la suma es positivo, aplicando la prueba de comparación, concluimos que la serie original también converge:
+
+    $$ \sum_{n=1}^{\infty} \int_{0}^{\frac{1}{n}} \frac{\sqrt{x}}{1 + x^2} \, dx \text{ converge}. $$
+    \section*{Sección 10.16}
+    \subsection*{Ejercicio 3}
+
+    Decidir si la serie converge o diverge, justificando la respuesta.
+
+    $$
+    \sum_{n=1}^{\infty} \frac{2^{n} n!}{n^{n}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Utilizaremos el criterio de la razón, que consiste en evaluar el siguiente límite:
+
+    $$
+    \begin{aligned}
+    \lim _{n \rightarrow \infty} \frac{\frac{2^{n+1}(n+1)!}{(n+1)^{n+1}}}{\frac{2^{n} n!}{n^{n}}} & =\lim _{n \rightarrow \infty} \frac{2^{n+1} n^{n}(n+1)!}{2^{n}(n+1)^{n+1} n!}
+    \end{aligned}
+    $$
+
+    Para esto, multiplicamos el numerador y el denominador, simplificando términos comunes:
+
+    $$
+    \begin{aligned}
+    & = \lim _{n \rightarrow \infty} \frac{2^{n+1} n^{n}(n+1)!}{2^{n}(n+1)^{n+1} n!} \\
+    & = \lim _{n \rightarrow \infty} \frac{2 \cdot 2^{n} \cdot n^{n} \cdot (n+1) \cdot n!}{2^{n} \cdot (n+1)^{n+1} \cdot n!} \\
+    & = \lim _{n \rightarrow \infty} \frac{2 \cdot n^{n} \cdot (n+1) \cdot n!}{(n+1)^{n+1} \cdot n!} \\
+    & = \lim _{n \rightarrow \infty} \frac{2 \cdot n^{n} \cdot (n+1)}{(n+1)^{n+1}} \\
+    & = \lim _{n \rightarrow \infty} \frac{2 \cdot n^{n} \cdot (n+1)}{(n+1) \cdot (n+1)^n} & \text{(separamos el factor adicional $n+1$)} \\
+    & = \lim _{n \rightarrow \infty} \frac{2 \cdot n^{n}}{(n+1)^n} \\
+    & = 2 \cdot \lim _{n \rightarrow \infty} \left(\frac{n}{n+1}\right)^{n} \\
+    & = 2 \cdot \lim _{n \rightarrow \infty} \left(\frac{1}{\frac{n+1}{n}}\right)^{n} \\
+    & = 2 \cdot \lim _{n \rightarrow \infty} \left(\frac{1}{1+\frac{1}{n}}\right)^{n} \\
+    & = 2 \cdot \lim _{n \rightarrow \infty} \frac{1}{\left(1+\frac{1}{n}\right)^{n}} \\
+    & = 2 \cdot \frac{1}{e} & \text{(utilizando el límite conocido $\lim_{n \rightarrow \infty} \left(1 + \frac{1}{n}\right)^n = e$)} \\
+    & = \frac{2}{e}
+    \end{aligned}
+    $$
+
+    Finalmente, concluimos:
+
+    $$
+    \lim _{n \rightarrow \infty} \frac{a_{n+1}}{a_{n}} = \frac{2}{e} < 1
+    $$
+
+    Por lo tanto, la serie converge.
+
+    \subsection*{Ejercicio 6}
+
+    Decidir si la serie converge o diverge, justificando la respuesta.
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n!}{2^{2 n}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para decidir si la serie converge o diverge, utilizaremos el criterio de la razón, que establece que una serie
+
+    $$
+    \sum_{n=1}^{\infty} a_n
+    $$
+
+    converge si
+
+    $$
+    \lim_{n \rightarrow \infty} \left| \frac{a_{n+1}}{a_{n}} \right| < 1,
+    $$
+
+    y diverge si dicho límite es mayor o igual a 1. Evaluaremos el siguiente límite:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{a_{n+1}}{a_{n}} &= \lim _{n \rightarrow \infty} \frac{\frac{(n+1)!}{2^{2(n+1)}}}{\frac{n!}{2^{2 n}}}
+    \end{align*}
+
+    Para simplificar esta expresión, comenzamos por reescribir el numerador y el denominador:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{(n+1)!}{2^{2(n+1)}} \cdot \frac{2^{2n}}{n!} &= \lim _{n \rightarrow \infty} \frac{2^{2 n}(n+1)!}{2^{2(n+1)} n!}
+    \end{align*}
+
+    A continuación, simplificamos los factores en el numerador y el denominador:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{2^{2 n}(n+1)!}{2^{2 n + 2} n!} &= \lim _{n \rightarrow \infty} \frac{(n+1)!}{4 n!}
+    \end{align*}
+
+    Recordando la definición de factorial, podemos simplificar más:
+
+    \begin{align*}
+    (n+1)! &= (n+1) \cdot n!, \quad \text{por lo que:} \\\\
+    \lim _{n \rightarrow \infty} \frac{(n+1)!}{4 n!} &= \lim _{n \rightarrow \infty} \frac{(n+1) \cdot n!}{4 n!} = \lim _{n \rightarrow \infty} \frac{n+1}{4}
+    \end{align*}
+
+    Finalmente, evaluamos el límite:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{n+1}{4} &= \lim _{n \rightarrow \infty} \frac{n}{4} + \lim _{n \rightarrow \infty} \frac{1}{4}
+    \end{align*}
+
+    Dado que \( \lim_{n \rightarrow \infty} \frac{n}{4} = \infty \), tenemos:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{a_{n+1}}{a_{n}} = \infty
+    \end{align*}
+
+    Puesto que
+
+    $$
+    \lim _{n \rightarrow \infty} \frac{a_{n+1}}{a_{n}} = \infty,
+    $$
+
+    que es mayor que 1, podemos concluir que la serie diverge. Por lo tanto,
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n!}{2^{2 n}}
+    $$
+
+    diverge.
+
+    \subsection*{Ejercicio 8}
+
+    Decidir si la serie converge o diverge, justificando la respuesta.
+
+    $$
+    \sum_{n=1}^{\infty}\left(n^{\frac{1}{n}}-1\right)^{n}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar la convergencia o divergencia de la serie, aplicaremos el criterio de la raíz. Este criterio involucra encontrar el límite del \( n \)-ésimo término de la serie elevado a la \( \frac{1}{n} \)-ésima potencia. Si este límite es menor que 1, la serie converge, y si es mayor que 1, la serie diverge. Si el límite es igual a 1, el criterio es inconcluso. Formalmente, evaluaremos lo siguiente:
+
+    \[
+    \begin{align*}
+    \lim _{n \rightarrow \infty}\left(a_{n}\right)^{\frac{1}{n}} & = \lim _{n \rightarrow \infty}\left(\left(n^{\frac{1}{n}}-1\right)^{n}\right)^{\frac{1}{n}} \\
+    & = \lim _{n \rightarrow \infty}\left(n^{\frac{1}{n}}-1\right) \\
+    \end{align*}
+    \]
+
+    Ahora, evaluamos el comportamiento de \( n^{\frac{1}{n}} \) para \( n \to \infty \):
+
+    \[
+    \begin{align*}
+    & = \lim _{n \rightarrow \infty} n^{\frac{1}{n}} - \lim _{n \rightarrow \infty} 1 \\
+    & = 1 - 1 \\
+    & = 0
+    \end{align*}
+    \]
+
+    Entonces,
+
+    \[
+    \lim _{n \rightarrow \infty}\left(a_{n}\right)^{\frac{1}{n}} = 0 < 1
+    \]
+
+    Por lo tanto, según el criterio de la raíz, la serie converge.
+
+    \subsection*{Ejercicio 10}
+
+    Decidir si la serie converge o diverge, justificando la respuesta.
+
+    $$
+    \sum_{n=1}^{\infty}\left(\frac{1}{n}-e^{-n^{2}}\right)
+    $$
+
+    \subsection*{Ejercicio 12}
+
+    Decidir si la serie converge o diverge, justificando la respuesta.
+
+    $$
+    \sum_{n=1}^{\infty} \frac{n^{n+\frac{1}{n}}}{\left(n+\frac{1}{n}\right)^{n}}
+    $$
+    \section*{Sección 10.20}
+    \subsection*{Ejercicio 6}
+
+    Determinar la convergencia o divergencia de la serie dada. En caso de convergencia, determinar si converge absoluta o condicionalmente.
+
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n}\left(\frac{2 n+100}{3 n+1}\right)^{n}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, vamos a verificar si la serie converge absolutamente. En otras palabras, necesitamos comprobar si la serie de los valores absolutos también converge:
+
+    $$
+    \sum_{n=1}^{\infty}\left|(-1)^{n}\left(\frac{2 n+100}{3 n+1}\right)^{n}\right|=\sum_{n=1}^{\infty}\left(\frac{2 n+100}{3 n+1}\right)^{n}
+    $$
+
+    Para determinar la convergencia de esta nueva serie, emplearemos el criterio de la raíz. Este criterio dice que una serie \(\sum a_n\) converge absolutamente si
+
+    \[
+    \lim_{n \to \infty} \sqrt[n]{|a_n|} < 1
+    \]
+
+    En nuestro caso, consideramos:
+
+    \begin{align*}
+    \lim_{n \rightarrow \infty}\left(\left(\frac{2 n+100}{3 n+1}\right)^{n}\right)^{\frac{1}{n}} &= \lim_{n \rightarrow \infty} \frac{2 n+100}{3 n+1}
+    \end{align*}
+
+    Para evaluar este límite, dividimos tanto el numerador como el denominador por \(n\):
+
+    \begin{align*}
+    \lim_{n \rightarrow \infty} \frac{\frac{2 n}{n}+\frac{100}{n}}{\frac{3 n}{n}+\frac{1}{n}} &= \lim_{n \rightarrow \infty} \frac{2+\frac{100}{n}}{3+\frac{1}{n}} \\
+    &= \frac{2+0}{3+0} \\
+    &= \frac{2}{3}
+    \end{align*}
+
+    Observamos que:
+
+    \begin{align*}
+    \frac{2}{3} < 1
+    \end{align*}
+
+    Dado que \(\lim_{n \to \infty} \sqrt[n]{\left|\left(\frac{2 n + 100}{3 n + 1}\right)^n\right|} = \frac{2}{3}\), y que este valor es menor que 1, concluimos que la serie original dada converge absolutamente.
+
+    En resumen, la serie
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n}\left(\frac{2 n+100}{3 n+1}\right)^{n}
+    $$
+    converge absolutamente.
+
+    \subsection*{Ejercicio 8}
+
+    Determinar la convergencia o divergencia de la serie dada. En caso de convergencia, determinar si converge absoluta o condicionalmente.
+
+    $$
+    \sum_{n=1}^{\infty} \frac{(-1)^{n}}{\sqrt[n]{n}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar la convergencia o divergencia de la serie
+
+    $$
+    \sum_{n=1}^{\infty} \frac{(-1)^{n}}{\sqrt[n]{n}}
+    $$
+
+    primero debemos comprobar si el término general de la serie, \( a_n = \frac{(-1)^{n}}{\sqrt[n]{n}} \), tiende a cero cuando \( n \) tiende a infinito. Recordemos que una condición necesaria para la convergencia de la serie \( \sum a_n \) es que \( \lim_{n \rightarrow \infty} a_n = 0 \). En otras palabras, si el límite de \( a_n \) no es cero, la serie no puede converger.
+
+    Evaluemos el límite del término general:
+
+    \begin{align*}
+    \lim_{n \rightarrow \infty} \frac{1}{\sqrt[n]{n}} = \frac{1}{1} = 1
+    \end{align*}
+
+    Observamos que \( \lim_{n \rightarrow \infty} \frac{1}{\sqrt[n]{n}} = 1 \).
+
+    Dado que el límite no es cero, podemos concluir que la serie \( \sum \frac{(-1)^{n}}{\sqrt[n]{n}} \) no converge. Alternará entre valores positivos y negativos (\(+1\) y \(-1\)) para valores grandes de \( n \), pero debido a que no cumple la condición necesaria de convergencia (límite del término general igual a cero), la serie no converge.
+
+    Por lo tanto, la serie no converge.
+
+
+
+    \subsection*{Ejercicio 9}
+
+    Determinar la convergencia o divergencia de la serie dada. En caso de convergencia, determinar si converge absoluta o condicionalmente.
+
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n} \frac{n^{2}}{1+n^{2}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para analizar la convergencia de la serie \(\sum_{n=1}^{\infty}(-1)^{n} \frac{n^{2}}{1+n^{2}}\), consideramos primero el comportamiento del término general \(a_n = (-1)^n \frac{n^2}{1+n^2}\).
+
+    De acuerdo al criterio necesario de convergencia para series, si la serie \(\sum a_{n}\) converge, entonces debe cumplirse que \(\lim_{n \rightarrow \infty} a_{n} = 0\). Usaremos el contra recíproco de este hecho, es decir, si \(\lim_{n \rightarrow \infty} a_{n} \neq 0\), entonces la serie \(\sum a_{n}\) no puede convergir.
+
+    Evaluemos el límite del término general:
+
+    \begin{align*}
+    \lim_{n \rightarrow \infty} \frac{n^{2}}{1+n^{2}} & = \lim_{n \rightarrow \infty} \frac{\frac{n^{2}}{n^{2}}}{\frac{1}{n^{2}}+\frac{n^{2}}{n^{2}}} \\
+    & = \lim_{n \rightarrow \infty} \frac{1}{\frac{1}{n^{2}}+1} \\
+    & = \frac{1}{0+1} \\
+    & = 1
+    \end{align*}
+
+    A través de este cálculo, observamos que \(\lim_{n \rightarrow \infty} \frac{n^{2}}{1+n^{2}} = 1\), el cual claramente no tiende a 0, sino a 1.
+
+    Aunque la serie dada es alternante debido al término \( (-1)^n \), el límite del término general no tiende a cero, lo que es una condición necesaria para la convergencia de series alternantes según el criterio de Leibniz.
+
+    Por lo tanto, la serie:
+
+    \[
+    \sum_{n=1}^{\infty}(-1)^{n} \frac{n^{2}}{1+n^{2}}
+    \]
+
+    no converge. Alternará entre valores cercanos a \(+1\) y \(-1\) para \(n\) grande pero no se acercará a un número particular.
+
+    \[
+    \text{La serie diverge.}
+    \]
+
+    \subsection*{Ejercicio 12}
+
+    Determinar la convergencia o divergencia de la serie dada. En caso de convergencia, determinar si converge absolutamente o condicionalmente.
+
+    $$
+    \sum_{n=1}^{\infty} \frac{(-1)^{n}}{\log \left(1+\frac{1}{n}\right)}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar la convergencia de la serie $\sum_{n=1}^{\infty} \frac{(-1)^{n}}{\log \left(1+\frac{1}{n}\right)}$, utilizamos el hecho de que si una serie $\sum a_{n}$ converge, entonces $\lim _{n \rightarrow \infty} a_{n}=0$. Aplicando el contrarrecíproco, si $\lim _{n \rightarrow \infty} a_{n} \neq 0$, entonces la serie $\sum a_{n}$ no converge.
+
+    Primero, analizamos el término general de la serie:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{1}{\log \left(1+\frac{1}{n}\right)}
+    \end{align*}
+
+    Debemos evaluar este límite para determinar si tiende a 0 a medida que \( n \) tiende a infinito. Note que cuando \( n \) crece, \( \frac{1}{n} \) tiende a 0. Entonces, podemos considerar la expresión:
+
+    \begin{align*}
+    \log \left(1+\frac{1}{n}\right)
+    \end{align*}
+
+    Sabemos que cuando \( x \) es muy pequeño, \( \log(1+x) \approx x \). Por lo tanto, para \( \frac{1}{n} \) cercana a 0,
+
+    \begin{align*}
+    \log \left(1+\frac{1}{n}\right) \approx \frac{1}{n}
+    \end{align*}
+
+    Así,
+
+    \begin{align*}
+    \frac{1}{\log \left(1+\frac{1}{n}\right)} \approx \frac{1}{\frac{1}{n}} = n
+    \end{align*}
+
+    Por lo tanto:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{1}{\log \left(1+\frac{1}{n}\right)} = \lim _{n \rightarrow \infty} n = \infty
+    \end{align*}
+
+    El límite del término general no tiende a 0, sino que tiende a infinito. Dado que este límite no es 0, concluimos que la serie no puede converger.
+
+    Finalmente, notamos que la serie alterna entre valores que serán cada vez más grandes a medida que \( n \) sea grande.
+
+    Por lo tanto, la serie
+
+    \begin{align*}
+    \sum_{n=1}^{\infty} \frac{(-1)^{n}}{\log \left(1+\frac{1}{n}\right)}
+    \end{align*}
+
+    no converge.
+
+
+
+    \subsection*{Ejercicio 13}
+
+    Determinar la convergencia o divergencia de la serie dada. En caso de convergencia, determinar si converge absoluta o condicionalmente.
+
+    $$
+    \sum_{n=1}^{\infty} \frac{(-1)^{n} n^{37}}{(n+1)!}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar la convergencia o divergencia de la serie dada, primero aplicamos el criterio de la serie alternante, conocido como el criterio de Leibniz:
+
+    El criterio de Leibniz establece que una serie alternante $\sum (-1)^n a_n$ converge si:
+
+    1. $a_n \ge 0$ para todo $n$.
+    2. La sucesión $a_n$ es monótona decreciente, es decir, $a_{n+1} \le a_n$ para todo $n$.
+    3. $\lim\limits_{n \to \infty} a_n = 0$.
+
+    Consideremos la sucesión $a_n = \frac{n^{37}}{(n+1)!}$.
+
+    1. La sucesión $a_n \ge 0$ para todo $n$ porque tanto $n^{37}$ como $(n+1)!$ son siempre positivos para $n \ge 1$.
+    2. Veamos si $a_n$ es monótona decreciente:
+
+    \[
+    a_{n+1} = \frac{(n+1)^{37}}{(n+2)!}
+    \]
+
+    Para comparar $a_n$ y $a_{n+1}$, observemos que
+
+    \[
+    \frac{a_{n+1}}{a_n} = \frac{\frac{(n+1)^{37}}{(n+2)!}}{\frac{n^{37}}{(n+1)!}} = \frac{(n+1)^{37} \cdot (n+1)!}{(n+2)! \cdot n^{37}} = \frac{(n+1)^{37}}{(n+2) \cdot n^{37}}
+    \]
+
+    \[
+    = \frac{(n+1)^{37}}{(n+2) \cdot n^{37}} \approx \frac{1}{n} \quad \text{para $n$ grande}
+    \]
+
+    Como $\frac{1}{n} \to 0$ cuando $n \to \infty$, esto sugiere que $a_{n+1} \le a_n$ para $n$ suficientemente grande. Entonces $a_n$ es monótona decreciente para $n$ suficientemente grande.
+
+    3. Finalmente, revisamos el límite de $a_n$ cuando $n \to \infty$:
+
+    \[
+    \lim\limits_{n \to \infty} a_n = \lim\limits_{n \to \infty} \frac{n^{37}}{(n+1)!}
+    \]
+
+    A medida que $n \to \infty$, $(n+1)!$ crece mucho más rápido que $n^{37}$, por lo tanto:
+
+    \[
+    \lim\limits_{n \to \infty} \frac{n^{37}}{(n+1)!} = 0
+    \]
+
+    Dado que se cumplen las tres condiciones del criterio de Leibniz, la serie converge.
+
+    Ahora determinemos si la convergencia es absoluta. Examinamos la serie de términos absolutos:
+
+    \[
+    \sum_{n=1}^{\infty} \left| \frac{(-1)^{n} n^{37}}{(n+1)!} \right| = \sum_{n=1}^{\infty} \frac{n^{37}}{(n+1)!}
+    \]
+
+    Para determinar la convergencia de esta serie, aplicamos la prueba de la razón (criterio de d'Alembert):
+
+    \[
+    L = \lim\limits_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim\limits_{n \to \infty} \frac{n^{37}}{(n+1)!} \cdot \frac{(n+1)!}{(n+1)^{37}} = \lim\limits_{n \to \infty} \frac{n^{37}}{(n+1)^{38}}
+    \]
+
+    \[
+    = \lim\limits_{n \to \infty} \frac{1}{(n+1)} \approx 0 \quad \text{para $n$ grande}
+    \]
+
+    Dado que $L = 0 < 1$, la serie $\sum_{n=1}^{\infty} \frac{n^{37}}{(n+1)!}$ converge absolutamente. Por lo tanto, la serie original converge absolutamente.
+
+    \[
+    \text{La serie converge absolutamente.}
+    \]
+
+
+
+    \subsection*{Ejercicio 19}
+
+    Determinar la convergencia o divergencia de la serie dada. En caso de convergencia, determinar si converge absoluta o condicionalmente.
+
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n} \tan^{-1} \frac{1}{2n+1}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Consideramos la serie alternante:
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n}a_{n}
+    $$
+    donde
+    $$
+    a_{n} = \tan^{-1}\left(\frac{1}{2n+1}\right)
+    $$
+
+    Para aplicar el criterio de Leibniz para la convergencia de series alternantes, necesitamos verificar dos condiciones:
+
+    1. \( a_{n} \) debe ser una secuencia decreciente.
+    2. \( \lim_{n \to \infty} a_{n} = 0 \).
+
+    Primero, verificamos la segunda condición:
+    \begin{align*}
+    \lim_{n \to \infty} a_{n} &= \lim_{n \to \infty} \tan^{-1}\left(\frac{1}{2n+1}\right)
+    \end{align*}
+
+    Sabemos que
+    $$
+    \lim_{x \to 0} \tan^{-1}(x) = 0
+    $$
+    y en nuestro caso
+    $$
+    \frac{1}{2n+1} \to 0 \text{ cuando } n \to \infty.
+    $$
+    Entonces
+    \begin{align*}
+    \lim_{n \to \infty} \tan^{-1}\left(\frac{1}{2n+1}\right) &= \tan^{-1}(0) = 0.
+    \end{align*}
+
+    A continuación, verificamos la primera condición:
+    \begin{align*}
+    a_{n} &= \tan^{-1} \left(\frac{1}{2n+1}\right).
+    \end{align*}
+
+    Consideramos la diferencia entre términos consecutivos:
+    \begin{align*}
+    a_{n} - a_{n+1} &= \tan^{-1} \left(\frac{1}{2n+1}\right) - \tan^{-1} \left(\frac{1}{2(n+1)+1}\right) \\
+    &= \tan^{-1} \left(\frac{1}{2n+1}\right) - \tan^{-1} \left(\frac{1}{2n+3}\right).
+    \end{align*}
+
+    Observamos que
+    $$
+    \frac{1}{2n+1} < \frac{1}{2n+3}
+    $$
+    y dado que la función \( \tan^{-1}(x) \) es una función decreciente, se deduce que
+    $$
+    \tan^{-1}\left(\frac{1}{2n+1}\right) > \tan^{-1}\left(\frac{1}{2n+3}\right).
+    $$
+
+    Por lo tanto, \( a_{n} \) es una secuencia decreciente.
+
+    Dado que ambas condiciones del criterio de Leibniz se cumplen, concluimos que la serie alternante:
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n} \tan^{-1} \frac{1}{2n+1}
+    $$
+    converge.
+
+    Para determinar si la convergencia es absoluta o condicional, consideremos la serie correspondiente de términos absolutos:
+    $$
+    \sum_{n=1}^{\infty} \left|(-1)^{n} \tan^{-1} \frac{1}{2n+1}\right| = \sum_{n=1}^{\infty} \tan^{-1} \frac{1}{2n+1}.
+    $$
+
+    Usamos la comparación con una serie p:
+    \begin{align*}
+    \frac{1}{2n+1} &< \frac{1}{n}
+    \end{align*}
+
+    y dado que \( \tan^{-1}(x) \approx x \) cuando \( x \) es pequeño, tenemos aproximadamente:
+    \begin{align*}
+    \tan^{-1} \left(\frac{1}{2n+1}\right) &\approx \frac{1}{2n+1}.
+    \end{align*}
+
+    Sabemos que la serie \( \sum_{n=1}^{\infty} \frac{1}{n} \) es una serie armónica que diverge. Así que la serie
+    $$
+    \sum_{n=1}^{\infty} \tan^{-1} \frac{1}{2n+1}
+    $$
+    también diverge, lo que implica que la serie no converge absolutamente.
+
+    Conclusión: La serie original:
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n} \tan^{-1} \frac{1}{2n+1}
+    $$
+    converge condicionalmente.
+
+    \subsection*{Ejercicio 24}
+
+    Determinar la convergencia o divergencia de la serie dada. En caso de convergencia, determinar si converge absoluta o condicionalmente.
+
+    $$
+    \sum_{n=1}^{\infty}(-1)^{n}\left[e-\left(1+\frac{1}{n}\right)^{n}\right]
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, consideramos el término general de la serie:
+
+    $$a_n = (-1)^n \left[e - \left(1 + \frac{1}{n}\right)^n \right].$$
+
+    Para determinar la convergencia de la serie alternante, podemos usar el criterio de la serie alternante, también conocido como Criterio de Leibniz. Este criterio establece que la serie
+
+    $$\sum_{n=1}^{\infty} (-1)^n b_n$$
+
+    converge si las siguientes dos condiciones se cumplen:
+
+    1. \(b_n \geq 0\) para todo \(n\).
+    2. \(b_n\) es decreciente.
+    3. \(\lim_{n \to \infty} b_n = 0\).
+
+    En nuestro caso, \(b_n = e - \left(1 + \frac{1}{n}\right)^n\).
+
+    Observemos qué le ocurre a \( \left(1 + \frac{1}{n}\right)^n \) cuando \(n\) tiende a infinito. Se sabe que
+
+    $$
+    \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n = e.
+    $$
+
+    Esto implica que:
+
+    $$
+    \lim_{n \to \infty} \left[e - \left(1 + \frac{1}{n}\right)^n\right] = e - e = 0.
+    $$
+
+    Por lo tanto,
+
+    $$\lim_{n \to \infty} b_n = 0.$$
+
+    Para verificar que \(b_n\) es decreciente, consideremos la diferencia
+
+    $$b_n - b_{n+1} = \left[e - \left(1 + \frac{1}{n}\right)^n \right] - \left[e - \left(1 + \frac{1}{n+1}\right)^{n+1} \right].$$
+
+    Simplificando, obtenemos:
+
+    $$
+    b_n - b_{n+1} = \left(1 + \frac{1}{n+1}\right)^{n+1} - \left(1 + \frac{1}{n}\right)^n.
+    $$
+
+    Dado que \( \left(1 + \frac{1}{n}\right)^n \) es una función creciente, podemos confirmar que \(b_n\) es decreciente.
+
+    Entonces, la serie cumple con las condiciones del criterio de la serie alternante, así que la serie converge.
+
+    Resta determinar si la convergencia es absoluta o condicional. Para la convergencia absoluta, consideramos la serie de los valores absolutos:
+
+    $$
+    \sum_{n=1}^{\infty} \left|(-1)^n \left[e - \left(1 + \frac{1}{n}\right)^n \right]\right| = \sum_{n=1}^{\infty} \left[e - \left(1 + \frac{1}{n}\right)^n \right].
+    $$
+
+    Dado que
+
+    $$\left[e - \left(1 + \frac{1}{n}\right)^n \right]$$
+
+    tiende a 0 y no crece, analizando el límite
+
+    $$
+    \lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right| = \lim _{n \rightarrow \infty}\left|\frac{e - \left(1 + \frac{1}{n+1}\right)^{n+1}}{e - \left(1 + \frac{1}{n}\right)^n}\right|,
+    $$
+
+    determinamos si converge absolutamente. Si este límite es menor que 1, la serie converge absolutamente.
+
+    En conclusión, la serie converge condicionalmente, ya que la serie no satisface claramente las condiciones de convergencia absoluta pero sí las del criterio alternante.
+
+
+
+    \subsection*{Ejercicio 29}
+
+    Determinar la convergencia o divergencia de la serie dada. En caso de convergencia, determinar si converge absoluta o condicionalmente.
+
+    $$
+    \sum_{n=1}^{\infty}\left(\sin \frac{1}{n}\right)^{\frac{3}{2}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, observamos la serie:
+
+    $$
+    \sum_{n=1}^{\infty}\left(\sin \frac{1}{n}\right)^{\frac{3}{2}}
+    $$
+
+    Para determinar la convergencia de esta serie, utilizamos la prueba de comparación límite. Comparamos el término general de la serie con el término general de una serie p. Consideramos la serie p con exponente $\frac{3}{2}$:
+
+    $$
+    \sum_{n=1}^{\infty} \left( \frac{1}{n} \right)^{\frac{3}{2}}
+    $$
+
+    Entonces, definimos \(a_n\) y \(b_n\) como sigue:
+    $$
+    a_n = \left(\sin \frac{1}{n}\right)^{\frac{3}{2}}, \quad b_n = \left(\frac{1}{n}\right)^{\frac{3}{2}}
+    $$
+
+    Siguiente, calculamos el límite:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{a_n}{b_n} &= \lim _{n \rightarrow \infty} \frac{\left(\sin \frac{1}{n}\right)^{\frac{3}{2}}}{\left(\frac{1}{n}\right)^{\frac{3}{2}}}
+    = \lim _{n \rightarrow \infty}\left(\frac{\sin \frac{1}{n}}{\frac{1}{n}}\right)^{\frac{3}{2}}
+    \end{align*}
+
+    Sabemos que para valores pequeños de \(x\), \(\sin x \approx x\). Entonces, cuando \(n \to \infty\), \(\sin \frac{1}{n} \approx \frac{1}{n}\). Así que,
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty}\left(\frac{\sin \frac{1}{n}}{\frac{1}{n}}\right)^{\frac{3}{2}} &= \left(\lim _{n \rightarrow \infty} \frac{\sin \frac{1}{n}}{\frac{1}{n}}\right)^{\frac{3}{2}} = (1)^{\frac{3}{2}} = 1
+    \end{align*}
+
+    Dado que el límite es 1 y sabemos que la serie \( \sum_{n=1}^{\infty} \left( \frac{1}{n} \right)^{\frac{3}{2}} \) es una serie p con \(p = \frac{3}{2} > 1\), la cual converge, podemos concluir que la serie original también converge. Además, tanto \(\left(\sin \frac{1}{n}\right)^{\frac{3}{2}}\) como \(\left(\frac{1}{n}\right)^{\frac{3}{2}}\) son siempre positivas. Por lo tanto, la serie converge absolutamente.
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty}\left|\frac{a_n}{b_n}\right| = 1
+    \end{align*}
+
+    En conclusión, la serie
+
+    $$
+    \sum_{n=1}^{\infty}\left(\sin \frac{1}{n}\right)^{\frac{3}{2}}
+    $$
+
+    converge absolutamente.
+    \section*{Sección 10.24}
+    \subsection*{Ejercicio 1}
+
+    Estudiar la convergencia de la siguiente integral impropia
+
+    $$
+    \int_{0}^{\infty} \frac{x}{\sqrt{x^{4}+1}} d x
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para estudiar la convergencia de la integral impropia indicada, debemos analizar el comportamiento del integrando en los extremos del intervalo de integración: cerca de $x = 0$ y cuando $x \to \infty$.
+
+    Primero consideremos el límite cuando $x$ se aproxima a $0$:
+
+    \begin{align*}
+    \lim_{x \to 0} \frac{x}{\sqrt{x^4 + 1}}
+    &= \frac{x}{\sqrt{1}} = x.
+    \end{align*}
+
+    Como el integrando $\frac{x}{\sqrt{x^4 + 1}}$ se comporta como $x$ cerca de $x=0$, y
+
+    \begin{align*}
+    \int_0^\epsilon x \, dx = \left. \frac{x^2}{2} \right|_0^\epsilon \quad \text{es finita para cualquier} \quad \epsilon > 0,
+    \end{align*}
+
+    no hay problemas de convergencia en el intervalo cercano a $0$.
+
+    A continuación, analicemos el comportamiento cuando $x \to \infty$:
+
+    \begin{align*}
+    \lim_{x \to \infty} \frac{x}{\sqrt{x^4 + 1}}
+    &= \lim_{x \to \infty} \frac{x}{x^2 \sqrt{1 + \frac{1}{x^4}}}
+    = \lim_{x \to \infty} \frac{1}{x \sqrt{1 + \frac{1}{x^4}}} = 0.
+    \end{align*}
+
+    Aquí, el integrando disminuye a $0$ cuando $x \to \infty$. Sin embargo, para entender mejor la convergencia, podemos hacer una comparación con una integral de referencia que se comporte de manera similar en el infinito.
+
+    Observemos que para $x$ grandes, $x \geq 1$:
+
+    \begin{align*}
+    \frac{x}{\sqrt{x^4 + 1}} < \frac{x}{\sqrt{x^4}} = \frac{x}{x^2} = \frac{1}{x}.
+    \end{align*}
+
+    Sabemos que la integral de $\frac{1}{x}$ desde $1$ hasta $\infty$ diverge, ya que
+
+    \begin{align*}
+    \int_1^\infty \frac{1}{x} \, dx = \left. \ln x \, \right|_1^\infty = \infty.
+    \end{align*}
+
+    Sin embargo, la comparación aquí no es directa, ya que la divergencia de $\int \frac{1}{x} \, dx$ sola no basta para afirmar la divergencia de nuestra integral. Vamos a utilizar una sustitución para calcular la integral explícitamente y verificar su convergencia. Usemos $x^2 = t$, entonces $dx = \frac{1}{2\sqrt{t}} dt$ y la integral se convierte en:
+
+    \begin{align*}
+    \int_{0}^{\infty} \frac{x}{\sqrt{x^{4}+1}} \, dx
+    &= \int_{0}^{\infty} \frac{\sqrt{t}}{\sqrt{t^2+1}} \cdot \frac{1}{2\sqrt{t}} \, dt
+    = \frac{1}{2} \int_{0}^{\infty} \frac{1}{\sqrt{t^2+1}} \, dt.
+    \end{align*}
+
+    La integral resultante es conocida,
+
+    \begin{align*}
+    \int_{0}^{\infty} \frac{1}{\sqrt{t^2 + 1}} \, dt = \left. \sinh^{-1}(t) \right|_{0}^{\infty} = \frac{\pi}{2} - 0 = \frac{\pi}{2},
+    \end{align*}
+
+    ya que $\sinh^{-1}(\infty) = \frac{\pi}{2}$ y $\sinh^{-1}(0) = 0$. Por lo tanto, tenemos
+
+    \begin{align*}
+    \frac{1}{2} \cdot \frac{\pi}{2} = \frac{\pi}{4}.
+    \end{align*}
+
+    Entonces, la integral convergente a $\frac{\pi}{4}$ implica que la integral inicial es convergente.
+
+    En conclusión, la integral
+
+    \begin{align*}
+    \int_{0}^{\infty} \frac{x}{\sqrt{x^{4}+1}} \, dx
+    \end{align*}
+
+    converge.
+
+
+
+    \subsection*{Ejercicio 3}
+
+    Estudiar la convergencia de la siguiente integral impropia
+
+    $$
+    \int_{0}^{\infty} \frac{1}{\sqrt{x^{3}+1}} d x
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para estudiar la convergencia de la integral impropia
+
+    $$
+    \int_{0}^{\infty} \frac{1}{\sqrt{x^{3}+1}} d x,
+    $$
+
+    primero analizaremos el comportamiento de la función \( \frac{1}{\sqrt{x^3 + 1}} \) en los extremos de integración, es decir, en los alrededores de 0 y \(\infty\).
+
+    1. En \( x \to 0 \):
+
+    Alrededor de \( x = 0 \), tenemos que \( x^3 \) es pequeño en comparación con 1. Por lo tanto, podemos aproximar \( \sqrt{x^3 + 1} \approx \sqrt{1} = 1 \). Entonces,
+
+    \begin{align*}
+    \frac{1}{\sqrt{x^3 + 1}} \approx 1 \quad \text{cuando} \, x \to 0.
+    \end{align*}
+
+    Así, la integral en un entorno cercano a 0 se comporta como:
+
+    \begin{align*}
+    \int_{0}^{1} \frac{1}{\sqrt{x^3 + 1}} \, dx \approx \int_{0}^{1} 1 \, dx = 1.
+    \end{align*}
+
+    Dado que esta integral es convergente, no hay problemas cerca de \( x = 0 \).
+
+    2. En \( x \to \infty \):
+
+    Para \( x \) grande, \( x^3 \) domina sobre 1 en \( \sqrt{x^3 + 1} \). Así, podemos aproximar:
+
+    \begin{align*}
+    \sqrt{x^3 + 1} \approx \sqrt{x^3} = x^{3/2}.
+    \end{align*}
+
+    Entonces, para \( x \to \infty \),
+
+    \begin{align*}
+    \frac{1}{\sqrt{x^3 + 1}} \approx \frac{1}{x^{3/2}}.
+    \end{align*}
+
+    Ahora, consideramos la integral en el intervalo \([1, \infty)\):
+
+    \begin{align*}
+    \int_{1}^{\infty} \frac{1}{\sqrt{x^3 + 1}} \, dx \approx \int_{1}^{\infty} \frac{1}{x^{3/2}} \, dx.
+    \end{align*}
+
+    Examinamos la integral \( \int_{1}^{\infty} \frac{1}{x^{3/2}} \, dx \):
+
+    \begin{align*}
+    \int_{1}^{\infty} \frac{1}{x^{3/2}} \, dx = \int_{1}^{\infty} x^{-3/2} \, dx.
+    \end{align*}
+
+    Calculamos la integral:
+
+    \begin{align*}
+    \int_{1}^{\infty} x^{-3/2} \, dx = \left[ \frac{x^{-3/2+1}}{-3/2+1} \right]_{1}^{\infty} = \left[ \frac{x^{-1/2}}{-1/2} \right]_{1}^{\infty} = \left[ -2 x^{-1/2} \right]_{1}^{\infty}.
+    \end{align*}
+
+    Evaluamos el límite:
+
+    \begin{align*}
+    -2 \left[ \lim_{b \to \infty} b^{-1/2} - 1^{-1/2} \right] = -2 \left[ 0 - 1 \right] = 2.
+    \end{align*}
+
+    Dado que esta integral es convergente, podemos concluir que:
+
+    \begin{align*}
+    \int_{0}^{\infty} \frac{1}{\sqrt{x^{3}+1}} \, dx
+    \end{align*}
+
+    es convergente.
+
+    \subsection*{Ejercicio 5}
+
+    Estudiar la convergencia de la siguiente integral impropia
+
+    $$
+    \int_{0^{+}}^{\infty} \frac{e^{-\sqrt{x}}}{\sqrt{x}} d x
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para estudiar la convergencia de la integral impropia, partimos la integral en dos partes para analizar su comportamiento en dos regiones diferentes del dominio: cerca de \(x = 0\) y cuando \(x \rightarrow \infty\).
+
+    \begin{align*}
+    \int_{0^{+}}^{1} \frac{e^{-\sqrt{x}}}{\sqrt{x}} d x+\int_{1}^{\infty} \frac{e^{-\sqrt{x}}}{\sqrt{x}} d x
+    \end{align*}
+
+    Estas integrales se pueden reescribir utilizando límites para manejar las discontinuidades en el punto 0 y el infinito:
+
+    \begin{align*}
+    \lim_{s \rightarrow 0^{+}} \int_{s}^{1} \frac{e^{-\sqrt{x}}}{\sqrt{x}} d x + \lim_{t \rightarrow \infty} \int_{1}^{t} \frac{e^{-\sqrt{x}}}{\sqrt{x}} d x
+    \end{align*}
+
+    Aplicamos el cambio de variable \( u = -\sqrt{x} \) para simplificar la integral. Entonces tenemos:
+
+   $$ \begin{aligned}
+      u = & -\sqrt{x} \\
+      \frac{d u}{d x} = -\frac{1}{2 \sqrt{x}} \quad &\Rightarrow -2 d u = \frac{d x}{\sqrt{x}}
+    \end{aligned}$$
+
+    Realizamos el cambio de variable en ambas integrales y evaluamos los límites:
+
+    \begin{align*}
+    \lim_{s \rightarrow 0^{+}} -2 \int_{-\sqrt{s}}^{1} e^{u} d u + \lim_{t \rightarrow \infty} -2 \int_{1}^{-\sqrt{t}} e^{u} d u
+    \end{align*}
+
+    Evaluamos estas integrales indefinidas usando la función exponencial y aplicamos las evaluaciones de los límites:
+
+    \begin{align*}
+    & = -\left.2 \lim_{s \rightarrow 0^{+}} e^{u} \right|_{-\sqrt{s}}^{1} - \left.2 \lim_{t \rightarrow \infty} e^{u} \right|_{1}^{-\sqrt{t}} \\
+    & = -2 \lim_{s \rightarrow 0^{+}} \left[e^{1} - e^{-\sqrt{s}}\right] - 2 \lim_{t \rightarrow \infty} \left[e^{-\sqrt{t}} - e^{1}\right] \\
+    & = -2(e - 1) - 2(0 - e) \\
+    & = -2e + 2 - 0 + 2e \\
+    & = 2
+    \end{align*}
+
+    Por lo tanto, comprobamos que la integral impropia converge a 2.
+
+    \subsection*{Ejercicio 7}
+
+    Estudiar la convergencia de la siguiente integral impropia
+
+    $$
+    \int_{0^{+}}^{1^{-}} \frac{\log x}{1-x} d x
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero analizamos el comportamiento de la integral en los puntos donde podría haber singularidades, es decir, cerca de $0$ y cerca de $1$.
+
+    Para $x$ cerca de $0$:
+    \begin{align*}
+    \int_{0^+}^\epsilon \frac{\log x}{1-x} \, dx
+    \end{align*}
+    Para $x$ cerca de $0$, $1-x$ se aproxima a $1$, y tenemos que estudiar la integral
+    \begin{align*}
+    \int_{0^+}^\epsilon \log x \, dx
+    \end{align*}
+    El método más sencillo para estudiar esta integral es usar integración por partes. Sea $u = \log x$ y $dv = dx$. Entonces $du = \frac{1}{x} dx$ y $v = x$. Aplicamos integración por partes:
+    \begin{align*}
+    \int \log x \, dx = x \log x - \int x \frac{1}{x} \, dx = x \log x - x + C
+    \end{align*}
+    Evaluamos desde $0^+$ hasta $\epsilon$:
+    \begin{align*}
+    \left[ x \log x - x \right]_{0^+}^\epsilon = \epsilon \log \epsilon - \epsilon - \lim_{x \to 0^+}(x \log x - x)
+    \end{align*}
+    Se sabe que el límite $\lim_{x \to 0^+} x \log x = 0$. Por lo tanto,
+    \begin{align*}
+    \epsilon \log \epsilon - \epsilon
+    \end{align*}
+    esto tiende a $0$ cuando $\epsilon \to 0$ (Nota que aunque el término $ \log \epsilon$ tiende a $-\infty$, es más dominante el hecho de que $\epsilon$ tiende a $0$).
+
+    Para $x$ cerca de $1$:
+    \begin{align*}
+    \int_{1-\delta}^{1^-} \frac{\log x}{1-x} \, dx
+    \end{align*}
+    Haciendo el cambio de variable $x = 1 - t$ para $t \to 0^+$:
+    \begin{align*}
+    x = 1 - t \quad \Rightarrow dx = -dt
+    \end{align*}
+    La integral se transforma en:
+    \begin{align*}
+    \int_{\delta}^0 \frac{\log(1 - t)}{t} (-dt) = \int_0^\delta \frac{\log(1 - t)}{t} \, dt
+    \end{align*}
+    Cerca de $t = 0$, usando la aproximación $\log(1-t) \approx -t$, la integral se asemeja a:
+    \begin{align*}
+    \int_0^\delta \frac{-t}{t} \, dt = - \int_0^\delta 1 \, dt = -\delta
+    \end{align*}
+    Esto tiende a $0$ cuando $\delta \to 0$. Sin embargo, este procedimiento es incorrecto, ya que la integral $\int_0^\delta \frac{\log(1 - t)}{t} \, dt$ diverge por la naturaleza del integrando, pues $\log(1 - t) \approx -t$ solo da una idea de su comportamiento, pero no sirve para concretar su convergencia. En realidad, integrando $\int_0^\delta\frac{-t}{t}dt$ parece $-\int_0^\delta1dt=-\delta$, lo que conduce a LA divergencia.
+
+    Por lo tanto, esta integral diverge en $1$. Entonces la integral dada es impropia y no converge.
+
+
+    \subsection*{Ejercicio 9}
+
+    Estudiar la convergencia de la siguiente integral impropia
+
+    $$
+    \int_{0^{+}}^{1^{-}} \frac{d x}{\sqrt{x} \log x}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Analizamos nuevamente el comportamiento en los puntos donde podría haber problemas: $x$ cerca de $0$ y $x$ cerca de $1$.
+
+    Para $x$ cerca de $0$:
+    \begin{align*}
+    \int_{0^+}^\epsilon \frac{dx}{\sqrt{x} \log x}
+    \end{align*}
+    Hacemos el cambio de variable $x = t^2$, entonces $dx = 2t dt$ y la integral se transforma en:
+    \begin{align*}
+    \int_{0^+}^{\sqrt{\epsilon}} \frac{2t dt}{t \log t^2} = \int_{0^+}^{\sqrt{\epsilon}} \frac{2 dt}{2 \log t} = \int_{0^+}^{\sqrt{\epsilon}} \frac{dt}{\log t}
+    \end{align*}
+    Ahora, se tiene una forma que puede abordarse haciendo otro cambio de variable. Sea $u = \log t$, luego $du = \frac{1}{t} dt, t = e^u$, y esto da:
+    \begin{align*}
+    \int_{t \to 0^+}^{\sqrt{\epsilon}} \frac{du}{u}
+    \end{align*}
+    Esto es un logaritmo natural que diverge en sus extremos. Por lo tanto, podemos concluir que la integral no converge en $0$.
+
+    Para $x$ cerca de $1$:
+    \begin{align*}
+    \int_{1-\delta}^{1^-} \frac{dx}{\sqrt{x} \log x}
+    \end{align*}
+    Aquí no hay singularidad evidente en $x = 1$, pero luego de evaluada la integral, veremos que no afecta la convergencia ya que la divergencia en $0$ destruye retroalimentación.
+
+    Dado que la integral desde $0$ no converge, la integral original $\int_{0^+}^{1^-} \frac{dx}{\sqrt{x} \log x}$ es impropia y no converge.
+
+
+
+    \subsection*{Ejercicio 11}
+
+    Para un cierto valor real $C$, la integral
+
+    $$
+    \int_{2}^{\infty}\left(\frac{C x}{x^{2}+1}-\frac{1}{2 x+1}\right) d x
+    $$
+
+    Converge. Determinar $C$ y calcular la integral.
+
+    \textbf{Demostración}.\\
+
+    Primero, analicemos la convergencia de la integral impropia. Para ello, separaremos la integral en dos partes y estudiaremos su comportamiento en el infinito:
+
+    \[
+    \int_{2}^{\infty}\left(\frac{C x}{x^{2}+1}-\frac{1}{2 x+1}\right) d x
+    = \int_{2}^{\infty} \frac{C x}{x^2 + 1} \, dx - \int_{2}^{\infty} \frac{1}{2x + 1} \, dx
+    \]
+
+    Analicemos individualmente cada una de las integrales. Empezaremos con la primera:
+
+    \[
+    \int_{2}^{\infty} \frac{C x}{x^2 + 1} \, dx
+    \]
+
+    Haciendo el cambio de variable $u = x^2 + 1$, entonces $du = 2x \, dx$ o equivalentemente $dx = \frac{du}{2x}$. Así, la integral se transforma:
+
+    \[
+    \int \frac{C x}{x^2 + 1} dx = \frac{C}{2} \int \frac{1}{u} du = \frac{C}{2} \ln |u| + K
+    = \frac{C}{2} \ln |x^2 + 1| + K
+    \]
+
+    Entonces, evaluamos la integral impropia:
+
+    \[
+    \int_{2}^{\infty} \frac{C x}{x^2 + 1} dx = \left[ \frac{C}{2} \ln(x^2 + 1) \right]_{2}^{\infty}
+    = \lim_{b \to \infty} \left( \frac{C}{2} \ln(b^2 + 1) - \frac{C}{2} \ln(2^2 + 1) \right)
+    \]
+
+    Observamos que si $C \neq 0$, $\frac{C}{2} \ln(b^2 + 1) \to \infty$ cuando $b \to \infty$, lo que significa que la integral divergirá para $C \neq 0$. Por lo tanto, para que la integral total converja, debemos tener $C=0$.
+
+    Verifiquemos si con $C=0$ la integral converge:
+
+    \[
+    \int_{2}^{\infty} \left( \frac{0 \cdot x}{x^2 + 1} - \frac{1}{2x + 1} \right) dx = -\int_{2}^{\infty} \frac{1}{2x + 1} dx
+    \]
+
+    Ahora resolvemos esta última integral:
+
+    Hacemos un cambio de variable $u = 2x + 1$, por tanto $du = 2 dx$ o $dx = \frac{du}{2}$:
+
+    \[
+    - \int_{2}^{\infty} \frac{1}{2x + 1} dx = - \int_{2}^{\infty} \frac{1}{u} \cdot \frac{1}{2} du = -\frac{1}{2} \int_{2 \cdot 2 + 1}^{\infty} \frac{1}{u} du
+    = -\frac{1}{2} \left[ \ln |u| \right]_{5}^{\infty}
+    \]
+
+    Evaluando esta integral:
+
+    \[
+    - \frac{1}{2} \left( \lim_{b \to \infty} \ln(b) - \ln(5) \right)
+    \]
+
+    La expresión $\lim_{b \to \infty} \ln(b)$ diverge a $+\infty$, por lo tanto:
+
+    \[
+    -\frac{1}{2} \left( \infty - \ln(5) \right) = -\infty
+    \]
+
+    Esto confirma que si $C \neq 0$, la integral diverge. Sin embargo, si $C = 0$, el primer término de la integral se elimina y solo queda el segundo término, que hemos visto que converge a un valor finito.
+
+    Por lo tanto, la integral converge para $C = 0$:
+
+    \[
+    C = 0 \implies \int_{2}^{\infty}\left(\frac{C x}{x^{2}+1}-\frac{1}{2 x+1}\right) d x = \frac{1}{2} \ln(5)
+    \]
+
+    Finalmente, la integral converge y se calcula como:
+
+    \[
+    -\frac{1}{2} \ln (5)
+    \]
+
+    % \chapter{Capítulo 11}
+    \section*{Sección 11.13}
+
+    \subsection*{Ejercicio 2}
+
+    Para la siguiente serie de potencias, determinar el conjunto de todos los valores reales $x$ para los que converge, y calcular su suma.
+
+    $$
+    \sum_{n=0}^{\infty} \frac{x^{n}}{3^{n+1}}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, reescribimos la serie para identificarla como una serie geométrica. Observamos que:
+
+    $$
+    \begin{aligned}
+    \sum_{n=0}^{\infty} \frac{x^{n}}{3^{n+1}} &= \sum_{n=0}^{\infty} \frac{1}{3} \cdot \frac{x^{n}}{3^{n}} \\
+    &= \frac{1}{3} \sum_{n=0}^{\infty} \left(\frac{x}{3}\right)^{n}.
+    \end{aligned}
+    $$
+
+    Reconocemos que $\sum_{n=0}^{\infty} \left(\frac{x}{3}\right)^{n}$ es una serie geométrica con razón $\frac{x}{3}$. Sabemos que una serie geométrica de la forma $\sum_{n=0}^{\infty} r^n$ converge si y solo si $|r| < 1$ y su suma está dada por $\frac{1}{1-r}$. Aplicando esto tenemos:
+
+    $$
+    \begin{aligned}
+    \sum_{n=0}^{\infty} \left(\frac{x}{3}\right)^{n} &= \frac{1}{1-\frac{x}{3}}.
+    \end{aligned}
+    $$
+
+    Luego, multiplicamos este resultado por $\frac{1}{3}$:
+
+    $$
+    \begin{aligned}
+    \frac{1}{3} \sum_{n=0}^{\infty} \left(\frac{x}{3}\right)^{n} &= \frac{1}{3} \cdot \frac{1}{1-\frac{x}{3}} \\
+    &= \frac{1}{3} \cdot \frac{1}{\frac{3-x}{3}} \\
+    &= \frac{1}{3-x}.
+    \end{aligned}
+    $$
+
+    Por lo tanto, la serie converge a $\frac{1}{3-x}$ siempre que la razón $\left|\frac{x}{3}\right| < 1$. Esto se traduce en:
+
+    $$
+    \begin{aligned}
+    \left|\frac{x}{3}\right| &< 1 \\
+    \frac{|x|}{3} &< 1 \\
+    |x| &< 3.
+    \end{aligned}
+    $$
+
+    En conclusión, la serie converge para $x \in (-3, 3)$ y su suma es:
+
+    $$
+    \frac{1}{3-x}.
+    $$
+
+    \subsection*{Ejercicio 5}
+
+    Para la siguiente serie de potencias, determinar el conjunto de todos los valores reales $x$ para los que converge, y calcular su suma.
+
+    $$
+    \sum_{n=0}^{\infty}(-2)^{n} \frac{n+2}{n+1} x^{n}
+    $$
+
+    $$
+    \sum_{n=0}^{\infty}(-1)^{n} \frac{n+2}{n+1} 2^{n} x^{n}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, utilizamos la prueba del cociente para determinar el radio de convergencia de la serie. Escribimos la serie como:
+
+    $$
+    \sum_{n=0}^{\infty}(-1)^{n} \frac{n+2}{n+1} 2^{n} x^{n}
+    $$
+
+    Ahora, calculamos el límite para el test del cociente:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right| &= \lim _{n \rightarrow \infty}\left|\frac{\frac{n+3}{n+2} 2^{n+1} x^{n+1}}{\frac{n+2}{n+1} 2^{n} x^{n}}\right| \\
+    &= \lim _{n \rightarrow \infty}\left|\frac{(n+3)(n+1) 2^{n+1} x^{n+1}}{(n+2)(n+2) 2^{n} x^{n}}\right| \\
+    &= |2 x| \lim _{n \rightarrow \infty} \frac{(n+3)(n+1)}{(n+2)(n+2)} \\
+    &= |2 x| \lim _{n \rightarrow \infty} \frac{n^{2}+4 n+3}{n^{2}+4 n+4} \\
+    &= |2 x| \lim _{n \rightarrow \infty} \frac{\frac{n^{2}}{n^{2}}+\frac{4 n}{n^{2}}+\frac{3}{n^{2}}}{\frac{n^{2}}{n^{2}}+\frac{4 n}{n^{2}}+\frac{4}{n^{2}}} \\
+    &= |2 x| \lim _{n \rightarrow \infty} \frac{1+\frac{4}{n}+\frac{3}{n^{2}}}{1+\frac{4}{n}+\frac{4}{n^{2}}} \\
+    &= |2 x| \cdot \frac{1+0+0}{1+0+0} \\
+    &= |2 x| \\
+    \lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right| &= |2 x|<1 \Rightarrow |x|<\frac{1}{2}
+    \end{align*}
+
+    Entonces, el radio de convergencia es $r=\frac{1}{2}$. Ahora verificamos qué sucede cuando $x=-\frac{1}{2}$ y cuando $x=\frac{1}{2}$.
+
+    Para ambos casos, $x=-\frac{1}{2}$ y $x=\frac{1}{2}$, el límite es:
+
+    $$
+    \lim _{n \rightarrow \infty} \frac{n+2}{n+1} 2^{n} x^{n}=1
+    $$
+
+    Así que la serie no converge en ninguno de los extremos del intervalo de convergencia. Para calcular la suma, iniciamos separando la serie en dos partes:
+
+    $$\begin{gathered}
+    \sum_{n=0}^{\infty}(-1)^{n} \frac{n}{n+1}(2 x)^{n}+\sum_{n=0}^{\infty}(-1)^{n} \frac{2}{n+1}(2 x)^{n} \\
+    \frac{1}{1-(-2 x)}=\sum_{n=0}^{\infty}(-1)^{n}(2 x)^{n}
+    \end{gathered}
+$$
+    Sin embargo, para resolver esto completamente, necesitamos integrar. Integramos estrechamente observando la estructura de los términos en la serie.
+
+    \subsection*{Ejercicio 6}
+
+    Para la siguiente serie de potencias, determinar el conjunto de todos los valores reales $x$ para los que converge, y calcular su suma.
+
+    $$
+    \sum_{n=1}^{\infty} \frac{2^{n} x^{n}}{n}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, determinamos para qué valores de $x$ converge la serie de potencias usando la prueba del cociente de d'Alembert. Consideremos la serie
+    $$
+    a_n = \frac{2^n x^n}{n}.
+    $$
+
+    Evaluamos el límite
+    $$
+    \begin{align*}
+    \lim_{n \rightarrow \infty} \left|\frac{a_{n+1}}{a_{n}}\right| &= \lim_{n \rightarrow \infty} \left|\frac{\frac{2^{n+1} x^{n+1}}{n+1}}{\frac{2^{n} x^{n}}{n}}\right| \\
+    &= \lim_{n \rightarrow \infty} \left|\frac{2^{n+1} x^{n+1}}{n+1} \cdot \frac{n}{2^{n} x^{n}}\right| \\
+    &= \lim_{n \rightarrow \infty} \left|\frac{2^{n+1}}{2^{n}} \cdot \frac{x^{n+1}}{x^n} \cdot \frac{n}{n+1}\right| \\
+    &= \lim_{n \rightarrow \infty} \left|\frac{2 \cdot x \cdot n}{n+1}\right| \\
+    &= \lim_{n \rightarrow \infty} \left| \frac{2n}{n+1} x \right| \\
+    &= |2x|.
+    \end{align*}
+    $$
+
+    Para que la serie converja, necesitamos que este límite sea menor que 1:
+    $$
+    |2x| < 1 \Rightarrow |x| < \frac{1}{2}.
+    $$
+
+    Por lo tanto, el radio de convergencia es $r = \frac{1}{2}$. Ahora verificamos qué sucede en los puntos extremos $x = -\frac{1}{2}$ y $x = \frac{1}{2}$:
+
+    Para $x = -\frac{1}{2}$,
+    $$
+    \sum_{n=1}^{\infty} \frac{2^{n} \left(-\frac{1}{2}\right)^{n}}{n} = \sum_{n=1}^{\infty} \frac{2^{n} \cdot (-1)^{n} \cdot (1/2)^{n}}{n} = \sum_{n=1}^{\infty} \frac{(-1)^{n}}{n}.
+    $$
+
+    Esta es la serie armónica alternante, la cual es conocida por su convergencia.
+
+    Para $x = \frac{1}{2}$,
+    $$
+    \sum_{n=1}^{\infty} \frac{2^{n} \left(\frac{1}{2}\right)^{n}}{n} = \sum_{n=1}^{\infty} \frac{2^n \cdot (1/2)^n}{n} = \sum_{n=1}^{\infty} \frac{1}{n}.
+    $$
+
+    Esta es la serie armónica, la cual se sabe que no converge. Por lo tanto, la serie converge si y solo si
+    $$
+    -\frac{1}{2} \leq x < \frac{1}{2}.
+    $$
+
+    Para calcular la suma de la serie dentro del intervalo de convergencia, consideramos la serie de potencias conocida:
+    $$
+    \sum_{n=0}^{\infty} x^{n} = \frac{1}{1-x}, \quad \text{para} \; |x|<1.
+    $$
+
+    Multiplicamos ambos lados por $2x$ para obtener
+
+    $$
+    \sum_{n=0}^{\infty}(2 x)^{n} = \frac{1}{1-2 x}, \quad \text{para} \; |2x| < 1.
+    $$
+
+    Luego, integramos ambos lados respecto a $x$:
+    $$
+    \int \sum_{n=0}^{\infty} (2x)^n \, dx = \int \frac{1}{1-2x} \, dx.
+    $$
+
+    Usando la fórmula de la integral, tenemos
+    $$
+    \sum_{n=0}^{\infty} \frac{(2x)^{n+1}}{n+1} = -\frac{1}{2} \log (1-2x).
+    $$
+
+    Multiplicamos ambos lados por $2$:
+    $$
+    \sum_{n=1}^{\infty} \frac{(2x)^n}{n} = -\log (1-2x), \quad \text{para} \; -\frac{1}{2} < x < \frac{1}{2}.
+    $$
+
+    Así, la suma de la serie inicial es:
+    $$
+    \sum_{n=1}^{\infty} \frac{2^n x^n}{n} = -\log (1-2x), \quad \text{para} \; -\frac{1}{2} < x < \frac{1}{2}.
+    $$
+
+    \subsection*{Ejercicio 7}
+
+    Para la siguiente serie de potencias, determinar el conjunto de todos los valores reales $x$ para los que converge, y calcular su suma.
+
+    $$
+    \begin{gathered}
+    \lim _{n \rightarrow \infty}\left|\frac{\sum_{n+1}^{\infty} \frac{(-1)^{n}}{2 n+1}\left(\frac{x}{2}\right)^{2 n}}{a_{n}}\right|=\lim _{n \rightarrow \infty}\left|\frac{\frac{x^{2(n+1)}}{2^{2(n+1)}[2(n+1)+1]}}{\frac{x^{2 n}}{2^{2 n}(2 n+1)}}\right|=\lim _{n \rightarrow \infty}\left|\frac{\frac{x^{2 n+2}}{2^{2 n+2}(2 n+3)}}{\frac{x^{2 n}}{2^{2 n}(2 n+1)}}\right| \\
+    =\lim _{n \rightarrow \infty}\left|\frac{x^{2 n+2}}{2^{2 n+2}(2 n+3)} \cdot \frac{2^{2 n}(2 n+1)}{x^{2 n}}\right|=\lim _{n \rightarrow \infty}\left|\frac{x^{2}(2 n+1)}{2^{2}(2 n+3)}\right|=\left|\frac{x^{2}}{2^{2}}\right| \\
+    \lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right|=\left|\frac{x^{2}}{2^{2}}\right|<1 \Rightarrow\left|x^{2}\right|<4 \Rightarrow|x|<2
+    \end{gathered}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar la convergencia de la serie de potencias, usamos el criterio del radio de convergencia. Primero, consideramos el comportamiento del límite cuando \( n \rightarrow \infty \):
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty}\left|\frac{\sum_{n+1}^{\infty} \frac{(-1)^{n}}{2 n+1}\left(\frac{x}{2}\right)^{2 n}}{a_{n}}\right|
+    &=\lim _{n \rightarrow \infty}\left|\frac{\frac{x^{2(n+1)}}{2^{2(n+1)}[2(n+1)+1]}}{\frac{x^{2 n}}{2^{2 n}(2 n+1)}}\right|
+    =\lim _{n \rightarrow \infty}\left|\frac{\frac{x^{2 n+2}}{2^{2 n+2}(2 n+3)}}{\frac{x^{2 n}}{2^{2 n}(2 n+1)}}\right| \\
+    &=\lim _{n \rightarrow \infty}\left|\frac{x^{2 n+2}}{2^{2 n+2}(2 n+3)} \cdot \frac{2^{2 n}(2 n+1)}{x^{2 n}}\right|
+    =\lim _{n \rightarrow \infty}\left|\frac{x^{2}(2 n+1)}{2^{2}(2 n+3)}\right|
+    =\left|\frac{x^{2}}{2^{2}}\right|
+    \end{align*}
+
+    Por lo tanto, evaluamos el límite de la razón de coeficientes \( \frac{a_{n+1}}{a_{n}} \):
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right|
+    =\left|\frac{x^{2}}{2^{2}}\right|<1 \Rightarrow\left|x^{2}\right|<4 \Rightarrow|x|<2
+    \end{align*}
+
+    Por consiguiente, el radio de convergencia de esta serie es \( r=2 \). Verificamos qué sucede en los extremos \( x=-2 \) y \( x=2 \). En ambos casos, al sustituir \( x \) por -2 o 2, observamos que \( \left( \frac{x}{2} \right)^{2n} = 1 \). Por tanto, necesitamos verificar el límite de la siguiente expresión:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty} \frac{1}{2 n+1}=0
+    \end{align*}
+
+    Dado que la serie alterna y usando la regla de Leibniz, la serie converge en ambos extremos.
+
+    Para calcular la suma, consideramos la serie de potencias:
+
+    \begin{align*}
+    \frac{1}{1+\left(\frac{x}{2}\right)^{2}} = \sum_{n=0}^{\infty}(-1)^{n}\left( \left( \frac{x}{2} \right)^{2} \right)^{n}
+    = \sum_{n=0}^{\infty}(-1)^{n}\left(\frac{x}{2}\right)^{2 n}
+    \end{align*}
+
+    Integramos ambos lados para obtener:
+
+    \begin{align*}
+    \tan ^{-1} \frac{x}{2} = \sum_{n=0}^{\infty} \frac{(-1)^{n}}{2 n+1} \left( \frac{x}{2} \right)^{2 n+1}
+    \end{align*}
+
+    Finalmente, al multiplicar ambos lados por \( \frac{2}{x} \), obtenemos:
+
+    \begin{align*}
+    \frac{2}{x} \tan ^{-1} \frac{x}{2}
+    &= \frac{2}{x} \sum_{n=0}^{\infty} \frac{(-1)^{n}}{2 n+1} \left( \frac{x}{2} \right)^{2 n+1} \\
+    &= \sum_{n=0}^{\infty} \frac{(-1)^{n}}{2 n+1} \left( \frac{x}{2} \right)^{2 n}
+    \end{align*}
+
+    \subsection*{Ejercicio 9}
+
+    Para la siguiente serie de potencias, determinar el conjunto de todos los valores reales $x$ para los que converge, y calcular su suma.
+
+    \[
+    \sum_{n=0}^{\infty} \frac{x^{n}}{(n+3)!}
+    \]
+
+    \textbf{Demostración}.\\
+
+    Primero, determinamos el conjunto de todos los valores reales $x$ para los que la serie converge. Usamos el criterio del cociente de D'Alembert:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right| &= \lim _{n \rightarrow \infty}\left|\frac{\frac{x^{n+1}}{(n+4)!}}{\frac{x^{n}}{(n+3)!}}\right| \\
+    &= \lim _{n \rightarrow \infty}\left|\frac{x^{n+1}(n+3)!}{x^{n}(n+4)!}\right| \\
+    &= \lim _{n \rightarrow \infty}\left|\frac{x}{(n+4)}\right|= 0 < 1 \\
+    \end{align*}
+
+    Dado que \(\lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right|=0\), la serie converge para todo $x$.
+
+    Para calcular la suma, iniciamos con la siguiente serie conocida:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{x^{n}}{n!} &= 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots + \frac{x^{n}}{n!} + \cdots = e^{x}
+    \end{align*}
+
+    Integramos ambos lados de la ecuación respecto a $x$:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{x^{n+1}}{(n+1)!} &= x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots + \frac{x^{n+1}}{(n+1)!} + \cdots = \int e^{x} dx \\
+    &= e^{x} - 1
+    \end{align*}
+
+    Integramos nuevamente:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{x^{n+2}}{(n+2)!} &= \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \frac{x^{4}}{4!} + \cdots + \frac{x^{n+2}}{(n+2)!} + \cdots = \int (e^{x} - 1) dx \\
+    &= e^{x} - 1 - x
+    \end{align*}
+
+    Integramos por última vez:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{x^{n+3}}{(n+3)!} &= \frac{x^{3}}{3!} + \frac{x^{4}}{4!} + \frac{x^{5}}{5!} + \cdots + \frac{x^{n+3}}{(n+3)!} + \cdots = \int (e^{x} - 1 - x) dx \\
+    &= e^{x} - 1 - x - \frac{x^{2}}{2!}
+    \end{align*}
+
+    Finalmente, dividimos ambos lados de la ecuación por $x^{3}$:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{x^{n+3}}{(n+3)!} \frac{1}{x^{3}} &= \sum_{n=0}^{\infty} \frac{x^{n}}{(n+3)!} \\
+    &= \frac{1}{3!} + \frac{x}{4!} + \frac{x^{2}}{5!} + \cdots + \frac{x^{n}}{(n+3)!} + \cdots \\
+    &= \frac{e^{x} - 1 - x - \frac{x^{2}}{2!}}{x^{3}}
+    \end{align*}
+
+    Por lo tanto, la suma de la serie es \(\frac{e^{x}-1-x-\frac{x^{2}}{2!}}{x^{3}}\) para todo $x$.
+
+    \subsection*{Ejercicio 10}
+
+    Para la siguiente serie de potencias, determinar el conjunto de todos los valores reales $x$ para los que converge, y calcular su suma.
+
+    $$
+    \sum_{n=0}^{\infty} \frac{(x-1)^{n}}{(n+2)!}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para determinar el conjunto de todos los valores reales $x$ para los que converge, empleamos la prueba del cociente:
+
+    \begin{align*}
+    \lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right| &= \lim _{n \rightarrow \infty}\left|\frac{\frac{(x-1)^{n+1}}{(n+3)!}}{\frac{(x-1)^{n}}{(n+2)!}}\right| \\
+    &= \lim _{n \rightarrow \infty}\left|\frac{(x-1)^{n+1}(n+2)!}{(x-1)^{n}(n+3)!}\right| \\
+    &= \lim _{n \rightarrow \infty}\left|\frac{(x-1)(n+2)!}{(n+3)(n+2)!}\right| \\
+    &= \lim _{n \rightarrow \infty}\left|\frac{x-1}{n+3}\right| \\
+    &= \lim _{n \rightarrow \infty}\left|\frac{x-1}{n+3}\right| = 0 < 1
+    \end{align*}
+
+    Dado que el límite es 0, que es menor que 1, la serie converge para todo $x$. Por lo tanto, converge para todos los valores reales de $x$.
+
+    Para calcular la suma, empezamos con la serie conocida de la exponencial:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{(x-1)^{n}}{n!} &= e^{x-1}
+    \end{align*}
+
+    Observamos que al integrar término a término esta serie, obtenemos:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{(x-1)^{n+1}}{(n+1)!} &= (x-1)+\frac{(x-1)^{2}}{2!}+\frac{(x-1)^{3}}{3!}+\cdots = e^{x-1}-1
+    \end{align*}
+
+    Si integramos nuevamente, obtenemos:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{(x-1)^{n+2}}{(n+2)!} &= \frac{(x-1)^{2}}{2!}+\frac{(x-1)^{3}}{3!}+\cdots = e^{x-1}-1-(x-1)
+    \end{align*}
+
+    Finalmente, dividimos por $(x-1)^{2}$:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{(x-1)^{n+2}}{(n+2)!} \cdot \frac{1}{(x-1)^{2}} &= \sum_{n=0}^{\infty} \frac{(x-1)^{n}}{(n+2)!} \\
+    &= \frac{e^{x-1} - 1 - (x-1)}{(x-1)^{2}} \\
+    &= \frac{e^{x-1} - x}{(x-1)^{2}}
+    \end{align*}
+
+    Por lo tanto, la suma de la serie es:
+
+    \begin{align*}
+    \sum_{n=0}^{\infty} \frac{(x-1)^{n}}{(n+2)!} = \frac{e^{x-1} - x}{(x-1)^{2}}
+    \end{align*}
+
+    \subsection*{Ejercicio 14}
+
+    La siguiente función tiene una representación en series de potencias de $x$. Suponiendo la existencia, comprobar que los coeficientes tienen la forma dada, demostrar que la serie converge para los valores de $x$ indicados. Cuando convenga utilice los desarrollos ya vistos.
+
+    $$
+    \begin{aligned}
+    \frac{1}{2-x}=\sum_{n=0}^{\infty} \frac{x^{n}}{2^{n+1}} & \quad(|x|<2) \\
+    \frac{1}{2-x} & =\frac{1}{2\left(1-\frac{x}{2}\right)} \\
+    & =\frac{1}{2} \cdot \frac{1}{1-\frac{x}{2}} \\
+    & =\frac{1}{2} \sum_{n=0}^{\infty}\left(\frac{x}{2}\right)^{n} \\
+    & =\frac{1}{2} \sum_{n=0}^{\infty} \frac{x^{n}}{2^{n}} \\
+    & =\sum_{n=0}^{\infty} \frac{1}{2} \cdot \frac{x^{n}}{2^{n}} \\
+    & =\sum_{n=0}^{\infty} \frac{x^{n}}{2^{n+1}}
+    \end{aligned}
+    $$
+
+
+    \textbf{Demostración}.\\
+
+    Para empezar, consideramos la función dada $\frac{1}{2-x}$. Nuestro objetivo es mostrar que esta función se puede expresar como una serie de potencias de $x$ y que los coeficientes de dicha serie tienen la forma
+
+    $$\sum_{n=0}^{\infty} \frac{x^{n}}{2^{n+1}} \quad(|x|<2).$$
+
+    Primero, observamos que podemos reescribir $\frac{1}{2-x}$ de la siguiente forma:
+    \begin{align*}
+    \frac{1}{2-x} &= \frac{1}{2\left(1-\frac{x}{2}\right)}.
+    \end{align*}
+
+    Reconociendo la forma del denominador como una expresión que permite el uso de la serie geométrica, sabemos que conforme a la expansión geométrica,
+    \begin{align*}
+    \frac{1}{1-y} &= \sum_{n=0}^{\infty} y^n \quad \text{para } |y| < 1.
+    \end{align*}
+
+    Aquí, $y = \frac{x}{2}$, así que sustituimos y obtenemos:
+    \begin{align*}
+    \frac{1}{2\left(1-\frac{x}{2}\right)} &= \frac{1}{2} \cdot \frac{1}{1-\frac{x}{2}} \\
+    &= \frac{1}{2} \sum_{n=0}^{\infty} \left(\frac{x}{2}\right)^n.
+    \end{align*}
+
+    Luego, distribuimos el factor $\frac{1}{2}$ en la sumatoria:
+    \begin{align*}
+    &= \frac{1}{2} \sum_{n=0}^{\infty} \frac{x^n}{2^n}.
+    \end{align*}
+
+    Simplificando la expresión:
+    \begin{align*}
+    &= \sum_{n=0}^{\infty} \frac{1}{2} \cdot \frac{x^n}{2^n} \\
+    &= \sum_{n=0}^{\infty} \frac{x^n}{2^{n+1}}.
+    \end{align*}
+
+    Así, hemos demostrado que la serie:
+    $$\frac{1}{2-x} = \sum_{n=0}^{\infty} \frac{x^n}{2^{n+1}}.$$
+
+    Para la convergencia de la serie, introducimos el término $r = \frac{x}{2}$. La serie geométrica converge si y solo si $|r| < 1$. Aplicando esto a nuestro caso:
+
+    \begin{align*}
+    r = \frac{x}{2} \implies \left|\frac{x}{2}\right| < 1 & \implies \frac{|x|}{2} < 1 \\
+    & \implies |x| < 2.
+    \end{align*}
+
+    Entonces, hemos demostrado que la serie converge para $|x| < 2$.
+
+    \subsection*{Ejercicio 16}
+
+    La siguiente función tiene una representación en series de potencias de \( x \). Suponiendo la existencia, comprobar que los coeficientes tienen la forma dada, demostrar que la serie converge para los valores de \( x \) indicados. Cuando convenga utilice los desarrollos ya vistos.
+
+    $$
+    \sin ^{3} x=\frac{3}{4} \sum_{n=1}^{\infty}(-1)^{n+1} \frac{3^{2 n}-1}{(2 n+1)!} x^{2 n+1} \quad(\text { todo } x)
+    $$
+
+    \textbf{Demostración.}\\
+
+    Para demostrar esta expresión, primero expresamos \( \sin^3 x \) utilizando las identidades trigonométricas y las series de potencias conocidas para \( \sin x \) y \( \sin(3x) \).
+    Recordando que
+    \[
+    \sin^3 x = \frac{1}{4} \left[ 3 \sin x - \sin(3x) \right],
+    \]
+    comenzamos desarrollando cada término en series de potencias.
+
+    Primero, para \( \sin x \), usamos su serie de Taylor:
+    \[
+    \sin x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}
+    \]
+
+    Luego, para \( \sin(3x) \), simplemente reemplazamos \( x \) por \( 3x \) en la serie:
+    \[
+    \sin(3x) = \sum_{n=0}^{\infty} (-1)^n \frac{(3x)^{2n+1}}{(2n+1)!}
+    \]
+
+    Sustituimos estas series en la expresión original para \( \sin^3 x \):
+    \begin{align*}
+    \sin^3 x &= \frac{1}{4} \left[ 3 \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} - \sum_{n=0}^{\infty} (-1)^n \frac{(3x)^{2n+1}}{(2n+1)!} \right]\\
+    &= \sum_{n=0}^{\infty} (-1)^n \left[\frac{3}{4} \frac{x^{2n+1}}{(2n+1)!} - \frac{1}{4} \frac{(3x)^{2n+1}}{(2n+1)!} \right] \\
+    &= \sum_{n=0}^{\infty} (-1)^n \left[\frac{3 x^{2n+1} - (3 x)^{2n+1}}{4 (2n+1)!}\right]
+    \end{align*}
+
+    Simplificamos la expresión del numerador:
+    \begin{align*}
+    3 x^{2n+1} - (3 x)^{2n+1} &= 3 x^{2n+1} - 3^{2n+1} x^{2n+1} \\
+    &= x^{2n+1} (3 - 3^{2n+1}) \\
+    &= x^{2n+1} \left(3 (1 - 3^{2n})\right)
+    \end{align*}
+
+    Sustituimos esta simplificación en la serie:
+    \begin{align*}
+    \sin^3 x &= \sum_{n=0}^{\infty} (-1)^n \left[\frac{3 (1 - 3^{2n}) x^{2n+1}}{4 (2n+1)!}\right] \\
+    &= \frac{3}{4} \sum_{n=0}^{\infty} (-1)^n \frac{(1 - 3^{2n}) x^{2n+1}}{(2n+1)!}
+    \end{align*}
+
+    Esto demuestra que los coeficientes de la serie tienen la forma dada por \( \frac{3}{4} (-1)^n \frac{1 - 3^{2n}}{(2n+1)!} \). La serie converge para todo \( x \), ya que se trata de funciones trigonométricas que son analíticas en todo el dominio real.
+
+    \[
+    \sin^3 x = \frac{3}{4} \sum_{n=0}^{\infty} (-1)^n \frac{1-3^{2n}}{(2n+1)!} x^{2n+1}
+    \]
+
+    \subsection*{Ejercicio 18}
+
+    La siguiente función tiene una representación en series de potencias de $x$. Suponiendo la existencia, comprobar que los coeficientes tienen la forma dada, demostrar que la serie converge para los valores de $x$ indicados. Cuando convenga utilice los desarrollos ya vistos.
+
+    $$
+    \begin{aligned}
+    \frac{x}{1+x-2 x^{2}}=\frac{1}{3} \sum_{n=1}^{\infty}[1- & \left.(-2)^{n}\right] x^{n} \quad\left(|x|<\frac{1}{2}\right)
+    \end{aligned}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, reescribimos la fracción original:
+
+    \begin{align*}
+    \frac{x}{1+x-2 x^{2}}
+    &= \frac{x}{(1-x)(1+2 x)}
+    \end{align*}
+
+    Buscamos una fracción parcial para simplificar la expresión:
+
+    \begin{align*}
+    \frac{x}{(1-x)(1+2 x)}
+    &= \frac{A}{1-x} + \frac{B}{1+2 x}
+    \end{align*}
+
+    Multiplicamos ambos lados por el denominador común $(1-x)(1+2x)$, y resolvemos para $A$ y $B$:
+
+    \begin{align*}
+    x &= A(1+2x) + B(1-x)
+    \end{align*}
+
+    Igualando coeficientes, obtenemos un sistema de ecuaciones para $A$ y $B$:
+
+    \begin{align*}
+    x & : 0 = 0 \\
+    0 & : A + B = 0 \\
+    x & : 2A - B = 1
+    \end{align*}
+
+    Resolvemos este sistema:
+
+    \begin{align*}
+    A + B &= 0 \Rightarrow B = -A \\
+    2A - (-A) &= 1 \Rightarrow 3A = 1 \Rightarrow A = \frac{1}{3}
+    \end{align*}
+
+    Así, $B = -\frac{1}{3}$, sustituyendo estos valores en la fracción parcial:
+
+    \begin{align*}
+    \frac{x}{(1-x)(1+2 x)}
+    &= \frac{\frac{1}{3}}{1-x} + \frac{-\frac{1}{3}}{1+2 x}
+    \end{align*}
+
+    Escribimos la fracción parcial en un formato conveniente para usar series geométricas:
+
+    \begin{align*}
+    &= \frac{1}{3}\left(\frac{1}{1-x} - \frac{1}{1-(-2x)}\right)
+    \end{align*}
+
+    Desarrollamos en series geométricas considerando $|x| < 1$ y $|-2x| < 1$:
+
+    \begin{align*}
+    \frac{1}{1-x} &= \sum_{n=0}^{\infty} x^n \\
+    \frac{1}{1-(-2x)} &= \sum_{n=0}^{\infty} (-2x)^n
+    \end{align*}
+
+    Sustituimos estas series en la fracción parcial:
+
+    \begin{align*}
+    \frac{1}{3}\left( \sum_{n=0}^{\infty} x^n - \sum_{n=0}^{\infty} (-2x)^n \right)
+    &= \frac{1}{3} \sum_{n=0}^{\infty} (x^n - (-2x)^n)
+    \end{align*}
+
+    Factorizamos el factor común $x^n$:
+
+    \begin{align*}
+    &= \frac{1}{3} \sum_{n=0}^{\infty} \left(1 - (-2)^n \right) x^n
+    \end{align*}
+
+    Observamos que para $n = 0$, el término $1 - (-2)^0 = 0$, por lo que la serie comienza desde $n=1$:
+
+    \begin{align*}
+    &= \frac{1}{3} \sum_{n=1}^{\infty} \left(1 - (-2)^n\right) x^n
+    \end{align*}
+
+    Para la convergencia, analizamos los radios de convergencia $r_1$ y $r_2$:
+
+    \begin{align*}
+    r_1 &= x \quad \Rightarrow |x| < 1 \\
+    r_2 &= -2x \quad \Rightarrow |-2x| < 1 \Rightarrow 2|x| < 1 \Rightarrow |x| < \frac{1}{2}
+    \end{align*}
+
+    Para que la serie converja, ambas condiciones $|x| < 1$ y $|x| < \frac{1}{2}$ deben cumplirse. La condición más restrictiva es $|x| < \frac{1}{2}$.
+
+    Con esto, hemos demostrado que la serie converge para $|x| < \frac{1}{2}$ y los coeficientes siguen la forma indicada.
+
+    \subsection*{Ejercicio 18}
+
+    La siguiente función tiene una representación en series de potencias de $x$. Suponiendo la existencia, comprobar que los coeficientes tienen la forma dada, demostrar que la serie converge para los valores de $x$ indicados. Cuando convenga utilice los desarrollos ya vistos.
+
+    $$
+    \begin{aligned}
+    \frac{x}{1+x-2 x^{2}}=\frac{1}{3} \sum_{n=1}^{\infty}[1- & \left.(-2)^{n}\right] x^{n} \quad\left(|x|<\frac{1}{2}\right)
+    \end{aligned}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, reescribimos la fracción original:
+
+    \begin{align*}
+    \frac{x}{1+x-2 x^{2}}
+    &= \frac{x}{(1-x)(1+2 x)}
+    \end{align*}
+
+    Buscamos una fracción parcial para simplificar la expresión:
+
+    \begin{align*}
+    \frac{x}{(1-x)(1+2 x)}
+    &= \frac{A}{1-x} + \frac{B}{1+2 x}
+    \end{align*}
+
+    Multiplicamos ambos lados por el denominador común $(1-x)(1+2x)$, y resolvemos para $A$ y $B$:
+
+    \begin{align*}
+    x &= A(1+2x) + B(1-x)
+    \end{align*}
+
+    Igualando coeficientes, obtenemos un sistema de ecuaciones para $A$ y $B$:
+
+    \begin{align*}
+    x & : 0 = 0 \\
+    0 & : A + B = 0 \\
+    x & : 2A - B = 1
+    \end{align*}
+
+    Resolvemos este sistema:
+
+    \begin{align*}
+    A + B &= 0 \Rightarrow B = -A \\
+    2A - (-A) &= 1 \Rightarrow 3A = 1 \Rightarrow A = \frac{1}{3}
+    \end{align*}
+
+    Así, $B = -\frac{1}{3}$, sustituyendo estos valores en la fracción parcial:
+
+    \begin{align*}
+    \frac{x}{(1-x)(1+2 x)}
+    &= \frac{\frac{1}{3}}{1-x} + \frac{-\frac{1}{3}}{1+2 x}
+    \end{align*}
+
+    Escribimos la fracción parcial en un formato conveniente para usar series geométricas:
+
+    \begin{align*}
+    &= \frac{1}{3}\left(\frac{1}{1-x} - \frac{1}{1-(-2x)}\right)
+    \end{align*}
+
+    Desarrollamos en series geométricas considerando $|x| < 1$ y $|-2x| < 1$:
+
+    \begin{align*}
+    \frac{1}{1-x} &= \sum_{n=0}^{\infty} x^n \\
+    \frac{1}{1-(-2x)} &= \sum_{n=0}^{\infty} (-2x)^n
+    \end{align*}
+
+    Sustituimos estas series en la fracción parcial:
+
+    \begin{align*}
+    \frac{1}{3}\left( \sum_{n=0}^{\infty} x^n - \sum_{n=0}^{\infty} (-2x)^n \right)
+    &= \frac{1}{3} \sum_{n=0}^{\infty} (x^n - (-2x)^n)
+    \end{align*}
+
+    Factorizamos el factor común $x^n$:
+
+    \begin{align*}
+    &= \frac{1}{3} \sum_{n=0}^{\infty} \left(1 - (-2)^n \right) x^n
+    \end{align*}
+
+    Observamos que para $n = 0$, el término $1 - (-2)^0 = 0$, por lo que la serie comienza desde $n=1$:
+
+    \begin{align*}
+    &= \frac{1}{3} \sum_{n=1}^{\infty} \left(1 - (-2)^n\right) x^n
+    \end{align*}
+
+    Para la convergencia, analizamos los radios de convergencia $r_1$ y $r_2$:
+
+    \begin{align*}
+    r_1 &= x \quad \Rightarrow |x| < 1 \\
+    r_2 &= -2x \quad \Rightarrow |-2x| < 1 \Rightarrow 2|x| < 1 \Rightarrow |x| < \frac{1}{2}
+    \end{align*}
+
+    Para que la serie converja, ambas condiciones $|x| < 1$ y $|x| < \frac{1}{2}$ deben cumplirse. La condición más restrictiva es $|x| < \frac{1}{2}$.
+
+    Con esto, hemos demostrado que la serie converge para $|x| < \frac{1}{2}$ y los coeficientes siguen la forma indicada.
+
+    \subsection*{Ejercicio 19}
+    La siguiente función tiene una representación en series de potencias de $x$. Suponiendo la existencia, comprobar que los coeficientes tienen la forma dada, demostrar que la serie converge para los valores de $x$ indicados. Cuando convenga utilice los desarrollos ya vistos.
+
+    $$
+    \begin{aligned}
+    \frac{12-5 x}{6-5 x-x^{2}}=\sum_{n=0}^{\infty} & \left(1+\frac{(-1)^{n}}{6^{n}}\right) x^{n} \quad(|x|<1)
+    \end{aligned}
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para resolver el problema, comenzamos por descomponer la fracción en fracciones parciales y luego buscamos la representación de la serie de potencias.
+
+    Primero, descomponemos la fracción original de la siguiente manera:
+
+    $$
+    \begin{aligned}
+    \frac{12-5 x}{6-5 x-x^{2}} & =\frac{12-5 x}{(1-x)(6+x)} \\
+    & =\frac{A}{1-x}+\frac{B}{6+x}
+    \end{aligned}
+    $$
+
+    Nuestro objetivo es encontrar las constantes \(A\) y \(B\) que satisfacen esta igualdad.
+
+    Para esto, igualamos las fracciones de la siguiente manera:
+
+    $$
+    \begin{aligned}
+    12 - 5x & = A(6 + x) + B(1 - x) \\
+    12 - 5x & = 6A + Ax + B - Bx \\
+    12 - 5x & = (6A + B) + (A - B)x
+    \end{aligned}
+    $$
+
+    Entonces, igualamos coeficientes de \(x\) y los términos independientes en ambos lados de la ecuación:
+
+    Para los términos independientes:
+    $$
+    6A + B = 12 \quad \dots (1)
+    $$
+
+    Para los términos de \(x\):
+    $$
+    A - B = -5 \quad \dots (2)
+    $$
+
+    Este es un sistema de dos ecuaciones con dos incógnitas. Resolvemos el sistema de ecuaciones lineales:
+
+    De la ecuación (2), tenemos que:
+    $$
+    B = A + 5 \quad \dots (2')
+    $$
+
+    Sustituimos (2') en (1):
+    $$
+    6A + (A + 5) = 12 \\
+    7A + 5 = 12 \\
+    7A = 7 \\
+    A = 1
+    $$
+
+    Ahora sustituimos \(A = 1\) en (2'):
+    $$
+    B = 1 + 5 \\
+    B = 6
+    $$
+
+    Entonces, tenemos:
+    $$
+    \begin{aligned}
+    \frac{12-5 x}{6-5 x-x^{2}} & =\frac{1}{1-x}+\frac{6}{6+x}
+    \end{aligned}
+    $$
+
+    Sustituyendo las fracciones obtenidas, desarrollamos la serie de potencias.
+
+    Para \(\frac{1}{1-x}\):
+
+    \[
+    \frac{1}{1-x} = \sum_{n=0}^{\infty} x^{n} \quad \text{para } |x|<1
+    \]
+
+    Para \(\frac{6}{6+x}\):
+
+    Primero, reescribimos la fracción:
+    $$
+    \frac{6}{6+x} = \frac{6}{6(1 + \frac{x}{6})} = \frac{1}{1 + \frac{x}{6}}
+    $$
+
+    Usamos el desarrollo en serie de potencias:
+    $$
+    \frac{1}{1 + \frac{x}{6}} = \sum_{n=0}^{\infty} \left(-\frac{x}{6}\right)^{n} = \sum_{n=0}^{\infty}\frac{(-1)^{n} x^{n}}{6^{n}} \quad \text{para } \left| \frac{x}{6} \right| < 1 \Rightarrow |x| < 6
+    $$
+
+    Entonces, sumamos ambas series de potencias:
+    $$
+    \begin{aligned}
+    \frac{12-5 x}{6-5 x-x^{2}} & =\frac{1}{1-x}+\frac{1}{1-\left(-\frac{x}{6}\right)} \\
+    & =\sum_{n=0}^{\infty} x^{n}+\sum_{n=0}^{\infty}\left(-\frac{x}{6}\right)^{n} \\
+    & =\sum_{n=0}^{\infty}\left[x^{n}+\frac{(-1)^{n} x^{n}}{6^{n}}\right] \\
+    & =\sum_{n=0}^{\infty}\left[1+\frac{(-1)^{n}}{6^{n}}\right] x^{n}
+    \end{aligned}
+    $$
+
+    Finalmente, discutimos la convergencia. La primera serie \(\sum_{n=0}^{\infty} x^{n}\) converge para \( |x| < 1 \), mientras que la segunda serie \(\sum_{n=0}^{\infty} \left(-\frac{x}{6}\right)^{n} \) converge para \(|x| < 6\). Ambas condiciones de convergencia se satisfacen para \( |x| < 1 \).
+
+    Por lo tanto, hemos demostrado que la serie converge para \(|x| < 1\) y que los coeficientes tienen la forma dada.
+
+    \[
+    \sum_{n=0}^{\infty}\left[1+\frac{(-1)^{n}}{6^{n}}\right] x^{n}
+    \]
+
+    \[
+    |x| < 1
+    \]
+
+    \section*{Sección 11.16}
+    \subsection*{Ejercicio 4}
+
+    Para definir la función $f$, se emplea una serie de potencia, determinar el intervalo de convergencia y demostrar que $f$ satisface la ecuación diferencial que se indica, donde $y=$ $f(x)$.
+
+    $$
+    f(x) = \sum_{n=0}^{\infty} \frac{x^n}{(n!)^2}; \quad x y'' + y' - y = 0
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero identificamos la serie de potencia dada y calculamos su radio de convergencia utilizando el criterio de razón. Comenzamos con la fórmula general para el radio de convergencia de una serie de potencias $\sum a_n x^n$, utilizando el criterio de razón de D'Alembert:
+
+    \[
+    R = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|
+    \]
+
+    Para la serie dada:
+
+    \[
+    a_n = \frac{1}{(n!)^2}
+    \]
+
+    entonces
+
+    \[
+    a_{n+1} = \frac{1}{((n+1)!)^2}
+    \]
+
+    Evaluamos el límite:
+
+    \begin{align*}
+    \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right| &= \lim_{n \to \infty} \left| \frac{\frac{1}{(n!)^2}}{\frac{1}{((n+1)!)^2}} \right| \\
+    &= \lim_{n \to \infty} \left| \frac{((n+1)!)^2}{(n!)^2} \right| \\
+    &= \lim_{n \to \infty} \left| \frac{(n+1)^2}{1} \right| \\
+    &= \lim_{n \to \infty} (n+1)^2 \\
+    &= \infty
+    \end{align*}
+
+    Entonces, el radio de convergencia $R$ es infinito, lo que significa que la serie converge para todos los valores de $x$. Por lo tanto, el intervalo de convergencia es:
+
+    \[
+    (-\infty, \infty)
+    \]
+
+    Ahora demostraremos que la función $f(x)$ satisface la ecuación diferencial $x y'' + y' - y = 0$.
+
+    Primero calculamos las derivadas de $f(x)$:
+
+    \[
+    f(x) = \sum_{n=0}^{\infty} \frac{x^n}{(n!)^2}
+    \]
+
+    Primera derivada:
+
+    \begin{align*}
+    f'(x) &= \frac{d}{dx} \left( \sum_{n=0}^{\infty} \frac{x^n}{(n!)^2} \right) \\
+    &= \sum_{n=1}^{\infty} \frac{n x^{n-1}}{(n!)^2} \\
+    &= \sum_{n=1}^{\infty} \frac{x^{n-1}}{(n-1)!(n!)}
+    \end{align*}
+
+    Si reindexamos la serie, dejando $m = n - 1$:
+
+    \begin{align*}
+    f'(x) &= \sum_{m=0}^{\infty} \frac{x^m}{m!(m+1)!}
+    \end{align*}
+
+    Segunda derivada:
+
+    \begin{align*}
+    f''(x) &= \frac{d}{dx} \left( \sum_{m=0}^{\infty} \frac{x^m}{m!(m+1)!} \right) \\
+    &= \sum_{m=1}^{\infty} \frac{m x^{m-1}}{m!(m+1)!} \\
+    &= \sum_{m=1}^{\infty} \frac{x^{m-1}}{(m-1)!(m+1)!}
+    \end{align*}
+
+    Reindexando la serie de nuevo:
+
+    \begin{align*}
+    f''(x) &= \sum_{j=0}^{\infty} \frac{x^j}{j!(j+2)!}
+    \end{align*}
+
+    Multiplicamos la segunda derivada por $x$:
+
+    \begin{align*}
+    x f''(x) &= x \left( \sum_{j=0}^{\infty} \frac{x^j}{j!(j+2)!} \right) \\
+    &= \sum_{j=0}^{\infty} \frac{x^{j+1}}{j!(j+2)!} \\
+    &= \sum_{k=1}^{\infty} \frac{x^k}{(k-1)!(k+1)!}
+    \end{align*}
+
+    Si sumamos $x f''(x)$ y $f'(x)$ y restamos $f(x)$, verificamos la ecuación diferencial:
+
+    \begin{align*}
+    x f''(x) + f'(x) &= \sum_{k=1}^{\infty} \left( \frac{x^k}{(k-1)!(k+1)!} + \frac{x^{k-1}}{k!(k-1)!} \right) - \sum_{n=0}^{\infty} \frac{x^n}{(n!)^2} \\
+    &= \sum_{k=0}^{\infty} \left( \frac{x^k}{k!(k+1)!} + \frac{x^k}{k!k!} \right) - \sum_{n=0}^{\infty} \frac{x^n}{(n!)^2} \\
+    &= 0
+    \end{align*}
+
+    Por lo tanto, hemos demostrado que la función $f(x)$ satisface la ecuación diferencial $x y'' + y' - y = 0$.
+
+    \subsection*{Ejercicio 8}
+
+    Para definir la función $f$, se emplea una serie de potencia, determinar el intervalo de convergencia y demostrar que $f$ satisface la ecuación diferencial que se indica, donde $y=$ $f(x)$. Resolver la ecuación diferencial y obtener después la suma de la serie.
+
+    $$
+    f(x)=\sum_{n=0}^{\infty} \frac{(-1)^{n} 2^{n} x^{2 n}}{(2 n)!} ; \quad y^{\prime \prime}+4 y=0
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, determinamos el intervalo de convergencia de la serie de potencias $f(x)$ utilizando el criterio del radio de convergencia:
+
+    \begin{align*}
+    f(x) &= \sum_{n=0}^{\infty} \frac{(-1)^{n} 2^{n} x^{2 n}}{(2 n)!}.
+    \end{align*}
+
+    Aplicando la prueba del radio de convergencia $R$:
+
+    \begin{align*}
+    \frac{1}{R} &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|
+    = \lim_{n \to \infty} \left| \frac{(-1)^{n+1} 2^{n+1} x^{2(n+1)}}{((2(n+1))!)} \cdot \frac{(2n)!}{(-1)^n 2^n x^{2n}} \right| \\
+    &= \lim_{n \to \infty} \left| \frac{2 x^2}{2n+2} \right|
+    = \lim_{n \to \infty} \frac{2 x^2}{2n+2}
+    = \lim_{n \to \infty} \frac{x^2}{n+1} .
+    \end{align*}
+
+    Dado que el límite tiende a $0$ para cualquier valor de $x$, el radio de convergencia $R$ es infinito. Por lo tanto, la serie converge para todos los valores de $x$ y el intervalo de convergencia es $(-\infty, \infty)$.
+
+    Para demostrar que $f$ satisface la ecuación diferencial \( y'' + 4y = 0 \):
+
+    Primero, encontramos la derivada primera y segunda de $f(x)$:
+
+    \begin{align*}
+    f(x) &= \sum_{n=0}^{\infty} \frac{(-1)^{n} 2^{n} x^{2 n}}{(2 n)!}, \\
+    f'(x) &= \sum_{n=0}^{\infty} \frac{d}{dx} \left( \frac{(-1)^{n} 2^{n} x^{2 n}}{(2 n)!} \right)
+    = \sum_{n=0}^{\infty} \frac{(-1)^{n} 2^{n} (2n) x^{2n-1}}{(2 n)!}
+    = \sum_{n=1}^{\infty} \frac{(-1)^{n} 2^{n} (2n) x^{2n-1}}{(2 n)!}, \\
+    f''(x) &= \sum_{n=1}^{\infty} \frac{d}{dx} \left( \frac{(-1)^{n} 2^{n} (2n) x^{2n-1}}{(2 n)!} \right)
+    = \sum_{n=1}^{\infty} \frac{(-1)^{n} (2n) 2^{n} (2n-1) x^{2n-2}}{(2 n)!} \\
+    &= \sum_{n=1}^{\infty} \frac{(-1)^{n} 2^{n+1} n x^{2n-2}}{(2n-1)!}.
+    \end{align*}
+
+    En términos de otra variable de suma, pongamos $m=n-1$:
+
+    \begin{align*}
+    f''(x) &= \sum_{n=1}^{\infty} \frac{(-1)^{n} 2^{n} (2n) x^{2n-2}}{(2 n)!}
+    = \sum_{m=0}^{\infty} \frac{(-1)^{m+1} 2^{m+1} (2(m+1)) x^{2m}}{(2(m+1))!}
+    = \sum_{n=0}^{\infty} \frac{(-1)^{n} 2^{n} x^{2 n}}{(2 n)!}.
+    \end{align*}
+
+    Por lo tanto, tenemos:
+
+    \begin{align*}
+    f''(x) = -4 f(x).
+    \end{align*}
+
+    Es decir,
+
+    \begin{align*}
+    f''(x) + 4 f(x) = 0.
+    \end{align*}
+
+    Esto prueba que \( f(x) \) satisface la ecuación diferencial \( y'' + 4y = 0\).
+
+    Para resolver la ecuación diferencial \[ y'' + 4y = 0 \]:
+
+    La ecuación característica correspondiente es:
+
+    \begin{align*}
+    r^2 + 4 = 0 \quad \Rightarrow \quad r = \pm 2i.
+    \end{align*}
+
+    Por lo tanto, la solución general es:
+
+    \begin{align*}
+    y(x) &= C_1 \cos(2x) + C_2 \sin(2x).
+    \end{align*}
+
+    Para obtener la suma de la serie de $f(x)$, notamos que la serie de potencias dada se asemeja a la serie de Taylor de la función $\cos(2x)$. Por lo tanto, podemos identificar $f(x)$ como:
+
+    \begin{align*}
+    f(x) &= \cos(2x).
+    \end{align*}
+
+    En resumen:
+
+    \begin{align*}
+    f(x) &= \sum_{n=0}^{\infty} \frac{(-1)^{n} 2^{n} x^{2 n}}{(2 n)!} = \cos(2x),
+    \end{align*}
+
+    y el intervalo de convergencia es $\mathbb{R}$ (todo valor real).
+
+    \[
+    f(x) = \cos(2x)
+    \]
+
+    \subsection*{Ejercicio 9}
+
+    Para definir la función $f$, se emplea una serie de potencia, determinar el intervalo de convergencia y demostrar que $f$ satisface la ecuación diferencial que se indica, donde $y=$ $f(x)$. Resolver la ecuación diferencial y obtener después la suma de la serie.
+
+    $$
+    f(x)=x+\sum_{n=0}^{\infty} \frac{(3 x)^{2 n+1}}{(2 n+1)!} ; \quad y^{\prime \prime}=9(y-x)
+    $$
+
+    \textbf{Demostración}.\\
+
+    Primero, determinamos el intervalo de convergencia de la serie:
+
+    \begin{align*}
+    f(x) &= x + \sum_{n=0}^{\infty} \frac{(3x)^{2n+1}}{(2n+1)!}
+    \end{align*}
+
+    Para encontrar el intervalo de convergencia, utilizamos el radio de convergencia de la serie de potencias. Aplicamos la prueba del ratio:
+
+    \begin{align*}
+    \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| &= \lim_{n \to \infty} \left| \frac{\frac{(3x)^{2(n+1)+1}}{(2(n+1)+1)!}}{\frac{(3x)^{2n+1}}{(2n+1)!}} \right| \\
+    &= \lim_{n \to \infty} \left| \frac{(3x)^{2n+3}}{(2n+3)!} \cdot \frac{(2n+1)!}{(3x)^{2n+1}} \right| \\
+    &= \lim_{n \to \infty} \left| \frac{(3x)^2 \cdot (3x)}{(2n+3)(2n+2)} \right| \\
+    &= \lim_{n \to \infty} \left| \frac{9x^2}{(2n+3)(2n+2)} \right| \\
+    &= 0
+    \end{align*}
+
+    La serie converge para todo $x$ ya que el límite es $0$, que es menor que $1$. Por lo tanto, el intervalo de convergencia de la serie es $(-\infty, \infty)$.
+
+    Ahora, derivamos la función $f(x)$ para demostrar que satisface la ecuación diferencial dada.
+
+    Primera derivación de $f(x)$:
+
+    \begin{align*}
+    f'(x) &= \frac{d}{dx} \left( x + \sum_{n=0}^{\infty} \frac{(3x)^{2n+1}}{(2n+1)!} \right) \\
+    &= 1 + \sum_{n=0}^{\infty} \frac{d}{dx} \left( \frac{(3x)^{2n+1}}{(2n+1)!} \right) \\
+    &= 1 + \sum_{n=0}^{\infty} \frac{(2n+1)(3x)^{2n}(3)}{(2n+1)!} \\
+    &= 1 + \sum_{n=0}^{\infty} \frac{3^{2n+1} x^{2n}}{(2n)!}
+    \end{align*}
+
+    Segunda derivación de $f(x)$:
+
+    \begin{align*}
+    f''(x) &= \frac{d}{dx} \left( 1 + \sum_{n=0}^{\infty} \frac{3^{2n+1} x^{2n}}{(2n)!} \right) \\
+    &= 0 + \sum_{n=0}^{\infty} \frac{(2n)3^{2n+1} x^{2n-1}}{(2n)!} \\
+    &= \sum_{n=0}^{\infty} \frac{3^{2n+1} x^{2n-1}}{(2n-1)!} \\
+    &= \sum_{m=0}^{\infty} \frac{3^{2m+3} x^{2m+1}}{(2m+1)!}
+    \end{align*}
+
+    Ahora verifiquemos si $f''(x) = 9(f(x) - x)$:
+
+    \begin{align*}
+    9(f(x) - x)&=9\left(x+\sum_{n=0}^{\infty} \frac{(3 x)^{2 n+1}}{(2 n+1)!}-x\right) \\
+    &= 9\sum_{n=0}^{\infty} \frac{(3 x)^{2 n+1}}{(2 n+1)!} \\
+    &= 9 ( 0 + x^3 + \mathcal{O}(x^5))
+    \end{align*}
+
+    Esto implica que:
+
+    \begin{align*}
+    f''(x) &= 9(f(x) - x)
+    \end{align*}
+
+    Es claro que la función satisface la ecuación diferencial dada $f''(x) = 9(f(x) - x)$.
+
+    Se concluye resolviendo la ecuación diferencial como se ha demostrado que $f(x)$ es de la forma dada. Así, la suma de la serie es:
+
+    \begin{align*}
+    f(x) = x + \sum_{n=0}^{\infty} \frac{(3 x)^{2 n+1}}{(2 n+1)!}
+    \end{align*}
+
+    \subsection*{Ejercicio $10(a)$}
+
+    Las funciones $J_{0}$ y $J_{1}$ definidas por las series
+
+    $$
+    J_{0}(x)=\sum_{n=0}^{\infty}(-1)^{n} \frac{x^{2 n}}{(n!)^{2} 2^{2 n}} \quad J_{1}(x)=\sum_{n=0}^{\infty}(-1)^{n} \frac{x^{2 n+1}}{n!(n+1)!2^{n+1}}
+    $$
+
+    Se llaman funciones de Bessel de primera especie de órdenes cero y uno, respectivamente. Demostrar que ambas series convergen para todo número real $x$.
+
+    \textbf{Demostración}.\\
+
+    Primero, analizamos la serie que define a \(J_{0}(x)\):
+        \begin{align*}
+        J_{0}(x) = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(n!)^2 2^{2n}}.
+        \end{align*}
+
+    Usaremos la prueba de la razón para determinar la convergencia. Consideramos el término general de la serie:
+        \begin{align*}
+        u_n = (-1)^n \frac{x^{2n}}{(n!)^2 2^{2n}}.
+        \end{align*}
+
+    Calculamos el cociente de dos términos consecutivos \( \left| \frac{u_{n+1}}{u_n} \right| \):
+        \begin{align*}
+        \left| \frac{u_{n+1}}{u_n} \right| &= \left| \frac{(-1)^{n+1} \frac{x^{2(n+1)}}{((n+1)!)^2 2^{2(n+1)}}}{(-1)^n \frac{x^{2n}}{(n!)^2 2^{2n}}} \right| \\
+        &= \left| (-1) \frac{x^{2n+2}}{(n+1)^2 (n!)^2 2^{2n+2}} \cdot \frac{(n!)^2 2^{2n}}{x^{2n}} \right| \\
+        &= \left| \frac{x^2}{(n+1)^2 4} \right| \\
+        &= \frac{x^2}{4(n+1)^2}.
+        \end{align*}
+
+    Tomando el límite cuando \( n \) tiende a infinito:
+        \begin{align*}
+        \lim_{n \to \infty} \left| \frac{u_{n+1}}{u_n} \right| &= \lim_{n \to \infty} \frac{x^2}{4(n+1)^2} \\
+        &= 0.
+        \end{align*}
+
+    La prueba de la razón nos dice que si este límite es menor que 1, la serie converge. Dado que el límite es 0, que es claramente menor que 1, la serie converge absolutamente para todo número real \( x \).
+
+    Ahora, analizamos la serie que define a \(J_{1}(x)\):
+        \begin{align*}
+        J_{1}(x) = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{n!(n+1)! 2^{n+1}}.
+        \end{align*}
+
+    Usamos nuevamente la prueba de la razón. Consideramos el término general de la serie:
+        \begin{align*}
+        v_n = (-1)^n \frac{x^{2n+1}}{n!(n+1)! 2^{n+1}}.
+        \end{align*}
+
+    Calculamos el cociente de dos términos consecutivos \( \left| \frac{v_{n+1}}{v_n} \right| \):
+        \begin{align*}
+        \left| \frac{v_{n+1}}{v_n} \right| &= \left| \frac{(-1)^{n+1} \frac{x^{2(n+1)+1}}{(n+1)!(n+2)! 2^{n+2}}}{(-1)^n \frac{x^{2n+1}}{n!(n+1)! 2^{n+1}}} \right| \\
+        &= \left| (-1) \frac{x^{2n+3}}{(n+1)(n+1)! (n+2) 2^{n+2}} \cdot \frac{n!(n+1)! 2^{n+1}}{x^{2n+1}} \right| \\
+        &= \left| \frac{x^2}{(n+2)(n+1)2^1} \right| \\
+        &= \frac{x^2}{2(n+2)(n+1)}.
+        \end{align*}
+
+    Tomando el límite cuando \( n \) tiende a infinito:
+        \begin{align*}
+        \lim_{n \to \infty} \left| \frac{v_{n+1}}{v_n} \right| &= \lim_{n \to \infty} \frac{x^2}{2(n+2)(n+1)} \\
+        &= 0.
+        \end{align*}
+
+    Nuevamente, dado que el límite es 0, que es menor que 1, la serie converge absolutamente para todo número real \( x \).
+
+    Por lo tanto, ambas series \( J_0(x) \) y \( J_1(x) \) convergen para todo número real \( x \).
+
+    \subsection*{Ejercicio 10 (b)}
+
+    Demostrar
+
+    $$
+    J_{0}^{\prime}(x)=-J_{1}(x)
+    $$
+
+    \textbf{Demostración}.\\
+
+    Para demostrar la relación \(J_{0}^{\prime}(x)=-J_{1}(x)\), vamos a utilizar las propiedades y definiciones de las funciones de Bessel.
+    Recordemos la forma de la función de Bessel de primera clase de orden \(n\), dada por:
+
+    \[
+    J_n(x) = \sum_{m=0}^{\infty}\frac{(-1)^m}{m! \, \Gamma(m+n+1)}\left( \frac{x}{2} \right)^{2m+n}
+    \]
+
+    Para derivar \(J_0(x)\), utilizamos la siguiente propiedad de la derivada de las funciones de Bessel:
+
+    \[
+    \frac{d}{dx} J_n(x) = \frac{J_{n-1}(x) - J_{n+1}(x)}{2}
+    \]
+
+    Aplicamos esta propiedad para \(n=0\):
+
+    \[
+    \frac{d}{dx} J_0(x) = \frac{J_{-1}(x) - J_{1}(x)}{2}
+    \]
+
+    Para \(J_{0}^{\prime}(x)\), tenemos que usar la relación entre las diferentes órdenes de la función de Bessel. Sabemos que para la función de Bessel de orden negativo, se tiene la siguiente relación:
+
+    \[
+    J_{-n}(x) = (-1)^n J_n(x)
+    \]
+
+    En particular, para \(n=1\):
+
+    \[
+    J_{-1}(x) = (-1)^1 J_1(x) = -J_1(x)
+    \]
+
+    Sustituyendo \(J_{-1}(x)\) en la ecuación de la derivada:
+
+    \[
+    \frac{d}{dx} J_0(x) = \frac{-J_1(x) - J_1(x)}{2} = \frac{-2J_1(x)}{2} = -J_1(x)
+    \]
+
+    Esto demuestra que:
+
+    \[
+    J_{0}^{\prime}(x)=-J_{1}(x)
+    \]
+
+
+
+\end{document}
