@@ -1,0 +1,74 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Computación Científica 2 }{ Tarea 1 }{  }{ Alexander Mendoza }{\today}
+    \pagebreak
+
+    \begin{enumerate}
+        \item Sea $S_n = \{ f : \left[ n \right] \to \left[ n \right] : f \text{ es biyectiva} \}$. Demostrar que $(S_n, \circ)$ es un grupo.
+        
+        Para demostrar que $(S_n, \circ)$ es un grupo, debemos demostrar que la operación dentro del grupo es asociativa, tiene elemento neutro y tiene elementos inversos.
+
+        \begin{enumerate}
+            \item \textbf{Asociatividad}. La asociatividad se puede concluir de la asociatividad de la composición de funciones.
+            \item \textbf{Elemento neutro}. Construyamos la función identidad para el conjunto $S_n$ asignando cada elemento de $\left[ n \right]$ a si mismo. Así
+            $$ I_n : \left[ n \right] \to \left[ n \right] ; k \mapsto k $$ o $$ I_n(k) = k$$ para cada $k \in [n]$. Sabemos que la función identidad es biyectiva, por tanto, $I \in S_n$.
+            Luego, sea $f \in S_n$, así $f(k) \in [n]$, con esto
+
+            \begin{align*}
+                (I \circ f)(k)  &= I(f(k))
+                &= f(k)
+            \end{align*}
+
+            Además
+
+            \begin{align*}
+                (f \circ I)(k)  &= f(I(k))
+                &= f(k)
+            \end{align*}
+
+            Con esto demostramos que $I$ es el elemento neutro de $(S_n, \circ)$.
+
+            \item \textbf{Elemento inverso}.
+
+            Dado que $f \in S_n$ es biyectiva, existe una función inversa $f^{-1} : [n] \to [n]$ también biyectiva, tal que para todo $k \in [n]$ se cumple que $f(f^{-1}(k)) = k$ y $f^{-1}(f(k)) = k$.
+
+            Con esto, para demostrar que es es la inversa,
+
+            \begin{align*}
+            (f \circ f^{-1})(k) &= f(f^{-1}(k)) \\
+            &= k
+            \end{align*}
+
+            Luego,
+
+            \begin{align*}
+            (f^{-1} \circ f)(k) &= f^{-1}(f(k)) \\
+            &= k
+            \end{align*}
+
+            Por lo tanto, $f^{-1}$ es la inversa $f$ en $(S_n, \circ)$ para todo $(f \in S_n)$.
+        \end{enumerate}
+
+        \item Código para verificar si es una permutación.
+        \begin{verbatim}
+            def verificar_permutacion(lista):
+                n = len(lista)
+                if set(lista) != set(range(1, n + 1)):
+                    return False
+            
+                verificados = [False] * n
+                for i in lista:
+                    if verificados[i - 1]:
+                        return False
+                    verificados[i - 1] = True
+                return True
+            
+            print(verificar_permutacion([2, 1, 3]))
+        \end{verbatim}
+    \end{enumerate}
+
+\end{document}
