@@ -1,0 +1,66 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Computación Científica 2 }{ Parcial 1 }{  }{ Alexander Mendoza }{\today}
+    \pagebreak
+
+    \begin{enumerate}
+        \item Deme las permutaciones que ordenan la siguiente lista
+        $$
+        x=[9,10,7,2,-7,0,9,6,-1,2,2,2,-4,-4,-1,1,5,4,3,2] .
+        $$
+
+        \textit{\textbf{Respuesta}}. Para obtener las permutaciones note que $\pi = 5 13 14 9 15 6 16 4 10 11 12 20 19 18 17 8 3 1 7 2$ es una permutación que ordena a $x$, luego todas las permutaciones que ordenan a $x$ son las permutaciones resultantes al permutar $[\pi_1, \pi_7]$, $[\pi_{10}, \pi_{11}, \pi_{12}]$ y $[\pi_9, \pi_{15}]$.
+        \item Sea $\pi \in \mathfrak{S}_n$ una permutación de $n$ elementos. Considere la relación $C_\pi$ sobre $[n]$ :
+        $$
+        C_\pi=\left\{(i, j) \in[n]: \exists k \in \mathbb{Z}^{\geq 0} \text { t.q } \pi^k(i)=j\right\} \subseteq[n]^2
+        $$
+        Acá $\pi^k(i)=\pi(\pi(\cdots \pi(i) \cdots))$ es componer $\pi k$ veces. Pruebe que $C_\pi$ es una relación de equivalencia.
+        Ejemplo: Si $\pi=13254$, entonces $C_\pi=\{(1,1),(2,3),(3,2),(4,5),(5,4), (2,2), (3,3), (4,4), (5,5)\}$.
+
+        \textit{\textbf{Respuesta}}. Para demostrar que $C_\pi$ es una relación de equivalencia debemos demostrar que $C_\pi$ es:
+
+        \begin{enumerate}
+            \item \textit{\textbf{Reflexiva}}: Sea $i \in [n]$ Al tomar $k = 0$ se concluye que $\pi^k(i) = \pi^0(i) = i$.
+            \item \textit{\textbf{Simétrica}}: Sean $i,j \in [n]$ con $i \not = j$. Supongamos que existe $\alpha$ tal que $\pi^\alpha(i) = j$, luego sabemos que existe $\beta$ tal que $\pi^\beta(i) = i$ esto ya que la relación es reflexiva. Con esto $\beta < \alpha$ note que de lo contrario, si $\beta > \alpha$, $\pi^\alpha(i) = i$, pero como $\beta > \alpha$ $\pi^\alpha(\pi^\alpha(i)) = i$, contradiciendo $\pi^\beta(i) = i$. Así, como $\beta > \alpha$, tenemos que
+            \begin{align*}
+                \pi^\beta(i) &= j\\
+                \pi^{\alpha-\beta}(\pi^\beta(i))&= \pi^{\alpha-\beta}(j)\\
+                &= i
+            \end{align*}
+
+            Demostrando así lo requerido.
+            \item \textit{\textbf{Transitiva}}. Sean $i, j, k \in [n]$ tal que $\pi^\alpha(i) = j$ y $\pi^\beta(j) = k$. Luego $\pi^\beta(\pi^\alpha(i)) = \pi^{\beta + \alpha}(i) = k$. Demostrando así lo requerido.
+        \end{enumerate}
+        Con esto demostramos que la relación es una relación de equivalencia.
+
+        \item Sea $x \in[n]^n$, se define una pica de $x$ a una tupla $(i, j) \in[n]^2$ tal que $i<j$ y $x_i>x_j$ (con el orden usual). El conjunto de picas de $x$ es
+        $$
+        \operatorname{Picas}(x)=\left\{(i, j) \in[n]^2: i<j \text { y } x_i>x_j\right\}
+        $$
+        Ejemplo: Si $n=4$ y $x=[1,4,2,1]$, entonces $\operatorname{Picas}(x)=\{(2,3),(2,4),(3,4)\}$.
+        \begin{enumerate}
+            \item Pruebe que $x$ está ordenada sii $\operatorname{Picas}(x)=\emptyset$.
+            \item Cuándo se maximiza el tamaño del conjunto de Picas? Halle una fórmula, en términos de $n$, para
+            $$
+            \max _{x \in[n]^n}|\operatorname{Picas}(x)|
+            $$
+        \end{enumerate}
+        \textit{\textbf{Respuesta}}:
+        \begin{enumerate}
+            \item Sea $x$ una lista ordenada de tamaño $n$, luego para todo $i, j \in [n]$, con $i < j$, $x_i \leq x_j$, por lo tanto, $\text{Picas}(x) = \emptyset$. Supongamos ahora que $\text{Picas}(x) = \emptyset$, esto implica que no existen $i, j \in [n]$ con $i < j$ tal que $x_i > x_j$, por lo tanto, $x$ está ordenada.
+            \item Las condiciones para que se maximize el tamaño del conjunto de Picas es que $x \in [n]^n$ no contenga elementos repetidos y que $x$ esté ordenada de mayor a menor, de esta manera para todo $i, j \in [n]$ con $i < j$, se tiene que $x_i > x_j$.
+            Basado en las condiciones anteriores, como $x$ contiene $n$ elementos y todas sus parejas de índices pertenecen a $\text{Picas}(x)$, una fórmula natural sería la de todas las combinaciones de $n$ elementos eligiendo 2,
+
+            $$\begin{pmatrix}
+                n\\
+                2\\
+            \end{pmatrix} = \frac{(n-1)(n)}{2}$$
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
