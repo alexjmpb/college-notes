@@ -1,0 +1,124 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Ecuaciones Diferenciales Ordinarias }{ Taller 6 }{  }{ Alexander Mendoza\\Alejandro Garzón }{\today}
+
+    \subsection*{Ejercicio 3.1.35}
+
+    Dadas las soluciones $\mathrm{Y}_1(t) = (x_1(t), y_1(t))$ y $\mathrm{Y}_2(t) = (x_2(t), y_2(t))$ el sistema $\frac{d \mathrm{Y}}{d t} = A \mathrm{Y}$, donde $\mathrm{A} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$.
+
+    \noindent\textbf{(a) Computar $\frac{dW}{dt}$} \\
+    Define $W(t) = x_1(t) y_2(t) - x_2(t) y_1(t)$. Entonces:
+    \[
+    \frac{d W}{d t} = x_1 \frac{d y_2}{d t} + y_2 \frac{d x_1}{d t} - x_2 \frac{d y_1}{d t} - y_1 \frac{d x_2}{d t}.
+    \]
+
+    \noindent\textbf{(b) Muestre que } $\dfrac{dW}{dt}=(a+d)W(t)$\\
+    Dado que $\frac{d Y}{d t} = A Y$, tenemos:
+    \[
+    \frac{d Y_1}{d t} = \begin{pmatrix} \frac{d x_1}{d t} \\ \frac{d y_1}{d t} \end{pmatrix} = A Y_1 = \begin{pmatrix} a x_1 + b y_1 \\ c x_1 + d y_1 \end{pmatrix}.
+    \]
+    De manera similar,
+    \[
+    \frac{d Y_2}{d t} = \begin{pmatrix} \frac{d x_2}{d t} \\ \frac{d y_2}{d t} \end{pmatrix} = A Y_2 = \begin{pmatrix} a x_2 + b y_2 \\ c x_2 + d y_2 \end{pmatrix}.
+    \]
+
+    Sustituyendo en $\frac{dW}{dt}$, obtenemos:
+    \[
+    \begin{aligned}
+    \frac{d W}{d t} &= x_1(c x_2 + d y_2) + y_2(a x_1 + b y_1) - x_2(c x_1 + d y_1) - y_1(a x_2 + b y_2) \\
+    &= a(x_1 y_2 - x_2 y_1) + d(x_1 y_2 - x_2 y_1) \\
+    &= (a + d) W(t),
+    \end{aligned}
+    \]
+    donde $W(t) = x_1(t) y_2(t) - x_2(t) y_1(t)$.
+
+    \noindent\textbf{(d) Solución General para $W(t)$} \\
+    Para encontrar $W(t)$, resolvemos:
+    \[
+    \frac{d W}{d t} = (a + d) W(t) \Rightarrow \frac{1}{W(t)} \frac{d W}{d t} = a + d.
+    \]
+    Integrando ambos lados se obtiene:
+    \[
+    \ln(W) = (a + d) t + C \Rightarrow W(t) = K e^{(a + d)t} \quad \text{con } K = e^C.
+    \]
+
+    \noindent\textbf{(e) Condición para Independencia Lineal} \\
+    Dado que $W(t) = \det(\mathrm{Y}_1(t) \quad \mathrm{Y}_2(t))$, si $\mathrm{Y}_1(0)$ y $\mathrm{Y}_2(0)$ son linealmente independientes, entonces $W(0) = K \neq 0$, por lo que $W(t) = K e^{(a + d) t} \neq 0$ para todo $t$. Así, $\mathrm{Y}_1(t)$ y $\mathrm{Y}_2(t)$ permanecen linealmente independientes, ya que $W(t) \neq 0$.
+
+    \subsection*{Ejercicio 3.2.14}
+
+        \[
+    \frac{d \mathbf{Y}}{d t}=\begin{pmatrix}4 & -2 \\ 1 & 1\end{pmatrix} \mathbf{Y}, \quad \mathbf{Y}(0)=\mathbf{Y}_0
+    \]
+    donde la condición inicial es \(\mathbf{Y}_0=(1,0)\).
+
+    Para encontrar los valores propios, resolvemos \(\operatorname{det}(A - \lambda I) = 0\):
+    \[
+    (4 - \lambda)(1 - \lambda) - (-2) = 0,
+    \]
+    lo cual se simplifica a
+    \[
+    \lambda^2 - 5\lambda + 6 = 0,
+    \]
+    dando las soluciones \((\lambda - 3)(\lambda - 2) = 0\), así que \(\lambda_1 = 3\) y \(\lambda_2 = 2\).
+
+    Para \(\lambda_1 = 3\), resolvemos
+    \[
+    \begin{cases} 
+    4x_1 - 2y_1 = 3x_1 \\
+    x_1 + y_1 = 3y_1 
+    \end{cases}
+    \]
+    lo cual se simplifica a
+    \[
+    \begin{cases}
+    x_1 - 2y_1 = 0 \\
+    x_1 - 2y_1 = 0
+    \end{cases}.
+    \]
+
+    Para \(\lambda_2 = 2\), resolvemos
+    \[
+    \begin{cases} 
+    4x_2 - 2y_2 = 2x_2 \\
+    x_2 + y_2 = 2y_2 
+    \end{cases}
+    \]
+    lo cual se simplifica a
+    \[
+    \begin{cases}
+    2x_2 - 2y_2 = 0 \\
+    x_2 - y_2 = 0
+    \end{cases}.
+    \]
+
+    Los valores propios distintos \(\lambda_1 = 3\) y \(\lambda_2 = 2\) tienen vectores propios asociados \(V_1 = (2, 1)\) y \(V_2 = (1, 1)\), respectivamente. Las soluciones son:
+    \[
+    \mathbf{Y}_1(t) = e^{3t} \binom{2}{1} \quad \text{y} \quad \mathbf{Y}_2(t) = e^{2t} \binom{1}{1}.
+    \]
+
+    Con la condición inicial \(\mathbf{Y}_0 = (2, 1)\), buscamos constantes \(k_1\) y \(k_2\) tales que
+    \[
+    k_1 \binom{2}{1} + k_2 \binom{1}{1} = \binom{2}{1}.
+    \]
+    Esto nos da el sistema:
+    \[
+    \begin{cases}
+    2k_1 + k_2 = 2 \\
+    k_1 + k_2 = 1
+    \end{cases}
+    \]
+    resolviendo para \(k_1 = 1\) y \(k_2 = 0\).
+
+    Por lo tanto, la solución al problema de valor inicial es:
+    \[
+    \mathbf{Y}(t) = 1 \cdot \mathbf{Y}_1(t) + 0 \cdot \mathbf{Y}_2(t) = e^{3t} \binom{2}{1}.
+    \]
+
+\end{document}

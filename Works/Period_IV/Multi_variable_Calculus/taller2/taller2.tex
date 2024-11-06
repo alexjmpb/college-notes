@@ -1,0 +1,2185 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Cálculo Multivariable }{ Taller 2 }{  }{ Alexander Mendoza }{\today}
+    
+    \subsection{Ejercicio 1}
+Dadas las ecuaciones $x+y=uv$ y $xy=u-v$, que definen $x$ e $y$ implícitamente como funciones de $u$ y $v$, es decir, $x=X(u, v)$ e $y=Y(u, v)$, prueba que $\partial X / \partial u=(x v-1) /(x-y)$ cuando $x \neq y$. Además, encuentra fórmulas análogas para $\partial X / \partial v, \partial Y / \partial u, \partial Y / \partial v$.
+
+\textbf{Respuesta} 
+
+Nuestra tarea es obtener $x=X(u,v)$, $y=Y(u,v)$ y probar que $\frac{\partial X}{\partial u}=\frac{xv-1}{x-y}$ si $x \neq y$. También debemos hallar $\frac{\partial X}{\partial v}$, $\frac{\partial Y}{\partial u}$ y $\frac{\partial Y}{\partial v}$. Partimos de las ecuaciones $x+y=uv$ y $xy=u-v$. 
+
+Al despejar $y$ a partir de la primera ecuación, tenemos $y=uv-x$. Reemplazando esto en la segunda ecuación, se llega a una ecuación cuadrática en términos de $x$. Al resolver, obtenemos:
+
+\[x=\frac{uv \pm \sqrt{(uv)^2-4(u-v)}}{2}\]
+
+Por lo tanto:
+
+\[y=\frac{uv \mp \sqrt{(uv)^2-4(u-v)}}{2}\]
+
+Para obtener las derivadas parciales, diferenciamos las ecuaciones originales respecto a $u$ y $v$. Al resolver el sistema de ecuaciones resultante:
+
+\[\frac{\partial X}{\partial u}=\frac{xv-1}{x-y}\]
+
+lo cual confirma lo que se debía demostrar inicialmente.
+
+Empleando un método equivalente, se encuentra que:
+
+\[\frac{\partial Y}{\partial u}=\frac{1-uy}{x-y}\]
+\[\frac{\partial X}{\partial v}=\frac{ux+1}{x-y}\]
+\[\frac{\partial Y}{\partial v}=\frac{1+uy}{y-x}\]
+
+Estas expresiones son válidas siempre que $x \neq y$.\subsection{Ejercicio 2}
+Las ecuaciones dadas $x + y = uv$ y $xy = u - v$ permiten expresar $x$ y $v$ como funciones dependientes de $u$ e $y$, a saber, $x = X(u, y)$ y $v = V(u, y)$. Se pide demostrar que el derivado parcial $\partial X / \partial u = (u+v) / (1+yu)$ cuando $1+yu \neq 0$, y calcular las expresiones de las derivadas parciales $\partial X / \partial y, \partial V / \partial u, \partial V / \partial y$.
+
+\textbf{Respuesta}
+Para demostrar las relaciones de las derivadas parciales e ilustrar que $\frac{\partial x}{\partial u}=\frac{(u+v)}{1+y u}$, investigamos las expresiones para $x$ y $v$ en función de $u$ e $y$ a partir de las ecuaciones propuestas:
+
+\begin{align*}
+x + y &= uv \\
+xy &= u - v
+\end{align*}
+
+Al resolver para $v$ usando la segunda ecuación, obtenemos:
+\[ v = u - xy \]
+
+Reemplazamos $v$ en la primera ecuación:
+\begin{align*}
+x + y &= u(u - xy) \\
+&= u^2 - uxy \\
+x + uxy &= u^2 - y \\
+x &= \frac{u^2 - y}{1 + uy}
+\end{align*}
+
+Usando esta expresión para $x$ en la ecuación de $v$:
+\begin{align*}
+v &= u - y\left(\frac{u^2 - y}{1 + uy}\right) \\
+&= \frac{u(1 + uy) - u^2y + y^2}{1 + uy} \\
+&= \frac{u + y^2}{1 + uy}
+\end{align*}
+
+Derivando parcialmente:
+
+\begin{align*}
+\frac{\partial x}{\partial u} &= \frac{2u + u^2y + y^2}{(1 + uy)^2} \\
+\frac{\partial v}{\partial y} &= \frac{2y + uy^2 - u^2}{(1 + uy)^2} \\
+\frac{\partial x}{\partial y} &= \frac{-u(y^2 + u^2)}{(1 + uy)^2} \\
+\frac{\partial v}{\partial u} &= \frac{1 - y^3}{(1 + uy)^2}
+\end{align*}
+
+Finalmente, comprobamos que $\frac{\partial x}{\partial u}=\frac{u + v}{1 + uy}$:
+\begin{align*}
+u + v &= u + \frac{u + y^2}{1 + uy} = \frac{2u + u^2y + y^2}{1 + uy} \\
+\frac{\partial x}{\partial u} &= \frac{2u + u^2y + y^2}{(1 + uy)^2} = \frac{u + v}{1 + uy}
+\end{align*}\subsection{Ejercicio 4a}
+Se requiere encontrar un vector unitario $T$ que sea tangente a la curva $C$ en el punto $P=(\sqrt{7}, 3,4)$, donde la curva $C$ está definida por las intersecciones de las superficies $2 x^{2}+3 y^{2}-z^{2}=25$ y $x^{2}+y^{2}=z^{2}$. La solución debe prescindir del uso de una representación paramétrica explícita.
+
+\textbf{Respuesta} 
+El propósito es determinar las funciones $x=X(u,v)$ y $y=Y(u,v)$, y demostrar que la derivada parcial $\frac{\partial X}{\partial u}=\frac{xv-1}{x-y}$ cuando $x \neq y$, junto con hallar las derivadas parciales $\frac{\partial X}{\partial v}$, $\frac{\partial Y}{\partial u}$ y $\frac{\partial Y}{\partial v}$. Se parte de los sistemas de ecuaciones $x+y=uv$ y $xy=u-v$.
+
+De la ecuación $y=uv-x$, se sustituye en la segunda ecuación para formar una ecuación cuadrática en $x$. Al resolver esta ecuación, se encuentran las siguientes soluciones para $x$ y $y$:
+
+\[x=\frac{uv \pm \sqrt{(uv)^2-4(u-v)}}{2}\]
+
+\[y=\frac{uv \mp \sqrt{(uv)^2-4(u-v)}}{2}\]
+
+Para determinar las derivadas parciales, se derivan las ecuaciones originales respecto a $u$ y $v$, lo que lleva a los siguientes resultados:
+
+\[\frac{\partial X}{\partial u}=\frac{xv-1}{x-y}\]
+
+lo que verifica la afirmación dada.
+
+Mediante un proceso similar, se obtienen las siguientes derivadas parciales:
+
+\[\frac{\partial Y}{\partial u}=\frac{1-uy}{x-y}\]
+\[\frac{\partial X}{\partial v}=\frac{ux+1}{x-y}\]
+\[\frac{\partial Y}{\partial v}=\frac{1+uy}{y-x}\]
+
+Estas fórmulas son aplicables para el caso $x \neq y$.\subsection{Ejercicio 5}
+Dadas las ecuaciones $F(u, v)=0, u=x y$ y $v=\sqrt{x^{2}+z^{2}}$, que describen una superficie en el espacio definido por $x$, $y$ y $z$, se requiere encontrar un vector que sea perpendicular a esta superficie en el punto $x=1, y=1, z=\sqrt{3}$, sabiendo que $D_{1} F(1,2)=1$ y $D_{2} F(1,2)=2$.
+
+\textbf{Respuesta}
+Para hallar un vector normal en la posición $x=1, y=1$ y $z=\sqrt{3}$ donde $D_1 F(1,2)=1$ y $D_2 F(1,2)=2$, utilizamos las ecuaciones de la superficie en el espacio xyz definidas por $F(u, v)=0, u=x y$ y $v=\sqrt{x^2+z^2}$.
+
+El vector perpendicular en un punto $P$ se determina por el gradiente del vector en cuestión. Definimos $F(x, y, z)$ en términos de $x$, $y$ y $z$ como:
+
+\begin{equation*}
+F(x, y, z) = xy + 2\sqrt{x^2+z^2}
+\end{equation*}
+
+Calculamos ahora el gradiente de $F(x, y, z)$:
+
+\begin{equation*}
+\operatorname{grad}(F(x, y, z)) = \left(y+\frac{2x}{\sqrt{x^2+z^2}}\right)\hat{i} + x\hat{j} + \frac{2z}{\sqrt{x^2+z^2}}\hat{k}
+\end{equation*}
+
+Al sustituir los valores $x=1, y=1$ y $z=\sqrt{3}$ en esta fórmula, obtenemos el vector normal en el punto especificado:
+
+\begin{equation*}
+2\hat{i} + \hat{j} + \sqrt{3}\hat{k}
+\end{equation*}
+
+Así, un vector perpendicular a la superficie en el punto $x=1, y=1$ y $z=\sqrt{3}$, donde $D_1 F(1,2)=1$ y $D_2 F(1,2)=2$ es $2\hat{i} + \hat{j} + \sqrt{3}\hat{k}$.\subsection{Ejercicio 7}
+La ecuación $f(y / x, z / x)=0$ describe $z$ como una función implícita de $x$ e $y$, llamada $z=g(x, y)$. Demuestra que
+$$
+x \frac{\partial g}{\partial x}+y \frac{\partial g}{\partial y}=g(x, y)
+$$
+en aquellos puntos donde $D_{2} f[y / x, g(x, y) / x]$ es diferente de cero.
+
+\textbf{Respuesta}
+
+Debemos demostrar que $x \frac{\partial g}{\partial x}+y \frac{\partial g}{\partial y}=g(x, y)$ en los puntos donde se cumple que $D_2 f\left(\frac{y}{x}, \frac{g(x, y)}{x}\right)$ no es cero. La ecuación $f\left(\frac{y}{x}, \frac{z}{x}\right)=0$ describe implícitamente a $z$ en función de $x$ e $y$, es decir, $z=g(x, y)$.
+
+Usamos la regla de la cadena para derivadas parciales: si $f$ y $g$ son funciones, entonces la derivada de su composición se da por $\frac{\partial}{\partial x} f(g(x))=f^{\prime}(g(x)) g^{\prime}(x)$. Además, recordemos la regla del cociente: $\left(\frac{f}{g}\right)^{\prime}=\frac{g f^{\prime}-f g^{\prime}}{g^2}$.
+
+Consideremos ahora $f\left(\frac{y}{x}, \frac{g(x, y)}{x}\right)=0$. Introduzcamos una función $F(x, y)$ tal que $F(x, y)=f\left(\frac{y}{x}, \frac{g(x, y)}{x}\right)=0$. Por lo tanto, $\frac{\partial F}{\partial x}=0$ y $\frac{\partial F}{\partial y}=0$.
+
+Reescribimos $F(x, y)=f\left(u_1(x, y), u_2(x, y)\right)$, donde $u_1(x, y)=\frac{y}{x}$ y $u_2(x, y)=\frac{g(x, y)}{x}$. Aplicando la regla de la cadena, obtenemos:
+
+\begin{align*}
+\frac{\partial F}{\partial x} &= \frac{1}{x^2}\left(D_1 f(-y)+D_2 f\left(x \frac{\partial g}{\partial x}-g(x, y)\right)\right) = 0 \\
+\frac{\partial F}{\partial y} &= \frac{1}{x}\left(D_1 f+D_2 f\left(\frac{\partial g}{\partial y}\right)\right) = 0
+\end{align*}
+
+De $\frac{\partial F}{\partial y}=0$, tenemos que $\frac{\partial g}{\partial y} = \frac{-D_1 f}{D_2 f}$. De $\frac{\partial F}{\partial x}=0$, obtenemos:
+
+\begin{align*}
+-D_1 f(y)+D_2 f\left(x \frac{\partial g}{\partial x}-g(x, y)\right) &= 0 \\
+\frac{-D_1 f(y)}{D_2 f}+\left(x \frac{\partial g}{\partial x}-g(x, y)\right) &= 0
+\end{align*}
+
+Al sustituir $\frac{-D_1 f}{D_2 f}$ por $\frac{\partial g}{\partial y}$, llegamos a:
+
+\begin{align*}
+y \frac{\partial g}{\partial y}+x \frac{\partial g}{\partial x}-g(x, y) &= 0 \\
+x \frac{\partial g}{\partial x}+y \frac{\partial g}{\partial y} &= g(x, y)
+\end{align*}
+
+Con esto, hemos demostrado que $x \frac{\partial g}{\partial x}+y \frac{\partial g}{\partial y}=g(x, y)$ en los puntos donde $D_2 f\left(\frac{y}{x}, \frac{g(x, y)}{x}\right)$ no es cero.\subsection{Ejercicio 9}
+Dada la ecuación $x + z + (y + z)^2 = 6$, donde $z$ está implícitamente relacionado con $x$ e $y$ como $z = f(x, y)$, hallar las derivadas parciales $\partial f / \partial x$, $\partial f / \partial y$ y $\partial^{2} f /(\partial x \partial y)$ expresadas en términos de $x$, $y$ y $z$.
+\textbf{Respuesta}
+La ecuación $x + z + (y + z)^2 = 6$ describe una relación implícita entre $x$, $y$ y $z = f(x, y)$. Utilizando las fórmulas para derivadas parciales de funciones implícitas, tenemos:
+\[
+\frac{\partial f}{\partial x} = \frac{-\partial F / \partial x}{\partial F / \partial z}, \quad 
+\frac{\partial f}{\partial y} = \frac{-\partial F / \partial y}{\partial F / \partial z}
+\]
+Definimos la función $F(x, y, z) = x + z + y^2 + 2yz + z^2 - 6$. Entonces, las derivadas parciales son:
+\[
+\frac{\partial F}{\partial x} = 1, \quad \frac{\partial F}{\partial y} = 2y + 2z, \quad \frac{\partial F}{\partial z} = 1 + 2y + 2z
+\]
+Reemplazando en las fórmulas obtenemos:
+\[
+\frac{\partial f}{\partial x} = \frac{-1}{1 + 2y + 2z}, \quad 
+\frac{\partial f}{\partial y} = \frac{-2(y + z)}{1 + 2y + 2z}
+\]
+Para la segunda derivada mixta $\frac{\partial^2 f}{(\partial x \partial y)}$, aplicamos la regla del cociente y se usa $\frac{\partial z}{\partial x} = \frac{-1}{1 + 2y + 2z}$, resultando en:
+\[
+\frac{\partial^2 f}{(\partial x \partial y)} = \frac{2}{(1 + 2y + 2z)^3}
+\]
+Así, las derivadas parciales son:
+\[
+\frac{\partial f}{\partial x} = \frac{-1}{1 + 2y + 2z}, \quad
+\frac{\partial f}{\partial y} = \frac{-2(y + z)}{1 + 2y + 2z}, \quad
+\frac{\partial^2 f}{(\partial x \partial y)} = \frac{2}{(1 + 2y + 2z)^3}
+\]\subsection{Ejercicio 7} 
+Considere la ecuación de la superficie $z=x^{3}-3 x y^{2}+y^{3}$. Se requiere encontrar y clasificar los puntos estacionarios de esta superficie. 
+
+\textbf{Respuesta} 
+Primero, calculamos las derivadas parciales:
+$$
+\frac{\partial z}{\partial x}=3 x^2-3 y^2 ; \quad \frac{\partial z}{\partial y}=-6 x y+3 y^2 .
+$$
+
+Luego, igualamos las derivadas parciales a cero:
+$$
+\begin{aligned}
+& 3 x^2-3 y^2=0 \\
+& 3\left(x^2-y^2\right)=0 \\
+& x^2=y^2 \\
+& x=\pm y \\
+& -6 y x+3 y^2=0 \\
+& -3 y(2 x-y)=0 \\
+& -3 y=0 \quad \text{o} \quad (2 x-y)=0 \\
+& y=0 \quad \text{o} \quad 2 x=y \\
+& (0,0) .
+\end{aligned}
+$$
+
+Después, calculamos la matriz Hessiana:
+$$
+\begin{array}{ll}
+\frac{\partial^2 z}{\partial x^2}=6 x & \frac{\partial^2 z}{\partial y \partial x}=-6 y \\
+\frac{\partial^2 z}{\partial y^2}=6 y & \frac{\partial^2 z}{\partial x \partial y}=-6 y 
+\end{array}
+$$
+$$
+H(x, y)=\left|\begin{array}{cc}
+6 x & -6 y \\
+-6 y & 6 y
+\end{array}\right|
+$$
+Al evaluar en $H(0,0)=0$, encontramos que el determinante es cero, lo que hace que el criterio sea inconcluso. No obstante, el punto $(0,0)$ es efectivamente un punto estacionario.\subsection{Ejercicio 8}
+Considerar las ecuaciones cartesianas de las suberficies dadas y determinar si poseen puntos estacionarios y su clasificación.
+\[ z = x^{2} y^{3}(6-x-y) \]
+
+\textbf{Respuesta}
+
+La ecuación es:
+\[ z = x^{2} y^{3}(6-x-y) \]
+
+\textit{Paso 1: Calcular las derivadas parciales.}
+\[
+\begin{aligned}
+& z = 6x^{2}y^{3} - x^{3}y^{3} - y^{4}x^{2} \\
+& \frac{\partial z}{\partial x} = 12xy^{3} - 3x^{2}y^{3} - 2xy^{4} = 0 \\
+& \frac{\partial z}{\partial y} = 18x^{2}y^{2} - 3x^{3}y^{2} - 4y^{3}x^{2} = 6
+\end{aligned}
+\]
+
+\textit{Paso 2: Igualar a cero.}
+\[
+\begin{aligned}
+& 12xy^{3} - 3x^{2}y^{3} - 2xy^{4} = 0 \\
+& xy^{3}(12 - 3x - 2y) = 0 \\
+& xy^{3} = 0 \quad \text{ó} \quad 12 - 3x - 2y = 0 \\
+& x = 0, \, y = 0 \quad \text{ó} \quad 12 - 3x = 2y \\
+& y = 6 - \frac{3}{2}x \\
+& 18x^{2}y^{2} - 3x^{3}y^{2} - 4y^{3}x^{2} \\
+& x^{2}y^{2}(18 - 3x - 4y) = 0 \\
+& x^{2}y^{2} = 0 \quad \text{ó} \quad 18 - 3x - 4y = 0 \\
+& \begin{array}{l}
+x = 0, \, y = 0 \quad \text{ó} \quad y = \frac{18 - 3x}{4} \\
+6 - \frac{3}{2}x = \frac{18 - 3x}{4} \\
+24 - 6x = 18 - 3x \\
+6 - 6x = -3x \\
+6 = -3x + 6x \\
+6 = 3x \\
+x = 2
+\end{array} \\
+& \begin{array}{l}
+2y^{2}(18 - 6 - 4y) = 0 \quad \Leftrightarrow 2y^{2}(12 = 4y) \Leftrightarrow 8y^{2}(3-y) \\
+y = 0
+\end{array}
+\end{aligned}
+\]
+\[ (2,3), (2,0), (0,0), (0,y), (x,0) \]
+
+\textit{Paso 3: Calcular la matriz Hessiana.}
+\[
+\begin{aligned}
+& \frac{\partial^{2} z}{\partial x} = 12y^{3} - 6xy^{3} - 2y^{4} \\
+& \frac{\partial^{2} z}{\partial y} = 36x^{2}y - 6x^{3}y - 12y^{2}x^{2} \\
+& \frac{\partial z}{\partial x \partial y} = 36xy^{2} - 9x^{2}y^{2} - 8xy^{3} \\
+& \frac{\partial z}{\partial y \partial x} = 36xy^{2} - 9x^{2}y^{2} - 8xy^{3} \\
+& H(x, y) = \left|\begin{array}{ll}
+12y^{3} - 6xy^{3} - 2y^{4} & 36xy^{2} - 9xy^{2} - 8xy^{3} \\
+36xy^{2} - 9x^{2}y^{2} - 8xy^{3} & 36x^{2}y - 9x^{2}y^{2} - 8xy^{3}
+\end{array}\right|
+\end{aligned}
+\]
+\[ H(0,0) = 0 \, \text{no decide} \]
+\[ H(2,3) = -3888 \, \text{Punto de silla} \]
+\[ H(2,0) = 0 \, \text{no decide} \]\subsection{Ejercicio 14}
+Determinar y clasificar (de ser posible) los puntos estacionarios de las superficies descritas por las ecuaciones cartesianas dadas para los ejercicios del 1 al 15.
+La función a estudiar es $z=x-2 y+\log \sqrt{x^{2}+y^{2}}+3 \arctan \frac{y}{x}$, con $x>0$. 
+
+\textbf{Respuesta}
+
+Para encontrar los puntos estacionarios calculamos las derivadas parciales de $z$:
+
+1) Derivadas Parciales
+
+\[
+\begin{aligned}
+& \frac{\partial}{\partial x} \log \left(x^{2}+y^{2}\right)^{1 / 2}=\frac{x}{x^{2}+y^{2}}, \\
+& \frac{\partial}{\partial x} 3\arctan\left(\frac{y}{x}\right)=\frac{-3 y}{x^{2}+y^{2}}, \\
+& \frac{\partial z}{\partial x}=1+\frac{x}{x^{2}+y^{2}}-\frac{3 y}{x^{2}+y^{2}}, \\
+& \frac{\partial}{\partial y} \log \left(x^{2}+y^{2}\right)^{1 / 2}=\frac{y}{x^{2}+y^{2}}, \\
+& \frac{\partial}{\partial y} 3\arctan\left(\frac{y}{x}\right)=\frac{3 x}{x^{2}+y^{2}}, \\
+\end{aligned}
+\]
+
+\[
+\frac{\delta z}{\partial y}=-2 y+\frac{y}{x^{2}+y^{2}}+\frac{3 x}{x^{2}+y^{2}}
+\]
+
+2) Derivadas Segundas
+
+\[
+\begin{aligned}
+& \frac{\partial^{2} z}{\partial x}=\frac{x^{2}-2 x+y^{2}}{\left(x^{2}+y^{2}\right)^{2}}+\frac{2 x \cdot 3 y}{\left(x^{2}+y^{2}\right)^{2}}, \\
+& \frac{\partial^{2} z}{\partial y}=-2+\frac{x^{2}+y^{2}-2 y^{2}}{\left(x^{2}+y^{2}\right)^{2}}+\frac{(x^{2}+y^{2})3-2 y \cdot 3 x}{\left(x^{2}+y^{2}\right)^{2}}, \\
+& \frac{\partial z}{\partial x \partial y}=\frac{-2 y x}{\left(x^{2}+y^{2}\right)^{2}}-\frac{(x^{2}+y^{2})3-2 y(3 y)}{\left(x^{2}+y^{2}\right)^{2}}, \\
+& \frac{\partial z}{\partial y \partial x}=\frac{-2 x}{\left(x^{2}+y^{2}\right)^{2}}+\frac{(x^{2}+y^{2})3-2 x \cdot 3 x}{\left(x^{2}+y^{2}\right)^{2}}
+\end{aligned}
+\]
+
+La matriz Hessiana es:
+
+\[
+H(x,y) = 
+\begin{pmatrix}
+\frac{x^2 - 2x + y^2}{(x^2 + y^2)^2} + \frac{2x \cdot 3y}{(x^2 + y^2)^2} & \frac{-2yx}{(x^2 + y^2)^2} - \frac{(x^2 + y^2)3 - 2y(3y)}{(x^2 + y^2)^2} \\
+\frac{-2x}{(x^2 + y^2)^2} + \frac{(x^2 + y^2)3 - 2x \cdot 3x}{(x^2 + y^2)^2} & -2 + \frac{x^2 + y^2 - 2y^2}{(x^2 + y^2)^2} + \frac{(x^2 + y^2)3 - 2y \cdot 3x}{(x^2 + y^2)^2}
+\end{pmatrix}
+\]
+
+Evaluando las derivadas parciales en $0$, resulta:
+
+\[
+\begin{aligned}
+& \frac{x^{2}+y^{2}+x-3 y}{x^{2}+y^{2}}=0 \quad \Rightarrow x^{2}+x+y^{2}-3 y \\
+& -2 y x^{2}-2 y^{3}+4 y^{2}=0 \\
+& y\left(-2 x^{2}-2 y^{2}+4 y\right)=0 \quad ; \quad y=0 \quad 0 \quad -2 x^{2}-2 y^{2}+4 y=0 \\
+& \text{Si } y=0 \\
+& \quad x^{2}+x=0
+\end{aligned}
+\]
+
+Si $x>0$, entonces $x^{2}+x=0$ no tiene soluciones. Entonces evaluamos para $y=1$:
+
+\[
+\begin{aligned}
+\sqrt{2-y}=\sqrt{y} & \Leftrightarrow 2=y+y \\
+& \Rightarrow 2=2 y \Rightarrow 1=y
+\end{aligned}
+\]
+
+Para $y=1$, los valores $(-2,1)$ no son válidos, así que:
+
+\[
+\left.\begin{aligned}
+\end{aligned} \right\rvert\, H(1,1)=-13 \text{ punto de silla. }
+\]\subsection{Ejercicio 18} 
+Encuentra todos los máximos y mínimos absolutos y relativos, así como los puntos de silla de la función $f(x, y)=x y\left(1-x^{2}-y^{2}\right)$ dentro del cuadrado $0 \leq x \leq 1, 0 \leq y \leq 1$.
+
+\textbf{Respuesta}
+
+La función se expresa como: 
+$$
+f(x, y)=x y - x^{3} y - x y^{3}
+$$
+
+1) Calculamos las derivadas parciales: 
+$$
+\begin{array}{ll}
+\text{i)} \frac{\partial f}{\partial x} = y - 3 x^{2} y - y^{3} & ; \frac{\partial f}{\partial y} = x - x^{3} - 3 y^{2} x \\
+\frac{\partial^{2} f}{\partial x} = -6 x y & ; \frac{\partial^{2} f}{\partial y} = -6 x y \\
+\frac{\partial^{2} f}{\partial x \partial y} = 1 - 3 x^{2} - 3 y^{2} & ; \frac{\partial^{2} f}{\partial y \partial x} = 1 - 3 x^{2} - 3 y^{2}
+\end{array}
+$$
+
+2) Formamos la matriz Hessiana:
+$$
+H(x, y) = \begin{vmatrix} 
+-6 x y & 1 - 3 x^{2} - 3 y^{2} \\ 
+1 - 3 x^{2} - 3 y^{2} & -6 x y 
+\end{vmatrix}
+$$
+
+3) Igualamos las derivadas parciales a cero:
+
+i) $y(1 - 3 x^{2} - y^{2}) = 0 \Rightarrow y = 0$ o $y = 1 - x^{2}$.
+
+Si $y = 0 \Rightarrow x - x^{3} = 0$
+$$
+\begin{gathered}
+x(1 - x^{2}) = 0 \\
+x = 0, \quad x = 1, \quad x = -1
+\end{gathered}
+$$
+obtenemos $(0,0), (1,0), (-1,0)$.
+
+ii) $x(1 - x^{2} - 3 y^{2}) = 0 ; x = 0$ o $1 - x^{2} - 3 y^{2} = 0$.
+
+Si $x = 0$
+$$
+\begin{gathered}
+y(1 - y^{2}) = 0 \\
+y = 0, \quad y = 1, \quad y = -1
+\end{gathered}
+$$
+obtenemos $(0,0), (0,1), (0,-1)$.
+
+Considerando $1 - 3 x^{2} - y^{2} = 0$ y $1 - x^{2} - 3 y^{2} = 0$:
+$$
+\begin{aligned}
+1 - 3 x^{2} - y^{2} &= 1 - x^{2} - 3 y^{2} \\
+-3 x^{2} + x^{2} &= y^{2} - 3 y^{2} \\
+-2 x^{2} &= -2 y^{2} \\
+x &= y \text{ o } x = -y
+\end{aligned}
+$$
+
+Si $x = y$ 
+$$
+1 - 4 x^{2} = 0 \Rightarrow x = \frac{1}{2}, \quad x = -\frac{1}{2}
+$$
+
+Si $x = -y$: 
+$$
+\left(\frac{1}{2}, -\frac{1}{2}\right), \quad \left(-\frac{1}{2}, \frac{1}{2}\right)
+$$
+
+Los puntos críticos son $(0,0), (1,0), (-1,0), (0,1), (0,-1), \left(\frac{1}{2}, \frac{1}{2}\right), \left(-\frac{1}{2}, -\frac{1}{2}\right), \left(\frac{1}{2}, -\frac{1}{2}\right), \left(-\frac{1}{2}, \frac{1}{2}\right)$.
+
+Calculamos la determinante de la matriz Hessiana en todos los puntos: 
+
+- $H(0,0) = 0$ es indeciso.
+- $H(1,0) = -4$ es punto de silla.
+- $H(-1,0) = -4$ es punto de silla.
+- $H(0,1) = -4$ es punto de silla.
+- $H(0,-1) = -4$ es punto de silla.
+- $H\left(\frac{1}{2}, \frac{1}{2}\right) = -\frac{6}{4}$ hay un máximo. 
+- $H\left(-\frac{1}{2}, -\frac{1}{2}\right) = -\frac{6}{4}$ hay un máximo. 
+- $H\left(\frac{-1}{2}, \frac{1}{2}\right) = \frac{6}{4}$ hay un mínimo.
+- $H\left(\frac{1}{2}, -\frac{1}{2}\right) = \frac{6}{4}$ hay un mínimo.\subsection{Ejercicio 19}
+Calcule las constantes $a$ y $b$ para que la integral
+$$
+\int_{0}^{1}\{a x+b-f(x)\}^{2} d x
+$$
+alcance el valor mínimo posible si _a) $f(x)=x^{2}$; b) $f(x)=\left(x^{2}+1\right)^{-1}$.
+
+\textbf{Respuesta}
+
+Consideramos \( I(a,b) = \int_0^1 (ax + b - x^2)^2 \, dx \) donde \( f(x) = x^2 \). Nuestro propósito es identificar los valores de \( a \) y \( b \) que minimicen esta integral.
+
+\section*{Paso 1: Formulación de la Integral}
+
+La forma de la integral que buscamos minimizar es:
+
+\begin{equation}
+I(a,b) = \int_0^1 (ax + b - x^2)^2 \, dx
+\end{equation}
+
+\section*{Paso 2: Desarrollo del Integrando}
+
+Expandimos el término \( (ax + b - x^2)^2 \):
+
+\begin{equation}
+(ax + b - x^2)^2 = (ax + b)^2 - 2(ax + b)x^2 + (x^2)^2
+\end{equation}
+
+De lo cual obtenemos:
+
+\begin{equation}
+= a^2 x^2 + 2abx + b^2 - 2ax^3 - 2bx^2 + x^4
+\end{equation}
+
+\section*{Paso 3: Evaluación de las Integrales}
+
+Integramos cada término de manera individual en el intervalo \([0, 1]\):
+
+\begin{align*}
+\int_0^1 a^2 x^2 \, dx &= a^2 \cdot \frac{1}{3} \\
+\int_0^1 2abx \, dx &= ab \cdot 1 \\
+\int_0^1 b^2 \, dx &= b^2 \cdot 1 \\
+\int_0^1 -2ax^3 \, dx &= -2a \cdot \frac{1}{4} \\
+\int_0^1 -2bx^2 \, dx &= -2b \cdot \frac{1}{3} \\
+\int_0^1 x^4 \, dx &= \frac{1}{5}
+\end{align*}
+
+\section*{Paso 4: Sustitución en la Integral}
+
+Sustituimos los resultados en la expresión original de \( I(a,b) \):
+
+\begin{equation}
+I(a,b) = \frac{a^2}{3} + ab + b^2 - \frac{2a}{4} - \frac{2b}{3} + \frac{1}{5}
+\end{equation}
+
+\section*{Paso 5: Optimización de la Integral}
+
+Para identificar los valores de \( a \) y \( b \) que minimizan \( I(a,b) \), calculamos las derivadas con respecto a \( a \) y \( b \), y luego resolvemos el sistema de ecuaciones:
+
+Para \( a \):
+
+\begin{equation}
+\frac{\partial I}{\partial a} = \frac{2}{3} a + b - \frac{1}{2} = 0
+\end{equation}
+
+Para \( b \):
+
+\begin{equation}
+\frac{\partial I}{\partial b} = a + 2b - \frac{2}{3} = 0
+\end{equation}
+
+\section*{Paso 6: Solución del Sistema de Ecuaciones}
+
+Resolviendo el sistema encontramos:
+
+\begin{align*}
+\frac{2}{3} a + b - \frac{1}{2} &= 0 \\
+a + 2b - \frac{2}{3} &= 0
+\end{align*}
+
+La solución es:
+
+\[
+a = 1, \quad b = -\frac{1}{6}
+\]
+
+\section*{Resultado Final}
+
+Los valores de \( a \) y \( b \) que minimizan la integral son:
+
+\[
+a = 1, \quad b = -\frac{1}{6}
+\]
+
+Por consiguiente, la aproximación lineal \( ax + b \) que hace mínima la integral es 
+
+\[
+x - \frac{1}{6}.
+\]
+
+\newpage\subsection{Ejercicio 2}
+Determinar las distancias máximas y mínimas desde el origen a la curva $5 x^{2}+6 x y+5 y^{2}=8$.
+
+\textbf{Respuesta}
+
+$$
+\begin{aligned}
+& d=\sqrt{x^{2}+y^{2}+z^{2}} \quad \text { o, } \quad w=x^{2}+y^{2}+z^{2}=d^{2}
+\end{aligned}
+$$
+
+Dado $g=5 x^{2}+6 x y+5 y^{2}-8$ y $F=w$, tenemos 
+$$
+\begin{aligned}
+& \text { (1) } \nabla F = \lambda \nabla g \\
+& 2x+2y+2z = \lambda (10x + 6y, 10y, 0)
+\end{aligned}
+$$
+Sistema de ecuaciones:
+i) $2x = \lambda (10x + 6y)$ \\
+ii) $2y = 10x + 10y\lambda$ \\
+iii) $2z = 0$ \\ 
+y $5x^2 + 6xy + 5y^2 = 8$
+
+Resolvemos el sistema:
+$$
+\begin{aligned}
+& \text{1) } \frac{2x}{10x + 6y} = \lambda \\
+& 2y = \frac{(-32x \cdot 6x) + (2x \cdot 10y)}{10x + 6y} \\
+& 2y = \frac{12x^2 + 20xy}{10x + 6y} \\
+& 0 = \frac{12x^2 + 20xy - 2y(10x + 6y)}{10x + 6y} \\
+& 0 = 12x^2 + 20xy - 20xy - 12y^2 \\
+& 0 = 12x^2 - 12y^2 \\
+& y^2 = x^2 \\
+& x = y \quad \text{o} \quad x = -y
+\end{aligned}
+$$
+
+Entonces:
+$$
+\begin{gathered}
+\text{Si } x = y, \\
+16x^2 = 8 \\
+x^2 = \frac{1}{2} \\
+x = \frac{1}{\sqrt{2}} \\
+y = -x \\
+x = -y \\
+\text{Si } x = -y, \\
+5x^2 - 6x^2 + 5x^2 = 8 \\
+y^2 = 4x^2 = 8 \\
+x^2 = 2 \\
+x = \pm \sqrt{2}
+\end{gathered}
+$$
+
+Calculando las distancias:
+Distancia mínima y máxima
+$$
+\begin{aligned}
+& D\left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0\right) = \sqrt{\frac{1}{2} + \frac{1}{2}} = \sqrt{1} = 1 \\
+& D\left(-\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}, 0\right) = \sqrt{\frac{1}{2} + \frac{1}{2}} = \sqrt{1} = 1 \text{ mínima} \\
+& D(-\sqrt{2}, \sqrt{2}, 0) = \sqrt{2 + 2} = 2 \\
+& D(\sqrt{2},-\sqrt{2}, 0) = \sqrt{2 + 2} = 2 \text{ máxima} 
+\end{aligned}
+$$
+\subsection{Ejercicio 4}
+Determina los valores extremos de la función $z = \cos^2 x + \cos^2 y$ sujeta a la restricción $x - y = \frac{\pi}{4}$.
+
+\textbf{Respuesta}
+$$
+\begin{aligned}
+& g = \cos^2(x) + \cos^2(y) \quad \text{y la restricción es } F = x-y-\frac{\pi}{4}=0 \\
+& \nabla F = \lambda \nabla g \\
+& (2 x, 2 y, 2 z) = \lambda (-\sin(2 x), -\sin(2 y), 0) \\
+& \text{i) } 1 = -\lambda \cdot \sin(2 x)
+\end{aligned}
+$$
+
+ii) $-1 = -\lambda \cdot \sin(2 y)$
+
+iii) $0 = -\lambda \cdot 0$
+
+iv) $\cos^2(x) + \cos^2(y) = z$
+
+Solventando para $\lambda$ se tiene:
+$$
+1 = -\lambda \cdot \sin(2 x) \Rightarrow \lambda = \frac{-1}{\sin(2 x)}
+$$
+
+Sustituyendo en la ecuación:
+$$
+\begin{aligned}
+-1 = & \frac{1}{\sin(2 x)} \cdot \sin(2 y) \\
+& -\sin(2 x) = \sin(2 y) \\
+& -\sin(2 x) = \sin(2 y)
+\end{aligned}
+$$
+
+Esto sugiere que $-x = y$, entonces cuando $x = 0$ resulta en $y = 0$, lo que implica $x = y$.
+
+Finalmente, calculamos:
+$$
+\begin{aligned}
+\cos^2(x) + \cos^2(x) & = \cos^2(0) + \cos^2(0) \\
+& = 2 \quad (\text{máximo valor}).
+\end{aligned}
+$$
+
+Existen múltiples soluciones derivadas de $-\sin(2 x) = \sin(2 y)$, que igualmente producen un valor de 2.\subsection{Ejercicio 7}
+Calcular la distancia más corta desde el punto (1,0) a la curva $y^2=4x$.
+
+\textbf{Respuesta}
+$$
+\begin{aligned}
+&y^2 - 4x = 0 = 9, \quad F = \sqrt{x^2+y^2+z^2} \\
+&\nabla f = \lambda \nabla g
+\end{aligned}
+$$
+i) $2x=\lambda 4$
+
+ii) $2y=\lambda 2y$
+
+iii) $2z=\lambda 0$
+
+iv) $y^2 - 4x = 0$ 
+
+(1) $\quad 2y=12y \Rightarrow \lambda=1$
+
+$r=2x \Rightarrow 2x=-4 \Leftrightarrow x=-2$
+
+si $x=-2 \ => y^2-4(-2)=0$ 
+
+$y^2+8=8 \Rightarrow$ No hay solución
+
+$$
+\begin{aligned}
+&\text{Si } \text{ii) } 2y=12y \quad y=0 \\
+&D(1,0,0) = \sqrt{\left(\frac{y^2}{4} - 1\right)^2 + (0-0) + (0-0)} \\
+&D(1,0)=\sqrt{\left(\frac{0}{4} - 1\right)^2 + 0 + 0} \\
+&D(1,0) = \sqrt{1} = 1 = \text{ Distancia mínima }
+\end{aligned}
+$$\subsection{Ejercicio 8}
+Identifique los puntos más cercanos al origen en la curva de intersección dada por las superficies 
+$$
+x^{2}-x y+y^{2}-z^{2}=1 \quad \text{y} \quad x^{2}+y^{2}=1.
+$$
+\textbf{Respuesta}
+Primero, sustituimos:
+$$
+\begin{aligned}
+x^{2}+y^{2}-x y-z^{2} &= 1 \quad \text{dado que} \quad x^{2}+y^{2}=1, \\
+1-x y-z^{2} &= 1, \\
+-x y-z^{2} &= 1, \\
+z &= -x y.
+\end{aligned}
+$$
+
+A continuación, usamos la fórmula para la distancia al origen:
+$$
+\begin{aligned}
+D(x, y, z) &= \sqrt{x^{2}+y^{2}+z^{2}}, \\
+&= \sqrt{\left(x^{2}+y^{2}\right)+z^{2}} \quad \text{con} \quad x^{2}+y^{2}=1, \\
+&= \sqrt{1+z^{2}}, \quad z = -x y, \\
+&= \sqrt{1-x y}.
+\end{aligned}
+$$
+
+Luego, consideramos la función de restricción $x^{2}+y^{2}=1$ denotada como $F$:
+$$
+\begin{aligned}
+& \sqrt{1-x y} = g, \\
+& \nabla f = \lambda \nabla g, \\
+& \text{(i)} \quad 2x = \frac{\lambda(-y)}{2 \sqrt{1-x y}},
+\end{aligned}
+$$
+
+(ii) $2 y = \frac{\lambda(-x)}{2 \sqrt{1-x y}}$. 
+
+Además, $x^{2}+y^{2}=1$. 
+
+De (i), $\frac{4 x \sqrt{1-x y}}{-x} = -4 \sqrt{1-x y} = 1$ 
+
+Reemplazamos para obtener:
+$$
+\begin{aligned}
+& 2 y = \frac{-4 \sqrt{1-x y}(-x)}{2 \sqrt{1-x y}}, \\
+& 2 y = 2 x \quad \Leftrightarrow \quad \Rightarrow \quad x = y, \\
+& \text{dado que} \quad x = y, \quad \Rightarrow \quad x^{2}+x^{2}=1, \\
+& 2x^{2}=1 \quad \Rightarrow \quad x^{2}=\frac{1}{2} \quad \Rightarrow \quad x= \pm \frac{1}{\sqrt{2}}.
+\end{aligned}
+$$
+
+Si $x=\frac{1}{\sqrt{2}}$, entonces $\left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)$ y $\left(-\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}\right)$.
+
+Por lo tanto, los puntos de intersección más cercanos al origen son:
+$$
+\left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right), \left(-\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}\right), \left(\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}\right), \left(-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right).
+$$
+En estos puntos, la intersección es más cercana al origen.\subsection{Ejercicio 10}
+Calcular el volumen mínimo limitado por los planos $x=0$, $y=0$, $z=0$, y un plano que sea tangente al elipsoide
+$$
+\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}}=1
+$$
+en un punto dentro del primer octante donde $x>0$, $y>0$, $z>0$.
+
+\textbf{Respuesta}
+El gradiente de la función es 
+$$
+\nabla F = \frac{2 x}{a^2} + \frac{2 y}{b^2} + \frac{2 z}{c^2}
+$$
+El plano debe tener el mismo vector normal que el gradiente, por lo tanto
+$$
+A = \frac{2 x_0}{a^2}
+$$
+$$B = \frac{2 y_0}{b^2} $$
+$$C = \frac{2 z_0}{c^2}$$
+La ecuación del plano es
+
+\begin{aligned}
+& A(x - x_0) + B(y - y_0) + C(z - z_0) = 0 \\
+= & \frac{2 x_0}{a^2}(x - x_0) + \frac{2 y_0}{b^2}(y - y_0) + \frac{2 z_0}{c^2}(z - z_0) = 0
+\end{aligned}
+
+La ecuación del plano tangente al elipsoide es 
+$$
+\frac{x_0 x}{a^2} + \frac{y_0 y}{b^2} + \frac{z_0 z}{c^2} = 1
+$$
+
+Ahora, despejamos $z$
+$$
+z = c \sqrt{1-\frac{x^2}{a^2}-\frac{y^2}{b^2}}
+$$
+
+Despejamos $y$ en función de $x$ cuando $z = 0$
+$$
+y = b \sqrt{1-\frac{x^2}{a^2}}
+$$
+
+Despejamos $x$, cuando $y \neq 0$ y $z = 0$
+$$
+\begin{aligned}
+& x = a \\
+& V = \int_0^a \int_0^{b \sqrt{1-\frac{x^2}{a^2}}} \int_0^{c \sqrt{1-\frac{x^2}{a^2}-\frac{y^2}{b^2}}} 1 \, dz \, dy \, dx \\
+& V = a \cdot b \cdot c \cdot \sqrt{1-\frac{x^2}{a^2}} \cdot \sqrt{1-\frac{y^2}{b^2}}
+\end{aligned}
+$$
+
+\newpage\subsection{Ejercicio 11}
+Determina el valor máximo de $\log x + \log y + 3 \log z$ sobre la superficie de la esfera definida por $x^{2} + y^{2} + z^{2} = 5r^{2}$ bajo las condiciones de que $x > 0, y > 0, z > 0$. Luego, utiliza este resultado para probar la desigualdad para números reales positivos $a, b, c$:
+$$
+a b c^{3} \leq 27\left(\frac{a+b+c}{5}\right)^{5}
+$$
+
+\textbf{Respuesta}
+$$
+\begin{aligned}
+& g = \log x + \log y + 3 \log z \\
+& f = x^2 + y^2 + z^2 = 5x^2 \\
+& \nabla F = 1 \nabla y \\
+& \text{i) } 2x = \frac{1}{x} \lambda \\
+& \text{ii) } 2y = \frac{1}{y} \lambda \\
+& \text{iii) } 2z = \frac{3}{z} \lambda
+\end{aligned}
+$$
+
+La ecuación (iv) es $\log x + \log y + 3 \log z$.
+
+$$
+\begin{gathered}
+2x^2 = \lambda = 2y^2 \\
+x = y
+\end{gathered}
+$$
+
+En (iii) tenemos: $\lambda = \frac{2z^2}{3}$.
+
+$$
+\begin{aligned}
+2x^2 = \frac{2z^2}{3} \\
+x^2 = \frac{z^2}{3} \\
+\sqrt{3}x = z
+\end{aligned}
+$$
+
+Al hacer el reemplazo en la función de restricción:
+$$
+\begin{aligned}
+x^2 + x^2 + (\sqrt{3}x)^2 = 5x^2 \\
+x^2 + x^2 + 3x^2 = 5x^2 \\
+5x^2 = 5x^2 \\
+x = r \quad \text{o} \quad x = -r
+\end{aligned}
+$$
+
+El valor máximo es:
+$$
+F(r, r, \sqrt{3}r) = \log r + \log r + 3 \log \sqrt{5} r 
+$$
+
+\textcolor{red}{Demostración}
+
+Para las condiciones donde $x > 0, y > 0, z > 0$, se tiene que $\log x + 3 \log \sqrt{3}$.
+
+$$
+\begin{aligned}
+& \log x + \log y + 3 \log z \leq 5 \log r + 3 \mathrm{log} \sqrt{3} < 5 \log r + 6 \log \sqrt{3} \\
+& \log xy + \log z^3 \leq 5 \log r^5 + \log (\sqrt{3})^6 \\
+& \log xyz^3 \leq \log 27r^5\\
+& xyz^3 \leq 27r^5
+\end{aligned}
+$$
+
+Aplicando la identidad $(x+y+z)^2 = x^2+y^2+z^2 + 2xy + 2yz + 2xe,$ verificamos que $x^2 + y^2 + z^2 = 5r^2$, obteniendo:
+
+$$
+\begin{aligned}
+& x^2 + y^2 + z^2 = 5 r^2 \\
+& \frac{\sqrt{x^2 + y^2 + z^2}}{5} = r
+\end{aligned}
+$$
+
+Finalmente, reemplazando:
+$$
+xyz^3 \leq 27 \left(\frac{\sqrt{x^2 + y^2 + z^2}}{5}\right)^5 \leq 27 \left(\frac{x^2 + y^2 + z^2}{5}\right)^5
+$$
+$$
+xyz^3 \leq 27 \left(\frac{x^2 + y^2 + z^2}{5}\right)^5
+$$\subsection{Ejercicio 2}
+En los problemas del 1 al 5, se debe ilustrar la región de integración y calcular la integral doble. Considere la integral $\iint_{S} (1+x) \sin y \, dx \, dy$, donde $S$ es el trapezoide con vértices en $(0,0)$, $(1,0)$, $(1,2)$ y $(0,1)$.
+
+\textbf{Respuesta}
+\[
+\int_{0}^{1} \int_{0}^{x+1} (1+x) \sin(y) \, dy \, dx
+\]
+
+Integrando con respecto a $y$:
+\[
+\int_{0}^{x+1} (1+x) \sin(y) \, dy = (1+x)[-\cos(y)]_{0}^{x+1} = (1+x) (-\cos(x+1) + 1)
+\]
+
+Ahora integramos con respecto a $x$:
+\[
+\int_{0}^{1} (1+x)(1 - \cos(x+1)) \, dx = -\int_{0}^{1} (1+x) \cos(x+1) \, dx + \int_{0}^{1} (1+x) \, dx
+\]
+
+Para resolver la primera integral, utilice $u = x+1$:
+\[
+-\int u \cos(u) \, du + \left[1 + \frac{1}{2}\right]
+\]
+
+Entonces:
+\[
+-\int u \cos(u) \, du + \frac{3}{2}
+\]
+
+Calcule la integral restante:
+\[
+-\left[ u \sin(u) - \int \sin(u) \, du \right]_{0}^{1} + \frac{3}{2}
+\]
+
+Resolviendo:
+\[
+-x+1 \sin(x+1) + \cos(x+1) + \frac{3}{2}
+\]
+
+Finalmente:
+\[
+-2 \sin(2) - \sin(1) + \cos(2) - \cos(1) + \frac{3}{2}
+\]\subsection{Ejercicio 4}
+Dibujar la región de integración y evaluar la siguiente integral doble: $\iint_{S} x^{2} y^{2} d x d y$, donde $S$ es la región del primer cuadrante comprendida entre las hipérbolas $xy=1$ y $xy=2$, y las rectas $y=x$ y $y=4x$.
+
+\textbf{Respuesta}
+La solución se basa en descomponer la región en subregiones adecuadas, de acuerdo al gráfico:
+
+$$
+\begin{aligned}
+& S_1=\int_{\frac{1}{2}}^{\frac{\sqrt{2}}{2}} \int_{\frac{2}{x}}^{4 x} x^2 y^2 d y d x =  
+\frac{18}{7} - \frac{4\log(2)}{3}
+ \\
+& S_2=\int_{\frac{\sqrt{2}}{2}}^1 \int_{\frac{1}{x}}^{\frac{2}{x}} x^2 y^2 d y d x = \frac{7\log(2)}{6}\\
+& S_3=\int_1^{\sqrt{2}} \int_x^{2 / x} x^2 y^2 d y d x=-\frac{18}{7} + \frac{4\log(2)}{3}
+\end{aligned}
+$$
+
+Entonces, el área total de la región es $$\frac{7\log(2)}{6}$$\subsection{Ejercicio 6}
+Calcular el volumen de una pirámide definida por los tres planos coordenados y el plano $x+2y+3z=6$ usando integración doble.
+
+\textbf{Respuesta}
+
+Las intersecciones del plano con los ejes son: cuando $x=0$ y $y=0$, se tiene $z=2$; cuando $x=0$ y $z=0$, se obtiene $y=3$; y cuando $y=0$ y $z=0$, se obtiene $x=6$. Por lo tanto, los vértices de la pirámide son $(0,0,2)$, $(0,3,0)$ y $(6,0,0)$.
+
+El volumen se calcula mediante la integración doble:
+
+$$
+\int \int \frac{6-2y-x}{3} \, dy \, dx = \int_0^6 \int_0^{\frac{6-x}{2}} \frac{6-2y-x}{3} \, dy \, dx = 6
+$$
+
+Alternativamente, utilizando un método geométrico se tiene:
+
+$$
+\frac{6 \times 3}{2} \times \frac{1}{3} \times 2 = 6
+$$\subsection{Ejercicio 11}
+Para los problemas del 9 al 18, considere que la integral doble de una función positiva $f$ sobre una región $S$ se transforma en la integral iterada proporcionada. En cada situación, ilustre la región $S$ y cambie el orden de integración.\\
+\[\int_{1}^{4}\left[\int_{\sqrt{x}}^{2} f(x, y) \, dy\right] \, dx.\]
+
+\textbf{Respuesta}
+
+\[
+\int_{1}^{4} \left( \int_{\sqrt{x}}^2 f(x,y) \, dy \right) \, dx = \int_1^{2} \left( \int_1^{y^2} f(x,y) \, dx \right) \, dy
+\]\subsection{Ejercicio 12}
+Considerando que una integral doble de la función positiva $f$ sobre una región $S$ se simplifica a la integral iterada dada, representar el área $S$ y cambiar el orden de integración para: \\ 
+$\int_{1}^{2}\left[\int_{2-x}^{\sqrt{2 x-x^{2}}} f(x, y) d y\right] d x$.
+\textbf{Respuesta} 
+\[
+\int_{1}^{2} \left( \int^{\sqrt{2x - x^2}}_{2-x} f(x,y) \, dy \right) dx = \int_0^{1} \left( \int^{\sqrt{1 - y^2} + 1}_{2 - y} f(x,y) \, dx \right) dy 
+\].\subsection{Ejercicio 14}
+Dado que la integral doble de una función positiva $f$ sobre la región $S$ se transforma en la integral iterada proporcionada, dibujar la región $S$ e invertir el orden de integración es necesario.
+$$
+\int_{1}^{e}\left[\int_{0}^{\log x} f(x, y) \, dy\right] \, dx
+$$
+
+\textbf{Respuesta}
+
+La integral iterada $\int_1^{e} \left( \int_0^{\log x} f(x,y) \, dy \right) dx$ se expresa con el orden de integración cambiado como $\int_0^{1} \left( \int_{e^y}^{e} f(x,y) \, dx \right) dy$.\subsection{Ejercicio 18}  
+En los ejercicios del 9 al 18 se debe asumir que la integral doble de una función $f$, la cual es positiva y está definida sobre una región $S$, se convierte en la integral iterada proporcionada. Para cada caso, hay que representar la región $S$ e invertir el orden de integración.\\
+\[ 
+\int_{0}^{4}\left[\int_{-\sqrt{4-y}}^{\frac{y-4}{2}} f(x, y) \, d x\right] d y
+\]
+\textbf{Respuesta}  
+\[
+\int_0^4 \int_{-\sqrt{4-y}}^{\frac{y-4}{2}} f(x,y) \, dx \, dy = \int_{-2}^0 \int_{2x+4}^{4-x^2} f(x,y) \, dy \, dx
+\]\subsection{Ejercicio 19}
+Al utilizar doble integración para obtener el volumen \( V \) bajo el paraboloide \( z = x^{2} + y^{2} \), con la restricción de una región \( S \) en el plano \( xy \), se deriva la siguiente suma de integrales:
+
+\[
+V = \int_{0}^{1}\left[\int_{0}^{v}\left(x^{2}+y^{2}\right) dx\right] dy + \int_{1}^{2}\left[\int_{0}^{2-y}\left(x^{2}+y^{2}\right) dx\right] dy
+\]
+
+Represente la región \( S \) gráficamente e invierta el orden de las integrales para expresar \( V \). Calcule finalmente \( V \) a partir de la nueva integral iterada.
+
+\textbf{Respuesta}
+\begin{figure}[h]
+\includegraphics[width=8cm]{imagen_2024-10-19_163306373.png}
+\centering
+\end{figure}
+
+A continuación, modificamos el orden de las integrales:
+
+\[
+V = \int_{0}^{1} \left( \int_{x}^{2-x} (x^2 + y^2) dy \right) dx
+\]
+
+Procedemos con la integración:
+
+\[
+\int_{x}^{2-x} \left( x^2 + y^2 \right) dy = x^2 (2 - x - x) + \frac{1}{3} \left( (2-x)^3 - x^3 \right)
+\]
+
+\[
+= x^2 (2 - 2x) + \frac{1}{3} \left( 8 - 4x(3) + 3(2)x^2 - x^3 - x^3 \right)
+\]
+
+\[
+= 2x^2 - 2x^3 + \frac{8}{3} - 4x + 2x^2 - \frac{2x^3}{3} = -\frac{8}{3} + \frac{8}{3} + x^3 + 4x^2 - 4x + \frac{8}{3}
+\]
+
+Realizando la integración desde \( x = 0 \) hasta \( x = 1 \):
+
+\[
+\int_0^1 \left( - \frac{2}{3} + \frac{4}{3} - 2 + \frac{8}{3} \right) = \frac{4}{3}
+\]\subsection{Ejercicio 20}
+Calcular el volumen $V$ delimitado por arriba por la superficie $z=f(x, y)$ y por debajo por una región $S$ en el plano $xy$, utilizando la doble integración. La suma de integrales reiteradas es la siguiente:
+$$
+V=\int_{0}^{a \operatorname{sen} e}\left[\int_{\sqrt{a^{2}-y^{2}}}^{\sqrt{b^{2}-y^{2}}} f(x, y) d x\right] d y+\int_{a \sin ^{b} e}^{b \operatorname{sen} e}\left[\int_{y \cot e}^{\sqrt{b^{2}-y^{2}}} f(x, y) d x\right] d y
+$$
+
+Con $0<a<b$ y $0<c<\pi / 2$, dibujar la región $S$ con las ecuaciones de todas las curvas que forman su límite.
+
+\textbf{Respuesta}
+
+La ecuación $x=\sqrt{a^2-y^2}$ implica que $x^2+y^2=a^2$, representando un círculo de radio $a$.\\
+
+Asimismo, $x=\sqrt{b^2-y^2}$ lleva a $x^2+y^2=b^2$, indicando un círculo de radio $b$.
+
+\begin{figure}[h]
+\includegraphics[width=8cm]{imagen_2024-10-19_173640731.png}
+\centering
+\end{figure}
+
+La figura muestra la región $S$. La recta a través del origen que forma un ángulo $c > 0$ con el eje $x$ sigue:
+
+\[
+\tan c = \frac{y}{x}
+\]
+
+Expresándose como:
+
+\[
+y = x \tan c
+\]
+
+Despejando $x$, resulta:
+
+\[
+x = \frac{y}{\tan c}
+\]
+\[
+x = y \cot c
+\]
+
+La región $S$ se encuentra debajo de la recta $y = 0$ y debajo de $y = x \tan c$. 
+
+La frontera izquierda es el círculo de radio $a$ y la frontera derecha es el círculo de radio $b$.\subsection{Ejercicio 21}
+Calcular el volumen $V$ mediante la doble integración para la región limitada superiormente por la superficie $z=f(x, y)$ y en la parte inferior por una región $S$ en el plano $xy$, lleva a la suma de las siguientes integrales iteradas:
+
+$$
+V = \int_{1}^{2}\left[\int_{x}^{z^{3}} f(x, y) d y\right] d x+\int_{2}^{8}\left[\int_{x}^{8} f(x, y) d y\right] d x
+$$
+
+a) Realizar el dibujo de la región $S$ y reescribir $V$ como una integral iterada con el orden de integración invertido.\\
+b) Resolver la integración y encontrar el valor de $V$ cuando $f(x, y) = e^{2}(x / y)^{1 / 2}$.
+
+\textbf{Respuesta}
+
+a)
+
+\begin{figure}[h]
+\includegraphics[width=8cm]{imagen_2024-10-19_182031580.png}
+\centering
+\end{figure}
+
+$V = \int_1^8 \int_{y^{1/3}}^1 f(x, y) \, dx \, dy$
+
+b)
+
+\[
+\begin{aligned}
+    f(x, y) &= e^{x^2 y^{1/2}} \\
+    \int_1^8 \int_{y^{1/3}}^1 e^{x^2 y^{1/2}} \, dx \, dy 
+    &=\int_1^8\left(\frac{2}{3}\frac{e^y}{y^{1/2}}x^{3/2} \Bigg|_{y^{1/3}}^{y}\right)
+    =\int_1^8\left[\frac{2}{3}\frac{e^y}{y^{1/2}}(y^{3/2}-y^{1/2})\right]dy\\
+    &=\int_1^8(\frac{2}{3}ye^y -\frac{2}{3}e^y)dy
+    =\frac{2}{3}\int_1^8 ye^y dy-\frac{2}{3}\int_1^8e^y dy\\
+    &=\frac{2}{3}\left(ye^y-e^y\Bigg|_1^8-\frac{2}{3}e^y\Bigg|_1^8\right)
+    =\left(\frac{16}{3}e^8-\frac{4}{3}e^8\right)-\left(\frac{2}{3}e-\frac{4}{3}e\right)\\
+    &=  4 e^8 + \frac{2}{3} e
+\end{aligned}
+\]\subsection{Ejercicio 7}
+En los ejercicios del 6 al 9, se requiere cambiar la integral a coordenadas polares y determinar su valor. La variable \(a\) denota una constante positiva.
+
+\[\int_{0}^{a}\left[\int_{0}^{x} \sqrt{x^{2}+y^{2}} \, dy\right] \, dx.\]
+
+\textbf{Respuesta}
+
+Convertimos la integral dada a coordenadas polares. La expresión original es:
+
+\[
+I = \int_0^a \left[ \int_0^x \sqrt{x^2 + y^2} \, dy \right] \, dx
+\]
+
+1. Identificación de la región de integración  
+La integral describe un triángulo en el primer cuadrante con vértices en los puntos \( (0,0) \), \( (a,0) \), y \( (a,a) \). En coordenadas polares, se tiene:  
+
+\[
+x = r \cos \theta, \quad y = r \sin \theta, \quad dx \, dy = r \, dr \, d\theta
+\]
+
+2. Límites en coordenadas polares  
+- El radio \(r\) varía de \(0\) a \(a \sec \theta\), limitada por la línea \(x = y\) o \(\theta = \pi/4\).
+- El ángulo \(\theta\) varía de \(0\) a \(\pi/4\).
+
+3. Cambio de la integral al sistema polar  
+En este sistema, \( \sqrt{x^2 + y^2} = r \). La integral se convierte en:
+
+\[
+I = \int_0^{\pi/4} \int_0^{a \sec \theta} r^2 \, dr \, d\theta
+\]
+
+4. Evaluación de la integral  
+Primero, la integración respecto a \(r\):
+
+\[
+\int_0^{a \sec \theta} r^2 \, dr = \left[ \frac{r^3}{3} \right]_0^{a \sec \theta} = \frac{a^3 \sec^3 \theta}{3}
+\]
+
+Integramos respecto a \(\theta\):
+
+\[
+I = \frac{a^3}{3} \int_0^{\pi/4} \sec^3 \theta \, d\theta
+\]
+
+5. Resolución de la integral \( \int_0^{\pi/4} \sec^3 \theta \, d\theta \)  
+La solución conocida es:
+
+\[
+\int \sec^3 \theta \, d\theta = \frac{1}{2} \sec \theta \tan \theta + \frac{1}{2} \ln |\sec \theta + \tan \theta| + C
+\]
+
+Evaluando entre los límites:
+
+- En \( \theta = \pi/4 \), \( \sec(\pi/4) = \sqrt{2} \), \( \tan(\pi/4) = 1 \).
+- En \( \theta = 0 \), \( \sec(0) = 1 \), \( \tan(0) = 0 \).
+
+\[
+\left[ \frac{\sqrt{2}}{2} + \frac{1}{2} \ln(\sqrt{2} + 1) \right] - \left[ 0 + 0 \right]
+\]
+
+Simplifica a:
+
+\[
+\frac{\sqrt{2}}{2} + \frac{1}{2} \ln(\sqrt{2} + 1)
+\]
+
+6. Resultado final  
+El resultado es sustituido en la integral:
+
+\[
+I = \frac{a^3}{6} \left( \sqrt{2} + \ln(1 + \sqrt{2}) \right)
+\]
+
+El valor de la integral es:
+
+\[
+\boxed{\frac{a^3}{6} \left( \sqrt{2} + \ln(1 + \sqrt{2}) \right)}
+\]\subsection{Ejercicio 8}
+Convierte la integral siguiente a coordenadas polares y calcula su valor. Aquí, la letra $a$ es una constante positiva: \(\int_{0}^{1}\left[\int_{x^{2}}^{x}\left(x^{2}+y^{2}\right)^{-1 / 2} d y\right] d x\).
+
+\textbf{Respuesta}
+
+Para resolver la integral dada, primero separamos en dos partes:
+
+\[
+\int_{0}^{1}\left[\int_{x^2}^{x}{\left(x^2+y^2\right)^{-\frac{1}{2}} \, dy}\right]dx = \int_{0}^{1}\left[\int_{0}^{x}{\left(x^2+y^2\right)^{-\frac{1}{2}} \, dy}\right]dx - \int_{0}^{1}\left[\int_{0}^{x^2}{\left(x^2+y^2\right)^{-\frac{1}{2}} \, dy}\right]dx
+\]
+
+Convertimos estas integrales a coordenadas polares, donde \(x^2 + y^2 = r^2\) y \(dx \, dy\) se transforma en \(r \, dr \, d\theta\).
+
+Primera parte de la integral:
+
+- \(x = r \cos \theta\) y \(y = r \sin \theta\).
+- Límite inferior de \(y\) es 0, implica \(r = 0\).
+- Límite superior de \(y\) es \(x\), implica \(r = \sec \theta\).
+- Los límites para \(r\) son de 0 a \(\sec \theta\).
+- \(\theta\) varía de \(0\) a \(\frac{\pi}{4}\), ya que \(x\) varía de 0 a 1.
+
+La integral polares es:
+
+\[
+\int_{0}^{\pi/4} \left[\int_{0}^{\sec{\theta}} \frac{r}{r} \, dr\right] d\theta
+\]
+
+La cual se evalúa como:
+
+\[
+\int_{0}^{\pi/4} \sec \theta \, d\theta = \ln(\sqrt{2} + 1)
+\]
+
+Segunda parte de la integral:
+
+- Límite inferior \(y = x^2\) convierte a \(r = \tan \theta \sec \theta\).
+- Límite superior sigue siendo \(r = \sec \theta\).
+- Los límites de \(r\) son \(\tan \theta \sec \theta\) a \(\sec \theta\).
+
+En coordenadas polares es:
+
+\[
+\int_{0}^{\pi/4} \left[\int_{\tan{\theta}\sec{\theta}}^{\sec{\theta}} \frac{r}{r} \, dr \right] d\theta
+\]
+
+La cual se evalúa a:
+
+\[
+\int_{0}^{\pi/4} \left( \sec \theta - \tan \theta \sec \theta \right) \, d\theta
+\]
+
+Resultado final es:
+
+\[
+\boxed{\sqrt{2} - 1}
+\]\subsection{Ejercicio 10}
+Transformar la integral dada a integrales iteradas en coordenadas polares.
+
+$$\int_{0}^{1}\left[\int_{0}^{1} f(x, y) \, dy\right] dx$$
+
+\textbf{Respuesta}
+
+Dada la expresión en coordenadas cartesianas:
+
+\[
+\int_{0}^{1}\left[\int_{0}^{1} f(x, y) \, dy\right] dx
+\]
+
+queremos cambiar a coordenadas polares. Las equivalencias que usaremos son:
+
+\[
+x = r \cos \theta, \, y = r \sin \theta, \, dx \, dy = r \, dr \, d\theta
+\]
+
+Aquí \(r\) se refiere a la distancia radial y \(\theta\) es el ángulo respecto al eje \(x\).
+
+Determinamos los nuevos límites:
+
+El área de integración corresponde a un cuadrado en el primer cuadrante con \(0 \leq x \leq 1\) y \(0 \leq y \leq 1\). En coordenadas polares, se dividen estas áreas en dos regiones:
+
+1. Primera región:
+   Para \(0 \leq \theta \leq \frac{\pi}{4}\), el límite superior de \(r\) lo da la recta \(x = 1\), entonces \(r = \sec \theta\) porque:
+
+   \[
+   x = r \cos \theta \quad \Rightarrow \quad 1 = r \cos \theta \quad \Rightarrow \quad r = \sec \theta
+   \]
+
+   El límite inferior es \(r = 0\).
+
+2. Segunda región:
+   Para \(\frac{\pi}{4} \leq \theta \leq \frac{\pi}{2}\), teniendo como referencia la recta \(y = 1\), el límite superior de \(r\) es \(r = \csc \theta\):
+
+   \[
+   y = r \sin \theta \quad \Rightarrow \quad 1 = r \sin \theta \quad \Rightarrow \quad r = \csc \theta
+   \]
+
+   El límite inferior sigue siendo \(r = 0\).
+
+La nueva integral en coordenadas polares se expresa al dividir el área en dos partes:
+
+1. Primera parte:
+   Para \(0 \leq \theta \leq \frac{\pi}{4}\), con \(0 \leq r \leq \sec \theta\):
+
+   \[
+   \int_{0}^{\pi/4} \left[\int_{0}^{\sec{\theta}} f\left(r \cos \theta, r \sin \theta\right) \, r \, dr \right] d\theta
+   \]
+
+2. Segunda parte:
+   Para \(\frac{\pi}{4} \leq \theta \leq \frac{\pi}{2}\), con \(0 \leq r \leq \csc \theta\):
+
+   \[
+   \int_{\pi/4}^{\pi/2} \left[\int_{0}^{\csc{\theta}} f\left(r \cos \theta, r \sin \theta\right) \, r \, dr \right] d\theta
+   \]
+
+La transformación completa de la integral es:
+
+\[
+\boxed{\int_{0}^{\pi/4} \left[\int_{0}^{\sec{\theta}} f\left(r \cos \theta, r \sin \theta\right) \, r \, dr \right] d\theta 
++ 
+\int_{\pi/4}^{\pi/2} \left[\int_{0}^{\csc{\theta}} f\left(r \cos \theta, r \sin \theta\right) \, r \, dr \right] d\theta}
+\]
+
+Esta es la forma final en coordenadas polares, ajustada para cubrir el cuadrado en el primer cuadrante.\subsection{Ejercicio 13}
+Transforma la siguiente integral en una o más integrales iteradas en coordenadas polares:
+$$\int_{0}^{1}\left[\int_{0}^{x^{2}} f(x, y) \, dy\right] dx.$$
+
+\textbf{Respuesta}
+Dada la integral:
+
+\[
+\int_{0}^{1} \left[\int_{0}^{x^2} f(x, y) \, dy\right] dx
+\]
+
+transformémosla a coordenadas polares. Las conversiones necesarias son:
+
+\[
+x = r \cos \theta, \quad y = r \sin \theta, \quad dx \, dy = r \, dr \, d\theta
+\]
+
+Analizando los límites de integración en coordenadas cartesianas, vemos que \(x\) está entre 0 y 1, y \(y\) está entre 0 y \(x^2\), lo cual corresponde a la región en el primer cuadrante debajo de la parábola \(y = x^2\).
+
+Convertimos la ecuación de la parábola \(y = x^2\) a polares:
+
+\[
+r \sin \theta = (r \cos \theta)^2
+\]
+
+lo que simplifica a:
+
+\[
+\sin \theta = r \cos^2 \theta \quad \Rightarrow \quad r = \tan \theta \sec \theta
+\]
+
+Por tanto, el límite superior para \(r\) es \(r = \sec \theta\).
+
+Resumen de los límites:
+
+1. \(r\) varía desde 0 hasta \(r = \sec \theta\).
+2. \(\theta\) varía desde 0 hasta \(\frac{\pi}{4}\).
+
+Finalmente, la integral transformada en polares es:
+
+\[
+\boxed{\int_{0}^{\pi/4} \left[\int_{\tan \theta \sec \theta}^{\sec \theta} f(r \cos \theta, r \sin \theta) r \, dr \right] d\theta}
+\]
+
+Esta es la forma final de la integral en coordenadas polares.\subsection{Ejercicio 14}
+Calcula la integral doble 
+$$
+\iint_{S}(x-y)^{2} \operatorname{sen}^{2}(x+y) d x d y
+$$
+donde $S$ es el paralelogramo definido por los vértices $(\pi, 0),(2 \pi, \pi),(\pi, 2 \pi),(0, \pi)$, usando una transformación lineal adecuada.
+
+\textbf{Respuesta}
+
+Para resolver la integral, aplicamos un cambio de variables para simplificar tanto la expresión como el dominio. Usamos las siguientes transformaciones:
+
+\[
+u = x + y, \quad v = x - y
+\]
+
+Estas ecuaciones pueden solucionarse para \(x\) y \(y\) de la siguiente manera:
+
+\[
+x = \frac{u + v}{2}, \quad y = \frac{u - v}{2}
+\]
+
+\textbf{Cálculo del Jacobiano}
+
+Derivamos \(x\) y \(y\) respecto a \(u\) y \(v\) para encontrar el Jacobiano:
+
+\[
+\frac{\partial(x, y)}{\partial(u, v)} = 
+\begin{vmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{vmatrix} =
+\begin{vmatrix}
+\frac{1}{2} & \frac{1}{2} \\
+\frac{1}{2} & -\frac{1}{2}
+\end{vmatrix} 
+= -\frac{1}{2}
+\]
+
+El valor absoluto del Jacobiano es:
+
+\[
+|J| = \frac{1}{2}
+\]
+
+\textbf{Nuevos límites de integración}
+
+Convertimos los vértices del paralelogramo a las nuevas coordenadas:
+
+1. \((\pi, 0) \rightarrow (u, v) = (\pi, \pi)\)
+2. \((2\pi, \pi) \rightarrow (3\pi, \pi)\)
+3. \((\pi, 2\pi) \rightarrow (3\pi, -\pi)\)
+4. \((0, \pi) \rightarrow (\pi, -\pi)\)
+
+Por tanto, los límites para \(u\) son \(\pi\) a \(3\pi\), y para \(v\) son \(-\pi\) a \(\pi\).
+
+\textbf{Integral en las nuevas variables}
+
+La integral se transforma a:
+
+\[
+I = \int_{\pi}^{3\pi} \int_{-\pi}^{\pi} v^2 \sin^2(u) \left(\frac{1}{2}\right) \, dv \, du
+\]
+
+Evaluamos primero la integral respecto a \(v\):
+
+\[
+\int_{-\pi}^{\pi} v^2 \, dv = \frac{2\pi^3}{3}
+\]
+
+Sustituimos este resultado:
+
+\[
+I = \frac{\pi^3}{3} \int_{\pi}^{3\pi} \sin^2(u) \, du
+\]
+
+\textbf{Cálculo de \(\int \sin^2(u) \, du\)}
+
+Utilizamos la identidad \(\sin^2(u) = \frac{1 - \cos(2u)}{2}\):
+
+\[
+\int_{\pi}^{3\pi} \sin^2(u) \, du = \frac{1}{2} \left[ (3\pi - \pi) \right] = \pi
+\]
+
+\textbf{Resultado final}
+
+Insertamos este resultado en \(I\):
+
+\[
+I = \frac{\pi^3}{3} \cdot \pi = \frac{\pi^4}{3}
+\]
+
+Así, la solución final es:
+
+\[
+\boxed{\frac{\pi^4}{3}}
+\]\subsection{Ejercicio 15}
+Se tienen los vértices del paralelogramo $S$ en el plano $xy$ en las coordenadas $(0,0),(2,10),(3,17)$ y $(1,7)$.\\
+a) Encuentra una transformación lineal $u=ax+by, v=cx+dy$ que mapea $S$ a un rectángulo $R$ en el plano $uv$ con vértices en $(0,0)$ y $(4,2)$. El punto $(2,10)$ debe trasladarse a un punto en el eje $u$.\\
+b) Calcula la integral doble $\iint_{S} x y \, dx \, dy$ convirtiéndola en una integral equivalente en la región $R$ como se indicó en el apartado a).
+
+\textbf{Respuesta}
+
+\vspace{10pt}
+\textbf{a) Determinación de la transformación lineal}
+
+Para derivar la transformación \(u = ax + by\) y \(v = cx + dy\), partimos de los puntos dados y aplicamos el método de Gauss para resolver el sistema de ecuaciones.
+
+1. Coordenadas de los vértices del paralelogramo \(S\):
+   - \((0, 0)\)
+   - \((2, 10)\)
+   - \((3, 17)\)
+   - \((1, 7)\)
+
+2. Coordenadas de los vértices del rectángulo \(R\):
+   - \((0, 0)\)
+   - \((4, 0)\)
+   - \((4, 2)\)
+   - \((0, 2)\)
+
+Con la condición de que el punto \((2, 10)\) se lleve al eje \(u\), damos solución a los sistemas de ecuaciones utilizando el método de Gauss para encontrar los coeficientes de la transformación lineal.
+
+Solucionando la transformación, obtenemos:
+
+\[
+u = 7x - y, \quad v = -5x + y
+\]
+
+Para definir las rectas del paralelogramo \(S\), utilizamos:
+
+\[
+7x - y = 0 \quad \text{(pasa por \((0,0)\) y \((1,7)\))}
+\]
+\[
+7x - y = 4 \quad \text{(pasa por \((2,10)\) y \((3,17)\))}
+\]
+\[
+y - 5x = 0 \quad \text{(pasa por \((0,0)\) y \((2,10)\))}
+\]
+\[
+y - 5x = 2 \quad \text{(pasa por \((1,7)\) y \((3,17)\))}
+\]
+
+Utilizando estas ecuaciones, describimos el paralelogramo \(S\), aplicamos la transformación lineal y generamos un rectángulo en \(uv\).
+
+Al evaluar la transformación en los vértices de \(S\):
+
+- Para \((0, 0)\):
+  \[
+  u = 0, \quad v = 0 \quad \Rightarrow \quad (0, 0)
+  \]
+
+- Para \((2, 10)\):
+  \[
+  u = 4, \quad v = 0 \quad \Rightarrow \quad (4, 0)
+  \]
+
+- Para \((3, 17)\):
+  \[
+  u = 4, \quad v = 2 \quad \Rightarrow \quad (4, 2)
+  \]
+
+- Para \((1, 7)\):
+  \[
+  u = 0, \quad v = 2 \quad \Rightarrow \quad (0, 2)
+  \]
+
+Así, los vértices transformados son:
+- \((0, 0)\)
+- \((4, 0)\)
+- \((4, 2)\)
+- \((0, 2)\)
+
+Por ende, el paralelogramo \(S\) se transformó en el rectángulo \(R\) con vértices en \((0, 0)\) y \((4, 2)\).
+
+\vspace{10pt}
+\textbf{b) Evaluación de la integral doble}
+
+La integral evaluada es:
+
+\[
+\iint_{S} xy \, dx \, dy
+\]
+
+Para llevar la integral a los nuevos términos, calculamos el Jacobiano de la transformación. Siguiendo el procedimiento correcto, encontramos:
+
+\[
+J = 
+\begin{vmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{vmatrix} =
+\begin{vmatrix}
+\frac{1}{2} & \frac{1}{2} \\
+\frac{5}{2} & \frac{7}{2}
+\end{vmatrix}
+= \frac{1}{2} \times \frac{7}{2} - \frac{1}{2} \times \frac{5}{2} = \frac{7}{4} - \frac{5}{4} = \frac{2}{4} = \frac{1}{2}
+\]
+
+Por tanto, el máximo absoluto del Jacobiano es:
+
+\[
+|J| = \frac{1}{2}
+\]
+
+Ahora, expresamos \(x\) e \(y\) en términos de \(u\) y \(v\):
+
+\[
+x = \frac{u + v}{2}, \quad y = \frac{5u + 7v}{2}
+\]
+
+Realizando la multiplicación entre ellas:
+
+\[
+xy = \left(\frac{u + v}{2}\right) \left(\frac{5u + 7v}{2}\right) = \frac{5u^2 + 12uv + 7v^2}{4}
+\]
+
+La nueva expresión para la integral es:
+
+\[
+\iint_{R} \frac{5u^2 + 12uv + 7v^2}{4} \cdot |J| \, du \, dv = \frac{1}{8} \iint_{R} (5u^2 + 12uv + 7v^2) \, du \, dv
+\]
+
+Los límites de integración son:
+- \(u\) desde \(0\) hasta \(4\)
+- \(v\) desde \(0\) hasta \(2\)
+
+Primero, integramos respecto a \(v\):
+
+\[
+\int_{0}^{2} (5u^2 + 12uv + 7v^2) \, dv = 10u^2 + 24u + \frac{56}{3}
+\]
+
+Ahora, integramos respecto a \(u\):
+
+\[
+\int_{0}^{4} \left(10u^2 + 24u + \frac{56}{3}\right) \, du = 480
+\]
+
+Finalmente, multiplicamos por \(\frac{1}{8}\):
+
+\[
+\frac{1}{8} \times 480 = 60
+\]
+
+Por lo que, el resultado de la integral es \(\boxed{60}\).\subsection{Ejercicio 17}
+
+Dada la función transformadora con las ecuaciones siguientes:
+$$
+x = u + v, \quad y = v - u^2
+$$
+a) Determinar el jacobiano $J(u, v)$.
+b) Un triángulo $T$ localizado en el plano $uv$ tiene los vértices $(0,0), (2,0), (0,2)$. Graficar, describiendo, la imagen $S$ en el plano $xy$.
+c) Encontrar el área de $S$ usando tanto una doble integral sobre $S$ como sobre $T$.
+d) Evaluar $\iint_{S} (x-y+1)^{-2} \, dx \, dy$.
+
+\textbf{Respuesta}
+
+Primera parte) Cálculo del jacobiano:
+
+La función propuesta es:
+$$
+x = u + v, \quad y = v - u^2
+$$
+El jacobiano se expresa como:
+$$
+J(u, v) = \begin{vmatrix} 
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ 
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} 
+\end{vmatrix}
+$$
+
+Las derivadas parciales se calculan de la siguiente manera:
+
+- $\frac{\partial x}{\partial u} = 1$ y $\frac{\partial x}{\partial v} = 1$
+- $\frac{\partial y}{\partial u} = -2u$ y $\frac{\partial y}{\partial v} = 1$
+
+El resultado del jacobiano es:
+$$
+J(u, v) = \begin{vmatrix} 1 & 1 \\ -2u & 1 \end{vmatrix}
+= (1)(1) - (1)(-2u) = 1 + 2u
+$$
+
+Segunda parte) Imagen del triángulo $T$ y su transformación en el plano $xy$:
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+        \draw[->] (-1,0) -- (4,0) node[right] {$u$};
+        \draw[->] (0,-1) -- (0,4) node[above] {$v$};
+        \draw[thick, fill=blue!20] (0,0) -- (2,0) -- (0,2) -- cycle;
+        \node at (0,-0.3) {$(0,0)$};
+        \node at (2,-0.3) {$(2,0)$};
+        \node at (-0.5,2) {$(0,2)$};
+        \node at (1,-1.5) {\textbf{Triángulo T en el plano $uv$}};
+    \end{tikzpicture}
+    
+    \hspace{1cm}
+
+    \begin{tikzpicture}[scale=0.8]
+        \draw[->] (-1,-5) -- (4,0) node[right] {$x$};
+        \draw[->] (0,-5) -- (0,3) node[above] {$y$};
+        \draw[thick, fill=red!20] (0,0) -- (2,2) -- (2,-4) -- cycle;
+        \node at (0.3,-0.3) {$(0,0)$};
+        \node at (2.3,2) {$(2,2)$};
+        \node at (2.3,-4.3) {$(2,-4)$};
+        \node at (1,-5.5) {\textbf{Imagen S en el plano $xy$}};
+    \end{tikzpicture}
+    \caption{Transformación del triángulo $T$ en su imagen $S$}
+\end{figure}
+
+Tercera parte) Cálculo del área:
+
+El espacio ocupado por el triángulo $T$ es sencillo de determinar:
+$$
+\text{Área}(T) = \frac{1}{2} \times \text{base} \times \text{altura} = \frac{1}{2} \times 2 \times 2 = 2
+$$
+
+Para el área del espacio transformado $S$, multiplicamos por el jacobiano:
+$$
+\text{Área}(S) = \iint_T |J(u, v)| \, du \, dv
+$$
+
+Dado que $J(u, v) = 1 + 2u$, la integral es:
+$$
+\text{Área}(S) = \int_0^2 \int_0^{2-u} (1 + 2u) \, dv \, du
+$$
+
+Resolviendo la integral:
+
+1. Integramos respecto a $v$:
+$$
+\int_0^{2-u} (1 + 2u) \, dv = (1 + 2u)(2 - u)
+= 2(1 + 2u) - u(1 + 2u)
+= 2 + 4u - u - 2u^2 = 2 + 3u - 2u^2
+$$
+
+2. Integramos respecto a $u$:
+$$
+\int_0^2 (2 + 3u - 2u^2) \, du
+= \left[ 2u + \frac{3}{2}u^2 - \frac{2}{3}u^3 \right]_0^2
+= 2(2) + \frac{3}{2}(2^2) - \frac{2}{3}(2^3)
+= 4 + 6 - \frac{16}{3}
+= 10 - \frac{16}{3}
+= \frac{30}{3} - \frac{16}{3} = \frac{14}{3}
+$$
+
+Por lo tanto, el espacio cubierto por $S$ es $\frac{14}{3}$.
+
+Cuarta parte) Resolución de la integral:
+
+$$
+\iint_S (x - y + 1)^{-2} \, dx \, dy
+$$
+
+Cambiamos a $(u, v)$ donde $x = u + v$ y $y = v - u^2$, entonces:
+$$
+x - y + 1 = (u + v) - (v - u^2) + 1 = u + u^2 + 1 = u(u + 1) + 1
+$$
+
+La integral ahora es:
+$$
+\iint_T \left( u(u + 1) + 1 \right)^{-2} |J(u, v)| \, du \, dv
+$$
+Con $J(u, v) = 1 + 2u$.
+
+Resolvemos usando los límites del triángulo $T$, con $0 \leq u \leq 2$ y $0 \leq v \leq 2 - u$.
+
+La solución final es:
+$$
+2 + \frac{2}{\sqrt{3}} \left( \arctan\left(\frac{1}{\sqrt{3}}\right) - \arctan\left(\frac{5}{\sqrt{3}}\right) \right)
+$$\subsection{Ejercicio 18}
+Sea la transformación dada por las ecuaciones $x=u^{2}-v^{2}$ y $y=2uv$.\\
+a) Determine el jacobiano $J(u, v)$.\\
+b) Dado el rectángulo $T$ en el plano UV con vértices $(1,1)$, $(2,1)$, $(2,3)$ y $(1,3)$, represente gráficamente la imagen $S$ en el plano XY.\\
+c) Compute la integral doble $\iint_{C} x y \, dx \, dy$ utilizando el cambio de variable $x=u^{2}-v^{2}$, $y=2uv$, donde $C$ se define como $\{(x, y) \mid x^{2}+y^{2} \leq 1\}$.
+
+\textbf{Respuesta}
+
+Consideramos la transformación:
+\[
+x = u^{2} - v^{2}, \quad y = 2uv.
+\]
+
+\textbf{a) Determinar el jacobiano $J(u, v)$:}
+
+El jacobiano $J(u,v)$ se obtiene de la siguiente matriz de derivadas parciales:
+\[
+J(u,v) = \det\begin{pmatrix} 
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{pmatrix}.
+\]
+Calculamos:
+\[
+\frac{\partial x}{\partial u} = 2u, \quad \frac{\partial x}{\partial v} = -2v,
+\]
+\[
+\frac{\partial y}{\partial u} = 2v, \quad \frac{\partial y}{\partial v} = 2u.
+\]
+
+El deteminante del jacobiano es:
+\[
+J(u,v) = \det\begin{pmatrix} 
+2u & -2v \\
+2v & 2u
+\end{pmatrix}
+= 4(u^2 + v^2).
+\]
+
+\textbf{b) Representar gráficamente la imagen $S$ en el plano XY:}
+
+Con el rectángulo $T$ en el plano UV cuyos vértices son $(1,1)$, $(2,1)$, $(2,3)$ y $(1,3)$, encontramos sus imágenes en el plano XY utilizando las ecuaciones dadas:
+
+Para el punto $(1,1)$:
+\[
+x = 1^2 - 1^2 = 0, \quad y = 2 \times 1 \times 1 = 2 \quad \longrightarrow (0,2).
+\]
+
+Para el punto $(2,1)$:
+\[
+x = 2^2 - 1^2 = 3, \quad y = 2 \times 2 \times 1 = 4 \quad \longrightarrow (3,4).
+\]
+
+Para el punto $(2,3)$:
+\[
+x = 2^2 - 3^2 = -5, \quad y = 2 \times 2 \times 3 = 12 \quad \longrightarrow (-5,12).
+\]
+
+Para el punto $(1,3)$:
+\[
+x = 1^2 - 3^2 = -8, \quad y = 2 \times 1 \times 3 = 6 \quad \longrightarrow (-8,6).
+\]
+
+Esto forma un cuadrilátero en el plano XY con vértices en $(0,2)$, $(3,4)$, $(-5,12)$ y $(-8,6)$.
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+        % Ejes del plano xy
+        \draw[->] (-10,0) -- (5,0) node[right] {$x$};
+        \draw[->] (0,-1) -- (0,15) node[above] {$y$};
+
+        % Dibujo del cuadrilátero S
+        \draw[thick, fill=blue!20] (0,2) -- (3,4) -- (-5,12) -- (-8,6) -- cycle;
+
+        % Etiquetas de los vértices
+        \node at (0,2) [above right] {$(0,2)$};
+        \node at (3,4) [above right] {$(3,4)$};
+        \node at (-5,12) [above left] {$(-5,12)$};
+        \node at (-8,6) [above left] {$(-8,6)$};
+
+        % Título del gráfico
+        \node at (-2,-2) {\textbf{Imagen $S$ en el plano $xy$}};
+    \end{tikzpicture}
+    \caption{Transformación del rectángulo $T$ en el cuadrilátero $S$.}
+\end{figure}
+
+\textbf{c) Calcular la integral doble $\iint_{C} x y \, dx \, dy$ con el cambio de variable:}
+
+Para computar:
+\[
+\iint_{C} x y \, dx \, dy,
+\]
+donde $C = \{(x,y) \mid x^2 + y^2 \leq 1 \}$, utilizamos el cambio de variable:
+\[
+x = u^2 - v^2, \quad y = 2uv,
+\]
+con $J(u,v) = 4(u^2 + v^2)$.
+
+Así, la integral se transforma a:
+\[
+\iint_{T} (u^2 - v^2)(2uv) \cdot 4(u^2 + v^2) \, du \, dv.
+\]
+
+El integrando es una función impar. Al integrar sobre una región simétrica respecto al origen, la integral se anula y el resultado es:
+\[
+\boxed{0}.
+\]\subsection{Ejercicio 20}
+Considerando los ejercicios enumerados del 20 al 22, se requiere demostrar las igualdades dadas a través de un apropiado cambio de variable. En este caso específico, tenemos la igualdad: 
+\[
+\iint_{S} f(x+y) \, dx \, dy = \int_{-1}^{1} f(u) \, du,
+\]
+donde $S = \{(x, y) \mid |x| + |y| \leq 1\}$.
+
+\textbf{Respuesta}
+
+La región indicada por $S = \{(x, y) \mid |x| + |y| \leq 1\}$ forma un rombo en el plano cartesiano con los vértices localizados en $(1, 0)$, $(0, 1)$, $(-1, 0)$ y $(0, -1)$. 
+
+Para simplificar la integral doble dada, utilizamos el siguiente cambio de variables:
+\[
+u = x + y \quad \text{y} \quad v = x - y.
+\]
+Este cambio conduce a una función dependiente únicamente de $u$. Procedemos calculando el jacobiano de este cambio de variables.
+
+Las derivadas parciales respectivas son:
+\[
+\frac{\partial x}{\partial u} = \frac{1}{2}, \quad \frac{\partial y}{\partial u} = \frac{1}{2}, \quad \frac{\partial x}{\partial v} = \frac{1}{2}, \quad \frac{\partial y}{\partial v} = -\frac{1}{2}.
+\]
+El jacobiano, siendo el determinante de esta matriz de derivadas parciales, es:
+\[
+J(u, v) = \det \begin{pmatrix} 
+\frac{1}{2} & \frac{1}{2} \\
+\frac{1}{2} & -\frac{1}{2}
+\end{pmatrix} = -\frac{1}{2}.
+\]
+
+Así pues, el área diferencial en las nuevas variables se obtiene como:
+\[
+dx \, dy = \left|\frac{1}{2}\right| du \, dv = \frac{1}{2} \, du \, dv.
+\]
+
+La región inicial $S$ en coordenadas $x$ e $y$, pasa a abarcar el dominio definido por $u \in [-1, 1]$ y $v \in [-1, 1]$. Con esto, la integral original se transforma en la forma:
+\[
+\iint_{S} f(x + y) \, dx \, dy = \int_{-1}^{1} \int_{-1}^{1} f(u) \frac{1}{2} \, du \, dv.
+\]
+Debido a que la función $f(u)$ no varía con $v$, podemos simplificar la integral extrayendo $f(u)$ fuera de la integración en $v$:
+\[
+\iint_{S} f(x + y) \, dx \, dy = \int_{-1}^{1} f(u) \left( \int_{-1}^{1} \frac{1}{2} \, dv \right) du.
+\]
+El resultado de la integral en $v$ se calcula como:
+\[
+\int_{-1}^{1} \frac{1}{2} \, dv = 1.
+\]
+Finalmente, esto reduce la expresión a:
+\[
+\iint_{S} f(x + y) \, dx \, dy = \int_{-1}^{1} f(u) \, du.
+\]
+\subsection{Ejercicio 21}
+Considerar las igualdades dadas utilizando un cambio de variable adecuado:
+\[
+\iint_{S} f(a x+b y+c) d x d y=2 \int_{-1}^{1} \sqrt{1-u^{2}} f\left(u \sqrt{a^{2}+b^{2}}+c\right) d u,
+\]
+donde \( S=\left\{(x, y) \mid x^{2}+y^{2} \leq 1\right\} \) y \( a^{2}+b^{2} \neq 0 \).
+
+\textbf{Respuesta}
+
+El dominio \( S \) es un disco unitario centrado en el origen del plano \( xy \). Para transformar la integral, cambiamos a coordenadas polares: \( x = r \cos \theta \) y \( y = r \sin \theta \). La integral se convierte en:
+\[
+\iint_{S} f(a x + b y + c) \, dx \, dy = \int_{0}^{2\pi} \int_{0}^{1} f(a r \cos \theta + b r \sin \theta + c) \, r \, dr \, d\theta.
+\]
+
+Dado que \( a \cos \theta + b \sin \theta \) oscila entre \( -\sqrt{a^{2} + b^{2}} \) y \( \sqrt{a^{2} + b^{2}} \) a medida que cambia \( \theta \), hacemos el cambio:
+\[
+u = a \cos \theta + b \sin \theta,
+\]
+y obtenemos que \( du = -\sqrt{a^{2} + b^{2}} \, d\theta \).
+
+Transformamos la integral respecto a \( \theta \) en una integral sobre \( u \) con límites de \( [-\sqrt{a^{2} + b^{2}}, \sqrt{a^{2} + b^{2}}] \), obteniendo:
+\[
+\iint_{S} f(a x + b y + c) \, dx \, dy = \int_{-\sqrt{a^{2} + b^{2}}}^{\sqrt{a^{2} + b^{2}}} f(u + c) \left( \int_{0}^{1} r \, dr \right) \, \frac{du}{\sqrt{a^{2} + b^{2}}}.
+\]
+
+La integración del factor \( r \) desde 0 hasta 1 resulta en:
+\[
+\int_{0}^{1} r \, dr = \frac{1}{2}.
+\]
+
+Así, la integral se simplifica a:
+\[
+\iint_{S} f(a x + b y + c) \, dx \, dy = \frac{1}{\sqrt{a^{2} + b^{2}}} \int_{-\sqrt{a^{2} + b^{2}}}^{\sqrt{a^{2} + b^{2}}} f(u + c) \, du.
+\]
+
+Finalmente, usando simetría y adecuando \( u \) para el intervalo \( [-1, 1] \), obtenemos:
+\[
+\iint_{S} f(a x + b y + c) \, dx \, dy = 2 \int_{-1}^{1} \sqrt{1 - u^{2}} f\left(u \sqrt{a^{2} + b^{2}} + c\right) \, du.
+\]\subsection{Ejercicio 22}
+Realiza un cambio de variable conveniente para establecer la igualdad: \(\iint_{S} f(x y) \, dx \, dy = \log 2 \int_{1}^{2} f(u) \, du\), donde \(S\) es la región en el primer cuadrante entre las curvas \(xy=1\), \(xy=2\), \(y=x\), y \(y=4x\).
+
+\textbf{Respuesta}
+
+Primero, determinamos la región \( S \). Está limitada por:
+
+1. \( xy = 1 \), implica \( y = \frac{1}{x} \).
+2. \( xy = 2 \), implica \( y = \frac{2}{x} \).
+3. \( y = x \).
+4. \( y = 4x \).
+
+Calculamos las intersecciones:
+
+- Para \( y = x \) y \( y = \frac{1}{x} \):
+  \[
+  x = \frac{1}{x} \Rightarrow x^2 = 1 \Rightarrow x = 1, y = 1.
+  \]
+
+- Para \( y = x \) y \( y = \frac{2}{x} \):
+  \[
+  x = \frac{2}{x} \Rightarrow x^2 = 2 \Rightarrow x = \sqrt{2}, y = \sqrt{2}.
+  \]
+
+- Para \( y = 4x \) y \( y = \frac{2}{x} \):
+  \[
+  4x = \frac{2}{x} \Rightarrow 4x^2 = 2 \Rightarrow x^2 = \frac{1}{2} \Rightarrow x = \frac{1}{\sqrt{2}}, y = 2.
+  \]
+
+- Para \( y = 4x \) y \( y = \frac{1}{x} \):
+  \[
+  4x = \frac{1}{x} \Rightarrow 4x^2 = 1 \Rightarrow x^2 = \frac{1}{4} \Rightarrow x = \frac{1}{2}, y = 2.
+  \]
+
+La región \( S \) se encuentra entre las curvas \( y = \frac{1}{x} \) y \( y = \frac{2}{x} \) en \( 1 \leq x \leq \sqrt{2} \), y entre \( y = 4x \) y \( y = 2 \) en \( \frac{1}{2} \leq x \leq 1 \).
+
+Proponemos el cambio de variable:
+\[
+u = xy.
+\]
+Calculamos el jacobiano encontrando \( dx \, dy \) en términos de \( du \) y \( dv \) (donde \( v = y \)):
+
+\[
+\frac{\partial (x, y)}{\partial (u, v)} = \begin{vmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{vmatrix}.
+\]
+
+Reescribimos \( x \) y \( y\):
+- \( u = xy \) por lo que \( x = \frac{u}{y} \).
+
+El jacobiano es:
+\[
+J = \begin{vmatrix}
+\frac{1}{y} & -\frac{u}{y^2} \\
+0 & 1
+\end{vmatrix} = \frac{1}{y}.
+\]
+
+Entonces, la integral se transforma en:
+\[
+\iint_{S} f(x y) \, dx \, dy = \int_{y=1}^{2} \int_{x=\frac{1}{y}}^{\frac{2}{y}} f(u) \frac{1}{y} \, du \, dy.
+\]
+
+Finalmente, ajustando los límites de \( u \) que van de 1 a 2:
+\[
+\iint_{S} f(x y) \, dx \, dy = \log 2 \int_{1}^{2} f(u) \, du.
+\]\subsection{Ejercicio 5}
+Determina el valor de cada integral triple en los ejercicios del 1 al 5. Describe gráficamente la región de integración en cada caso. Se asume que todas las integrales mencionadas existen.\\
+5. $\iiint \sqrt{  x^{2}+y^{2}} \,dx \,dy \,dz$, siendo $S$ el sólido definido por la sección superior del cono con la ecuación $z^{2}=x^{2}+y^{2}$ y el plano $z=1$.
+
+\textbf{Respuesta}
+\[
+\begin{aligned}
+S &= \left\{(x, y, z) \mid -1 \leq x \leq 1, -\sqrt{1-x^{2}} \leq y \leq \sqrt{1-x^{2}}, \right. \\
+& \quad \quad \quad \quad \left. \sqrt{x^{2}+y^{2}} \leq z \leq 1 \right\}
+\end{aligned}
+\]
+
+La proyección de $S$ en el plano $xy$ es un disco con la siguiente ecuación:
+
+\[
+x^{2}+y^{2}=1
+\]
+
+La superficie inferior está en $z=\sqrt{x^{2}+y^{2}}$ y la superficie superior está en el plano $z=1$, lo que lleva a la siguiente integral triple:
+
+\[
+\int_{-1}^{1} \int_{-\sqrt{1-x^{2}}}^{\sqrt{1-x^{2}}} \int_{\sqrt{x^{2}+y^{2}}}^{1} \sqrt{x^{2}+y^{2}} \,dz \,dy \,dx
+\]
+
+Al cambiar a coordenadas cilíndricas, la región de integración se simplifica a:
+
+\[
+S=\{(r, \theta, z) \mid 0 < \theta \leq 2\pi, 0 \leq r \leq 1, r \leq z \leq 1\}
+\]
+
+Por lo tanto, la integral se convierte en:
+
+\[
+I = \int_{0}^{2\pi} \int_{0}^{1} \int_{r}^{1} r^{2} \,dz \,dr \,d\theta
+\]
+
+Primero, integramos respecto a $z$:
+
+\[
+\int_{r}^{1} r^{2} \,dz = r^{2} \left(z \bigg|_{r}^{1} \right) = r^{2}(1-r) = r^{2} - r^{3}
+\]
+
+Luego, integramos respecto a $r$:
+
+\[
+\int_{0}^{1} (r^{2} - r^{3}) \,dr = \left[\frac{r^{3}}{3} - \frac{r^{4}}{4} \right]_{0}^{1} = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}
+\]
+
+Finalmente, integramos respecto a $\theta$:
+
+\[
+\int_{0}^{2\pi} \frac{1}{12} \,d\theta = \frac{\pi}{6}
+\]
+
+Por lo tanto, el resultado de la integral es $I = \frac{\pi}{6}$.\subsection{Ejercicio 8}
+Se presenta una integral triple de la forma $ \int f(x, y, z) \, d x \, d y \, d z $, donde la función es positiva, y se proporciona una integral iterada específica. El objetivo es graficar la región de integración $ S $ y su proyección en el plano $ xy $, y después reescribir la integral triple como una o más integrales iteradas comenzando con la integración respecto a $ y $. La integral dada es: $8. \int_{0}^{1}\left(\int_{0}^{1}\left[\int_{0}^{x^{2}+y^{2}} f(x, y, z) \, d z\right] \, d y\right) \, d x.$
+
+\textbf{Respuesta}
+
+Reescribimos la integral triple dada, comenzando la integración con respecto a $ y $:
+
+\[
+\int_{0}^{1} \left( \int_{0}^{\sqrt{z}} \left[ \int_{0}^{\sqrt{z - x^2}} f(x, y, z) \, d y \right] \, d x \right) \, d z
+\] 
+
+La región de integración $ S $ está acotada por $ 0 \leq x \leq 1 $, $ 0 \leq y \leq 1 $, y $ 0 \leq z \leq x^2 + y^2 $. Esta debe proyectarse en el plano $ xy $.\subsection{Ejercicio 9}
+Demostrar: 
+
+$$
+\int_{0}^{x}\left(\int_{0}^{v}\left[\int_{0}^{u} f(t) \, dt \right] \, du \right) \, dv = \frac{1}{2} \int_{0}^{x}(x-t)^{2} f(t) \, dt
+$$
+
+\textbf{Respuesta} Definimos \( g(v) = \int_{0}^{v} \int_{0}^{u} f(t) \, dt \, du \). Sustituyendo en la ecuación original, obtenemos:
+\[
+\frac{1}{2} \int_{0}^{x} (x-t)^{2} f(t) \, dt = \int_{0}^{x} g(v) \, dv.
+\]
+
+Luego,
+\[
+= x^{2} \int_{0}^{x} f(t) \, dt - 2 x \int_{0}^{x} f(t) \, dt + \int_{0}^{x} t^{2} f(t) \, dt = 2 \int_{0}^{x} g(v) \, dt.
+\]
+
+Derivando respecto de \( x \):
+\[
+2 x \int_{0}^{x} f(t) \, dt + x^{2} f(x) - 2 \int_{0}^{x} t f(t) \, dt - 2 x^{2} f(x) + x^{2} f(x) = 2 g(x) \, dt.
+\]
+
+Simplificamos para obtener:
+\[
+x \int_{0}^{x} f(t) \, dt - \int_{0}^{x} t f(t) \, dt = g(x).
+\]
+
+Dado que \( g(x) = \int_{0}^{x} \int_{0}^{u} f(t) \, dt \, du \), se deduce que:
+\( x \int_{0}^{x} f(t) \, dt - \int_{0}^{x} t f(t) \, dt = \int_{0}^{x} \int_{0}^{u} f(t) \, dt \, du \).
+
+Sea \( h(u) = \int_{0}^{u} f(t) \, dt \), por lo tanto:
+\[
+\frac{d}{dx}\left[x \int_{0}^{x} f(t) \, dt - \int_{0}^{x} t f(t) \, dt \right] = \frac{d}{dx} \int_{0}^{x} h(u) \, du = \int_{0}^{x} f(t) \, dt + x f(x) - x f(x) = h(x).
+\]
+
+Así simplificamos:
+\[
+\int_{0}^{x} f(t) \, dt = h(x) \quad (2).
+\]
+
+Dado que \( h(u) = \int_{0}^{u} f(t) \, dt \), entonces \( h(x) = \int_{0}^{x} f(t) \, dt \quad (3) \).
+
+Con las ecuaciones (2) y (3), concluimos:
+\[
+\int_{0}^{x} f(t) \, dt = \int_{0}^{x} f(t) \, dt.
+\]\subsection{Ejercicio 11}
+Calcular la integral triple $\iiint d x d y d z$ sobre el sólido $S$ definido por los planos coordenados y las superficies $z = x^2 + y^2$ y $x + y = 1$, utilizando coordenadas cilíndricas. Se asume que todas las integrales implicadas existen.
+
+\textbf{Respuesta}
+Aquí va la solución del ejercicio.\subsection{Ejercicio 14}
+Consideremos la integral triple \(\iiint_{S} dx \, dy \, dz\), donde \(S\) es el volumen comprendido entre dos esferas concéntricas con radios \(a\) y \(b\), donde \(0<a<b\), y con centro en el origen.
+
+\textbf{Respuesta} Utilizando coordenadas esféricas, la región de integración es
+\[
+J = \{(p, \theta, \phi) \mid a \leq p \leq b, \, 0 \leq \theta \leq 2\pi, \, 0 \leq \phi \leq \pi\}
+\]
+La integral a evaluar es
+\[
+I = \int_{0}^{2\pi} \int_{0}^{\pi} \int_{a}^{b} p^{2} \sin \phi \, dp \, d\phi \, d\theta.
+\]
+
+Calculando la integral respecto a \(p\):
+\[
+\int_{a}^{b} p^{2} \sin \phi \, dp = \sin \phi \int_{a}^{b} p^{2} \, dp = \left. \sin \phi \frac{p^{3}}{3} \right|_{a}^{b} = \frac{1}{3} \left( b^{3} - a^{3} \right) \sin \phi \tag{1}
+\]
+
+Integrando luego respecto a \(\phi\):
+\[
+\int_{0}^{\pi} \frac{1}{3} \left( b^{3} - a^{3} \right) \sin \phi \, d\phi = \frac{1}{3} \left( b^{3} - a^{3} \right) \left( -\left. \cos \phi \right|_{0}^{\pi} \right) = \frac{1}{3} \left( b^{3} - a^{3} \right) \cdot 2 = \frac{2}{3} \left( b^{3} - a^{3} \right) \tag{2}
+\]
+
+Finalmente, integrando con respecto a \(\theta\):
+\[
+\int_{0}^{2\pi} \frac{2}{3} \left( b^{3} - a^{3} \right) \, d\theta = \frac{4\pi}{3} \left( b^{3} - a^{3} \right)
+\]
+Por lo tanto, el resultado de la integral es
+\[
+I = \frac{4\pi}{3} \left( b^{3} - a^{3} \right).
+\]\subsection{Ejercicio 18}
+Determinar el volumen del sólido que está delimitado en su parte superior por la esfera $x^{2}+y^{2}+z^{2}=5$ y en su parte inferior por el paraboloide $x^{2}+y^{2}=4z$.
+
+\textbf{Respuesta}
+
+Para resolver este problema, es conveniente emplear coordenadas cilíndricas \((r, \theta, z)\). Este sólido se encuentra entre las superficies del paraboloide y la esfera, por lo que debemos integrar respetando las siguientes condiciones:
+
+Para estar sobre el paraboloide requerimos:
+\[
+z > \frac{1}{4} r^2 \tag{1}
+\]
+
+Mientras que para estar bajo la esfera se debe cumplir:
+\[
+r^2 + z^2 < 5,
+\]
+lo cual se traduce en:
+\[
+z < \sqrt{5 - r^2} \tag{2}
+\]
+
+El valor máximo para \(r\) se dará en la intersección del paraboloide con la esfera, determinada por:
+\[
+\frac{1}{4} r^2 = 5 - r^2
+\]
+Resolviendo, tenemos:
+\[
+r^4 = 16 (5 - r^2)
+\]
+\[
+r^4 + 16r^2 - 80 = 0
+\]
+
+Al factorizar, obtenemos:
+\[
+(r^2 + 20)(r^2 - 4) = 0
+\]
+De donde se obtiene:
+\[
+r^2 = 4, \quad r^2 = -20
+\]
+
+Descartando la solución negativa, se concluye:
+\[
+r = 2 \tag{3}
+\]
+
+Así, \(r\) varía en el intervalo:
+\[
+0 \leq r \leq 2 \tag{4}
+\]
+
+Entonces, el volumen \(V\) se obtiene mediante la integración:
+\[
+V = \int_0^{2\pi} \int_0^2 \int_{\frac{1}{4} r^2}^{\sqrt{5 - r^2}} r \, dz \, dr \, d\theta = 2\pi \int_0^2 r \left( \sqrt{5 - r^2} - \frac{1}{4} r^2 \right) dr
+\]
+\[
+V = 2\pi \int_0^2 \left( r \sqrt{5 - r^2} - \frac{1}{4} r^3 \right) dr \tag{5}
+\]
+
+Para la primera integral en la ecuación (5), aplicamos el cambio de variable \(5 - r^2 = t^2\) con \(r \, dr = -t \, dt\):
+\[
+\int_0^2 r \sqrt{5 - r^2} \, dr = \int_{\sqrt{5}}^1 t (-t \, dt) = \int_1^{\sqrt{5}} t^2 \, dt = \left[ \frac{t^3}{3} \right]_1^{\sqrt{5}} = \frac{5\sqrt{5} - 1}{3} \tag{6}
+\]
+
+Asimismo, para la segunda parte:
+\[
+\int_0^2 r^3 \, dr = \frac{1}{4} r^4 \Big|_0^2 = 4 \tag{7}
+\]
+
+Sustituyendo (6) y (7) en (5), resulta:
+\[
+V = 2\pi \left( \frac{5\sqrt{5} - 1}{3} - 1 \right)
+\]
+\[
+V = \frac{2\pi}{3} \left( 5\sqrt{5} - 4 \right) \quad \boxed{\leftarrow}
+\]
+
+\end{document}
