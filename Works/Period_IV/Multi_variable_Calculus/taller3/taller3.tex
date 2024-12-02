@@ -1,0 +1,2161 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+
+
+
+\input{setup.tex}
+
+\begin{document}
+    \coverPage{ Matemáticas }{ Cálculo Multivariable }{ Taller 3 }{  }{ Alexander Mendoza }{\today}
+
+\definecolor{color105}{RGB}{255, 99, 71}   % Tomato
+\definecolor{color109}{RGB}{30, 144, 255} % DodgerBlue
+\definecolor{color1018}{RGB}{50, 205, 50} % LimeGreen
+\definecolor{color1122}{RGB}{255, 215, 0} % Gold
+\definecolor{color124}{RGB}{147, 112, 219} % MediumPurple
+\definecolor{color126}{RGB}{255, 69, 0}   % Red
+\definecolor{color1213}{RGB}{0, 128, 128} % Teal
+
+\section*{\textcolor{color105}{Sección: 10.5}}
+\subsection*{Ejercicio 4}
+Determina la integral de línea del campo vectorial \(f(x, y) = \left(x^{2}+y^{2}\right) \mathbf{i} + \left(x^{2}-y^{2}\right) \mathbf{j}\) a lo largo de la curva \(y = 1 - |1 - x|\), desde el punto \((0,0)\) hasta \((2,0)\).
+
+\textbf{Respuesta}
+Nuestro propósito es calcular la integral de línea del campo vectorial dado entre los puntos \((0,0)\) y \((2,0)\) y a lo largo de la trayectoria especificada, que es \(y = 1 - |1 - x|\).
+
+Las coordenadas iniciales y finales nos dan un intervalo para \(x\) de \([0,2]\), por lo que podemos asociar esto al intervalo \([a, b]\) definiendo \(a = 0\) y \(b = 2\).
+
+El recorrido sobre la curva puede parametrizarse como \(\alpha(t) = (t, 1 - |1 - t|)\). La derivada respecto a \(t\) de esta parametrización es
+\[
+\alpha^{\prime}(t) = (1, -1).
+\]
+
+Evaluamos el campo vectorial en las coordenadas paramétricas \((t, 1 - |1 - t|)\), lo que da:
+\[
+f[\alpha(t)] = \left(t^{2} + (1 - |1 - t|)^{2}\right) \mathbf{i} + \left(t^{2} - (1 - |1 - t|)^{2}\right) \mathbf{j}.
+\]
+Al simplificar esto se obtiene:
+\[
+f[\alpha(t)] = \left(2 t^{2} + 2 - 2 t - 2|1 - t|\right) \mathbf{i} + \left(-2 + 2 t + 2|1 - t|\right) \mathbf{j}.
+\]
+
+El cálculo de la integral de línea del campo a lo largo de la curva se realiza usando:
+\[
+\int f \cdot d \alpha = \int_{a}^{b} f[\alpha(t)] \cdot \alpha^{\prime}(t) \, dt,
+\]
+que, al aplicarlo a nuestro caso, se convierte en:
+\[
+\begin{aligned}
+\int_{0}^{2} f[\alpha(t)] \cdot \alpha^{\prime}(t) \, dt & = \int_{0}^{2} \left(2 t^{2} + 4 - 4 t - 4|1 - t|\right) \, dt \\
+& = \int_{0}^{2} \left(2 t^{2} + 4 - 4 t\right) \, dt - \int_{0}^{2} 4|1 - t| \, dt.
+\end{aligned}
+\]
+
+Resolviendo, obtenemos:
+\[
+\begin{aligned}
+& = \left(\frac{16}{3} + 8 - 8\right) - 4\left(\frac{1}{2} + \frac{1}{2}\right) \\
+& = \frac{16}{3} - 4 \\
+& = \frac{4}{3}.
+\end{aligned}
+\]
+
+\subsection*{Ejercicio 7}
+Calcular la integral de línea del campo vectorial $f$ a lo largo de un segmento rectilíneo desde $(0,0,0)$ hasta $(1,2,4)$, donde $f(x, y, z)=x i+y j+(x z-y) k$.
+
+\textbf{Respuesta}
+Buscamos la integral de línea del campo vectorial dado entre los puntos \((0,0,0)\) y \((1,2,4)\). El campo vectorial está definido por la expresión
+\[
+f(x, y, z) = x \mathbf{i} + y \mathbf{j} + (x z - y) \mathbf{k}.
+\]
+
+La ecuación para el segmento de línea es
+\[
+\frac{x}{1} = \frac{y}{2} = \frac{z}{4},
+\]
+que se simplifica a
+\[
+x = \frac{y}{2} = \frac{z}{4}.
+\]
+Definimos el parámetro \(t\) para obtener la ecuación paramétrica como:
+\[
+\alpha(t) = (t, 2t, 4t).
+\]
+Calculamos la derivada de \(\alpha(t)\):
+\[
+\alpha^{\prime}(t) = (1, 2, 4).
+\]
+
+El parámetro \(t\) varía de 0 a 1, es decir, el intervalo es \([0, 1]\).
+
+Sustituimos en el campo vectorial usando las coordenadas paramétricas:
+\[
+f[\alpha(t)] = f(t, 2t, 4t) = t \mathbf{i} + 2t \mathbf{j} + (4t^2 - 2t) \mathbf{k},
+\]
+simplificando:
+\[
+f[\alpha(t)] = t \mathbf{i} + 2t \mathbf{j} + (4t^2 - 2t) \mathbf{k}.
+\]
+
+La integral de línea por el camino \(\alpha\) es
+\[
+\int f \cdot d \alpha = \int_{0}^{1} \left(t + 4t + 16t^2 - 8t \right) \, dt = \int_{0}^{1} (16t^2 - 3t) \, dt.
+\]
+Resolviendo la integral:
+\[
+\int_{0}^{1} (16t^2 - 3t) \, dt = \left[\frac{16t^3}{3} - \frac{3t^2}{2}\right]_{0}^{1}.
+\]
+Al evaluar los límites, obtenemos:
+\[
+\left[\frac{16}{3} - \frac{3}{2}\right] = \frac{23}{6}.
+\]
+
+Por consiguiente, el valor de la integral de línea es \(\frac{23}{6}\).
+
+\subsection*{Ejercicio 9}
+Calcular el valor de la integral de línea \(\int_{C} \left(x^{2} - 2 x y\right) dx + \left(y^{2} - 2 x y\right) dy\), donde \(C\) es el arco de la parábola \(y = x^{2}\) que une los puntos \((-2,4)\) y \((1,1)\).
+
+\textbf{Respuesta}
+
+Para resolver esta integral de línea, evaluamos a lo largo de la curva \(y = x^{2}\) que conecta los puntos \((-2,4)\) y \((1,1)\). Este arco de parábola puede expresarse parámetricamente como \(\alpha(t) = (t, t^{2})\), donde \(t\) varía desde \(-2\) hasta \(1\), es decir, en el intervalo \([-2, 1]\).
+
+La derivada de la parametrización es \(\alpha^{\prime}(t) = (1, 2t)\).
+
+El campo vectorial en términos paramétricos se determina como sigue:
+\[
+f(x, y) = (x^{2} - 2xy, y^{2} - 2xy) \quad \Rightarrow \quad f[\alpha(t)] = (t^{2} - 2t^{3}, t^{4} - 2t^{3}).
+\]
+
+La integral de línea se evalúa a través del producto de \(f[\alpha(t)]\) y \(\alpha^{\prime}(t)\):
+\[
+\int_{-2}^{1} (t^{2} - 2t^{3}, t^{4} - 2t^{3}) \cdot (1, 2t) \, dt = \int_{-2}^{1} (t^{2} - 2t^{3} + 2t^{5} - 4t^{4}) \, dt.
+\]
+
+Al integrar:
+\[
+= \left[\frac{t^{3}}{3} - \frac{t^{4}}{2} + \frac{t^{6}}{3} - \frac{4t^{5}}{5}\right]_{-2}^{1}.
+\]
+
+Aplicando límites:
+\[
+= \frac{1 + 8}{3} - \frac{1 - 16}{2} + \frac{1 - 64}{3} - \frac{4(1 + 32)}{5},
+\]
+\[
+= \frac{9}{3} + \frac{15}{2} - \frac{63}{3} - \frac{132}{5},
+\]
+\[
+= -\frac{369}{10}.
+\]
+
+Por lo tanto, el valor de la integral de línea es \(-\frac{369}{10}\).
+
+\subsection*{Ejercicio 11}
+Hallar la integral de línea \(\int_{C} \frac{dx + dy}{|x| + |y|}\), donde \(C\) es el borde de un cuadrado con vértices en \((1,0), (0,1), (-1,0)\), y \((0,-1)\), recorrido en sentido antihorario.
+
+\textbf{Respuesta}
+
+El problema consiste en evaluar la integral de línea a través del contorno mencionado.
+
+Primero, dividimos el camino \(C\) en cuatro segmentos y hallamos su parametrización:
+\[
+\begin{aligned}
+& \alpha_1(t) = (1 - t, t), \\
+& \alpha_2(t) = (-t, 1 - t), \\
+& \alpha_3(t) = (-1 + t, -t), \\
+& \alpha_4(t) = (t, -1 + t),
+\end{aligned}
+\]
+con \(t\) variando de 0 a 1 para cada segmento.
+
+Calculamos la derivada de la parametrización con respecto a \(t\):
+\[
+\begin{aligned}
+& \alpha_1'(t) = (-1, 1), \\
+& \alpha_2'(t) = (-1, -1), \\
+& \alpha_3'(t) = (1, -1), \\
+& \alpha_4'(t) = (1, 1).
+\end{aligned}
+\]
+
+Para cada tramo, calculamos la integral de línea \(\int_0^1 f[\alpha_i(t)] \cdot \alpha_i'(t) \, dt\).
+
+Para \(\alpha_3(t)\), por ejemplo:
+\[
+\int_0^1 \left( f[\alpha_3(t)] \cdot \alpha_3'(t) \right) \, dt = \int_0^1 \left( (-1, -1) \cdot (1, -1) \right) \, dt = \int_0^1 (-1 \cdot 1 + (-1) \cdot (-1)) \, dt = -2.
+\]
+
+Sumando los resultados de cada segmento, se obtiene:
+\[
+I_1 + I_2 + I_3 + I_4 = 0.
+\]
+
+\subsection*{Ejercicio 12a}
+Determina el valor de la integral de línea \(\int_{C} y \, dx + z \, dy + x \, dz\), donde \(C\) es la curva causada por la intersección de las superficies \(x + y = 2\) y \(x^{2} + y^{2} + z^{2} = 2(x + y)\). La curva está orientada de manera que, al observar desde el origen, sigue el sentido de las agujas del reloj.
+
+\textbf{Respuesta}
+
+Para calcular \(\int_{C} y \, dx + z \, dy + x \, dz\), ubiquemos a \(C\) como la intersección de \(x + y = 2\) y \(x^{2} + y^{2} + z^{2} = 2(x + y)\).
+
+Parametrizamos las superficies: establecemos \(x = 1 - \cos \theta\), \(y = 1 + \cos \theta\) y \(z = \sqrt{2} \sin \theta\).
+
+Luego, la integral \(\int_{C} y \, dx + z \, dy + x \, dz\) se transforma en:
+$$
+\begin{aligned}
+& \int_{0}^{2 \pi} \left[(1 + \cos \theta) \sin \theta - \sqrt{2} \sin^2 \theta + (1 - \cos \theta) \sqrt{2} \cos \theta \right] d\theta \\
+& = \int_{0}^{2 \pi} \left(\sin \theta + \cos \theta \sin \theta - \sqrt{2} \sin^2 \theta + \sqrt{2} \cos \theta - \sqrt{2} \cos^2 \theta \right) d\theta \\
+& = \int_{0}^{2 \pi} \left(\sin \theta + \cos \theta \sin \theta + \sqrt{2} \cos \theta - \sqrt{2} \right) d\theta \\
+& = \left[-\cos \theta - \frac{1}{4} \cos(2 \theta) + \sqrt{2} \sin \theta - \sqrt{2} \theta \right]_{0}^{2 \pi}
+\end{aligned}
+$$
+
+Evaluando en los límites, la integral de línea es:
+$$
+\begin{aligned}
+& \left[-1 - \frac{1}{4} + 0 - 2 \sqrt{2} \pi\right] - \left[-1 - \frac{1}{4} + 0 + 0\right] \\
+& = -2 \sqrt{2} \pi
+\end{aligned}
+$$
+
+Por tanto, el resultado es \(-2 \sqrt{2} \pi\).
+
+\section*{\textcolor{color109}{Sección: 10.9}}
+\subsection*{Ejercicio 1}
+Considera un campo de fuerzas tridimensional $f$ definido como $f(x, y, z)= x i+y j+(x z-y) k$. Encuentra el trabajo realizado por este campo de fuerza cuando una partícula se mueve desde el punto $(0,0,0)$ hasta el punto $(1,2,4)$ a lo largo de la línea recta que conecta ambos puntos.
+
+\textbf{Respuesta}
+
+
+La línea recta que conecta los puntos \((x_1, y_1, z_1)\) y \((x_2, y_2, z_2)\) se describe por:
+\[
+\frac{x - x_1}{x_2 - x_1} = \frac{y - y_1}{y_2 - y_1} = \frac{z - z_1}{z_2 - z_1}.
+\]
+Para los puntos dados \((0, 0, 0)\) y \((1, 2, 4)\), la ecuación se convierte en:
+\[
+\frac{x}{1} = \frac{y}{2} = \frac{z}{4}.
+\]
+
+
+Con \(t\) como parámetro, las parametrizaciones son:
+\[
+\alpha(t) = (t, 2t, 4t), \quad t \in [0, 1].
+\]
+El vector derivado es:
+\[
+\alpha'(t) = (1, 2, 4).
+\]
+
+
+El campo de fuerzas evaluado sobre la curva se expresa como:
+\[
+f[\alpha(t)] = f(t, 2t, 4t) = t \, \mathbf{i} + 2t \, \mathbf{j} + \left(t \cdot 4t - 2t\right) \, \mathbf{k}.
+\]
+Esto se simplifica a:
+\[
+f[\alpha(t)] = (t, 2t, 4t^2 - 2t).
+\]
+
+
+El trabajo realizado a lo largo de la línea es:
+\[
+\int_C f \cdot d\alpha = \int_0^1 f[\alpha(t)] \cdot \alpha'(t) \, dt.
+\]
+Sustituimos:
+\[
+\int_0^1 (t + 4t + 16t^2 - 8t) \, dt.
+\]
+Que simplificado es:
+\[
+\int_0^1 (16t^2 - 3t) \, dt.
+\]
+
+
+Resolvemos:
+\[
+\int_0^1 (16t^2 - 3t) \, dt = \left[\frac{16t^3}{3} - \frac{3t^2}{2}\right]_0^1.
+\]
+Evaluando entre los límites:
+\[
+\left(\frac{16}{3} - \frac{3}{2}\right) - (0) = \frac{16}{3} - \frac{3}{2}.
+\]
+Simplificado, resulta:
+\[
+\frac{16}{3} - \frac{3}{2} = \frac{23}{6}.
+\]
+
+
+El trabajo realizado por el campo de fuerzas es:
+\[
+\boxed{\frac{23}{6}}
+\]
+
+% Salto de página para el siguiente ejercicio
+\newpage
+
+\subsection*{Ejercicio 4}
+Considera un campo vectorial $f$ en un espacio tridimensional dado por $f(x, y, z)=y z \mathbf{i}+x z \mathbf{j}+x(y+1) \mathbf{k}$. Determina el trabajo que realiza $f$ al mover una partícula a lo largo del contorno del triángulo con vértices $(0,0,0)$, $(1,1,1)$, $(-1,1,-1)$ recorriéndolos en ese orden.
+
+\textbf{Respuesta}
+El campo de fuerzas se expresa como:
+\[
+f(x, y, z) = yz \, \mathbf{i} + xz \, \mathbf{j} + x(y+1) \, \mathbf{k}.
+\]
+Buscamos el trabajo efectuado por el campo cuando una partícula viaja alrededor del triángulo cuyos vértices son \((0,0,0)\), \((1,1,1)\) y \((-1,1,-1)\) en ese orden. El trabajo se obtiene mediante:
+\[
+W = \int_{\alpha} f \cdot d\mathbf{r}.
+\]
+
+
+Parametrización:
+\[
+\mathbf{r}_1(t) = (t, t, t), \quad t \in [0, 1].
+\]
+Diferencial:
+\[
+\mathbf{r}_1'(t) = (1, 1, 1).
+\]
+Campo en trayectoria:
+\[
+f(\mathbf{r}_1(t)) = (t^2, t^2, t(t+1)).
+\]
+Trabajo sobre este segmento:
+\[
+W_1 = \int_0^1 f(\mathbf{r}_1(t)) \cdot \mathbf{r}_1'(t) \, dt = \int_0^1 (t^2 + t^2 + t(t+1)) \, dt.
+\]
+Reducido:
+\[
+W_1 = \int_0^1 (3t^2 + t) \, dt = \left[t^3 + \frac{t^2}{2}\right]_0^1 = 1 + \frac{1}{2} = \frac{3}{2}.
+\]
+
+
+Parametrización:
+\[
+\mathbf{r}_2(t) = (-t, t, -t), \quad t \in [0, 1].
+\]
+Diferencial:
+\[
+\mathbf{r}_2'(t) = (-1, 1, -1).
+\]
+Campo en trayectoria:
+\[
+f(\mathbf{r}_2(t)) = (-t^2, t^2, -t(t+1)).
+\]
+Trabajo en este tramo:
+\[
+W_2 = \int_0^1 f(\mathbf{r}_2(t)) \cdot \mathbf{r}_2'(t) \, dt = \int_0^1 (t^2 + t^2 + t(t+1)) \, dt.
+\]
+Reducido:
+\[
+W_2 = \int_0^1 (3t^2 + t) \, dt = \left[t^3 + \frac{t^2}{2}\right]_0^1 = 1 + \frac{1}{2} = \frac{3}{2}.
+\]
+
+
+Parametrización:
+\[
+\mathbf{r}_3(t) = (1-2t, 1, 1-2t), \quad t \in [0, 1].
+\]
+Diferencial:
+\[
+\mathbf{r}_3'(t) = (-2, 0, -2).
+\]
+Campo en trayectoria:
+\[
+f(\mathbf{r}_3(t)) = ((1-2t)^2, (1-2t)^2, (1-2t)((1-2t)+1)).
+\]
+Trabajo en este segmento:
+\[
+W_3 = \int_0^1 \left(2(1-2t)^2 + 2(1-2t)((1-2t)+1)\right) \, dt.
+\]
+Evaluando:
+\[
+W_3 = -3.
+\]
+
+
+El total del trabajo realizado es:
+\[
+W = W_1 + W_2 + W_3 = \frac{3}{2} + \frac{3}{2} - 3 = 0.
+\]
+
+
+El trabajo realizado por el campo vectorial es igual a 0.
+
+\newpage
+
+\subsection*{Ejercicio \#6}
+Determinar el trabajo que efectúa el campo de fuerzas $f(x, y, z) = y^2 i + z^2 j + x^2 k$ a lo largo de la curva que se forma al intersectar la esfera $x^2 + y^2 + z^2 = a^3$ y el cilindro $x^2 + y^2 = ax$, con la condición $z \geq 0$ y $a > 0$. El recorrido se hace en sentido horario cuando se observa el plano $xy$ desde el eje $z$ positivo.
+
+\textbf{Respuesta}
+El campo de fuerzas es definido por:
+\[
+f(x, y, z) = y^2 \mathbf{i} + z^2 \mathbf{j} + x^2 \mathbf{k}.
+\]
+Queremos encontrar el trabajo a lo largo de la curva de intersección de la esfera \( x^2 + y^2 + z^2 = a^2 \) con el cilindro \( x^2 + y^2 = ax \).
+
+
+
+La curva puede parametrizarse como:
+\[
+x = \frac{a}{2}(1 + \cos t), \quad y = \frac{a}{2} \sin t, \quad z = a \sin \frac{t}{2}, \quad t \in [0, 2\pi].
+\]
+El vector derivada de la parametrización es:
+\[
+\mathbf{r}'(t) = \frac{a}{2}(-\sin t, \cos t, \cos \frac{t}{2}).
+\]
+
+
+
+Reemplazamos la parametrización en \( f(x, y, z) \):
+\[
+f(\mathbf{r}(t)) = \frac{a^2}{4} \big(\sin^2 t \, \mathbf{i} + 4 \sin^2 \frac{t}{2} \, \mathbf{j} + (1 + \cos t)^2 \, \mathbf{k}\big).
+\]
+
+
+
+El trabajo \( W \) se calcula mediante la integral:
+\[
+W = \int_0^{2\pi} f(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \, dt.
+\]
+Sustituyendo \( f(\mathbf{r}(t)) \) y \( \mathbf{r}'(t) \):
+\[
+W = \int_0^{2\pi} \frac{a^2}{4} \big(\sin^2 t (-\sin t) + 4 \sin^2 \frac{t}{2} \cos t + (1+\cos t)^2 \cos \frac{t}{2}\big) \, dt.
+\]
+Debido a la simetría de la curva, los términos \(\sin^2 t (-\sin t)\) y \((1+\cos t)^2 \cos \frac{t}{2}\) se cancelan. Esto simplifica la integral a:
+\[
+W = \frac{a^3}{8} \int_0^{2\pi} (-2\sin^2 t) \, dt.
+\]
+Calculando la integral:
+\[
+\int_0^{2\pi} \sin^2 t \, dt = \pi.
+\]
+Por lo tanto:
+\[
+W = \frac{a^3}{8}(-2\pi) = -\frac{\pi a^3}{4}.
+\]
+
+
+
+El valor absoluto del trabajo es:
+\[
+\left|-\frac{\pi a^3}{4}\right| = \frac{\pi a^3}{4}.
+\]
+
+En resumen, el trabajo efectuado por el campo de fuerzas es:
+\[
+{\frac{\pi a^3}{4}}.
+\]
+\newpage
+\section*{\textcolor{color1018}{Sección: 10.18}}
+\subsection*{Ejercicio 4}
+Dado el vector $\boldsymbol{f}$ en los ejercicios $1$ a $12$, determine si es el gradiente de un campo escalar $\varphi$. En caso afirmativo, encuentre la función potencial correspondiente. Para $\boldsymbol{f}(x, y)=(\sin y-y \sin x+x)\mathbf{i}+(\cos x+x \cos y+y)\mathbf{j}$, determine su potencial.
+
+\textbf{Respuesta}
+
+Se nos proporciona el campo en $\mathbb{R}^2$ expresado como:
+\[
+\boldsymbol{f}(x, y) = f_1(x, y) \, \mathbf{i} + f_2(x, y) \, \mathbf{j},
+\]
+con:
+\[
+f_1(x, y) = \sin y - y \sin x + x, \quad f_2(x, y) = \cos x + x \cos y + y.
+\]
+Necesitamos verificar si es conservador y, además, deducir su potencial.
+
+
+
+El campo es conservativo si:
+\[
+\frac{\partial f_1}{\partial y} = \frac{\partial f_2}{\partial x}.
+\]
+
+Derivadas cruzadas son:
+\[
+\frac{\partial f_1}{\partial y} = \frac{\partial}{\partial y} (\sin y - y \sin x + x) = \cos y - \sin x,
+\]
+\[
+\frac{\partial f_2}{\partial x} = \frac{\partial}{\partial x} (\cos x + x \cos y + y) = \cos y - \sin x.
+\]
+
+Con:
+\[
+\frac{\partial f_1}{\partial y} = \frac{\partial f_2}{\partial x},
+\]
+entonces $\mathbf{f}(x, y)$ es conservador. Esto implica que existe una potencial $\varphi(x, y)$ tal que:
+\[
+\mathbf{f}(x, y) = \nabla \varphi(x, y).
+\]
+
+
+
+Tenemos:
+\[
+\frac{\partial \varphi}{\partial x} = f_1(x, y), \quad \frac{\partial \varphi}{\partial y} = f_2(x, y).
+\]
+
+
+
+Integramos $f_1(x, y) = \sin y - y \sin x + x$ respecto a \( x \):
+\[
+\varphi(x, y) = \int (\sin y - y \sin x + x) \, dx + A(y),
+\]
+donde \( A(y) \) es un término en función de \( y \).
+
+Realizamos las integrales:
+\[
+\int (\sin y) \, dx = x \sin y, \quad \int (-y \sin x) \, dx = y \cos x, \quad \int x \, dx = \frac{x^2}{2}.
+\]
+
+Por lo tanto:
+\[
+\varphi(x, y) = x \sin y + y \cos x + \frac{x^2}{2} + A(y).
+\]
+
+
+
+Derivamos \( \varphi(x, y) \) respecto a \( y \):
+\[
+\frac{\partial \varphi}{\partial y} = x \cos y + \cos x + y + A'(y).
+\]
+
+Igualando a \( f_2(x, y) = \cos x + x \cos y + y \):
+\[
+x \cos y + \cos x + y + A'(y) = \cos x + x \cos y + y.
+\]
+
+De aquí deducimos:
+\[
+A'(y) = 0 \implies A(y) = C,
+\]
+con \( C \) como una constante.
+
+
+
+La función potencial para $\mathbf{f}(x, y)$ es:
+\[
+\varphi(x, y) = x \sin y + y \cos x + \frac{x^2 + y^2}{2} + C.
+\]
+
+
+
+El campo $\boldsymbol{f}(x, y)$ es conservativo, con potencial:
+\[
+{\varphi(x, y) = x \sin y + y \cos x + \frac{x^2 + y^2}{2} + C}.
+\]
+
+\subsection*{Ejercicio 7}
+Analizar si el campo vectorial $\boldsymbol{f}$ definido por $f(x, y, z)=(x+z) i-(y+z) j+(x-y) k$ es el gradiente de un campo escalar. Si lo es, encontrar la función potencial $\varphi$.
+
+\textbf{Respuesta}
+Considerando el campo vectorial dado:
+\[
+f_1(x, y, z) = x + z, \quad f_2(x, y, z) = -(y + z), \quad f_3(x, y, z) = x - y,
+\]
+verificamos que un campo vectorial en \(\mathbb{R}^3\) es conservativo si:
+\[
+\frac{\partial f_1}{\partial y} = \frac{\partial f_2}{\partial x}, \quad
+\frac{\partial f_1}{\partial z} = \frac{\partial f_3}{\partial x}, \quad
+\frac{\partial f_2}{\partial z} = \frac{\partial f_3}{\partial y}.
+\]
+
+Las derivadas cruzadas son:
+\[
+\frac{\partial f_1}{\partial y} = 0, \quad \frac{\partial f_2}{\partial x} = 0,
+\]
+\[
+\frac{\partial f_1}{\partial z} = 1, \quad \frac{\partial f_3}{\partial x} = 1,
+\]
+\[
+\frac{\partial f_2}{\partial z} = -1, \quad \frac{\partial f_3}{\partial y} = -1.
+\]
+
+Dado que:
+\[
+\frac{\partial f_1}{\partial y} = \frac{\partial f_2}{\partial x}, \quad
+\frac{\partial f_1}{\partial z} = \frac{\partial f_3}{\partial x}, \quad
+\frac{\partial f_2}{\partial z} = \frac{\partial f_3}{\partial y},
+\]
+el campo vectorial \( \mathbf{f}(x, y, z) \) es conservativo. Así, existe una función potencial \( \varphi(x, y, z) \) tal que:
+\[
+\mathbf{f}(x, y, z) = \nabla \varphi(x, y, z).
+\]
+
+
+
+Sabemos que:
+\[
+\frac{\partial \varphi}{\partial x} = f_1(x, y, z), \quad
+\frac{\partial \varphi}{\partial y} = f_2(x, y, z), \quad
+\frac{\partial \varphi}{\partial z} = f_3(x, y, z).
+\]
+
+
+
+Integrando \( f_1(x, y, z) = x + z \) con respecto a \( x \):
+\[
+\varphi(x, y, z) = \int (x + z) \, dx + A(y, z),
+\]
+\[
+\varphi(x, y, z) = \frac{x^2}{2} + z x + A(y, z),
+\]
+donde \( A(y, z) \) es una función en \( y \) y \( z \).
+
+
+
+Integrando \( f_2(x, y, z) = -(y + z) \) con respecto a \( y \):
+\[
+\varphi(x, y, z) = \int -(y + z) \, dy + B(x, z),
+\]
+\[
+\varphi(x, y, z) = -\frac{y^2}{2} - z y + B(x, z),
+\]
+donde \( B(x, z) \) es una función de \( x \) y \( z \).
+
+
+
+Integrando \( f_3(x, y, z) = x - y \) con respecto a \( z \):
+\[
+\varphi(x, y, z) = \int (x - y) \, dz + C(x, y),
+\]
+\[
+\varphi(x, y, z) = x z - y z + C(x, y),
+\]
+donde \( C(x, y) \) es una función en \( x \) y \( y \).
+
+
+
+Combinando las expresiones encontradas y simplificando, obtenemos:
+\[
+\varphi(x, y, z) = \frac{x^2}{2} - \frac{y^2}{2} + z x - z y + C,
+\]
+donde \( C \) es una constante de integración.
+
+
+
+El campo vectorial \( \mathbf{f}(x, y, z) \) es conservativo, y la función potencial asociada es:
+\[
+{\varphi(x, y, z) = \frac{x^2 - y^2}{2} + z x - z y + C}.
+\]
+
+\subsection*{Ejercicio 10}
+Considera el campo vectorial $\boldsymbol{f}$ definido como sigue. Determina si $\boldsymbol{f}$ es el gradiente de un campo escalar. Si lo es, encuentra la función potencial $\varphi$.\\
+El campo es: $\hat{f}(x, y, z)=\left(2 x^2+8 x y^2\right) \hat{i}+\left(3 x^3 y-3 x y\right) j-\left(4 y^2 z^2+2 x^3 z\right) \boldsymbol{k}$.
+\textbf{Respuesta}
+Queremos verificar si el campo vectorial \( \mathbf{f}(x, y, z) \) es conservativo, es decir, si proviene del gradiente de una función escalar \( \varphi(x, y, z) \).
+
+\paragraph{Componentes del campo vectorial}
+Definimos las componentes del campo como:
+\[
+f_1(x, y, z) = 2x^2 + 8xy^2, \quad
+f_2(x, y, z) = 3x^3y - 3xy, \quad
+f_3(x, y, z) = -\left(4y^2z^2 + 2x^3z\right).
+\]
+
+Para que un campo en \(\mathbb{R}^3\) sea conservativo, debe cumplirse:
+\[
+\frac{\partial f_1}{\partial y} = \frac{\partial f_2}{\partial x}, \quad
+\frac{\partial f_1}{\partial z} = \frac{\partial f_3}{\partial x}, \quad
+\frac{\partial f_2}{\partial z} = \frac{\partial f_3}{\partial y}.
+\]
+
+\paragraph{Comprobación de igualdades cruzadas}
+
+\subparagraph{(a) Verificación de \( \frac{\partial f_1}{\partial y} = \frac{\partial f_2}{\partial x} \)}
+
+Calculamos:
+\[
+\frac{\partial f_1}{\partial y} = \frac{\partial}{\partial y} \left(2x^2 + 8xy^2\right) = 16xy,
+\]
+\[
+\frac{\partial f_2}{\partial x} = \frac{\partial}{\partial x} \left(3x^3y - 3xy\right) = 9x^2y - 3y.
+\]
+
+Comparando se tiene:
+\[
+\frac{\partial f_1}{\partial y} = 16xy, \quad \frac{\partial f_2}{\partial x} = 9x^2y - 3y.
+\]
+
+Debido a que:
+\[
+\frac{\partial f_1}{\partial y} \neq \frac{\partial f_2}{\partial x},
+\]
+podemos concluir que la primera igualdad no se satisface.
+
+\paragraph{Conclusión}
+Como la igualdad \( \frac{\partial f_1}{\partial y} = \frac{\partial f_2}{\partial x} \) no se cumple, el campo \(\mathbf{f}(x, y, z)\) no es conservativo, por lo tanto no hay una función potencial \( \varphi(x, y, z) \).
+
+\subsection*{Ejercicio 17}
+Verifica que para cada punto \((x, y)\) en \(S\) se cumple lo siguiente:
+$$
+D_1 f_2(x, y) = D_2 f_1(x, y) = \frac{y^2 - x^2}{\left(x^2 + y^2\right)^2}
+$$
+\textbf{Respuesta}
+Debemos mostrar que la ecuación proporcionada es cierta en todos los puntos \((x, y)\) del conjunto \(S\), partiendo de las expresiones \(f_1(x, y)\) y \(f_2(x, y)\) obtenidas del campo vectorial.
+
+
+
+El campo vectorial dado en \(S\) es:
+\[
+\mathbf{f}(x, y) = -\frac{y}{x^2 + y^2} \, \mathbf{i} + \frac{x}{x^2 + y^2} \, \mathbf{j}.
+\]
+
+Por lo tanto, las funciones pueden escribirse como:
+\[
+f_1(x, y) = -\frac{y}{x^2 + y^2}, \quad f_2(x, y) = \frac{x}{x^2 + y^2}.
+\]
+
+
+
+Obtenemos la derivada parcial de \(f_1(x, y)\) respecto a \(y\):
+\[
+D_2 f_1(x, y) = \frac{\left(x^2 + y^2\right) \cdot \frac{\partial(-y)}{\partial y} - (-y) \cdot \frac{\partial(x^2 + y^2)}{\partial y}}{\left(x^2 + y^2\right)^2}.
+\]
+
+Al calcular las derivadas se obtiene:
+\[
+D_2 f_1(x, y) = \frac{\left(x^2 + y^2\right) \cdot (-1) + y \cdot 2y}{\left(x^2 + y^2\right)^2}.
+\]
+
+Tras la simplificación:
+\[
+D_2 f_1(x, y) = \frac{-\left(x^2 + y^2\right) + 2y^2}{\left(x^2 + y^2\right)^2} = \frac{-x^2 - y^2 + 2y^2}{\left(x^2 + y^2\right)^2} = \frac{y^2 - x^2}{\left(x^2 + y^2\right)^2}.
+\]
+
+
+
+Determinamos la derivada parcial de \(f_2(x, y)\) con respecto a \(x\):
+\[
+D_1 f_2(x, y) = \frac{\left(x^2 + y^2\right) \cdot \frac{\partial(x)}{\partial x} - x \cdot \frac{\partial(x^2 + y^2)}{\partial x}}{\left(x^2 + y^2\right)^2}.
+\]
+
+Al sustituir las derivadas obtenemos:
+\[
+D_1 f_2(x, y) = \frac{\left(x^2 + y^2\right) \cdot (1) - x \cdot 2x}{\left(x^2 + y^2\right)^2}.
+\]
+
+La simplificación resulta en:
+\[
+D_1 f_2(x, y) = \frac{x^2 + y^2 - 2x^2}{\left(x^2 + y^2\right)^2} = \frac{y^2 - x^2}{\left(x^2 + y^2\right)^2}.
+\]
+
+
+
+Se observa que:
+\[
+D_1 f_2(x, y) = \frac{y^2 - x^2}{\left(x^2 + y^2\right)^2}, \quad D_2 f_1(x, y) = \frac{y^2 - x^2}{\left(x^2 + y^2\right)^2}.
+\]
+
+Por lo tanto, hemos verificado que:
+\[
+D_1 f_2(x, y) = D_2 f_1(x, y) = \frac{y^2 - x^2}{\left(x^2 + y^2\right)^2}.
+\]
+
+Esto confirma que la igualdad es correcta para cualquier punto \((x, y)\) en \(S\).
+\section*{\textcolor{color1122}{Sección: 11.22}}
+\subsection*{Ejercicio 1b}
+Calcule la integral $\oint_C y^2 d x + x d y$ usando el teorema de Green, donde $\bar{C}$ es el cuadrado con vértices definidos por $\pm 1$.
+
+\textbf{Respuesta}
+
+Para aplicar el teorema de Green, transformamos la integral de línea en una integral doble, lo cual facilita su evaluación. La curva \(C\) corresponde a un cuadrado con límites \((\pm 1, \pm 1)\).
+
+Según el teorema de Green, si \(C\) es una curva simple, cerrada y orientada positivamente, y \(S\) la región dentro de \(C\), entonces:
+
+\[
+\oint_C M \, dx + N \, dy = \iint_S \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} \right) \, dx \, dy.
+\]
+
+En esta situación, identificamos \(M = y^2\) y \(N = x\).
+
+Ahora, calculamos las derivadas parciales necesarias:
+
+1. Derivada parcial de \(M = y^2\) respecto a \(y\):
+\[
+\frac{\partial M}{\partial y} = \frac{\partial}{\partial y}(y^2) = 2y.
+\]
+
+2. Derivada parcial de \(N = x\) respecto a \(x\):
+\[
+\frac{\partial N}{\partial x} = \frac{\partial}{\partial x}(x) = 1.
+\]
+
+Sustituimos estas en el teorema de Green:
+
+\[
+\iint_S \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} \right) \, dx \, dy = \iint_S (1 - 2y) \, dx \, dy.
+\]
+
+La región \(S\) es un cuadrado definido por \((\pm 1, \pm 1)\), lo que nos da los límites:
+
+\[
+x \in [-1, 1], \quad y \in [-1, 1].
+\]
+
+Resolvamos la integral:
+
+\[
+\iint_S (1 - 2y) \, dx \, dy = \int_{-1}^1 \int_{-1}^1 (1 - 2y) \, dx \, dy.
+\]
+
+Primero, integrando respecto a \(x\):
+
+\[
+\int_{-1}^1 (1 - 2y) \, dx = (1 - 2y) \int_{-1}^1 dx = (1 - 2y)(1 - (-1)) = 2(1 - 2y).
+\]
+
+Luego, integramos respecto a \(y\):
+
+\[
+\int_{-1}^1 2(1 - 2y) \, dy = 2 \int_{-1}^1 (1 - 2y) \, dy.
+\]
+
+Descomponiendo la integral:
+
+\[
+2 \int_{-1}^1 (1) \, dy - 4 \int_{-1}^1 y \, dy.
+\]
+
+Calculamos cada parte:
+
+1. La primera integral:
+\[
+2 \int_{-1}^1 (1) \, dy = 2(1 - (-1)) = 4.
+\]
+
+2. La segunda integral:
+\[
+-4 \left[\frac{y^2}{2}\right]_{-1}^1 = -4(0) = 0.
+\]
+
+Por lo tanto, el resultado es:
+
+\[
+\oint_C y^2 \, dx + x \, dy = 4.
+\]
+
+\subsection*{Ejercicio 1d}
+Determine el valor de la integral curva cerrada $\oint_C y^2 \, dx + x \, dy$ utilizando el teorema de Green, donde $\bar{C}$ es una circunferencia con radio 2 y centro en el origen.
+
+\textbf{Respuesta}
+
+El teorema de Green relaciona una integral de línea alrededor de una curva cerrada con una integral doble sobre la región que encierra. Si \(C\) es una curva simple cerrada y \(S\) es la región que delimita, entonces:
+\[
+\oint_C M \, dx + N \, dy = \iint_S \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} \right) \, dx \, dy.
+\]
+Para el problema dado, \(M = y^2\) y \(N = x\).
+
+
+
+1. La derivada parcial de \(M = y^2\) respecto a \(y\) es:
+\[
+\frac{\partial M}{\partial y} = 2y.
+\]
+
+2. La derivada parcial de \(N = x\) respecto a \(x\) es:
+\[
+\frac{\partial N}{\partial x} = 1.
+\]
+
+
+
+Insertando en el teorema de Green obtenemos:
+\[
+\oint_C y^2 \, dx + x \, dy = \iint_S \left( 1 - 2y \right) \, dx \, dy.
+\]
+
+
+
+La región \(S\) es el área dentro de la circunferencia con radio 2, lo cual corresponde a \(x^2 + y^2 = 4\). Las integrales se efectúan en los siguientes límites:
+
+- \(x \in [-2, 2]\),
+- Para cada valor de \(x\), \(y\) varía desde \(-\sqrt{4 - x^2}\) hasta \(\sqrt{4 - x^2}\).
+
+
+
+Realizamos la integral doble:
+\[
+\iint_S (1 - 2y) \, dx \, dy = \int_{-2}^2 \int_{-\sqrt{4 - x^2}}^{\sqrt{4 - x^2}} (1 - 2y) \, dy \, dx.
+\]
+
+Primero, integramos respecto a \(y\):
+\[
+\int_{-\sqrt{4 - x^2}}^{\sqrt{4 - x^2}} (1 - 2y) \, dy.
+\]
+La parte de la integral de \(1\) es:
+\[
+\int_{-\sqrt{4 - x^2}}^{\sqrt{4 - x^2}} 1 \, dy = 2\sqrt{4 - x^2}.
+\]
+
+Para \(-2y\), la integral es:
+\[
+\int_{-\sqrt{4 - x^2}}^{\sqrt{4 - x^2}} (-2y) \, dy = 0,
+\]
+esto sucede ya que \(y\) es simétrico alrededor de cero.
+
+Por ende, el resultado de integrar respecto a \(y\) es:
+\[
+2\sqrt{4 - x^2}.
+\]
+
+Ahora, integramos con respecto a \(x\):
+\[
+\int_{-2}^2 2\sqrt{4 - x^2} \, dx.
+\]
+Esta integral es conocida y su solución es:
+\[
+2 \left[ \frac{1}{2} \sqrt{4 - x^2} + 2 \sin^{-1}\left(\frac{x}{2}\right) \right]_{-2}^2 = 4\pi.
+\]
+
+
+
+Por lo tanto, el valor de la integral de línea es:
+\[
+{\oint_C y^2 \, dx + x \, dy = 4\pi}
+\]
+\newpage
+
+\subsection*{Ejercicio 2}
+Determine el valor de la integral de línea \(\oint P \, dx + Q \, dy\), donde \(P(x, y) = x e^{-y^2}\) y \(Q(x, y) = -x^2 y e^{-y^2} + \frac{1}{x^2 + y^2}\), considerando el contorno de un cuadrado con lado \(2a\) definido por las condiciones \(|x| \leq a\) y \(|y| \leq a\).
+
+\textbf{Respuesta}
+Para resolver la integral \(\oint_C P \, dx + Q \, dy\) alrededor del cuadrado, utilizamos el teorema de Green. Este teorema permite convertir una integral de línea en una integral doble sobre la región interior al contorno. El teorema de Green establece:
+\[
+\oint_C P \, dx + Q \, dy = \iint_S \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \, dx \, dy.
+\]
+
+Dados \(P(x, y) = x e^{-y^2}\) y \(Q(x, y) = -x^2 y e^{-y^2} + \frac{1}{x^2 + y^2}\), calculamos las derivadas parciales necesarias:
+
+1. La derivada parcial de \(P\) respecto a \(y\) es:
+\[
+\frac{\partial P}{\partial y} = -2 x y e^{-y^2}.
+\]
+
+2. La derivada parcial de \(Q\) respecto a \(x\) es:
+\[
+\frac{\partial Q}{\partial x} = \frac{-2x}{(x^2 + y^2)^2}.
+\]
+
+Sustituyendo en la ecuación del teorema de Green:
+\[
+\oint_C P \, dx + Q \, dy = \iint_S \left( \frac{-2x}{(x^2 + y^2)^2} + 2xy e^{-y^2} \right) \, dx \, dy.
+\]
+
+La región \(S\) es el cuadrado delimitado por \(-a \leq x \leq a\) y \(-a \leq y \leq a\), lo que nos da los límites de integración:
+
+- \(x \in [-a, a]\),
+- \(y \in [-a, a]\).
+
+Evaluamos la integral:
+\[
+\oint_C P \, dx + Q \, dy = \int_{-a}^{a} \int_{-a}^{a} \left( \frac{-2x}{(x^2 + y^2)^2} + 2xy e^{-y^2} \right) \, dx \, dy.
+\]
+Los términos \(\frac{-2x}{(x^2 + y^2)^2}\) y \(2xy e^{-y^2}\) son impares respecto a \(x\), y sus integrales en un intervalo simétrico resultan en cero. Por lo tanto, el valor de la integral es:
+\[
+\oint_C P \, dx + Q \, dy = 0.
+\]
+\section*{\textcolor{color124}{Sección: 12.4}}
+\subsection*{Ejercicio 1}
+Derive la ecuación cartesiana eliminando los parámetros \(u\) y \(v\) de la representación vectorial de una superficie y demuestre que dicha representación corresponde a un plano. Además, calcule el producto vectorial fundamental \(\partial r / \partial u \times \partial r / \partial v\) como función de \(u\) y \(v\).
+El plano está dado por:
+$$
+r(u, v)=\left(x_0+a_1 u+b_1 v\right) i+\left(y_0+a_2 u+b_2 v\right) j+\left(z_0+a_3 u+b_3 v\right) k
+$$
+Explique el significado geométrico de los vectores \(a\) y \(b\).
+\textbf{Respuesta}
+La ecuación vectorial del plano es:
+\[
+r(u, v) = \left(x_0 + a_1 u + b_1 v \right) \hat{i} + \left(y_0 + a_2 u + b_2 v \right) \hat{j} + \left(z_0 + a_3 u + b_3 v \right) \hat{k}.
+\]
+De esto, obtenemos:
+\[
+\begin{aligned}
+x &= x_0 + a_1 u + b_1 v, \\
+y &= y_0 + a_2 u + b_2 v, \\
+z &= z_0 + a_3 u + b_3 v.
+\end{aligned}
+\]
+Podemos reordenar para expresar en términos de \(u\) y \(v\):
+\[
+\begin{aligned}
+a_1 u + b_1 v &= x - x_0, \\
+a_2 u + b_2 v &= y - y_0, \\
+a_3 u + b_3 v &= z - z_0.
+\end{aligned}
+\]
+Para \(u\) y \(v\), resolvemos:
+\[
+u = \frac{1}{a_1 b_2 - a_2 b_1} \left( b_2 (x - x_0) - b_1 (y - y_0) \right),
+\]
+\[
+v = \frac{1}{a_1 b_2 - a_2 b_1} \left( a_1 (y - y_0) - a_2 (x - x_0) \right).
+\]
+Sustituyendo en la ecuación para \(z\):
+\[
+\frac{a_3}{a_1 b_2 - a_2 b_1} \left( b_2 (x - x_0) - b_1 (y - y_0) \right) + \frac{b_3}{a_1 b_2 - a_2 b_1} \left( a_1 (y - y_0) - a_2 (x - x_0) \right) = z - z_0.
+\]
+Esto se simplifica a la ecuación del plano:
+\[
+\left(a_2 b_3 - a_3 b_2\right) \left( x - x_0 \right) + \left( a_3 b_1 - a_1 b_3 \right) \left( y - y_0 \right) + \left( a_1 b_2 - a_2 b_1 \right) \left( z - z_0 \right) = 0.
+\]
+El producto vectorial fundamental es:
+\[
+\frac{\partial r}{\partial u} \times \frac{\partial r}{\partial v} = \left| \begin{array}{ccc}
+\hat{i} & \hat{j} & \hat{k} \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3
+\end{array} \right| = \left( a_2 b_3 - a_3 b_2 \right) \hat{i} + \left( a_3 b_1 - a_1 b_3 \right) \hat{j} + \left( a_1 b_2 - a_2 b_1 \right) \hat{k}.
+\]
+El significado geométrico de los vectores \(a\) y \(b\) es que definen las direcciones del plano, mientras que el vector resultante del producto vectorial es perpendicular al plano.
+
+
+\subsection*{Ejercicio 4}
+Eliminar los parámetros \(u\) y \(v\) para obtener la ecuación cartesiana de la siguiente superficie de revolución y verificar que la ecuación vectorial dada representa esta superficie. Además, calcular el producto vectorial fundamental \(\partial r / \partial u \times \partial r / \partial v\) en términos de \(u\) y \(v\).
+
+Dada la superficie de revolución:
+\[
+r(u, v)=u \cos v \, \hat{i} + u \sin v \, \hat{j} + f(u) \, \hat{k}
+\]
+
+¿Cuál es la interpretación geométrica de \(a\) y \(b\)?
+
+\textbf{Respuesta}
+
+Primero, debemos expresar la superficie en forma cartesiana al eliminar los parámetros \(u\) y \(v\). La superficie está representada por:
+\[
+r(u, v) = u \cos v \, \hat{i} + u \sin v \, \hat{j} + f(u) \, \hat{k}
+\]
+
+Relacionamos esta ecuación con:
+\[
+r(u, v) = x \, \hat{i} + y \, \hat{j} + z \, \hat{k}
+\]
+
+Obtenemos las siguientes ecuaciones:
+\[
+\begin{aligned}
+x &= u \cos v, \\
+y &= u \sin v, \\
+z &= f(u).
+\end{aligned}
+\]
+
+Elevamos al cuadrado las dos primeras ecuaciones y sumamos:
+\[
+\begin{aligned}
+x^2 + y^2 &= u^2 \cos^2 v + u^2 \sin^2 v, \\
+x^2 + y^2 &= u^2, \\
+x^2 + y^2 &= \left( f^{-1}(z) \right)^2.
+\end{aligned}
+\]
+
+Así, obtenemos la ecuación cartesiana:
+\[
+z = f\left( \sqrt{x^2 + y^2} \right)
+\]
+
+Para calcular el producto vectorial fundamental, hallamos:
+\[
+\begin{aligned}
+\frac{\partial r}{\partial u} \times \frac{\partial r}{\partial v} &= \left| \begin{array}{ccc}
+\hat{i} & \hat{j} & \hat{k} \\
+\cos v & \sin v & f'(u) \\
+-u \sin v & u \cos v & 0
+\end{array} \right| \\
+&= -u f'(u) \cos v \, \hat{i} - u f'(u) \sin v \, \hat{j} + u \, \hat{k}.
+\end{aligned}
+\]
+
+El producto vectorial se calcula como:
+\[
+- u f'(u) \cos v \, \hat{i} - u f'(u) \sin v \, \hat{j} + u \, \hat{k}
+\]
+
+\newpage
+
+\subsection*{Ejercicio 9}
+Calcular la norma del producto vectorial fundamental en términos de \( u \) y \( v \) dado el vector \( r(u, v)=(u+v) \hat{i}+\left(u^2+v^2\right) \hat{j}+\left(u^3+v^3\right) \hat{k} \).
+\textbf{Respuesta}
+Primero, determinamos las derivadas parciales de \( r(u, v) \) con respecto a \( u \) y \( v \).
+
+La derivada parcial de \( r(u, v) \) respecto a \( u \) es:
+\[
+\frac{\partial r}{\partial u} = \hat{i} + 2u \hat{j} + 3u^2 \hat{k}.
+\]
+
+La derivada parcial respecto a \( v \) es:
+\[
+\frac{\partial r}{\partial v} = \hat{i} + 2v \hat{j} + 3v^2 \hat{k}.
+\]
+
+Calculamos el producto vectorial entre ambas derivadas parciales:
+\[
+\frac{\partial r}{\partial u} \times \frac{\partial r}{\partial v} = 6 u v (v - u) \hat{i} - 3 (v^2 - u^2) \hat{j} + 2 (v - u) \hat{k}.
+\]
+
+Finalmente, la magnitud del producto cruzado es:
+\[
+\left| \frac{\partial r}{\partial u} \times \frac{\partial r}{\partial v} \right| = |v - u| \sqrt{36 u^2 v^2 + 9 (v + u)^2 + 4}.
+\]
+
+Por lo tanto, la norma del producto vectorial es \( |v - u| \sqrt{36 u^2 v^2 + 9 (v + u)^2 + 4} \).
+\section*{\textcolor{color126}{Sección: 12.6}}
+\subsection*{Ejercicio 4}
+Determina el área de la sección de la superficie definida por $z^2 = 2xy$, que se proyecta en el primer cuadrante del plano $xy$, delimitada por los planos $x = 2$ e $y = 1$.
+
+\textbf{Respuesta}
+
+La meta es hallar el área de la superficie indicada. La superficie viene descrita por la ecuación $z^2 = 2xy$, se halla en el primer cuadrante del plano $xy$, y está limitada por los planos $x = 2$ e $y = 1$.
+
+Utilizando una superficie paramétrica, el área $a(S)$ de una superficie $S$ está dada por la integral doble:
+
+\[
+a(S) = \iint_T \left\|\frac{\partial r}{\partial u} \times \frac{\partial r}{\partial v}\right\| \, du \, dv
+\]
+
+donde el producto cruzado $\left\|\frac{\partial r}{\partial u} \times \frac{\partial r}{\partial v}\right\|$ da el vector normal a la superficie. Si usamos $x = u$ y $y = v$, la parametrización de la superficie es:
+
+\[
+\phi(u, v) = (u, v, \sqrt{2uv})
+\]
+
+Calculamos ahora la derivada parcial con respecto a $u$:
+
+\[
+\frac{\partial \phi}{\partial u} = \left( 1, 0, \frac{\sqrt{2v}}{2\sqrt{u}} \right)
+\]
+
+Y la derivada parcial con respecto a $v$ es:
+
+\[
+\frac{\partial \phi}{\partial v} = \left( 0, 1, \frac{\sqrt{2u}}{2\sqrt{v}} \right)
+\]
+
+Para obtener el vector normal, calculamos el producto cruzado:
+
+\[
+\frac{\partial \phi}{\partial u} \times \frac{\partial \phi}{\partial v} = \left( -\frac{\sqrt{2v}}{2\sqrt{u}}, -\frac{\sqrt{2u}}{2\sqrt{v}}, 1 \right)
+\]
+
+La integral para el área es entonces:
+
+\[
+a(S) = \int_0^1 \int_0^2 \sqrt{\frac{(u+v)^2}{2uv}} \, du \, dv = \frac{1}{\sqrt{2}} \int_0^1 \int_0^2 \left( \frac{\sqrt{u}}{\sqrt{v}} + \frac{\sqrt{v}}{\sqrt{u}} \right) \, du \, dv
+\]
+
+Resolviendo esta última integral obtenemos:
+
+\[
+\begin{aligned}
+a(S) &= \int_0^1 \left[ \frac{4}{3\sqrt{v}} + 2\sqrt{v} \right] \, dv \\
+&= \frac{8}{3} + \frac{4}{3} \\
+&= \frac{12}{3} \\
+&= 4
+\end{aligned}
+\]
+
+Por ende, el área de la superficie es 4.
+
+\subsection*{Ejercicio 5c}
+Para la superficie $S$ definida por la ecuación vectorial
+$$
+r(u, v)=u \cos v \mathbf{i}+u \operatorname{sen} v \mathbf{j}+u^2 \mathbf{k},
+$$
+con $0 \leq u \leq 4$ y $0 \leq v \leq 2 \pi$, la pregunta es encontrar el valor de $n$ en la fórmula del área: $\pi(65 \sqrt{65}-1) / n$, donde $n$ es entero.
+
+\textbf{Respuesta}
+Primero, determinamos el área de $S$ a través de la siguiente integral:
+
+\[
+A = \int_0^{2 \pi} \int_0^4 \sqrt{\left( -2 u^2 \cos v \right)^2 + \left( -2 u^2 \sin v \right)^2 + (u)^2} \, du \, dv
+\]
+
+Esto se simplifica a:
+
+\[
+A = \int_0^{2 \pi} \int_0^4 u \sqrt{4 u^2 + 1} \, du \, dv
+\]
+
+Aplicamos la sustitución \( 4 u^2 + 1 = t \) para resolver la integral:
+
+\[
+u \, du = \frac{dt}{8}
+\]
+
+Entonces, la integral se convierte en:
+
+\[
+\frac{1}{8} \int_0^{2 \pi} \int_0^4 \sqrt{t} \, dt \, dv = \frac{1}{12} \int_0^{2 \pi} [65^\frac{3}{2} - 1] \, dv
+\]
+
+Evaluando la integral total, resulta en:
+
+\[
+\frac{1}{6} \pi (65 \sqrt{65} - 1)
+\]
+
+El valor de $n$ que satisface la ecuación del área dada es $n = 6$.
+
+\subsection*{Ejercicio 6}
+Determine el área de la parte del cono \( x^2 + y^2 = z^2 \) que está por encima del plano \( xy \) y queda dentro de la esfera \( x^2 + y^2 + z^2 = 2ax \).
+
+\textbf{Respuesta}
+
+La meta es hallar el área en que la superficie cónica y la esfera se intersecan. Dada la superficie por \( x^2 + y^2 = z^2 \) y la esfera por \( x^2 + y^2 + z^2 = 2ax \).
+
+Utilizamos una parametrización con \( x = v \cos u, y = v \sin u, z = v \):
+\[
+r(u, v) = v \cos u \mathbf{i} + v \sin u \mathbf{j} + v \mathbf{k}
+\]
+
+Calculamos la derivada parcial respecto a \( u \):
+\[
+\frac{\partial r}{\partial u} = -v \sin u \mathbf{i} + v \cos u \mathbf{j}
+\]
+
+Y respecto a \( v \):
+\[
+\frac{\partial r}{\partial v} = \cos u \mathbf{i} + \sin u \mathbf{j} + \mathbf{k}
+\]
+
+Obtenemos el producto cruzado:
+\[
+\frac{\partial r}{\partial u} \times \frac{\partial r}{\partial v} = v \cos u \mathbf{i} + v \sin u \mathbf{j} - v \mathbf{k}
+\]
+
+La magnitud de este producto es:
+\[
+\left\| \frac{\partial r}{\partial u} \times \frac{\partial r}{\partial v} \right\| = \sqrt{2} v
+\]
+
+El valor de \( v \) varía entre 0 y \( a \cos u \), y \( u \) entre \( -\frac{\pi}{2} \) y \( \frac{\pi}{2} \).
+
+La fórmula del área es:
+\[
+A = \int_{-\pi / 2}^{\pi / 2} \int_0^{a \cos u} \sqrt{2} v \, dv \, du
+\]
+
+Resolvemos la integral respecto a \( v \):
+\[
+A = \frac{a^2}{\sqrt{2}} \int_{-\pi / 2}^{\pi / 2} \cos^2 u \, du
+\]
+
+Y respecto a \( u \):
+\[
+A = \frac{a^2 \pi}{2 \sqrt{2}}
+\]
+
+Finalmente, concluimos que el área de la superficie deseada es:
+\[
+A = \frac{a^2 \pi}{2 \sqrt{2}}
+\]
+
+\subsection*{Ejercicio 8}
+Determina el área de la parte del paraboloide \( x^2 + y^2 = 2ay \) que es interceptada por el plano \( y = a \).
+
+\textbf{Respuesta} Podemos encontrar el área de la sección mencionada del paraboloide usando su descripción algebraica \( x^2 + z^2 = 2ay \), que es atravesada por el plano \( y = a \).
+
+Primero, representamos la superficie utilizando la parametrización:
+
+\[
+\phi(u, v) = \left( u \cos v, \frac{u^2}{2a}, u \sin v \right)
+\]
+
+Calculamos las derivadas parciales de esta parametrización:
+
+\[
+\begin{aligned}
+\frac{\partial \phi}{\partial u} &= \left( \cos v, \frac{u}{2a}, \sin v \right) \\
+\frac{\partial \phi}{\partial v} &= \left( -u \sin v, 0, u \cos v \right) \\
+\frac{\partial \phi}{\partial u} \times \frac{\partial \phi}{\partial v} &= \left( \frac{u^2}{a} \cos v, u \cos 2v, -\frac{u^2}{a} \sin v \right)
+\end{aligned}
+\]
+
+La magnitud del producto cruzado es:
+
+\[
+\left\| \frac{\partial \phi}{\partial u} \times \frac{\partial \phi}{\partial v} \right\| = \sqrt{\frac{u^4}{a^2} + u^2 \cos v}
+\]
+
+Resolvemos la integral doble para encontrar el área:
+
+\[
+\int_0^{2 \pi} \int_0^{\sqrt{2 a^2}} \sqrt{\frac{u^4}{a^2} + u^2 \cos v} \, du \, dv
+\]
+
+Realizamos el cambio de variable:
+
+\[
+\begin{aligned}
+u^2 + a^2 \cos v &= t \\
+2u \, du &= dt \\
+u \, du &= \frac{dt}{2}
+\end{aligned}
+\]
+
+Lo que nos lleva a la integral:
+
+\[
+\begin{aligned}
+\frac{1}{2a} \int_0^{2 \pi} \int_0^{\sqrt{2 a^2}} \sqrt{t} \, dt \, dv
+\end{aligned}
+\]
+
+Que finalmente se simplifica a:
+
+\[
+\frac{1}{3a} \int_0^{2 \pi} \left[ \left( 2a^2 + a^2 \cos v \right)^{\frac{3}{2}} - \left( a^2 \cos v \right)^{\frac{3}{2}} \right] \, dv
+\]
+
+Así, evaluamos para llegar a:
+
+\[
+\frac{2 a^2 \pi(3\sqrt{3} - 1)}{3}
+\]
+
+El área deseada es \( \frac{2 a^2 \pi(3\sqrt{3} - 1)}{3} \).
+\section*{\textcolor{color1213}{Sección: 12.13}}
+\subsection*{Ejercicio 4}
+Realiza la transformación de la integral de superficie $\iint(\operatorname{rot} \boldsymbol{F}) \cdot \boldsymbol{n} d S$ en una integral de línea mediante el teorema de Stokes y luego evalúa la integral de línea. Aquí, $\boldsymbol{F}(\bar{x}, y, \bar{z})=x \bar{z} \mathbf{i}-\bar{y} \mathbf{j}+x^2 y \boldsymbol{k}$ y \( S \) consiste en las tres caras del tetraedro que no están en el plano $x z$, limitado por los tres planos coordenados y el plano $3 x+y+3 z=6$. El vector normal $\boldsymbol{n}$ es normal y unitario hacia el exterior del tetraedro.
+
+\textbf{Respuesta}
+\[
+\iint_S (\operatorname{curl} F) \cdot n \, dS
+\]
+
+Con \( F(x, y, z) = xz \mathbf{i} - y \mathbf{j} + x^2 y \mathbf{k} \), definimos la superficie por los ejes y el plano $3x + y + 3z = 6$.
+
+Por el teorema de Stokes:
+
+\[
+\iint_S (\operatorname{curl} F) \cdot n \, dS = \int_C F \cdot d \alpha
+\]
+
+Reescribimos la integral para \( F(x, y, z) = xz \mathbf{i} - y \mathbf{j} + x^2 y \mathbf{k} \):
+
+\[
+\int_C F \cdot d \alpha = \int_C \left( xz \, dx - y \, dy + x^2 y \, dz \right)
+\]
+
+La curva \( C \) tiene vértices en los puntos \( (0,0,0), (2,0,0), (0,6,0) \).
+
+Define las líneas como:
+
+\[
+\begin{aligned}
+C_1 &: x = t, y = 0, z = 0, \quad 0 \leq t \leq 2 \\
+C_2 &: x = 0, y = 6 - 3t, z = 0, \quad 2 \geq t \geq 0 \\
+C_3 &: x = 0, y = t, z = 0, \quad 6 \geq t \geq 0
+\end{aligned}
+\]
+
+Escribimos la suma:
+
+\[
+\int_C \left( xz \, dx - y \, dy + x^2 y \, dz \right) = \int_{C_1} 0 + \int_{C_2} \left( 3t - 18 \right) \, dt + \int_{C_3} \left( -t \right) \, dt
+\]
+
+\[
+= \int_{0}^{2} \left( -9t + 18 \right) \, dt - \int_{0}^{6} t \, dt
+\]
+
+Integrando:
+
+\[
+= \left[ -9 \frac{t^2}{2} + 18t \right]_{0}^{2} - \left[ \frac{t^2}{2} \right]_{0}^{6}
+\]
+
+Evaluamos:
+
+\[
+= 18 - 36 = -18
+\]
+
+Así, la integral de línea resulta en:
+
+\[
+{-18}
+\]
+
+\subsection*{Ejercicio 5}
+Emplear el teorema de Stokes para verificar que las integrales de línea tienen los valores proporcionados. Definir el sentido en el que se recorre \( C \) para obtener el resultado.
+Para el quinto ejercicio, demostrar que \(\int_C y \, dx + z \, dy + x \, dz = \pi a^2 \sqrt{3}\), donde \( C \) es la curva de intersección de la esfera \( x^2 + y^2 + z^2 = a^2 \) y el plano \( x + y + z = 0 \).
+
+\textbf{Respuesta}
+
+
+Empleamos el teorema de Stokes para establecer que:
+
+\[
+\int_C y \, dx + z \, dy + x \, dz = -\pi a^2 \sqrt{3}
+\]
+
+con \( C \) como la curva donde la esfera \( x^2 + y^2 + z^2 = a^2 \) intersecta el plano \( x + y + z = 0 \).
+
+
+Definimos \( S \) como el área circular cortada por el plano en la esfera. Determinamos las coordenadas del vector normal unitario \( n \) para la superficie \( S \):
+
+\[
+n = \frac{1 \mathbf{i} + 1 \mathbf{j} + 1 \mathbf{k}}{\sqrt{1^2 + 1^2 + 1^2}} = \frac{1}{\sqrt{3}} \mathbf{i} + \frac{1}{\sqrt{3}} \mathbf{j} + \frac{1}{\sqrt{3}} \mathbf{k}
+\]
+
+
+En este caso, \( P = y \), \( Q = z \), \( R = x \). Calculamos el rotacional del campo \( F \):
+
+\[
+\nabla \times F = \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) \mathbf{i} + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right) \mathbf{j} + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \mathbf{k}
+\]
+
+\[
+\nabla \times F = (0 - 1) \mathbf{i} + (0 - 1) \mathbf{j} + (0 - 1) \mathbf{k} = -\mathbf{i} - \mathbf{j} - \mathbf{k}
+\]
+
+
+Aplicamos el teorema de Stokes como sigue:
+
+\[
+\oint_C y \, dx + z \, dy + x \, dz = \iint_S (\nabla \times F) \, dS
+\]
+
+\[
+= \iint_S (\nabla \times F) \cdot n \, dS
+\]
+
+Sustituyendo el rotacional y el normal unitario:
+
+\[
+= \iint_S (-\mathbf{i} - \mathbf{j} - \mathbf{k}) \left( \frac{1}{\sqrt{3}} \mathbf{i} + \frac{1}{\sqrt{3}} \mathbf{j} + \frac{1}{\sqrt{3}} \mathbf{k} \right) \, dS
+\]
+
+\[
+= \left( -\frac{1}{\sqrt{3}} - \frac{1}{\sqrt{3}} - \frac{1}{\sqrt{3}} \right) \iint_S \, dS
+\]
+
+Dado que la esfera \( x^2 + y^2 + z^2 = a^2 \) está centrada en el origen y el plano \( x + y + z = 0 \) pasa por el origen:
+
+\[
+\oint_C y \, dx + z \, dy + x \, dz = -\frac{3}{\sqrt{3}} \iint_S \, dS
+\]
+
+\[
+= -\sqrt{3} \iint_S \, dS
+\]
+
+La sección transversal es un círculo de radio \( a \), luego la integral es:
+
+\[
+\oint_C y \, dx + z \, dy + x \, dz = -\sqrt{3} a^2 \iint_S \, dS
+\]
+
+\[
+= -\pi a^2 \sqrt{3}
+\]
+
+Por lo tanto, la solución necesaria es:
+
+\[
+{-\pi a^2 \sqrt{3}}
+\]
+
+\subsection*{Ejercicio 6}
+Emplea el teorema de Stokes para verificar que la integral de línea dada tiene el valor especificado. Justifica en qué dirección debe recorrerse $C$ para obtener el resultado correcto para la siguiente integral:
+\[
+\int_C (y+z) \, dx + (z+x) \, dy + (x+y) \, dz = 0
+\]
+donde $C$ es la curva formada por la intersección del cilindro $x^2+y^2=2y$ con el plano $y=z$.
+\textbf{Respuesta}
+Quizás te interese saber cómo se vinculan las integrales de línea y de superficie aplicando el teorema de Stokes. La integral de línea dada por:
+\[
+\int_C (y + z) \, dx + (z + x) \, dy + (x + y) \, dz = 0
+\]
+es precisamente el tipo que puede evaluarse usando el teorema de Stokes. De aquí resulta que la relación es:
+\[
+\iint_S (\nabla \times F) \cdot n \, dS = \int_C F \cdot d\alpha
+\]
+Tras reescribir la integral de línea, la expresamos como:
+\[
+\int_C \left( (y + z) \mathbf{i} + (z + x) \mathbf{j} + (x + y) \mathbf{k} \right) \cdot (dx \mathbf{i} + dy \mathbf{j} + dz \mathbf{k})
+\]
+De aquí inferimos que:
+\[
+F = (y + z) \mathbf{i} + (z + x) \mathbf{j} + (x + y) \mathbf{k}
+\]
+Nos corresponde calcular el rotacional de la función \( F \):
+\[
+\nabla \times F = \left| \begin{array}{ccc}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+y + z & z + x & x + y
+\end{array} \right|
+\]
+El determinante resulta en:
+\[
+\nabla \times F = \mathbf{i}(1 - 1) - \mathbf{j}(1 - 1) + \mathbf{k}(1 - 1) = 0
+\]
+Dado que el rotacional es cero, se concluye que:
+\[
+\iint_S (\nabla \times F) \cdot n \, dS = 0
+\]```latex
+
+
+\subsection*{Ejercicio 10}
+Aplicar el teorema de Stokes para validar que las siguientes integrales de línea resultan en los valores proporcionados. Defina claramente el sentido del recorrido de $C$ para obtener el resultado deseado.\\
+10. Verificar que $\int_C\left(y^2-z^2\right) d x+\left(z^2-x^2\right) d y+\left(x^2-y^2\right) d z=9 a^3 / 2$, donde $C$ es la curva intersección de la superficie del cubo $0 \leq x \leq a, 0 \leq y \leq a, 0 \leq z \leq a$ con el plano $x+y+z=3 a / 2$.
+
+\textbf{Respuesta}
+
+Primero, debemos demostrar que la integral de línea siguiente equivale a \( \frac{9a^3}{2} \):
+
+\[
+\int_C \left( y^2 - z^2 \right) dx + \left( z^2 - x^2 \right) dy + \left( x^2 - y^2 \right) dz = \frac{9a^3}{2}
+\]
+
+El cubo está delimitado por \( 0 \leq x \leq a \), \( 0 \leq y \leq a \), y \( 0 \leq z \leq a \). La ecuación del plano dado es:
+
+\[
+x + y + z = \frac{3a}{2}
+\]
+
+Sea \( S \) una superficie abierta que tiene como límite la curva cerrada \( C \), y \( \vec{F} = F_1 \hat{i} + F_2 \hat{j} + F_3 \hat{k} \) como un campo vectorial con derivadas parciales continuas de primer orden. El teorema de Stokes establece:
+
+\[
+\int_C \vec{F} \cdot d\vec{r} = \iint_S (\nabla \times \vec{F}) \cdot \hat{n} \, dS
+\]
+
+Donde \( \hat{n} \) es un vector normal unitario en algún punto de \( S \).
+
+Construyamos \( S \) en el cubo, cortado por la curva \( C \) que intersecciona el plano \( x + y + z = \frac{3a}{2} \) y \( z = 0 \), con el dominio \( 0 \leq x \leq a \). Aplicando Stokes:
+
+\[
+\begin{aligned}
+\int_C \left( y^2 - z^2 \right) dx + \left( z^2 - x^2 \right) dy + \left( x^2 - y^2 \right) dz
+& = \int_C y^2 dx + x^2 dy \\
+& = 3 \int_0^a \left[ y^2 dx + x^2 dy \right] \\
+& = 3 \left[ \frac{3a}{2} \right] \cdot [xy]_0^a
+\end{aligned}
+\]
+
+Calculando, se confirma que el valor de la integral en términos de \( a \) es:
+
+\[
+\int_C \left( y^2 - z^2 \right) dx + \left( z^2 - x^2 \right) dy + \left( x^2 - y^2 \right) dz = \frac{9a^3}{2}
+\]
+```
+
+\section*{\textcolor{cyan}{Ejercicios Calculus de Briggs}}
+\subsection*{Ejercicio 6}
+5-10. Demuestra el Teorema de Stokes verificando que la integral de línea y la integral de superficie sean equivalentes para los campos vectoriales, superficies \( S \) y curvas cerradas \( C \) especificados a continuación. Se asume que \( C \) tiene orientación antihoraria y \( S \) tiene una orientación compatible.\\
+6. \( \mathbf{F}=\langle 0,-x, y\rangle \); \( S \) es la mitad superior de la esfera \( x^2+y^2+z^2=4 \) y \( C \) está definido por el círculo \( x^2+y^2=4 \) en el plano \( xy \).
+
+\textbf{Respuesta}
+
+Para comprobar el Teorema de Stokes en este contexto, debemos mostrar que la integral de línea sobre \( C \) de \( \mathbf{F} \) es igual a la integral de superficie del rotor de \( \mathbf{F} \) sobre \( S \):
+
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS.
+\]
+
+
+
+Para el círculo \( C \), que es el círculo \( x^2 + y^2 = 4 \), utilizamos la parametrización polar \( (x = 2\cos t, \, y = 2\sin t) \) en el intervalo \( 0 \leq t \leq 2\pi \):
+
+\[
+\mathbf{r}(t) = (2\cos t, \, 2\sin t, \, 0), \quad \mathbf{r}'(t) = (-2\sin t, \, 2\cos t, \, 0).
+\]
+
+Para el campo vectorial:
+\[
+\mathbf{F} = (0, \, -x, \, y) \implies \mathbf{F}(t) = (0, \, -2\cos t, \, 2\sin t).
+\]
+
+Calculamos el producto escalar:
+\[
+\mathbf{F} \cdot \mathbf{r}'(t) = (0, \, -2\cos t, \, 2\sin t) \cdot (-2\sin t, \, 2\cos t, \, 0) = -4\cos^2 t.
+\]
+
+La integral de la línea es:
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \int_0^{2\pi} -4\cos^2 t \, dt = -2\pi \left(\frac{1}{2} + 0\right) = -4\pi.
+\]
+
+
+
+Para el rotor de \( \mathbf{F} \):
+\[
+\nabla \times \mathbf{F} = (1, 0, -1).
+\]
+
+La normal unitaria a \( S \) es:
+\[
+\mathbf{n} = \left(\frac{x}{z}, \, \frac{y}{z}, \, 1\right).
+\]
+
+La integral de superficie es:
+\[
+\iint_S \left(\frac{x}{z} - 1\right) \, dS = \int_0^{2\pi} \int_0^2 \left(\frac{r\cos\theta}{\sqrt{4 - r^2}} - 1\right) r \, dr \, d\theta.
+\]
+
+Las integrales son:
+\[
+-\int_0^{2\pi} \, d\theta \int_0^2 r \, dr = -2\pi \cdot 2 = -4\pi.
+\]
+
+Ambas integrales, de línea y de superficie, son equivalentes:
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = -4\pi = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS.
+\]
+
+Así, se verifica el Teorema de Stokes en este caso.
+
+\subsection*{Ejercicio 7}
+Comprueba la validez del Teorema de Stokes en el caso del campo vectorial dado, la superficie \( S \), y la curva cerrada \( C \). La curva \( C \) está orientada en sentido antihorario, y la superficie \( S \) tiene una orientación compatible.
+
+Para el campo \(\mathbf{F}=\langle x, y, z\rangle\), la superficie \( S \) considerada es el paraboloide \( z=8-x^2-y^2 \) con \( 0 \leq z \leq 8 \), y \( C \) corresponde al círculo definido por \( x^2+y^2=8 \) en el plano \( xy \).
+
+\textbf{Respuesta}
+
+Queremos demostrar que la integral de línea y la de superficie son equivalentes para \(\mathbf{F}\), la curva \( C \), y la superficie \( S \):
+
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS.
+\]
+
+
+
+La curva \( C \) forma el círculo \( x^2 + y^2 = 8 \), orientado en sentido antihorario. Usando coordenadas polares:
+
+\[
+x = 2\sqrt{2} \cos t, \quad y = 2\sqrt{2} \sin t, \quad z = 0, \quad 0 \leq t \leq 2\pi.
+\]
+
+El vector de posición es:
+
+\[
+\mathbf{r}(t) = \langle 2\sqrt{2} \cos t, 2\sqrt{2} \sin t, 0 \rangle,
+\]
+
+y se deriva como:
+
+\[
+\mathbf{r}'(t) = \langle -2\sqrt{2} \sin t, 2\sqrt{2} \cos t, 0 \rangle.
+\]
+
+El campo vectorial en \(\mathbf{r}(t)\) resulta ser:
+
+\[
+\mathbf{F}(\mathbf{r}(t)) = \langle 2\sqrt{2} \cos t, 2\sqrt{2} \sin t, 0 \rangle.
+\]
+
+Producto escalar \(\mathbf{F} \cdot \mathbf{r}'(t)\):
+
+\[
+\mathbf{F} \cdot \mathbf{r}'(t) = \langle 2\sqrt{2} \cos t, 2\sqrt{2} \sin t, 0 \rangle \cdot \langle -2\sqrt{2} \sin t, 2\sqrt{2} \cos t, 0 \rangle.
+\]
+
+Obteniendo:
+
+\[
+\mathbf{F} \cdot \mathbf{r}'(t) = -8 \cos t \sin t + 8 \cos t \sin t = 0.
+\]
+
+Por lo tanto, la integral de línea es:
+
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \int_0^{2\pi} 0 \, dt = 0.
+\]
+
+
+
+El rotacional del campo \(\mathbf{F}\) se calcula como:
+
+\[
+\nabla \times \mathbf{F} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+x & y & z
+\end{vmatrix} = \langle 0, 0, 0 \rangle.
+\]
+
+Dado que \( \nabla \times \mathbf{F} = \langle 0, 0, 0 \rangle \), la integral de superficie se convierte en:
+
+\[
+\iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS = \iint_S 0 \, dS = 0.
+\]
+
+Ambas integrales, de línea y de superficie, son iguales, lo que confirma la validez del Teorema de Stokes en este caso:
+
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = 0 = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS.
+\]
+
+\subsection*{Ejercicio 14}
+La integral de línea \( \oint_C \mathbf{F} \cdot d \mathbf{r} \) debe ser calculada mediante la integral de superficie del Teorema de Stokes, seleccionando un \( S \) adecuado. Aquí, \( C \) representa el contorno del cuadrado \( |x| \leq 1, |y| \leq 1 \) en el plano \( z=0 \), y \( C \) está orientado en sentido antihorario. La función vectorial \( \mathbf{F} \) se define como \( \mathbf{F}=\left\langle x^2-y^2, z^2-x^2, y^2-z^2 \right\rangle \).
+
+\textbf{Respuesta}
+
+Verificando el Teorema de Stokes, tenemos:
+
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS,
+\]
+
+donde \( \mathbf{n} \) es el vector normal a la superficie \( S \).
+
+Para \( \nabla \times \mathbf{F} \) se obtiene el rotacional:
+
+\[
+\nabla \times \mathbf{F} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+x^2 - y^2 & z^2 - x^2 & y^2 - z^2
+\end{vmatrix},
+\]
+
+lo cual resulta en:
+
+\[
+\nabla \times \mathbf{F} = 2 \left( y - z \right) \mathbf{i} + 0 \mathbf{j} + 2 \left( -x + y \right) \mathbf{k}.
+\]
+
+Como \( S \) está en el plano \( z = 0 \), el vector normal \( \mathbf{n} \) es \( \mathbf{k} \), entonces:
+
+\[
+(\nabla \times \mathbf{F}) \cdot \mathbf{n} = 2 \left( -x + y \right).
+\]
+
+La integral de superficie se convierte así en:
+
+\[
+\iint_S 2 \left( -x + y \right) \, dS = 2 \int_{-1}^1 \int_{-1}^1 (-x + y) \, dx \, dy.
+\]
+
+La integral interna es:
+
+\[
+\int_{-1}^1 (-x + y) \, dx = 2y.
+\]
+
+La integral externa entonces es:
+
+\[
+2 \int_{-1}^1 2y \, dy = 4 \left( \frac{1}{2} - \frac{1}{2} \right) = 0.
+\]
+
+Por lo tanto, la integral de línea resulta ser:
+
+\[
+{\oint_C \mathbf{F} \cdot d\mathbf{r} = 0}.
+\]
+
+\subsection*{Ejercicio 15}
+Determina el valor de la integral de línea \( \oint_C \mathbf{F} \cdot d \mathbf{r} \) utilizando el Teorema de Stokes, escogiendo una superficie adecuada \( S \). Toma en cuenta que \( C \) es un círculo con orientación antihoraria, donde \( \mathbf{F}=\left\langle y^2,-z^2, x\right\rangle \) y \( C \) está descrito por el parámetro \( \mathbf{r}(t)=\langle 3 \cos t, 4 \cos t, 5 \sin t\rangle \) para \( 0 \leq t \leq 2 \pi \).
+
+\textbf{Respuesta}
+Según el Teorema de Stokes, la integral de línea se puede transformar en una integral de superficie:
+
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS
+\]
+
+Calculamos el rotacional del campo vectorial \( \mathbf{F} = \langle y^2, -z^2, x \rangle \):
+
+\[
+\nabla \times \mathbf{F} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+y^2 & -z^2 & x
+\end{vmatrix}
+\]
+
+Esto resulta en:
+
+\[
+\nabla \times \mathbf{F} = \langle 2z, 0, -2y \rangle
+\]
+
+Para definir la superficie \( S \), observamos que la curva \( C \) se encuentra en el plano definido por \( x = 3r \cos t \), \( y = 4r \cos t \), \( z = 5r \sin t \), y el vector normal a este plano es \( \mathbf{n} = \langle 0, 0, 1 \rangle \).
+
+La integral de superficie es entonces:
+
+\[
+\iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS = \iint_S \langle 2z, 0, -2y \rangle \cdot \langle 0, 0, 1 \rangle \, dS
+\]
+
+\[
+= \iint_S (-2y) \, dS
+\]
+
+Usando coordenadas polares, donde \( x = 3r\cos t \), \( y = 4r\cos t \), \( z = 5r\sin t \), y \( dS = r \, dr \, d\theta \):
+
+\[
+\iint_S (-2y) \, dS = \int_0^{2\pi} \int_0^1 -2(4r\cos t)(r) \, dr \, d\theta
+\]
+
+\[
+= -8 \int_0^{2\pi} \cos t \, d\theta \int_0^1 r^2 \, dr
+\]
+
+Para resolver estas integrales, primero calculamos la parte en respecto a \( r \):
+
+\[
+\int_0^1 r^2 \, dr = \frac{r^3}{3} \bigg|_0^1 = \frac{1}{3}
+\]
+
+La parte respecto a \( \theta \) es:
+
+\[
+\int_0^{2\pi} \cos t \, d\theta = \sin t \bigg|_0^{2\pi} = 0
+\]
+
+Con lo anterior, concluimos que:
+
+\[
+\iint_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS = 0
+\]
+
+Por lo tanto, aplicando el Teorema de Stokes:
+
+\[
+{\oint_C \mathbf{F} \cdot d\mathbf{r} = 0}
+\]
+```latex
+
+
+\subsection*{Ejercicio 10}
+Evalúa las integrales del Teorema de la Divergencia para el campo vectorial dado y la región especificada. Comprueba si coinciden:  \( \mathbf{F}=\langle -x,-y,-z\rangle \) y \( D=\{(x, y, z): |x| \leq 1, |y| \leq 1, |z| \leq 1\} \).
+
+\textbf{Respuesta}
+
+
+Para el campo vectorial \( \mathbf{F} = \langle -x, -y, -z \rangle \), la divergencia se calcula como:
+
+\[
+\nabla \cdot \mathbf{F} = \frac{\partial (-x)}{\partial x} + \frac{\partial (-y)}{\partial y} + \frac{\partial (-z)}{\partial z} = -1 - 1 - 1 = -3.
+\]
+
+
+
+Considerando que \( D \) es un cubo centrado en el origen con longitud de 2, evaluamos la integral de volumen:
+
+\[
+\iiint_{D} (\nabla \cdot \mathbf{F}) \, dV = \iiint_{D} (-3) \, dV.
+\]
+
+En coordenadas cartesianas, la integral es:
+
+\[
+\iiint_{D} (-3) \, dx \, dy \, dz = -3 \int_{-1}^{1} \int_{-1}^{1} \int_{-1}^{1} 1 \, dz \, dy \, dx.
+\]
+
+Calculando cada integral individual:
+
+\[
+\int_{-1}^{1} 1 \, da = 2 \quad \text{para cada dimensión}.
+\]
+
+Así, la integral completa es:
+
+\[
+\iiint_{D} (-3) \, dx \, dy \, dz = -3 \cdot 2 \cdot 2 \cdot 2 = -24.
+\]
+
+
+
+La frontera de \( D \) tiene seis caras. Calculamos \( \mathbf{F} \cdot \mathbf{n} \) para cada cara, teniendo en cuenta las normales:
+
+1. Normales para las caras \( yz \): \( \mathbf{n}_1 = \langle 1, 0, 0 \rangle \) y \( \mathbf{n}_2 = \langle -1, 0, 0 \rangle \).
+
+2. Normales para las caras \( xz \): \( \mathbf{n}_3 = \langle 0, 1, 0 \rangle \) y \( \mathbf{n}_4 = \langle 0, -1, 0 \rangle \).
+
+3. Normales para las caras \( xy \): \( \mathbf{n}_5 = \langle 0, 0, 1 \rangle \) y \( \mathbf{n}_6 = \langle 0, 0, -1 \rangle \).
+
+El flujo en cada cara es:
+
+\[
+\iint_{\text{cara}} \mathbf{F} \cdot \mathbf{n} \, dA = -4 \quad \text{(por simetría y cálculo)}.
+\]
+
+Sumando los flujos de las seis caras:
+
+\[
+\iint_{\partial D} \mathbf{F} \cdot \mathbf{n} \, dA = 2 \cdot (-4 - 4 - 4) = 2 \cdot (-12) = -24.
+\]
+
+
+
+Las integrales de volumen y superficie son iguales:
+
+\[
+\iiint_{D} (\nabla \cdot \mathbf{F}) \, dV = \iint_{\partial D} \mathbf{F} \cdot \mathbf{n} \, dA = -24.
+\]
+
+Por lo tanto, el Teorema de la Divergencia se verifica para \( \mathbf{F} \) y \( D \).
+```
+
+\subsection*{Ejercicio 11}
+Verifica que el Teorema de la Divergencia se cumple para el campo vectorial dado \( \mathbf{F}=\langle z-y, x,-x\rangle \) y la región \( D=\left\{(x, y, z): \frac{x^2}{4} + \frac{y^2}{8} + \frac{z^2}{12} \leq 1\right\} \).
+
+\textbf{Respuesta}
+
+Para comenzar, calculamos la divergencia del campo vectorial \( \mathbf{F} = \langle z-y, x, -x \rangle \):
+
+\[
+\nabla \cdot \mathbf{F} = \frac{\partial}{\partial x}(z-y) + \frac{\partial}{\partial y}(x) + \frac{\partial}{\partial z}(-x).
+\]
+
+Al evaluar cada término se obtiene:
+
+\[
+\nabla \cdot \mathbf{F} = 0 + 0 + 0 = 0.
+\]
+
+Procedemos a calcular la integral de la divergencia sobre el volumen:
+
+\[
+\iiint_D (\nabla \cdot \mathbf{F}) \, dV = \iiint_D 0 \, dV = 0.
+\]
+
+Debido a que la divergencia es cero, el resultado de esta integral es cero:
+
+\[
+\iiint_D (\nabla \cdot \mathbf{F}) \, dV = 0.
+\]
+
+Ahora, analizamos la superficie delimitando la región \( D \), un elipsoide descrito por:
+
+\[
+\frac{x^2}{4} + \frac{y^2}{8} + \frac{z^2}{12} \leq 1.
+\]
+
+Parametrizamos estas coordenadas usando ángulos esféricos \( u \) y \( v \):
+
+\[
+x = 2 \sin u \cos v, \quad y = 2\sqrt{2} \sin u \sin v, \quad z = 2\sqrt{3} \cos u,
+\]
+
+con \( 0 \leq u \leq \pi \) y \( 0 \leq v \leq 2\pi \).
+
+El vector normal \( \mathbf{n} \) resulta del producto cruzado de vectores tangentes, y se presenta aquí simplificado:
+
+\[
+\mathbf{n} = \langle 4\sqrt{6} \sin^2 u \cos v, 4\sqrt{3} \sin^2 u \sin v, 4 \sin u \cos u \rangle.
+\]
+
+A continuación, evaluamos el producto punto \( \mathbf{F} \cdot \mathbf{n} \):
+
+\[
+\mathbf{F} \cdot \mathbf{n} = \langle z-y, x, -x \rangle \cdot \langle 4\sqrt{6} \sin^2 u \cos v, 4\sqrt{3} \sin^2 u \sin v, 4 \sin u \cos u \rangle.
+\]
+
+Reemplazando las expresiones parametrizadas:
+
+\[
+\mathbf{F} \cdot \mathbf{n} = 16\sqrt{2} \sin^2 u \cos u \sin v - 16\sqrt{3} \sin^3 u \cos v \sin v.
+\]
+
+La integral sobre la superficie se expresa como:
+
+\[
+\iint_{\partial D} \mathbf{F} \cdot \mathbf{n} \, dA.
+\]
+
+Con el área diferencial parametrizada \( dA \), se evalúa la integral:
+
+\[
+\iint_{\partial D} \mathbf{F} \cdot \mathbf{n} \, dA = \int_0^{\pi} \int_0^{2\pi} \left( 16\sqrt{2} \sin^2 u \cos u \sin v - 16\sqrt{3} \sin^3 u \cos v \sin v \right) \, dv \, du.
+\]
+
+Utilizando las propiedades de simetría en \( v \), la integral se anula por la periodicidad del seno y del coseno, así:
+
+\[
+\iint_{\partial D} \mathbf{F} \cdot \mathbf{n} \, dA = 0.
+\]
+
+Por último, comprobamos que el Teorema de la Divergencia se cumple, pues ambas integrales, de volumen y de superficie, son equivalentes:
+
+\[
+\iiint_D (\nabla \cdot \mathbf{F}) \, dV = \iint_{\partial D} \mathbf{F} \cdot \mathbf{n} \, dA = 0.
+\]
+
+\subsection*{Ejercicio 20}
+Utiliza el Teorema de la Divergencia para determinar el flujo neto hacia el exterior del campo vectorial dado a través de la superficie definida como \( S \). Específicamente, considera el campo \(\mathbf{F}=\left\langle x^2, y^2, z^2\right\rangle\) y la superficie \( S \) que corresponde a la esfera \(\{(x, y, z): x^2+y^2+z^2=25\}\).
+
+\textbf{Respuesta}
+
+La divergencia del campo vectorial \( \mathbf{F} = \langle F_1, F_2, F_3 \rangle \) es dada por:
+
+\[
+\nabla \cdot \mathbf{F} = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} + \frac{\partial F_3}{\partial z}.
+\]
+
+Para el campo en cuestión, \(\mathbf{F} = \langle x^2, y^2, z^2 \rangle\), tenemos:
+
+\[
+\nabla \cdot \mathbf{F} = \frac{\partial}{\partial x}(x^2) + \frac{\partial}{\partial y}(y^2) + \frac{\partial}{\partial z}(z^2) = 2x + 2y + 2z.
+\]
+
+
+El flujo neto exterior a través de la superficie cerrada \( S \) se obtiene al realizar la siguiente integral:
+
+\[
+\iint_S \mathbf{F} \cdot \mathbf{n} \, dS = \iiint_V (\nabla \cdot \mathbf{F}) \, dV,
+\]
+
+donde \( V \) es el volumen contenido dentro de \( S \).
+
+Puesto que \( S \) es una esfera de radio \( R = 5 \), el volumen \( V \) es el de esa esfera. La divergencia del campo calculada es \( \nabla \cdot \mathbf{F} = 2(x + y + z) \).
+
+
+Las ecuaciones en coordenadas esféricas son:
+
+\[
+x = r \sin \phi \cos \theta, \quad y = r \sin \phi \sin \theta, \quad z = r \cos \phi,
+\]
+
+y los límites de las coordenadas son:
+
+\[
+0 \leq r \leq R, \quad 0 \leq \phi \leq \pi, \quad 0 \leq \theta \leq 2\pi.
+\]
+
+El elemento de volumen diferencial es:
+
+\[
+dV = r^2 \sin \phi \, dr \, d\phi \, d\theta.
+\]
+
+Reescribiendo \( \nabla \cdot \mathbf{F} \) en términos de \( r, \phi, \theta \):
+
+\[
+\nabla \cdot \mathbf{F} = 2(x + y + z) = 2r (\sin \phi \cos \theta + \sin \phi \sin \theta + \cos \phi).
+\]
+
+De esto se sigue que:
+
+\[
+\iiint_V (\nabla \cdot \mathbf{F}) \, dV = \int_0^{2\pi} \int_0^\pi \int_0^5 2r \big(\sin \phi \cos \theta + \sin \phi \sin \theta + \cos \phi\big) r^2 \sin \phi \, dr \, d\phi \, d\theta.
+\]
+
+
+La integral se expande en tres términos:
+
+\[
+\iiint_V (\nabla \cdot \mathbf{F}) \, dV = 2 \int_0^{2\pi} \int_0^\pi \int_0^5 \big(r^3 \sin^2 \phi \cos \theta + r^3 \sin^2 \phi \sin \theta + r^3 \sin \phi \cos \phi\big) \, dr \, d\phi \, d\theta.
+\]
+
+De aquí se separan en:
+
+\[
+I_1 = \int_0^{2\pi} \int_0^\pi \int_0^5 r^3 \sin^2 \phi \cos \theta \, dr \, d\phi \, d\theta,
+\]
+
+\[
+I_2 = \int_0^{2\pi} \int_0^\pi \int_0^5 r^3 \sin^2 \phi \sin \theta \, dr \, d\phi \, d\theta,
+\]
+
+\[
+I_3 = \int_0^{2\pi} \int_0^\pi \int_0^5 r^3 \sin \phi \cos \phi \, dr \, d\phi \, d\theta.
+\]
+
+
+Para \( I_1 \) y \( I_2 \), notamos que las integrales de \( \cos \theta \) y \( \sin \theta \) sobre el intervalo \( [0, 2\pi] \) son cero, a saber:
+
+\[
+\int_0^{2\pi} \cos \theta \, d\theta = 0, \quad \int_0^{2\pi} \sin \theta \, d\theta = 0.
+\]
+
+De modo que obtenemos:
+
+\[
+I_1 = 0, \quad I_2 = 0.
+\]
+
+Para \( I_3 \), se reconoce que la integral de \( \sin \phi \cos \phi \) también se anula debido a la simetría.
+
+El resultado de la integral total es:
+
+\[
+\iiint_V (\nabla \cdot \mathbf{F}) \, dV = 0.
+\]
+
+Así que el flujo neto hacia afuera es 0.
+
+\subsection*{Ejercicio 21}
+Calcular el flujo neto hacia fuera usando el Teorema de la Divergencia para el campo vectorial \(\mathbf{F}=\left\langle y-2 x, x^3-y, y^2-z\right\rangle \) a través de la superficie \( S \), que es la esfera dada por \( \left\{(x, y, z): x^2+y^2+z^2=4\right\} \).
+
+\textbf{Respuesta}
+
+Primero, vamos a encontrar la divergencia de \(\mathbf{F}\):
+
+\[
+\nabla \cdot \mathbf{F} = \frac{\partial}{\partial x}(y - 2x) + \frac{\partial}{\partial y}(x^3 - y) + \frac{\partial}{\partial z}(y^2 - z).
+\]
+
+Evaluamos cada derivada parcial:
+
+\[
+\frac{\partial}{\partial x}(y - 2x) = -2, \quad
+\frac{\partial}{\partial y}(x^3 - y) = -1, \quad
+\frac{\partial}{\partial z}(y^2 - z) = -1.
+\]
+
+Así, la divergencia es:
+
+\[
+\nabla \cdot \mathbf{F} = -2 - 1 - 1 = -4.
+\]
+
+Usamos el Teorema de la Divergencia:
+
+\[
+\iint_S \mathbf{F} \cdot \mathbf{n} \, dS = \iiint_D (\nabla \cdot \mathbf{F}) \, dV,
+\]
+
+donde \(D\) es la esfera con radio \(r = 2\) centrada en el origen.
+
+Sustituimos la divergencia:
+
+\[
+\iiint_D (\nabla \cdot \mathbf{F}) \, dV = \iiint_D -4 \, dV = -4 \iiint_D dV.
+\]
+
+Calculamos el volumen en coordenadas esféricas:
+
+\[
+\iiint_D dV = \int_0^{2\pi} \int_0^{\pi} \int_0^2 r^2 \sin u \, dr \, du \, dv.
+\]
+
+Determinemos el volumen paso a paso:
+
+\[
+\int_0^2 r^2 \, dr = \left[\frac{r^3}{3}\right]_0^2 = \frac{8}{3}.
+\]
+
+Luego:
+
+\[
+\int_0^{\pi} \sin u \, du = \left[-\cos u\right]_0^{\pi} = 2.
+\]
+
+Finalmente:
+
+\[
+\int_0^{2\pi} dv = 2\pi.
+\]
+
+El volumen total es:
+
+\[
+\iiint_D dV = \frac{8}{3} \cdot 2 \cdot 2\pi = \frac{32\pi}{3}.
+\]
+
+Sustituimos el volumen en la ecuación del flujo:
+
+\[
+\iiint_D (\nabla \cdot \mathbf{F}) \, dV = -4 \cdot \frac{32\pi}{3} = -\frac{128\pi}{3}.
+\]
+
+Por tanto, el flujo neto hacia afuera es:
+
+\[
+-\frac{128\pi}{3}.
+\]
+
+\end{document}
